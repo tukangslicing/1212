@@ -1,0 +1,139 @@
+extends layouts/default
+
+include include/mixin
+
+mixin dealInfo(region, destination, day, price)
+  .dealinfo
+    .wrapper-md
+      label.text-light.text-sm.text-u-c.block #{region}
+      a.text-lg.title.text-u-c(href="#") #{destination}
+
+    .bg-white.pos-rtl
+
+      a.days-trip.text-center(href="#")
+        i.ico.ico-time
+        span.count #{day}
+        label.text-u-c.text-sm DAYS
+
+      a.pricing.text-center(href="#")
+        label.block.text-u-c FROM
+        span.currency  $
+        span.price #{price}
+  .rollover.bg-orange.pos-abt
+    .wrapper-lg.text-center.bg-white
+      .ico.ico-hotel
+
+      .cities.block.m-t-sm.m-b-lg
+        a.inline(href="tour-detail.html") Dubai
+        a.inline(href="tour-detail.html") Moscow
+        a.inline(href="tour-detail.html") St. Petersburg
+        a.inline(href="tour-detail.html") Helsinki
+        a.inline(href="tour-detail.html") Stockholm
+        a.inline(href="tour-detail.html") Karlstad
+        a.inline(href="tour-detail.html") Hamar
+        a.inline(href="tour-detail.html") Flam
+        a.inline(href="tour-detail.html") Gudvangen
+        a.inline(href="tour-detail.html") Flam
+        a.inline(href="tour-detail.html") Voss
+        a.inline(href="tour-detail.html") Bergen
+        a.inline(href="tour-detail.html") Bruravik
+        a.inline(href="tour-detail.html") Geilo
+        a.inline(href="tour-detail.html") Oslo
+        a.inline(href="tour-detail.html") Copenhagen
+
+      .ico.ico-calendar
+
+      .calendar.m-t-sm.m-b-lg
+        a.inline(href="tour-detail.html") 08 Mar
+        a.inline(href="tour-detail.html") 15 Mar
+        a.inline(href="tour-detail.html") 24 Mar
+        a.inline(href="tour-detail.html") 30 Mar
+        a.inline(href="tour-detail.html") 31 Mar
+
+      a.text-u-c.more-details(href="tour-detail.html") Click for More Details
+
+block main
+
+  .tours-page
+    .banner
+      h3.text-white.text-center International Destinations
+
+  .container.m-t-xl
+    h2.head-title.text-center
+      | Tour
+      span.text-yellow  Destinations
+
+    p.text-center.m-t-md.m-b-md.text-md
+      | We have
+      strong  25 items
+      |  under
+      strong  International Destinations.
+      |  Please use the search bar on top to refine the results
+
+    .tour-list.row
+      .tour-item.pos-rtl
+        figure
+          img(src="img/destinations/Russia.jpg", alt="")
+
+        mixin dealInfo('Europe', 'Russia Scandinavia', 7, 400)
+
+      .tour-item.pos-rtl.col-md-6
+        figure
+          img(src="img/destinations/Korea.jpg", alt="")
+
+        mixin dealInfo('Asia', 'KOrea Winter Sky Resort', 7, 1000)
+
+      .tour-item.pos-rtl.col-md-6
+        figure
+          img(src="img/destinations/New-Zealand.jpg", alt="")
+
+        mixin dealInfo('Oceania', 'New Zealand Hobbiton', 7, 3000)
+
+      .tour-item.pos-rtl.col-md-4
+        figure
+          img(src="img/destinations/Kyoto.jpg", alt="")
+        mixin dealInfo('Asia', 'Kyoto’s hidden Gems', 7, 2500)
+
+      .tour-item.pos-rtl.col-md-4
+        figure
+          img(src="img/destinations/Nice.jpg", alt="")
+        mixin dealInfo('Europe', 'Russia Scandinavia', 7, 400)
+
+      .tour-item.pos-rtl.col-md-4
+        figure
+          img(src="img/destinations/Singapore.jpg", alt="")
+        mixin dealInfo('Asia', 'Manina Bay Singapore', 7, 400)
+
+      .tour-item.pos-rtl.col-md-4
+        figure
+          img(src="img/destinations/Eastern-Europe.jpg", alt="")
+        mixin dealInfo('Europe', 'Eastern Europe', 7, 400)
+
+      .tour-item.pos-rtl.col-md-4
+        figure
+          img(src="img/destinations/Jiuzhaigou.jpg", alt="")
+        mixin dealInfo('Asia', 'Beautiful Jiu ZHai Gou and Beyond', 7, 400)
+
+      .tour-item.pos-rtl.col-md-4
+        figure
+          img(src="img/destinations/Sky-Lantern-Festival-Taiwan.jpg", alt="")
+        mixin dealInfo('Europe', 'Russia Scandinavia', 7, 400)
+
+      .tour-item.pos-rtl.col-md-4
+        figure
+          img(src="img/destinations/Maldives.jpg", alt="")
+        mixin dealInfo('Europe', 'Russia Scandinavia', 7, 400)
+
+      .tour-item.pos-rtl.col-md-4
+        figure
+          img(src="img/destinations/Hong-Kong_vew_sunset.jpg", alt="")
+        mixin dealInfo('Europe', 'Russia Scandinavia', 7, 400)
+
+      .tour-item.pos-rtl.col-md-4
+        figure
+          img(src="img/destinations/Bangkok02.jpg", alt="")
+        mixin dealInfo('Europe', 'Russia Scandinavia', 7, 400)
+
+  .wrapper-lg.container.text-center.m-t-lg.m-b-lg
+    a.btn.btn-white.m-auto(href="#")
+      span.block.m-r-md.m-l-md Load More Destinations

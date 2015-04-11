@@ -4,6 +4,16 @@
     box-shadow: 3px 0 7px 0px rgba(0, 117, 137, 0.6);
 
     > li {
+      &.active {
+        > a {
+          background: #007589;
+          outline: 0;
+
+          .ico {
+            .opacity(1);
+          }
+        }
+      }
       > a {
         color: #fff;
         text-transform: uppercase;
