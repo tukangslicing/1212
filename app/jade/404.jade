@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    title TukangSlicing.com - We convert your PSD (Design) to HTML5 / CSS + Javascript
+    //if IE
+      script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+    link(rel='stylesheet', type='text/css', href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css')
+    script.
+      ~function (document) {
+      var elem = document.createElement('link');
+      var head = document.getElementsByTagName('head')[0];
+      elem.rel = 'stylesheet';
+      elem.href = 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600';
+      elem.media = 'only x';
+      head.appendChild(elem);
+      setTimeout(function () {
+      elem.media = 'all';
+      });
+      }(document);
+    noscript
+      link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600', rel='stylesheet', type='text/css')
+    style(type='text/css').
+      html, body {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #5c6366;
+      }
+      .brandLogoCenter img {
+      display: block;
+      margin: 0 auto;
+      }
+      .error-message-wrap {
+      text-align: center;
+      }
+      .error-message-wrap .number {
+      font-size: 140px;
+      font-weight: 600
+      }
+  body
+    p
+      a.brandLogoCenter.text-center.block(href='/')
+        img.inline.m-auto(src='img/logo.png', width='72', height='72')
+
+    .container.error-message
+      .error-message-wrap
+        .number
+          span 4
+          i.fa.fa-frown-o
+          span 4
+
+        div
+          p Sorry, but nothing exists here.
+          span.error-message-text
+            | Find something&nbsp;
+            a(href='/') Go to Homepage .

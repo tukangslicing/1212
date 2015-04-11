@@ -1,0 +1,311 @@
+extends layouts/default
+
+include include/mixin
+
+block main
+
+  .home-page
+    .hero-banner
+      .flexslider
+        ul.slides
+          li
+            img(src='/img/home-hero-banner.jpg')
+          li
+            img(src='/img/home-hero-banner.jpg')
+          li
+            img(src='/img/home-hero-banner.jpg')
+          li
+            img(src='/img/home-hero-banner.jpg')
+
+    .intro-headline
+      .container
+        .hotline-block.bg-white
+          i.ico.ico-phone
+          .arrow.right
+          span.text
+            | We are happy to answer your questions
+            strong  24 hours.
+            |  Call us at
+          .arrow.right
+          span.text.phone-number
+            | (021) 270 2727
+        .clearfix
+
+        .block-24hour.bg-white
+          .row
+            .col-md-5
+              i.ico.ico-twentyfour-hour
+              span.title The Real 24 Hours Travel Company
+            .col-md-7.right
+              p Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+              a(href="mailto:info@saptatours.com ") info@saptatours.com
+
+    .container
+      .featured.most-popular-destinations
+        h4.title-box.c-text Most Popular
+          span.text-orange  Destinations
+
+        .popular-destinations
+          .col-md-6
+            .big-item.row.b-r-white
+              img(src="img/destinations/turkey.jpg", alt="")
+              a.info.yellow-box.wrapper-md(href="#")
+                span.block.region.text-u-c MIddle East
+                span.block.m-t-xs.text-u-c.destination Turkey Adventure
+                span.block.pricing.text-u-c
+                  span.title From
+                    strong  USD
+                  span.block.amount
+                    span.currency $
+                    span.price 1000
+
+          .col-md-6
+            .row.square.b-b-white
+              a.pull-left.item.b-r-white(href="#")
+                img(src="img/destinations/japan.jpg", alt="")
+                mixin destinationInfo('Asia', 'Japan Essentials', '2000')
+
+              a.pull-right.item(href="#")
+                img(src="img/destinations/pucket.jpg", alt="")
+                mixin destinationInfo('Asia', 'Bangkok Pucket', '700')
+
+            .row.square
+              a.pull-left.b-r-white.item(href="#")
+                img(src="img/destinations/france.jpg", alt="")
+                mixin destinationInfo('Europe', 'French Riviera', '2000')
+
+              a.pull-right.item(href="#")
+                img(src="img/destinations/China.jpg", alt="")
+                mixin destinationInfo('Asia', 'China Delight', '3000')
+
+          .clearfix
+
+        .col-md-12
+          .row
+            a.block.btn-show-more.c-text(href="#") Show me more
+              strong  Domestic Destinations
+        .clearfix
+
+      .featured.recommended-domestic-destinations
+        h4.title-box.c-text Recommended
+          span.text-orange  Domestic Destinations
+
+        .recommended-domestic
+          .col-md-6
+            .row.square.b-b-white
+              a.pull-left.b-r-white.item(href="#")
+                img(src="img/destinations/Kilamanjaru.jpg", alt="")
+                mixin destinationInfo('Domestic', 'Kilamanjaru', '400')
+
+              a.pull-left.item(href="#")
+                img(src="img/destinations/Borobudur.jpg", alt="")
+                mixin destinationInfo('Domestic', 'Wonderful Java', '400')
+
+            .row.square
+              a.pull-left.b-r-white.item(href="#")
+                img(src="img/destinations/Bangka-Belitung.jpg", alt="")
+                mixin destinationInfo('Domestic', 'Belitung Island', '600')
+
+              a.pull-right.item(href="#")
+                img(src="img/destinations/Bromo-02.jpg", alt="")
+                mixin destinationInfo('Domestic', 'MT Bromo', '500')
+
+          .col-md-6
+            .big-item.row.b-r-white
+              img(src="img/destinations/Jawa.jpg", alt="")
+            .info.wrapper-md.domestic-info.box-info.pos-abt
+              .text-u-c.more-info Immense yourself in A breathtaking Nation Like  no other
+              .line
+
+              a.block.info-detail.text-u-c(href="#")
+                .destination-type Domestic
+                .location.package.block.wrapper-sm Karimun Jawa 4d/5n
+                .pricing
+                  span From
+                  span.currency  USD
+                  span.price  400
+
+
+          .clearfix
+
+        .col-md-12
+          .row
+            a.block.btn-show-more.c-text(href="#") Show me more
+              strong  Destinations
+        .clearfix
+
+      .featured.recommended-international-destinations
+        h4.title-box.c-text Recommended
+          span.text-orange  Internation Destinations
+
+        .recommended-international
+          .col-md-6
+            .big-item.row.b-r-white
+              img(src="img/destinations/Prague.jpg", alt="")
+              a.info.yellow-box.wrapper-md(href="#")
+                span.block.region.text-u-c Europe
+                span.block.m-t-xs.text-u-c.destination Breathtaking Norway
+                span.block.pricing.text-u-c
+                  span.title From
+                    strong  USD
+                  span.block.amount
+                    span.currency $
+                    span.price 500
+
+          .col-md-6
+            .row.square.b-b-white
+              a.pull-left.b-r-white.item(href="#")
+                img(src="img/destinations/Europe.jpg", alt="")
+                mixin destinationInfo('Europe', 'Eastern Europe', '2000')
+              a.pull-left.item(href="#")
+                img(src="img/destinations/Greece.jpg", alt="")
+                mixin destinationInfo('Europe', 'Mediteranian', '2000')
+
+            .row.square
+              a.pull-left.b-r-white.item(href="#")
+                img(src="img/destinations/france.jpg", alt="")
+                mixin destinationInfo('Europe', 'French Riviera', '2000')
+              a.pull-right.item(href="#")
+                img(src="img/destinations/Paris.jpg", alt="")
+                mixin destinationInfo('Europe', 'West europe', '2000')
+
+
+          .clearfix
+
+        .col-md-12
+          .row
+            a.block.btn-show-more.c-text(href="#") Show me more
+              strong  Internation Destinations
+        .clearfix
+
+      .featured.unmissable-flights-deals
+
+        h4.title-box.c-text Unmissable
+          span.text-orange  Flight Deals
+
+        .flights-deals.row
+          .col-md-3.item
+            a.block.pos-rlt(href="#")
+              img(src="img/destinations/Bromo.jpg", alt="")
+              span.block.text-u-c.pricing.bg-orange.pos-abt
+                span.block From
+                span.block.price
+                  span.currency $
+                  span.amount 50
+
+              span.destination.text-center.pos-abt.text-u-c.text-white Surabaya
+
+          .col-md-3.item
+            a.block.pos-rlt(href="#")
+              img(src="img/destinations/Tokyo.jpg", alt="")
+              span.block.text-u-c.pricing.bg-orange.pos-abt
+                span.block From
+                span.block.price
+                  span.currency $
+                  span.amount 50
+
+              span.destination.text-center.pos-abt.text-u-c.text-white Tokyo
+
+          .col-md-3.item
+            a.block.pos-rlt(href="#")
+              img(src="img/destinations/Bali01.jpg", alt="")
+              span.block.text-u-c.pricing.bg-orange.pos-abt
+                span.block From
+                span.block.price
+                  span.currency $
+                  span.amount 50
+              span.destination.text-center.pos-abt.text-u-c.text-white Bali
+
+          .col-md-3.item
+            a.block.pos-rlt(href="#")
+              img(src="img/destinations/Malaysia.jpg", alt="")
+              span.block.text-u-c.pricing.bg-orange.pos-abt
+                span.block From
+                span.block.price
+                  span.currency $
+                  span.amount 50
+              span.destination.text-center.pos-abt.text-u-c.text-white Malaysia
+
+          .clearfix
+
+        .col-md-12
+          .row
+            a.block.btn-show-more.c-text(href="#") Show me more
+              strong  Deals
+        .clearfix
+
+      .featured.popular-destination-hotels
+        h4.title-box.c-text Popular Destination
+          span.text-orange  Hotels
+
+        .popular-hotels.row
+          .col-md-3.item
+            a.block.pos-rlt(href="#")
+              img(src="img/destinations/Bali-02.jpg", alt="")
+              span.block.destination.hotel.text-center.pos-abt.text-u-c.text-white BALI
+                span.hotel-counts.text-u-c.text-center.block 123,045 Hotels
+
+          .col-md-3.item
+            a.block.pos-rlt(href="#")
+              img(src="img/destinations/Singapore.jpg", alt="")
+              span.block.destination.hotel.text-center.pos-abt.text-u-c.text-white SINGAPORE
+                span.hotel-counts.text-u-c.text-center.block 123,045 Hotels
+
+          .col-md-3.item
+            a.block.pos-rlt(href="#")
+              img(src="img/destinations/Hongkong.jpg", alt="")
+              span.block.destination.hotel.text-center.pos-abt.text-u-c.text-white HONGKONG
+                span.hotel-counts.text-u-c.text-center.block 123,045 Hotels
+
+          .col-md-3.item
+            a.block.pos-rlt(href="#")
+              img(src="img/destinations/Malaysia.jpg", alt="")
+              span.block.destination.hotel.text-center.pos-abt.text-u-c.text-white Bangkok
+                span.hotel-counts.text-u-c.text-center.block 123,045 Hotels
+
+          .clearfix
+
+        .col-md-12
+          .row
+            a.block.btn-show-more.c-text(href="#") Show me more
+              strong  Hotels
+        .clearfix
+
+      .featured.blog-inspirations
+        h4.title-box.c-text Need
+          span.text-orange  Inspirations ?
+
+        .row
+          .col-md-6.blog-item.pos-rlt
+            img(src="img/destinations/Prague-02.jpg", alt="")
+
+            .pos-rlt.post-header.bg-orange
+              .post-item.text-darker.pos-abt.text-u-c.wrapper
+                label.inline.m-l-sm.f-normal.text-u-c Blog
+                h3.wrapper-sm.m-t-none
+                  a.text-darker(href="blog-detail.html") Top 10 most romantic Destinations in the world
+
+          .col-md-6.blog-item.pos-rlt
+            img(src="img/destinations/Asia.jpg", alt="")
+
+            .pos-rlt.post-header.bg-orange
+              .post-item.text-darker.pos-abt.text-u-c.wrapper
+                label.inline.m-l-sm.f-normal.text-u-c Blog
+                h3.wrapper-sm.m-t-none
+                  a.text-darker(href="blog-detail.html") Japan Off the beaten tracks
+
+
+          .clearfix
+
+        .col-md-12
+          .row
+            a.block.btn-show-more.c-text(href="#") Show me more
+              strong  Inspirations
+        .clearfix
+
+  .tip-inquiry
+    .container.bg-white
+      i.ico.ico-luggage
+      span.big.m-l.m-r Couldn’t find your destination ?
+      span.small Let us create a Custom trip just for you
+      a.btn.btn-white.pull-right(href="#") Yes, Please

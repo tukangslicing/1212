@@ -1,0 +1,35 @@
+nav.navbar(role='navigation')
+  .container
+    .navbar-header
+      a.navbar-brand(href='#', title='TS Starter')
+        img(src='img/sapta-tour-logo.png', title='TS Starter')
+    #navbar.collapse.navbar-collapse
+      ul.nav.navbar-nav.main-menu
+        li.active
+          a(href='#')
+            i.ico.ico-tours
+            span.block TOURS
+        li
+          a(href='#flights')
+            i.ico.ico-flight
+            span.block BOOK FLIGHTS
+        li
+          a.hotel(href='#hotels')
+            i.ico.ico-hotel
+            span.block BOOK HOTELS
+        li
+          a(href='#documents')
+            i.ico.ico-document
+            span.block DOCUMENTS
+        li
+          a(href='#blog')
+            i.ico.ico-blog
+            span.block BLOG
+
+      u.nav.navbar-nav.navbar-right
+        li
+          a.b-r-white(href='login.html') Login
+        li
+          a(href='register.html') Register
+
+    .clearfix

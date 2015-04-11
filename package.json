@@ -1,0 +1,41 @@
+{
+  "name": "sapta-tour",
+  "jsfile": "main",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Tukangslicing.com",
+  "engines": {
+    "node": "~0.10.x"
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tukangslicing/starter-slicing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tukangslicing/starter-slicing/issues"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "grunt": "latest",
+    "grunt-autoprefixer": "latest",
+    "grunt-concurrent": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-csscomb": "latest",
+    "grunt-jade": "^0.5.1",
+    "grunt-jscs": "^1.6.0",
+    "grunt-newer": "^1.1.0",
+    "grunt-notify": "^0.4.1",
+    "jit-grunt": "^0.9.*",
+    "jshint-stylish": "^1.0.*",
+    "node-static": "^0.7.6",
+    "open": "0.0.5",
+    "time-grunt": "latest"
+  }
+}
