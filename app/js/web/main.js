@@ -12,6 +12,17 @@ $(function () {
     directionNav: false
   });
 
+  $(window).on('scroll', function () {
+    var navHeight = $('.nav-go-to').offset().top;
+    var navSticky = $('.nav-go-to');
+
+    if ($(window).scrollTop() > 982) {
+      navSticky.addClass('fixed')
+    } else {
+      navSticky.removeClass('fixed');
+    }
+  });
+
   $('.tour-list .tour-item').hover(function (e) {
     // console.log(this);
     // var $curent = $(this);
