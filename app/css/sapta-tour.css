@@ -3517,7 +3517,7 @@ html[xmlns] .flexslider .slides {
   line-height: 170px;
   margin: 0;
 }
-.days-trip {
+.days-trip.tour {
   background-color: #fed594;
   width: 50%;
   position: absolute;
@@ -3525,21 +3525,21 @@ html[xmlns] .flexslider .slides {
   bottom: 0;
   padding: 11px 0;
 }
-.days-trip .ico-time {
+.days-trip.tour .ico-time {
   display: block;
   margin: 8px auto 4px;
 }
-.days-trip label {
+.days-trip.tour label {
   font-size: 11px;
   font-family: "Gotham Black";
   color: #8f3000;
 }
-.days-trip .count {
+.days-trip.tour .count {
   font-size: 14px;
   color: #393030;
   font-family: "Gotham Black";
 }
-.pricing {
+.pricing.tour {
   background-color: #ffca77;
   width: 50%;
   position: absolute;
@@ -3547,16 +3547,16 @@ html[xmlns] .flexslider .slides {
   bottom: 0;
   padding: 22px 0 11px;
 }
-.pricing .currency,
-.pricing .price {
+.pricing.tour .currency,
+.pricing.tour .price {
   font-family: "Gotham Black";
   color: #393030;
   font-size: 20px;
 }
-.pricing .currency {
+.pricing.tour .currency {
   font-size: 14px;
 }
-.pricing label {
+.pricing.tour label {
   font-size: 11px;
   margin-bottom: 3px;
   color: #8f3000;

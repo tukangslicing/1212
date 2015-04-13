@@ -13,13 +13,15 @@ $(function () {
   });
 
   $(window).on('scroll', function () {
-    var navHeight = $('.nav-go-to').offset().top;
-    var navSticky = $('.nav-go-to');
+    if ($('.nav-go-to').length > 0) {
+      var navHeight = $('.nav-go-to').offset().top;
+      var navSticky = $('.nav-go-to');
 
-    if ($(window).scrollTop() > 982) {
-      navSticky.addClass('fixed')
-    } else {
-      navSticky.removeClass('fixed');
+      if ($(window).scrollTop() > 982) {
+        navSticky.addClass('fixed')
+      } else {
+        navSticky.removeClass('fixed');
+      }
     }
   });
 

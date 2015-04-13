@@ -10,12 +10,12 @@ mixin dealInfo(region, destination, day, price)
 
     .bg-white.pos-rtl
 
-      a.days-trip.text-center(href="tour-detail.html")
+      a.days-trip.tour.text-center(href="tour-detail.html")
         i.ico.ico-time
         span.count #{day}
         label.text-u-c.text-sm DAYS
 
-      a.pricing.text-center(href="tour-detail.html")
+      a.pricing.tour.text-center(href="tour-detail.html")
         label.block.text-u-c FROM
         span.currency  $
         span.price #{price}
