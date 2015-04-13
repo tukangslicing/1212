@@ -17,8 +17,9 @@
       > a {
         color: #fff;
         text-transform: uppercase;
-        font-family: "Aller";
+        font-family: "Aller Display", "Aller";
         text-align: center;
+        letter-spacing: 0.8px;
         padding: 14px 26px 0 26px;
         height: 70px;
         font-size: 12px;
@@ -75,10 +76,40 @@
       }
     }
   }
+
+  &.navbar-nav {
+    > li {
+      position: static;
+    }
+  }
+
+  > li {
+    .form {
+      display: none;
+      // -webkit-transform: translateY(-309px);
+      // -moz-transform: translateY(-309px);
+      // -o-transform: translateY(-309px);
+      // -ms-transform: translateY(-309px);
+      // transform: translateY(-309px);
+      .transition(all 0.5s ease-in-out);
+    }
+
+    &:hover {
+      .form {
+        display: block;
+        // -webkit-transform: translateY(70px);
+        // -moz-transform: translateY(70px);
+        // -o-transform: translateY(70px);
+        // -ms-transform: translateY(70px);
+        // transform: translateY(70px);
+      }
+    }
+  }
 }
 
 .navbar {
   position: relative;
+  z-index: 1001;
   margin-bottom: 0;
   background-color: @brand-primary;
   border-radius: 0;

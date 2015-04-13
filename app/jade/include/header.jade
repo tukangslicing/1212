@@ -1,18 +1,24 @@
-nav.navbar(role='navigation')
+div.navbar(role='navigation')
   .container
     .navbar-header
       a.navbar-brand(href='index.html', title='TS Starter')
         img(src='img/sapta-tour-logo.png', title='TS Starter')
     #navbar.collapse.navbar-collapse
       ul.nav.navbar-nav.main-menu
-        li.active
+        li
           a(href='tours.html')
             i.ico.ico-tours
             span.block TOURS
-        li
+
+          include ../form/tour
+
+        li.active
           a(href='#flights')
             i.ico.ico-flight
             span.block BOOK FLIGHTS
+
+          include ../form/flight
+
         li
           a.hotel(href='#hotels')
             i.ico.ico-hotel
@@ -26,7 +32,7 @@ nav.navbar(role='navigation')
             i.ico.ico-blog
             span.block BLOG
 
-      u.nav.navbar-nav.navbar-right
+      ul.nav.navbar-nav.navbar-right
         li
           a.b-r-white(href='login.html') Login
         li

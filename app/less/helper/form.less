@@ -1,0 +1,142 @@
+.tour-form,
+.flight-form {
+  &.inline-text {
+    background-color: #007589;
+    height: 220px;
+    width: 100%;
+    left: 0;
+    z-index: 1000;
+
+    > .container {
+      padding-top: 23px;
+      background-image: url(../img/bg-logos.png);
+      background-repeat: no-repeat;
+      background-position: 745px 25px;
+    }
+
+    .left,
+    .right {
+      width: 595px;
+      float: left;
+      border-right: 1px solid #006475;
+      height: 165px;
+
+      label {
+        color: #01414c;
+      }
+    }
+
+    .left {
+      padding-right: 75px;
+      div {
+        span {
+          line-height: 27px;
+          margin:0 5px 14px 5px;
+          font-size: 21px;
+          color: #fff;
+          display: block;
+          float: left;
+
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+
+      input[type="text"] {
+        font-size: 21px;
+        color: #fcaf56;
+        margin: 0 0 14px 0;
+        background: none;
+        padding: 0;
+        border: none;
+        border-bottom: 2px dashed #feaf55;
+        line-height: 25px;
+        display: block;
+        float: left;
+
+        &:hover,
+        &:focus,
+        &:active {
+          outline: 0;
+        }
+      }
+    }
+
+    .right {
+      border-right: 0;
+      border-left: 1px solid #268a9b;
+      width: 344px;
+      background: no-repeat center center;
+      padding-top: 59px;
+
+      .btn {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: 13px;
+
+        &.btn-submit {
+          background: #fcbc56;
+          color: #fff;
+          border: 1px solid rgba(252, 188, 86, 0.5);
+          -webkit-box-shadow: 0px 3px 0px 0px #cf8309, 0px 1px 2px rgba(252, 188, 86, 0.5);
+          box-shadow:0px 3px 0px 0px #cf8309, 0px 1px 2px rgba(252, 188, 86, 0.5);
+          padding-left: 10px;
+          text-shadow: 0px 2px rgba(102, 51, 0, 0.3);
+          position: relative;
+          font-size: 11px;
+          line-height: 16px;
+
+          &:hover {
+            text-shadow: none;
+          }
+
+          &:active {
+            -webkit-box-shadow: 0px 3px 0px 0px #fcbc56, 0px 1px 2px rgba(252, 188, 86, 0.5);
+            box-shadow:0px 3px 0px 0px #fcbc56, 0px 1px 2px rgba(252, 188, 86, 0.5);
+
+            span {
+              &:after {
+                height: 36px;
+              }
+            }
+          }
+
+          span {
+            position: relative;
+            &:after {
+              content: " ";
+              display: block;
+              position: absolute;
+              top: -9px;
+              right: -10px;
+              height: 33px;
+              background: #e9ac4d;
+              width: 1px;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.flight-form {
+  &.inline-text {
+    .right {
+      .btn {
+        letter-spacing: .5px;
+
+        &.btn-submit {
+          margin-left: 18px !important;
+        }
+
+        &.btn-white.pull-right {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    }
+  }
+}
