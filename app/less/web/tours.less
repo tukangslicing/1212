@@ -26,6 +26,7 @@
   left: 0;
   bottom: 0;
   padding: 11px 0;
+  height: 79px;
 
   .ico-time {
     display: block;
@@ -48,6 +49,7 @@
 .pricing.tour {
   background-color: #ffca77;
   width: 50%;
+  height: 79px;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -73,10 +75,10 @@
 
   .rollover {
     z-index: 5;
-    top: 10px;
-    left: 10px;
+    top: 0;
+    left: 0;
     width: 299px;
-    height: 358px;
+    height: 349px;
     background-color: #fcbc56;
     -webkit-transform: translateX(-309px);
     -moz-transform: translateX(-309px);
@@ -146,16 +148,25 @@
     .b-dashed-r-gray;
     .b-dashed-b-gray;
 
+    .pos-rlt.wrapping {
+      overflow: hidden;
+      background: #fff;
+    }
+
     &:nth-child(1),
     &:nth-child(2),
     &:nth-child(3) {
       .dealinfo {
         position: absolute;
         top: 20px;
-        left: 10px;
+        left: 0;
         width: 220px;
         height: 260px;
         z-index: 1;
+      }
+
+      .rollover {
+        top: 10px;
       }
     }
 
@@ -163,10 +174,11 @@
     &:nth-child(1) {
       .b-dashed;
       background: none;
+      padding-left: 10px;
+      padding-right: 10px;
 
       figure {
         height: 440px;
-        margin: 10px;
       }
     }
 
