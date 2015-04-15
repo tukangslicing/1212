@@ -16,6 +16,7 @@
   "dojo": false,
 
   "predef": [ // Custom globals.
+    "validator"
   ],
 
   // Development.

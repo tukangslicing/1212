@@ -53,20 +53,64 @@ $(function () {
 
     $(this).attr('size', Math.ceil(length));
 
-
   }).trigger('keyup');
 
-  $('.tour-list .tour-item').hover(function (e) {
-    // console.log(this);
-    // var $curent = $(this);
-    // var $rolloverBlock = $curent.find('.rollover');
-    // $rolloverBlock.animate({
-    //   top: '+=50'
-    // }, 5000, function () {
-    //   console.log('complete');
-    // });
+  var chooseDate = $('.chooseDate input').datepicker({
+    orientation: 'top left',
+    format: 'D, dd M yyyy',
+    autoclose: true
+    // todayHighlight: true
+  });
 
+  $(document).on('click', '.increase .ico', function () {
+    var _this  = $(this);
+    var target = _this.parent().parent().find('input');
+    console.log(target);
+    var value;
+
+    if (!validator.isNumeric(parseInt(target.val()))) {
+      target.val(0);
+    } else {
+
+      if (validator.isNull(target.val())) {
+        value = 0
+      } else {
+        value = parseInt(target.val()) - 1;
+      }
+
+      if (value > 9) {
+        target.val(9);
+      } else if (value >= 0) {
+        target.val(value);
+      } else {
+        target.val(0);
+      }
+
+    }
   })
+
+  $(document).on('click', '.decrease .ico', function () {
+    var _this  = $(this);
+    var target = _this.parent().parent().find('input');
+    var value;
+
+    if (!validator.isNumeric(parseInt(target.val()))) {
+      target.val(0);
+    } else {
+
+      if (validator.isNull(target.val())) {
+        value = 0
+      } else {
+        value = parseInt(target.val()) + 1;
+      }
+      if (value > 9) {
+        return false
+      } else {
+        target.val(value);
+      }
+    }
+  });
+
 })
 
 $(window).on('scroll', function () {

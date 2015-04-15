@@ -1,3 +1,1807 @@
+/*!
+ * Datepicker for Bootstrap v1.5.0-dev (https://github.com/eternicode/bootstrap-datepicker)
+ *
+ * Copyright 2012 Stefan Petre
+ * Improvements by Andrew Rowls
+ * Licensed under the Apache License v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+ */
+(function($, undefined) {
+
+    function UTCDate() {
+        return new Date(Date.UTC.apply(Date, arguments));
+    }
+
+    function UTCToday() {
+        var today = new Date();
+        return UTCDate(today.getFullYear(), today.getMonth(), today.getDate());
+    }
+
+    function isUTCEquals(date1, date2) {
+        return (
+            date1.getUTCFullYear() === date2.getUTCFullYear() &&
+            date1.getUTCMonth() === date2.getUTCMonth() &&
+            date1.getUTCDate() === date2.getUTCDate()
+        );
+    }
+
+    function alias(method) {
+        return function() {
+            return this[method].apply(this, arguments);
+        };
+    }
+
+    var DateArray = (function() {
+        var extras = {
+            get: function(i) {
+                return this.slice(i)[0];
+            },
+            contains: function(d) {
+                // Array.indexOf is not cross-browser;
+                // $.inArray doesn't work with Dates
+                var val = d && d.valueOf();
+                for (var i = 0, l = this.length; i < l; i++)
+                    if (this[i].valueOf() === val)
+                        return i;
+                return -1;
+            },
+            remove: function(i) {
+                this.splice(i, 1);
+            },
+            replace: function(new_array) {
+                if (!new_array)
+                    return;
+                if (!$.isArray(new_array))
+                    new_array = [new_array];
+                this.clear();
+                this.push.apply(this, new_array);
+            },
+            clear: function() {
+                this.length = 0;
+            },
+            copy: function() {
+                var a = new DateArray();
+                a.replace(this);
+                return a;
+            }
+        };
+
+        return function() {
+            var a = [];
+            a.push.apply(a, arguments);
+            $.extend(a, extras);
+            return a;
+        };
+    })();
+
+
+    // Picker object
+
+    var Datepicker = function(element, options) {
+        this._process_options(options);
+
+        this.dates = new DateArray();
+        this.viewDate = this.o.defaultViewDate;
+        this.focusDate = null;
+
+        this.element = $(element);
+        this.isInline = false;
+        this.isInput = this.element.is('input');
+        this.component = this.element.hasClass('date') ? this.element.find('.add-on, .input-group-addon, .btn') : false;
+        this.hasInput = this.component && this.element.find('input').length;
+        if (this.component && this.component.length === 0)
+            this.component = false;
+
+        this.picker = $(DPGlobal.template);
+        this._buildEvents();
+        this._attachEvents();
+
+        if (this.isInline) {
+            this.picker.addClass('datepicker-inline').appendTo(this.element);
+        } else {
+            this.picker.addClass('datepicker-dropdown dropdown-menu');
+        }
+
+        if (this.o.rtl) {
+            this.picker.addClass('datepicker-rtl');
+        }
+
+        this.viewMode = this.o.startView;
+
+        if (this.o.calendarWeeks)
+            this.picker.find('tfoot .today, tfoot .clear')
+                .attr('colspan', function(i, val) {
+                    return parseInt(val) + 1;
+                });
+
+        this._allow_update = false;
+
+        this.setStartDate(this._o.startDate);
+        this.setEndDate(this._o.endDate);
+        this.setDaysOfWeekDisabled(this.o.daysOfWeekDisabled);
+        this.setDatesDisabled(this.o.datesDisabled);
+
+        this.fillDow();
+        this.fillMonths();
+
+        this._allow_update = true;
+
+        this.update();
+        this.showMode();
+
+        if (this.isInline) {
+            this.show();
+        }
+    };
+
+    Datepicker.prototype = {
+        constructor: Datepicker,
+
+        _process_options: function(opts) {
+            // Store raw options for reference
+            this._o = $.extend({}, this._o, opts);
+            // Processed options
+            var o = this.o = $.extend({}, this._o);
+
+            // Check if "de-DE" style date is available, if not language should
+            // fallback to 2 letter code eg "de"
+            var lang = o.language;
+            if (!dates[lang]) {
+                lang = lang.split('-')[0];
+                if (!dates[lang])
+                    lang = defaults.language;
+            }
+            o.language = lang;
+
+            switch (o.startView) {
+                case 2:
+                case 'decade':
+                    o.startView = 2;
+                    break;
+                case 1:
+                case 'year':
+                    o.startView = 1;
+                    break;
+                default:
+                    o.startView = 0;
+            }
+
+            switch (o.minViewMode) {
+                case 1:
+                case 'months':
+                    o.minViewMode = 1;
+                    break;
+                case 2:
+                case 'years':
+                    o.minViewMode = 2;
+                    break;
+                default:
+                    o.minViewMode = 0;
+            }
+
+            o.startView = Math.max(o.startView, o.minViewMode);
+
+            // true, false, or Number > 0
+            if (o.multidate !== true) {
+                o.multidate = Number(o.multidate) || false;
+                if (o.multidate !== false)
+                    o.multidate = Math.max(0, o.multidate);
+            }
+            o.multidateSeparator = String(o.multidateSeparator);
+
+            o.weekStart %= 7;
+            o.weekEnd = ((o.weekStart + 6) % 7);
+
+            var format = DPGlobal.parseFormat(o.format);
+            if (o.startDate !== -Infinity) {
+                if ( !! o.startDate) {
+                    if (o.startDate instanceof Date)
+                        o.startDate = this._local_to_utc(this._zero_time(o.startDate));
+                    else
+                        o.startDate = DPGlobal.parseDate(o.startDate, format, o.language);
+                } else {
+                    o.startDate = -Infinity;
+                }
+            }
+            if (o.endDate !== Infinity) {
+                if ( !! o.endDate) {
+                    if (o.endDate instanceof Date)
+                        o.endDate = this._local_to_utc(this._zero_time(o.endDate));
+                    else
+                        o.endDate = DPGlobal.parseDate(o.endDate, format, o.language);
+                } else {
+                    o.endDate = Infinity;
+                }
+            }
+
+            o.daysOfWeekDisabled = o.daysOfWeekDisabled || [];
+            if (!$.isArray(o.daysOfWeekDisabled))
+                o.daysOfWeekDisabled = o.daysOfWeekDisabled.split(/[,\s]*/);
+            o.daysOfWeekDisabled = $.map(o.daysOfWeekDisabled, function(d) {
+                return parseInt(d, 10);
+            });
+
+            o.datesDisabled = o.datesDisabled || [];
+            if (!$.isArray(o.datesDisabled)) {
+                var datesDisabled = [];
+                datesDisabled.push(DPGlobal.parseDate(o.datesDisabled, format, o.language));
+                o.datesDisabled = datesDisabled;
+            }
+            o.datesDisabled = $.map(o.datesDisabled, function(d) {
+                return DPGlobal.parseDate(d, format, o.language);
+            });
+
+            var plc = String(o.orientation).toLowerCase().split(/\s+/g),
+                _plc = o.orientation.toLowerCase();
+            plc = $.grep(plc, function(word) {
+                return /^auto|left|right|top|bottom$/.test(word);
+            });
+            o.orientation = {
+                x: 'auto',
+                y: 'auto'
+            };
+            if (!_plc || _plc === 'auto')
+            ; // no action
+            else if (plc.length === 1) {
+                switch (plc[0]) {
+                    case 'top':
+                    case 'bottom':
+                        o.orientation.y = plc[0];
+                        break;
+                    case 'left':
+                    case 'right':
+                        o.orientation.x = plc[0];
+                        break;
+                }
+            } else {
+                _plc = $.grep(plc, function(word) {
+                    return /^left|right$/.test(word);
+                });
+                o.orientation.x = _plc[0] || 'auto';
+
+                _plc = $.grep(plc, function(word) {
+                    return /^top|bottom$/.test(word);
+                });
+                o.orientation.y = _plc[0] || 'auto';
+            }
+            if (o.defaultViewDate) {
+                var year = o.defaultViewDate.year || new Date().getFullYear();
+                var month = o.defaultViewDate.month || 0;
+                var day = o.defaultViewDate.day || 1;
+                o.defaultViewDate = UTCDate(year, month, day);
+            } else {
+                o.defaultViewDate = UTCToday();
+            }
+            o.showOnFocus = o.showOnFocus !== undefined ? o.showOnFocus : true;
+        },
+        _events: [],
+        _secondaryEvents: [],
+        _applyEvents: function(evs) {
+            for (var i = 0, el, ch, ev; i < evs.length; i++) {
+                el = evs[i][0];
+                if (evs[i].length === 2) {
+                    ch = undefined;
+                    ev = evs[i][1];
+                } else if (evs[i].length === 3) {
+                    ch = evs[i][1];
+                    ev = evs[i][2];
+                }
+                el.on(ev, ch);
+            }
+        },
+        _unapplyEvents: function(evs) {
+            for (var i = 0, el, ev, ch; i < evs.length; i++) {
+                el = evs[i][0];
+                if (evs[i].length === 2) {
+                    ch = undefined;
+                    ev = evs[i][1];
+                } else if (evs[i].length === 3) {
+                    ch = evs[i][1];
+                    ev = evs[i][2];
+                }
+                el.off(ev, ch);
+            }
+        },
+        _buildEvents: function() {
+            var events = {
+                keyup: $.proxy(function(e) {
+                    if ($.inArray(e.keyCode, [27, 37, 39, 38, 40, 32, 13, 9]) === -1)
+                        this.update();
+                }, this),
+                keydown: $.proxy(this.keydown, this),
+                paste: $.proxy(this.paste, this)
+            };
+
+            if (this.o.showOnFocus === true) {
+                events.focus = $.proxy(this.show, this);
+            }
+
+            if (this.isInput) { // single input
+                this._events = [
+                    [this.element, events]
+                ];
+            } else if (this.component && this.hasInput) { // component: input + button
+                this._events = [
+                    // For components that are not readonly, allow keyboard nav
+                    [this.element.find('input'), events],
+                    [this.component, {
+                        click: $.proxy(this.show, this)
+                    }]
+                ];
+            } else if (this.element.is('div')) { // inline datepicker
+                this.isInline = true;
+            } else {
+                this._events = [
+                    [this.element, {
+                        click: $.proxy(this.show, this)
+                    }]
+                ];
+            }
+            this._events.push(
+                // Component: listen for blur on element descendants
+                [this.element, '*', {
+                    blur: $.proxy(function(e) {
+                        this._focused_from = e.target;
+                    }, this)
+                }],
+                // Input: listen for blur on element
+                [this.element, {
+                    blur: $.proxy(function(e) {
+                        this._focused_from = e.target;
+                    }, this)
+                }]
+            );
+
+            if (this.o.immediateUpdates) {
+                // Trigger input updates immediately on changed year/month
+                this._events.push([this.element, {
+                    'changeYear changeMonth': $.proxy(function(e) {
+                        this.update(e.date);
+                    }, this)
+                }]);
+            }
+
+            this._secondaryEvents = [
+                [this.picker, {
+                    click: $.proxy(this.click, this)
+                }],
+                [$(window), {
+                    resize: $.proxy(this.place, this)
+                }],
+                [$(document), {
+                    mousedown: $.proxy(function(e) {
+                        // Clicked outside the datepicker, hide it
+                        if (!(
+                            this.element.is(e.target) ||
+                            this.element.find(e.target).length ||
+                            this.picker.is(e.target) ||
+                            this.picker.find(e.target).length
+                        )) {
+                            $(this.picker).hide();
+                        }
+                    }, this)
+                }]
+            ];
+        },
+        _attachEvents: function() {
+            this._detachEvents();
+            this._applyEvents(this._events);
+        },
+        _detachEvents: function() {
+            this._unapplyEvents(this._events);
+        },
+        _attachSecondaryEvents: function() {
+            this._detachSecondaryEvents();
+            this._applyEvents(this._secondaryEvents);
+        },
+        _detachSecondaryEvents: function() {
+            this._unapplyEvents(this._secondaryEvents);
+        },
+        _trigger: function(event, altdate) {
+            var date = altdate || this.dates.get(-1),
+                local_date = this._utc_to_local(date);
+
+            this.element.trigger({
+                type: event,
+                date: local_date,
+                dates: $.map(this.dates, this._utc_to_local),
+                format: $.proxy(function(ix, format) {
+                    if (arguments.length === 0) {
+                        ix = this.dates.length - 1;
+                        format = this.o.format;
+                    } else if (typeof ix === 'string') {
+                        format = ix;
+                        ix = this.dates.length - 1;
+                    }
+                    format = format || this.o.format;
+                    var date = this.dates.get(ix);
+                    return DPGlobal.formatDate(date, format, this.o.language);
+                }, this)
+            });
+        },
+
+        show: function() {
+            if (this.element.attr('readonly') && this.o.enableOnReadonly === false)
+                return;
+            if (!this.isInline)
+                this.picker.appendTo(this.o.container);
+            this.place();
+            this.picker.show();
+            this._attachSecondaryEvents();
+            this._trigger('show');
+            if ((window.navigator.msMaxTouchPoints || 'ontouchstart' in document) && this.o.disableTouchKeyboard) {
+                $(this.element).blur();
+            }
+            return this;
+        },
+
+        hide: function() {
+            if (this.isInline)
+                return this;
+            if (!this.picker.is(':visible'))
+                return this;
+            this.focusDate = null;
+            this.picker.hide().detach();
+            this._detachSecondaryEvents();
+            this.viewMode = this.o.startView;
+            this.showMode();
+
+            if (
+                this.o.forceParse &&
+                (
+                    this.isInput && this.element.val() ||
+                    this.hasInput && this.element.find('input').val()
+                )
+            )
+                this.setValue();
+            this._trigger('hide');
+            return this;
+        },
+
+        remove: function() {
+            this.hide();
+            this._detachEvents();
+            this._detachSecondaryEvents();
+            this.picker.remove();
+            delete this.element.data().datepicker;
+            if (!this.isInput) {
+                delete this.element.data().date;
+            }
+            return this;
+        },
+
+        paste: function(evt) {
+            var dateString;
+            if (evt.originalEvent.clipboardData && evt.originalEvent.clipboardData.types && $.inArray('text/plain', evt.originalEvent.clipboardData.types) !== -1) {
+                dateString = evt.originalEvent.clipboardData.getData('text/plain');
+            } else if (window.clipboardData) {
+                dateString = window.clipboardData.getData('Text');
+            } else {
+                return;
+            }
+            this.setDate(dateString);
+            this.update();
+            evt.preventDefault();
+        },
+
+        _utc_to_local: function(utc) {
+            return utc && new Date(utc.getTime() + (utc.getTimezoneOffset() * 60000));
+        },
+        _local_to_utc: function(local) {
+            return local && new Date(local.getTime() - (local.getTimezoneOffset() * 60000));
+        },
+        _zero_time: function(local) {
+            return local && new Date(local.getFullYear(), local.getMonth(), local.getDate());
+        },
+        _zero_utc_time: function(utc) {
+            return utc && new Date(Date.UTC(utc.getUTCFullYear(), utc.getUTCMonth(), utc.getUTCDate()));
+        },
+
+        getDates: function() {
+            return $.map(this.dates, this._utc_to_local);
+        },
+
+        getUTCDates: function() {
+            return $.map(this.dates, function(d) {
+                return new Date(d);
+            });
+        },
+
+        getDate: function() {
+            return this._utc_to_local(this.getUTCDate());
+        },
+
+        getUTCDate: function() {
+            var selected_date = this.dates.get(-1);
+            if (typeof selected_date !== 'undefined') {
+                return new Date(selected_date);
+            } else {
+                return null;
+            }
+        },
+
+        clearDates: function() {
+            var element;
+            if (this.isInput) {
+                element = this.element;
+            } else if (this.component) {
+                element = this.element.find('input');
+            }
+
+            if (element) {
+                element.val('').change();
+            }
+
+            this.update();
+            this._trigger('changeDate');
+
+            if (this.o.autoclose) {
+                this.hide();
+            }
+        },
+        setDates: function() {
+            var args = $.isArray(arguments[0]) ? arguments[0] : arguments;
+            this.update.apply(this, args);
+            this._trigger('changeDate');
+            this.setValue();
+            return this;
+        },
+
+        setUTCDates: function() {
+            var args = $.isArray(arguments[0]) ? arguments[0] : arguments;
+            this.update.apply(this, $.map(args, this._utc_to_local));
+            this._trigger('changeDate');
+            this.setValue();
+            return this;
+        },
+
+        setDate: alias('setDates'),
+        setUTCDate: alias('setUTCDates'),
+
+        setValue: function() {
+            var formatted = this.getFormattedDate();
+            if (!this.isInput) {
+                if (this.component) {
+                    this.element.find('input').val(formatted).change();
+                }
+            } else {
+                this.element.val(formatted).change();
+            }
+            return this;
+        },
+
+        getFormattedDate: function(format) {
+            if (format === undefined)
+                format = this.o.format;
+
+            var lang = this.o.language;
+            return $.map(this.dates, function(d) {
+                return DPGlobal.formatDate(d, format, lang);
+            }).join(this.o.multidateSeparator);
+        },
+
+        setStartDate: function(startDate) {
+            this._process_options({
+                startDate: startDate
+            });
+            this.update();
+            this.updateNavArrows();
+            return this;
+        },
+
+        setEndDate: function(endDate) {
+            this._process_options({
+                endDate: endDate
+            });
+            this.update();
+            this.updateNavArrows();
+            return this;
+        },
+
+        setDaysOfWeekDisabled: function(daysOfWeekDisabled) {
+            this._process_options({
+                daysOfWeekDisabled: daysOfWeekDisabled
+            });
+            this.update();
+            this.updateNavArrows();
+            return this;
+        },
+
+        setDatesDisabled: function(datesDisabled) {
+            this._process_options({
+                datesDisabled: datesDisabled
+            });
+            this.update();
+            this.updateNavArrows();
+        },
+
+        place: function() {
+            if (this.isInline)
+                return this;
+            var calendarWidth = this.picker.outerWidth(),
+                calendarHeight = this.picker.outerHeight(),
+                visualPadding = 10,
+                windowWidth = $(this.o.container).width(),
+                windowHeight = $(this.o.container).height(),
+                scrollTop = $(this.o.container).scrollTop(),
+                appendOffset = $(this.o.container).offset();
+
+            var parentsZindex = [];
+            this.element.parents().each(function() {
+                var itemZIndex = $(this).css('z-index');
+                if (itemZIndex !== 'auto' && itemZIndex !== 0) parentsZindex.push(parseInt(itemZIndex));
+            });
+            var zIndex = Math.max.apply(Math, parentsZindex) + 10;
+            var offset = this.component ? this.component.parent().offset() : this.element.offset();
+            var height = this.component ? this.component.outerHeight(true) : this.element.outerHeight(false);
+            var width = this.component ? this.component.outerWidth(true) : this.element.outerWidth(false);
+            console.log(offset);
+            var left = offset.left,
+                top = offset.top;
+            console.log(left, top);
+
+            this.picker.removeClass(
+                'datepicker-orient-top datepicker-orient-bottom ' +
+                'datepicker-orient-right datepicker-orient-left'
+            );
+
+            if (this.o.orientation.x !== 'auto') {
+                this.picker.addClass('datepicker-orient-' + this.o.orientation.x);
+                if (this.o.orientation.x === 'right')
+                    left -= calendarWidth - width;
+            }
+            // auto x orientation is best-placement: if it crosses a window
+            // edge, fudge it sideways
+            else {
+                if (offset.left < 0) {
+                    // component is outside the window on the left side. Move it into visible range
+                    this.picker.addClass('datepicker-orient-left');
+                    left -= offset.left - visualPadding;
+                } else if (left + calendarWidth > windowWidth) {
+                    // the calendar passes the widow right edge. Align it to component right side
+                    this.picker.addClass('datepicker-orient-right');
+                    left = offset.left + width - calendarWidth;
+                } else {
+                    // Default to left
+                    this.picker.addClass('datepicker-orient-left');
+                }
+            }
+
+            // auto y orientation is best-situation: top or bottom, no fudging,
+            // decision based on which shows more of the calendar
+            var yorient = this.o.orientation.y,
+                top_overflow, bottom_overflow;
+            if (yorient === 'auto') {
+                top_overflow = -scrollTop + top - calendarHeight;
+                bottom_overflow = scrollTop + windowHeight - (top + height + calendarHeight);
+                if (Math.max(top_overflow, bottom_overflow) === bottom_overflow)
+                    yorient = 'top';
+                else
+                    yorient = 'bottom';
+            }
+            this.picker.addClass('datepicker-orient-' + yorient);
+            if (yorient === 'top')
+                top += height;
+            else
+                top -= calendarHeight + parseInt(this.picker.css('padding-top'));
+
+            if (this.o.rtl) {
+                var right = windowWidth - (left + width);
+                this.picker.css({
+                    top: top,
+                    right: right,
+                    zIndex: zIndex
+                });
+            } else {
+                this.picker.css({
+                    top: top,
+                    left: left,
+                    zIndex: zIndex
+                });
+            }
+            return this;
+        },
+
+        _allow_update: true,
+        update: function() {
+            if (!this._allow_update)
+                return this;
+
+            var oldDates = this.dates.copy(),
+                dates = [],
+                fromArgs = false;
+            if (arguments.length) {
+                $.each(arguments, $.proxy(function(i, date) {
+                    if (date instanceof Date)
+                        date = this._local_to_utc(date);
+                    dates.push(date);
+                }, this));
+                fromArgs = true;
+            } else {
+                dates = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
+                if (dates && this.o.multidate)
+                    dates = dates.split(this.o.multidateSeparator);
+                else
+                    dates = [dates];
+                delete this.element.data().date;
+            }
+
+            dates = $.map(dates, $.proxy(function(date) {
+                return DPGlobal.parseDate(date, this.o.format, this.o.language);
+            }, this));
+            dates = $.grep(dates, $.proxy(function(date) {
+                return (
+                    date < this.o.startDate ||
+                    date > this.o.endDate || !date
+                );
+            }, this), true);
+            this.dates.replace(dates);
+
+            if (this.dates.length)
+                this.viewDate = new Date(this.dates.get(-1));
+            else if (this.viewDate < this.o.startDate)
+                this.viewDate = new Date(this.o.startDate);
+            else if (this.viewDate > this.o.endDate)
+                this.viewDate = new Date(this.o.endDate);
+
+            if (fromArgs) {
+                // setting date by clicking
+                this.setValue();
+            } else if (dates.length) {
+                // setting date by typing
+                if (String(oldDates) !== String(this.dates))
+                    this._trigger('changeDate');
+            }
+            if (!this.dates.length && oldDates.length)
+                this._trigger('clearDate');
+
+            this.fill();
+            return this;
+        },
+
+        fillDow: function() {
+            var dowCnt = this.o.weekStart,
+                html = '<tr>';
+            if (this.o.calendarWeeks) {
+                this.picker.find('.datepicker-days thead tr:first-child .datepicker-switch')
+                    .attr('colspan', function(i, val) {
+                        return parseInt(val) + 1;
+                    });
+                var cell = '<th class="cw">&#160;</th>';
+                html += cell;
+            }
+            while (dowCnt < this.o.weekStart + 7) {
+                html += '<th class="dow">' + dates[this.o.language].daysMin[(dowCnt++) % 7] + '</th>';
+            }
+            html += '</tr>';
+            this.picker.find('.datepicker-days thead').append(html);
+        },
+
+        fillMonths: function() {
+            var html = '',
+                i = 0;
+            while (i < 12) {
+                html += '<span class="month">' + dates[this.o.language].monthsShort[i++] + '</span>';
+            }
+            this.picker.find('.datepicker-months td').html(html);
+        },
+
+        setRange: function(range) {
+            if (!range || !range.length)
+                delete this.range;
+            else
+                this.range = $.map(range, function(d) {
+                    return d.valueOf();
+                });
+            this.fill();
+        },
+
+        getClassNames: function(date) {
+            var cls = [],
+                year = this.viewDate.getUTCFullYear(),
+                month = this.viewDate.getUTCMonth(),
+                today = new Date();
+            if (date.getUTCFullYear() < year || (date.getUTCFullYear() === year && date.getUTCMonth() < month)) {
+                cls.push('old');
+            } else if (date.getUTCFullYear() > year || (date.getUTCFullYear() === year && date.getUTCMonth() > month)) {
+                cls.push('new');
+            }
+            if (this.focusDate && date.valueOf() === this.focusDate.valueOf())
+                cls.push('focused');
+            // Compare internal UTC date with local today, not UTC today
+            if (this.o.todayHighlight &&
+                date.getUTCFullYear() === today.getFullYear() &&
+                date.getUTCMonth() === today.getMonth() &&
+                date.getUTCDate() === today.getDate()) {
+                cls.push('today');
+            }
+            if (this.dates.contains(date) !== -1)
+                cls.push('active');
+            if (date.valueOf() < this.o.startDate || date.valueOf() > this.o.endDate ||
+                $.inArray(date.getUTCDay(), this.o.daysOfWeekDisabled) !== -1) {
+                cls.push('disabled');
+            }
+            if (this.o.datesDisabled.length > 0 &&
+                $.grep(this.o.datesDisabled, function(d) {
+                    return isUTCEquals(date, d);
+                }).length > 0) {
+                cls.push('disabled', 'disabled-date');
+            }
+
+            if (this.range) {
+                if (date > this.range[0] && date < this.range[this.range.length - 1]) {
+                    cls.push('range');
+                }
+                if ($.inArray(date.valueOf(), this.range) !== -1) {
+                    cls.push('selected');
+                }
+            }
+            return cls;
+        },
+
+        fill: function() {
+            var d = new Date(this.viewDate),
+                year = d.getUTCFullYear(),
+                month = d.getUTCMonth(),
+                startYear = this.o.startDate !== -Infinity ? this.o.startDate.getUTCFullYear() : -Infinity,
+                startMonth = this.o.startDate !== -Infinity ? this.o.startDate.getUTCMonth() : -Infinity,
+                endYear = this.o.endDate !== Infinity ? this.o.endDate.getUTCFullYear() : Infinity,
+                endMonth = this.o.endDate !== Infinity ? this.o.endDate.getUTCMonth() : Infinity,
+                todaytxt = dates[this.o.language].today || dates['en'].today || '',
+                cleartxt = dates[this.o.language].clear || dates['en'].clear || '',
+                tooltip;
+            if (isNaN(year) || isNaN(month))
+                return;
+            this.picker.find('.datepicker-days thead .datepicker-switch')
+                .text(dates[this.o.language].months[month] + ' ' + year);
+            this.picker.find('tfoot .today')
+                .text(todaytxt)
+                .toggle(this.o.todayBtn !== false);
+            this.picker.find('tfoot .clear')
+                .text(cleartxt)
+                .toggle(this.o.clearBtn !== false);
+            this.updateNavArrows();
+            this.fillMonths();
+            var prevMonth = UTCDate(year, month - 1, 28),
+                day = DPGlobal.getDaysInMonth(prevMonth.getUTCFullYear(), prevMonth.getUTCMonth());
+            prevMonth.setUTCDate(day);
+            prevMonth.setUTCDate(day - (prevMonth.getUTCDay() - this.o.weekStart + 7) % 7);
+            var nextMonth = new Date(prevMonth);
+            nextMonth.setUTCDate(nextMonth.getUTCDate() + 42);
+            nextMonth = nextMonth.valueOf();
+            var html = [];
+            var clsName;
+            while (prevMonth.valueOf() < nextMonth) {
+                if (prevMonth.getUTCDay() === this.o.weekStart) {
+                    html.push('<tr>');
+                    if (this.o.calendarWeeks) {
+                        // ISO 8601: First week contains first thursday.
+                        // ISO also states week starts on Monday, but we can be more abstract here.
+                        var
+                        // Start of current week: based on weekstart/current date
+                        ws = new Date(+prevMonth + (this.o.weekStart - prevMonth.getUTCDay() - 7) % 7 * 864e5),
+                            // Thursday of this week
+                            th = new Date(Number(ws) + (7 + 4 - ws.getUTCDay()) % 7 * 864e5),
+                            // First Thursday of year, year from thursday
+                            yth = new Date(Number(yth = UTCDate(th.getUTCFullYear(), 0, 1)) + (7 + 4 - yth.getUTCDay()) % 7 * 864e5),
+                            // Calendar week: ms between thursdays, div ms per day, div 7 days
+                            calWeek = (th - yth) / 864e5 / 7 + 1;
+                        html.push('<td class="cw">' + calWeek + '</td>');
+
+                    }
+                }
+                clsName = this.getClassNames(prevMonth);
+                clsName.push('day');
+
+                if (this.o.beforeShowDay !== $.noop) {
+                    var before = this.o.beforeShowDay(this._utc_to_local(prevMonth));
+                    if (before === undefined)
+                        before = {};
+                    else if (typeof(before) === 'boolean')
+                        before = {
+                            enabled: before
+                        };
+                    else if (typeof(before) === 'string')
+                        before = {
+                            classes: before
+                        };
+                    if (before.enabled === false)
+                        clsName.push('disabled');
+                    if (before.classes)
+                        clsName = clsName.concat(before.classes.split(/\s+/));
+                    if (before.tooltip)
+                        tooltip = before.tooltip;
+                }
+
+                clsName = $.unique(clsName);
+                html.push('<td class="' + clsName.join(' ') + '"' + (tooltip ? ' title="' + tooltip + '"' : '') + '>' + prevMonth.getUTCDate() + '</td>');
+                tooltip = null;
+                if (prevMonth.getUTCDay() === this.o.weekEnd) {
+                    html.push('</tr>');
+                }
+                prevMonth.setUTCDate(prevMonth.getUTCDate() + 1);
+            }
+            this.picker.find('.datepicker-days tbody').empty().append(html.join(''));
+
+            var months = this.picker.find('.datepicker-months')
+                .find('th:eq(1)')
+                .text(year)
+                .end()
+                .find('span').removeClass('active');
+
+            $.each(this.dates, function(i, d) {
+                if (d.getUTCFullYear() === year)
+                    months.eq(d.getUTCMonth()).addClass('active');
+            });
+
+            if (year < startYear || year > endYear) {
+                months.addClass('disabled');
+            }
+            if (year === startYear) {
+                months.slice(0, startMonth).addClass('disabled');
+            }
+            if (year === endYear) {
+                months.slice(endMonth + 1).addClass('disabled');
+            }
+
+            if (this.o.beforeShowMonth !== $.noop) {
+                var that = this;
+                $.each(months, function(i, month) {
+                    if (!$(month).hasClass('disabled')) {
+                        var moDate = new Date(year, i, 1);
+                        var before = that.o.beforeShowMonth(moDate);
+                        if (before === false)
+                            $(month).addClass('disabled');
+                    }
+                });
+            }
+
+            html = '';
+            year = parseInt(year / 10, 10) * 10;
+            var yearCont = this.picker.find('.datepicker-years')
+                .find('th:eq(1)')
+                .text(year + '-' + (year + 9))
+                .end()
+                .find('td');
+            year -= 1;
+            var years = $.map(this.dates, function(d) {
+                return d.getUTCFullYear();
+            }),
+                classes;
+            for (var i = -1; i < 11; i++) {
+                classes = ['year'];
+                if (i === -1)
+                    classes.push('old');
+                else if (i === 10)
+                    classes.push('new');
+                if ($.inArray(year, years) !== -1)
+                    classes.push('active');
+                if (year < startYear || year > endYear)
+                    classes.push('disabled');
+                html += '<span class="' + classes.join(' ') + '">' + year + '</span>';
+                year += 1;
+            }
+            yearCont.html(html);
+        },
+
+        updateNavArrows: function() {
+            if (!this._allow_update)
+                return;
+
+            var d = new Date(this.viewDate),
+                year = d.getUTCFullYear(),
+                month = d.getUTCMonth();
+            switch (this.viewMode) {
+                case 0:
+                    if (this.o.startDate !== -Infinity && year <= this.o.startDate.getUTCFullYear() && month <= this.o.startDate.getUTCMonth()) {
+                        this.picker.find('.prev').css({
+                            visibility: 'hidden'
+                        });
+                    } else {
+                        this.picker.find('.prev').css({
+                            visibility: 'visible'
+                        });
+                    }
+                    if (this.o.endDate !== Infinity && year >= this.o.endDate.getUTCFullYear() && month >= this.o.endDate.getUTCMonth()) {
+                        this.picker.find('.next').css({
+                            visibility: 'hidden'
+                        });
+                    } else {
+                        this.picker.find('.next').css({
+                            visibility: 'visible'
+                        });
+                    }
+                    break;
+                case 1:
+                case 2:
+                    if (this.o.startDate !== -Infinity && year <= this.o.startDate.getUTCFullYear()) {
+                        this.picker.find('.prev').css({
+                            visibility: 'hidden'
+                        });
+                    } else {
+                        this.picker.find('.prev').css({
+                            visibility: 'visible'
+                        });
+                    }
+                    if (this.o.endDate !== Infinity && year >= this.o.endDate.getUTCFullYear()) {
+                        this.picker.find('.next').css({
+                            visibility: 'hidden'
+                        });
+                    } else {
+                        this.picker.find('.next').css({
+                            visibility: 'visible'
+                        });
+                    }
+                    break;
+            }
+        },
+
+        click: function(e) {
+            e.preventDefault();
+            var target = $(e.target).closest('span, td, th'),
+                year, month, day;
+            if (target.length === 1) {
+                switch (target[0].nodeName.toLowerCase()) {
+                    case 'th':
+                        switch (target[0].className) {
+                            case 'datepicker-switch':
+                                this.showMode(1);
+                                break;
+                            case 'prev':
+                            case 'next':
+                                var dir = DPGlobal.modes[this.viewMode].navStep * (target[0].className === 'prev' ? -1 : 1);
+                                switch (this.viewMode) {
+                                    case 0:
+                                        this.viewDate = this.moveMonth(this.viewDate, dir);
+                                        this._trigger('changeMonth', this.viewDate);
+                                        break;
+                                    case 1:
+                                    case 2:
+                                        this.viewDate = this.moveYear(this.viewDate, dir);
+                                        if (this.viewMode === 1)
+                                            this._trigger('changeYear', this.viewDate);
+                                        break;
+                                }
+                                this.fill();
+                                break;
+                            case 'today':
+                                var date = new Date();
+                                date = UTCDate(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
+
+                                this.showMode(-2);
+                                var which = this.o.todayBtn === 'linked' ? null : 'view';
+                                this._setDate(date, which);
+                                break;
+                            case 'clear':
+                                this.clearDates();
+                                break;
+                        }
+                        break;
+                    case 'span':
+                        if (!target.hasClass('disabled')) {
+                            this.viewDate.setUTCDate(1);
+                            if (target.hasClass('month')) {
+                                day = 1;
+                                month = target.parent().find('span').index(target);
+                                year = this.viewDate.getUTCFullYear();
+                                this.viewDate.setUTCMonth(month);
+                                this._trigger('changeMonth', this.viewDate);
+                                if (this.o.minViewMode === 1) {
+                                    this._setDate(UTCDate(year, month, day));
+                                    this.showMode();
+                                } else {
+                                    this.showMode(-1);
+                                }
+                            } else {
+                                day = 1;
+                                month = 0;
+                                year = parseInt(target.text(), 10) || 0;
+                                this.viewDate.setUTCFullYear(year);
+                                this._trigger('changeYear', this.viewDate);
+                                if (this.o.minViewMode === 2) {
+                                    this._setDate(UTCDate(year, month, day));
+                                }
+                                this.showMode(-1);
+                            }
+                            this.fill();
+                        }
+                        break;
+                    case 'td':
+                        if (target.hasClass('day') && !target.hasClass('disabled')) {
+                            day = parseInt(target.text(), 10) || 1;
+                            year = this.viewDate.getUTCFullYear();
+                            month = this.viewDate.getUTCMonth();
+                            if (target.hasClass('old')) {
+                                if (month === 0) {
+                                    month = 11;
+                                    year -= 1;
+                                } else {
+                                    month -= 1;
+                                }
+                            } else if (target.hasClass('new')) {
+                                if (month === 11) {
+                                    month = 0;
+                                    year += 1;
+                                } else {
+                                    month += 1;
+                                }
+                            }
+                            this._setDate(UTCDate(year, month, day));
+                        }
+                        break;
+                }
+            }
+            if (this.picker.is(':visible') && this._focused_from) {
+                $(this._focused_from).focus();
+            }
+            delete this._focused_from;
+        },
+
+        _toggle_multidate: function(date) {
+            var ix = this.dates.contains(date);
+            if (!date) {
+                this.dates.clear();
+            }
+
+            if (ix !== -1) {
+                if (this.o.multidate === true || this.o.multidate > 1 || this.o.toggleActive) {
+                    this.dates.remove(ix);
+                }
+            } else if (this.o.multidate === false) {
+                this.dates.clear();
+                this.dates.push(date);
+            } else {
+                this.dates.push(date);
+            }
+
+            if (typeof this.o.multidate === 'number')
+                while (this.dates.length > this.o.multidate)
+                    this.dates.remove(0);
+        },
+
+        _setDate: function(date, which) {
+            if (!which || which === 'date')
+                this._toggle_multidate(date && new Date(date));
+            if (!which || which === 'view')
+                this.viewDate = date && new Date(date);
+
+            this.fill();
+            this.setValue();
+            if (!which || which !== 'view') {
+                this._trigger('changeDate');
+            }
+            var element;
+            if (this.isInput) {
+                element = this.element;
+            } else if (this.component) {
+                element = this.element.find('input');
+            }
+            if (element) {
+                element.change();
+            }
+            if (this.o.autoclose && (!which || which === 'date')) {
+                this.hide();
+            }
+        },
+
+        moveMonth: function(date, dir) {
+            if (!date)
+                return undefined;
+            if (!dir)
+                return date;
+            var new_date = new Date(date.valueOf()),
+                day = new_date.getUTCDate(),
+                month = new_date.getUTCMonth(),
+                mag = Math.abs(dir),
+                new_month, test;
+            dir = dir > 0 ? 1 : -1;
+            if (mag === 1) {
+                test = dir === -1
+                // If going back one month, make sure month is not current month
+                // (eg, Mar 31 -> Feb 31 == Feb 28, not Mar 02)
+                ? function() {
+                    return new_date.getUTCMonth() === month;
+                }
+                // If going forward one month, make sure month is as expected
+                // (eg, Jan 31 -> Feb 31 == Feb 28, not Mar 02)
+                : function() {
+                    return new_date.getUTCMonth() !== new_month;
+                };
+                new_month = month + dir;
+                new_date.setUTCMonth(new_month);
+                // Dec -> Jan (12) or Jan -> Dec (-1) -- limit expected date to 0-11
+                if (new_month < 0 || new_month > 11)
+                    new_month = (new_month + 12) % 12;
+            } else {
+                // For magnitudes >1, move one month at a time...
+                for (var i = 0; i < mag; i++)
+                // ...which might decrease the day (eg, Jan 31 to Feb 28, etc)...
+                    new_date = this.moveMonth(new_date, dir);
+                // ...then reset the day, keeping it in the new month
+                new_month = new_date.getUTCMonth();
+                new_date.setUTCDate(day);
+                test = function() {
+                    return new_month !== new_date.getUTCMonth();
+                };
+            }
+            // Common date-resetting loop -- if date is beyond end of month, make it
+            // end of month
+            while (test()) {
+                new_date.setUTCDate(--day);
+                new_date.setUTCMonth(new_month);
+            }
+            return new_date;
+        },
+
+        moveYear: function(date, dir) {
+            return this.moveMonth(date, dir * 12);
+        },
+
+        dateWithinRange: function(date) {
+            return date >= this.o.startDate && date <= this.o.endDate;
+        },
+
+        keydown: function(e) {
+            if (!this.picker.is(':visible')) {
+                if (e.keyCode === 40 || e.keyCode === 27) // allow down to re-show picker
+                    this.show();
+                return;
+            }
+            var dateChanged = false,
+                dir, newDate, newViewDate,
+                focusDate = this.focusDate || this.viewDate;
+            switch (e.keyCode) {
+                case 27: // escape
+                    if (this.focusDate) {
+                        this.focusDate = null;
+                        this.viewDate = this.dates.get(-1) || this.viewDate;
+                        this.fill();
+                    } else
+                        this.hide();
+                    e.preventDefault();
+                    break;
+                case 37: // left
+                case 39: // right
+                    if (!this.o.keyboardNavigation)
+                        break;
+                    dir = e.keyCode === 37 ? -1 : 1;
+                    if (e.ctrlKey) {
+                        newDate = this.moveYear(this.dates.get(-1) || UTCToday(), dir);
+                        newViewDate = this.moveYear(focusDate, dir);
+                        this._trigger('changeYear', this.viewDate);
+                    } else if (e.shiftKey) {
+                        newDate = this.moveMonth(this.dates.get(-1) || UTCToday(), dir);
+                        newViewDate = this.moveMonth(focusDate, dir);
+                        this._trigger('changeMonth', this.viewDate);
+                    } else {
+                        newDate = new Date(this.dates.get(-1) || UTCToday());
+                        newDate.setUTCDate(newDate.getUTCDate() + dir);
+                        newViewDate = new Date(focusDate);
+                        newViewDate.setUTCDate(focusDate.getUTCDate() + dir);
+                    }
+                    if (this.dateWithinRange(newViewDate)) {
+                        this.focusDate = this.viewDate = newViewDate;
+                        this.setValue();
+                        this.fill();
+                        e.preventDefault();
+                    }
+                    break;
+                case 38: // up
+                case 40: // down
+                    if (!this.o.keyboardNavigation)
+                        break;
+                    dir = e.keyCode === 38 ? -1 : 1;
+                    if (e.ctrlKey) {
+                        newDate = this.moveYear(this.dates.get(-1) || UTCToday(), dir);
+                        newViewDate = this.moveYear(focusDate, dir);
+                        this._trigger('changeYear', this.viewDate);
+                    } else if (e.shiftKey) {
+                        newDate = this.moveMonth(this.dates.get(-1) || UTCToday(), dir);
+                        newViewDate = this.moveMonth(focusDate, dir);
+                        this._trigger('changeMonth', this.viewDate);
+                    } else {
+                        newDate = new Date(this.dates.get(-1) || UTCToday());
+                        newDate.setUTCDate(newDate.getUTCDate() + dir * 7);
+                        newViewDate = new Date(focusDate);
+                        newViewDate.setUTCDate(focusDate.getUTCDate() + dir * 7);
+                    }
+                    if (this.dateWithinRange(newViewDate)) {
+                        this.focusDate = this.viewDate = newViewDate;
+                        this.setValue();
+                        this.fill();
+                        e.preventDefault();
+                    }
+                    break;
+                case 32: // spacebar
+                    // Spacebar is used in manually typing dates in some formats.
+                    // As such, its behavior should not be hijacked.
+                    break;
+                case 13: // enter
+                    focusDate = this.focusDate || this.dates.get(-1) || this.viewDate;
+                    if (this.o.keyboardNavigation) {
+                        this._toggle_multidate(focusDate);
+                        dateChanged = true;
+                    }
+                    this.focusDate = null;
+                    this.viewDate = this.dates.get(-1) || this.viewDate;
+                    this.setValue();
+                    this.fill();
+                    if (this.picker.is(':visible')) {
+                        e.preventDefault();
+                        if (typeof e.stopPropagation === 'function') {
+                            e.stopPropagation(); // All modern browsers, IE9+
+                        } else {
+                            e.cancelBubble = true; // IE6,7,8 ignore "stopPropagation"
+                        }
+                        if (this.o.autoclose)
+                            this.hide();
+                    }
+                    break;
+                case 9: // tab
+                    this.focusDate = null;
+                    this.viewDate = this.dates.get(-1) || this.viewDate;
+                    this.fill();
+                    this.hide();
+                    break;
+            }
+            if (dateChanged) {
+                if (this.dates.length)
+                    this._trigger('changeDate');
+                else
+                    this._trigger('clearDate');
+                var element;
+                if (this.isInput) {
+                    element = this.element;
+                } else if (this.component) {
+                    element = this.element.find('input');
+                }
+                if (element) {
+                    element.change();
+                }
+            }
+        },
+
+        showMode: function(dir) {
+            if (dir) {
+                this.viewMode = Math.max(this.o.minViewMode, Math.min(2, this.viewMode + dir));
+            }
+            this.picker
+                .children('div')
+                .hide()
+                .filter('.datepicker-' + DPGlobal.modes[this.viewMode].clsName)
+                .css('display', 'block');
+            this.updateNavArrows();
+        }
+    };
+
+    var DateRangePicker = function(element, options) {
+        this.element = $(element);
+        this.inputs = $.map(options.inputs, function(i) {
+            return i.jquery ? i[0] : i;
+        });
+        delete options.inputs;
+
+        datepickerPlugin.call($(this.inputs), options)
+            .on('changeDate', $.proxy(this.dateUpdated, this));
+
+        this.pickers = $.map(this.inputs, function(i) {
+            return $(i).data('datepicker');
+        });
+        this.updateDates();
+    };
+    DateRangePicker.prototype = {
+        updateDates: function() {
+            this.dates = $.map(this.pickers, function(i) {
+                return i.getUTCDate();
+            });
+            this.updateRanges();
+        },
+        updateRanges: function() {
+            var range = $.map(this.dates, function(d) {
+                return d.valueOf();
+            });
+            $.each(this.pickers, function(i, p) {
+                p.setRange(range);
+            });
+        },
+        dateUpdated: function(e) {
+            // `this.updating` is a workaround for preventing infinite recursion
+            // between `changeDate` triggering and `setUTCDate` calling.  Until
+            // there is a better mechanism.
+            if (this.updating)
+                return;
+            this.updating = true;
+
+            var dp = $(e.target).data('datepicker'),
+                new_date = dp.getUTCDate(),
+                i = $.inArray(e.target, this.inputs),
+                j = i - 1,
+                k = i + 1,
+                l = this.inputs.length;
+            if (i === -1)
+                return;
+
+            $.each(this.pickers, function(i, p) {
+                if (!p.getUTCDate())
+                    p.setUTCDate(new_date);
+            });
+
+            if (new_date < this.dates[j]) {
+                // Date being moved earlier/left
+                while (j >= 0 && new_date < this.dates[j]) {
+                    this.pickers[j--].setUTCDate(new_date);
+                }
+            } else if (new_date > this.dates[k]) {
+                // Date being moved later/right
+                while (k < l && new_date > this.dates[k]) {
+                    this.pickers[k++].setUTCDate(new_date);
+                }
+            }
+            this.updateDates();
+
+            delete this.updating;
+        },
+        remove: function() {
+            $.map(this.pickers, function(p) {
+                p.remove();
+            });
+            delete this.element.data().datepicker;
+        }
+    };
+
+    function opts_from_el(el, prefix) {
+        // Derive options from element data-attrs
+        var data = $(el).data(),
+            out = {}, inkey,
+            replace = new RegExp('^' + prefix.toLowerCase() + '([A-Z])');
+        prefix = new RegExp('^' + prefix.toLowerCase());
+
+        function re_lower(_, a) {
+            return a.toLowerCase();
+        }
+        for (var key in data)
+            if (prefix.test(key)) {
+                inkey = key.replace(replace, re_lower);
+                out[inkey] = data[key];
+            }
+        return out;
+    }
+
+    function opts_from_locale(lang) {
+        // Derive options from locale plugins
+        var out = {};
+        // Check if "de-DE" style date is available, if not language should
+        // fallback to 2 letter code eg "de"
+        if (!dates[lang]) {
+            lang = lang.split('-')[0];
+            if (!dates[lang])
+                return;
+        }
+        var d = dates[lang];
+        $.each(locale_opts, function(i, k) {
+            if (k in d)
+                out[k] = d[k];
+        });
+        return out;
+    }
+
+    var old = $.fn.datepicker;
+    var datepickerPlugin = function(option) {
+        var args = Array.apply(null, arguments);
+        args.shift();
+        var internal_return;
+        this.each(function() {
+            var $this = $(this),
+                data = $this.data('datepicker'),
+                options = typeof option === 'object' && option;
+            if (!data) {
+                var elopts = opts_from_el(this, 'date'),
+                    // Preliminary otions
+                    xopts = $.extend({}, defaults, elopts, options),
+                    locopts = opts_from_locale(xopts.language),
+                    // Options priority: js args, data-attrs, locales, defaults
+                    opts = $.extend({}, defaults, locopts, elopts, options);
+                if ($this.hasClass('input-daterange') || opts.inputs) {
+                    var ropts = {
+                        inputs: opts.inputs || $this.find('input').toArray()
+                    };
+                    $this.data('datepicker', (data = new DateRangePicker(this, $.extend(opts, ropts))));
+                } else {
+                    $this.data('datepicker', (data = new Datepicker(this, opts)));
+                }
+            }
+            if (typeof option === 'string' && typeof data[option] === 'function') {
+                internal_return = data[option].apply(data, args);
+                if (internal_return !== undefined)
+                    return false;
+            }
+        });
+        if (internal_return !== undefined)
+            return internal_return;
+        else
+            return this;
+    };
+    $.fn.datepicker = datepickerPlugin;
+
+    var defaults = $.fn.datepicker.defaults = {
+        autoclose: false,
+        beforeShowDay: $.noop,
+        beforeShowMonth: $.noop,
+        calendarWeeks: false,
+        clearBtn: false,
+        toggleActive: false,
+        daysOfWeekDisabled: [],
+        datesDisabled: [],
+        endDate: Infinity,
+        forceParse: true,
+        format: 'mm/dd/yyyy',
+        keyboardNavigation: true,
+        language: 'en',
+        minViewMode: 0,
+        multidate: false,
+        multidateSeparator: ',',
+        orientation: "auto",
+        rtl: false,
+        startDate: -Infinity,
+        startView: 0,
+        todayBtn: false,
+        todayHighlight: false,
+        weekStart: 0,
+        disableTouchKeyboard: false,
+        enableOnReadonly: true,
+        container: 'body',
+        immediateUpdates: false
+    };
+    var locale_opts = $.fn.datepicker.locale_opts = [
+        'format',
+        'rtl',
+        'weekStart'
+    ];
+    $.fn.datepicker.Constructor = Datepicker;
+    var dates = $.fn.datepicker.dates = {
+        en: {
+            days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+            daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+            months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            today: "Today",
+            clear: "Clear"
+        }
+    };
+
+    var DPGlobal = {
+        modes: [{
+            clsName: 'days',
+            navFnc: 'Month',
+            navStep: 1
+        }, {
+            clsName: 'months',
+            navFnc: 'FullYear',
+            navStep: 1
+        }, {
+            clsName: 'years',
+            navFnc: 'FullYear',
+            navStep: 10
+        }],
+        isLeapYear: function(year) {
+            return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
+        },
+        getDaysInMonth: function(year, month) {
+            return [31, (DPGlobal.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+        },
+        validParts: /dd?|DD?|mm?|MM?|yy(?:yy)?/g,
+        nonpunctuation: /[^ -\/:-@\[\u3400-\u9fff-`{-~\t\n\r]+/g,
+        parseFormat: function(format) {
+            // IE treats \0 as a string end in inputs (truncating the value),
+            // so it's a bad format delimiter, anyway
+            var separators = format.replace(this.validParts, '\0').split('\0'),
+                parts = format.match(this.validParts);
+            if (!separators || !separators.length || !parts || parts.length === 0) {
+                throw new Error("Invalid date format.");
+            }
+            return {
+                separators: separators,
+                parts: parts
+            };
+        },
+        parseDate: function(date, format, language) {
+            if (!date)
+                return undefined;
+            if (date instanceof Date)
+                return date;
+            if (typeof format === 'string')
+                format = DPGlobal.parseFormat(format);
+            var part_re = /([\-+]\d+)([dmwy])/,
+                parts = date.match(/([\-+]\d+)([dmwy])/g),
+                part, dir, i;
+            if (/^[\-+]\d+[dmwy]([\s,]+[\-+]\d+[dmwy])*$/.test(date)) {
+                date = new Date();
+                for (i = 0; i < parts.length; i++) {
+                    part = part_re.exec(parts[i]);
+                    dir = parseInt(part[1]);
+                    switch (part[2]) {
+                        case 'd':
+                            date.setUTCDate(date.getUTCDate() + dir);
+                            break;
+                        case 'm':
+                            date = Datepicker.prototype.moveMonth.call(Datepicker.prototype, date, dir);
+                            break;
+                        case 'w':
+                            date.setUTCDate(date.getUTCDate() + dir * 7);
+                            break;
+                        case 'y':
+                            date = Datepicker.prototype.moveYear.call(Datepicker.prototype, date, dir);
+                            break;
+                    }
+                }
+                return UTCDate(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, 0, 0);
+            }
+            parts = date && date.match(this.nonpunctuation) || [];
+            date = new Date();
+            var parsed = {},
+                setters_order = ['yyyy', 'yy', 'M', 'MM', 'm', 'mm', 'd', 'dd'],
+                setters_map = {
+                    yyyy: function(d, v) {
+                        return d.setUTCFullYear(v);
+                    },
+                    yy: function(d, v) {
+                        return d.setUTCFullYear(2000 + v);
+                    },
+                    m: function(d, v) {
+                        if (isNaN(d))
+                            return d;
+                        v -= 1;
+                        while (v < 0) v += 12;
+                        v %= 12;
+                        d.setUTCMonth(v);
+                        while (d.getUTCMonth() !== v)
+                            d.setUTCDate(d.getUTCDate() - 1);
+                        return d;
+                    },
+                    d: function(d, v) {
+                        return d.setUTCDate(v);
+                    }
+                },
+                val, filtered;
+            setters_map['M'] = setters_map['MM'] = setters_map['mm'] = setters_map['m'];
+            setters_map['dd'] = setters_map['d'];
+            date = UTCDate(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
+            var fparts = format.parts.slice();
+            // Remove noop parts
+            if (parts.length !== fparts.length) {
+                fparts = $(fparts).filter(function(i, p) {
+                    return $.inArray(p, setters_order) !== -1;
+                }).toArray();
+            }
+            // Process remainder
+
+            function match_part() {
+                var m = this.slice(0, parts[i].length),
+                    p = parts[i].slice(0, m.length);
+                return m.toLowerCase() === p.toLowerCase();
+            }
+            if (parts.length === fparts.length) {
+                var cnt;
+                for (i = 0, cnt = fparts.length; i < cnt; i++) {
+                    val = parseInt(parts[i], 10);
+                    part = fparts[i];
+                    if (isNaN(val)) {
+                        switch (part) {
+                            case 'MM':
+                                filtered = $(dates[language].months).filter(match_part);
+                                val = $.inArray(filtered[0], dates[language].months) + 1;
+                                break;
+                            case 'M':
+                                filtered = $(dates[language].monthsShort).filter(match_part);
+                                val = $.inArray(filtered[0], dates[language].monthsShort) + 1;
+                                break;
+                        }
+                    }
+                    parsed[part] = val;
+                }
+                var _date, s;
+                for (i = 0; i < setters_order.length; i++) {
+                    s = setters_order[i];
+                    if (s in parsed && !isNaN(parsed[s])) {
+                        _date = new Date(date);
+                        setters_map[s](_date, parsed[s]);
+                        if (!isNaN(_date))
+                            date = _date;
+                    }
+                }
+            }
+            return date;
+        },
+        formatDate: function(date, format, language) {
+            if (!date)
+                return '';
+            if (typeof format === 'string')
+                format = DPGlobal.parseFormat(format);
+            var val = {
+                d: date.getUTCDate(),
+                D: dates[language].daysShort[date.getUTCDay()],
+                DD: dates[language].days[date.getUTCDay()],
+                m: date.getUTCMonth() + 1,
+                M: dates[language].monthsShort[date.getUTCMonth()],
+                MM: dates[language].months[date.getUTCMonth()],
+                yy: date.getUTCFullYear().toString().substring(2),
+                yyyy: date.getUTCFullYear()
+            };
+            val.dd = (val.d < 10 ? '0' : '') + val.d;
+            val.mm = (val.m < 10 ? '0' : '') + val.m;
+            date = [];
+            var seps = $.extend([], format.separators);
+            for (var i = 0, cnt = format.parts.length; i <= cnt; i++) {
+                if (seps.length)
+                    date.push(seps.shift());
+                date.push(val[format.parts[i]]);
+            }
+            return date.join('');
+        },
+        headTemplate: '<thead>' + '<tr>' + '<th class="prev"><i class="fa fa-angle-left"></i></th>' + '<th colspan="5" class="datepicker-switch"></th>' + '<th class="next"><i class="fa fa-angle-right"></i></th>' + '</tr>' + '</thead>',
+        contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
+        footTemplate: '<tfoot>' + '<tr>' + '<th colspan="7" class="today"></th>' + '</tr>' + '<tr>' + '<th colspan="7" class="clear"></th>' + '</tr>' + '</tfoot>'
+    };
+    DPGlobal.template = '<div class="datepicker">' +
+        '<div class="datepicker-days">' +
+        '<table class=" table-condensed">' +
+        DPGlobal.headTemplate +
+        '<tbody></tbody>' +
+        DPGlobal.footTemplate +
+        '</table>' +
+        '</div>' +
+        '<div class="datepicker-months">' +
+        '<table class="table-condensed">' +
+        DPGlobal.headTemplate +
+        DPGlobal.contTemplate +
+        DPGlobal.footTemplate +
+        '</table>' +
+        '</div>' +
+        '<div class="datepicker-years">' +
+        '<table class="table-condensed">' +
+        DPGlobal.headTemplate +
+        DPGlobal.contTemplate +
+        DPGlobal.footTemplate +
+        '</table>' +
+        '</div>' +
+        '</div>';
+
+    $.fn.datepicker.DPGlobal = DPGlobal;
+
+
+    /* DATEPICKER NO CONFLICT
+     * =================== */
+
+    $.fn.datepicker.noConflict = function() {
+        $.fn.datepicker = old;
+        return this;
+    };
+
+    /* DATEPICKER VERSION
+     * =================== */
+    $.fn.datepicker.version = "1.4.1-dev";
+
+    /* DATEPICKER DATA-API
+     * ================== */
+
+    $(document).on(
+        'focus.datepicker.data-api click.datepicker.data-api',
+        '[data-provide="datepicker"]',
+        function(e) {
+            var $this = $(this);
+            if ($this.data('datepicker'))
+                return;
+            e.preventDefault();
+            // component click requires us to explicitly show it
+            datepickerPlugin.call($this, 'show');
+        }
+    );
+    $(function() {
+        datepickerPlugin.call($('[data-provide="datepicker-inline"]'));
+    });
+
+}(window.jQuery));
+
 /**
  * contra - Asynchronous flow control with a functional taste to it
  * @version v1.7.0
@@ -238,28 +2042,6 @@
   }
 })(Object, this);
 
-/*
-jquery.animate-enhanced plugin v1.02
----
-http://github.com/benbarnett/jQuery-Animate-Enhanced
-http://benbarnett.net
-@benpbarnett
-*/
-(function(d,J,K){function P(a,b,d,l,j,h,c,n,q){var t=!1;c=!0===c&&!0===n;b=b||{};b.original||(b.original={},t=!0);b.properties=b.properties||{};b.secondary=b.secondary||{};n=b.meta;for(var k=b.original,x=b.properties,Q=b.secondary,D=r.length-1;0<=D;D--){var F=r[D]+"transition-property",y=r[D]+"transition-duration",e=r[D]+"transition-timing-function";d=c?r[D]+"transform":d;t&&(k[F]=a.css(F)||"",k[y]=a.css(y)||"",k[e]=a.css(e)||"");Q[d]=c?!0===q||!0===G&&!1!==q&&L?"translate3d("+n.left+"px, "+n.top+
-"px, 0)":"translate("+n.left+"px,"+n.top+"px)":h;x[F]=(x[F]?x[F]+",":"")+d;x[y]=(x[y]?x[y]+",":"")+l+"ms";x[e]=(x[e]?x[e]+",":"")+j}return b}function B(a){for(var b in a)return!1;return!0}function R(a){a=a.toUpperCase();var b={LI:"list-item",TR:"table-row",TD:"table-cell",TH:"table-cell",CAPTION:"table-caption",COL:"table-column",COLGROUP:"table-column-group",TFOOT:"table-footer-group",THEAD:"table-header-group",TBODY:"table-row-group"};return"string"==typeof b[a]?b[a]:"block"}function H(a){return parseFloat(a.replace(a.match(/\D+$/),
-""))}function M(a){var b=!0;a.each(function(a,d){return b=b&&d.ownerDocument});return b}var S="top right bottom left opacity height width".split(" "),I=["top","right","bottom","left"],r=["-webkit-","-moz-","-o-",""],T=["avoidTransforms","useTranslate3d","leaveTransforms"],U=/^([+-]=)?([\d+-.]+)(.*)$/,V=/([A-Z])/g,W={secondary:{},meta:{top:0,right:0,bottom:0,left:0}},N=null,C=!1,z=(document.body||document.documentElement).style,O=void 0!==z.WebkitTransition||void 0!==z.MozTransition||void 0!==z.OTransition||
-void 0!==z.transition,L="WebKitCSSMatrix"in window&&"m11"in new WebKitCSSMatrix,G=L;d.expr&&d.expr.filters&&(N=d.expr.filters.animated,d.expr.filters.animated=function(a){return d(a).data("events")&&d(a).data("events")["webkitTransitionEnd oTransitionEnd transitionend"]?!0:N.call(this,a)});d.extend({toggle3DByDefault:function(){return G=!G},toggleDisabledByDefault:function(){return C=!C},setDisabledByDefault:function(a){return C=a}});d.fn.translation=function(){if(!this[0])return null;var a=window.getComputedStyle(this[0],
-null),d={x:0,y:0};if(a)for(var p=r.length-1;0<=p;p--){var l=a.getPropertyValue(r[p]+"transform");if(l&&/matrix/i.test(l)){a=l.replace(/^matrix\(/i,"").split(/, |\)$/g);d={x:parseInt(a[4],10),y:parseInt(a[5],10)};break}}return d};d.fn.animate=function(a,b,p,l){a=a||{};var j=!("undefined"!==typeof a.bottom||"undefined"!==typeof a.right),h=d.speed(b,p,l),c=this,n=0,q=function(){n--;0===n&&"function"===typeof h.complete&&h.complete.apply(c,arguments)},t;if(!(t=!0===("undefined"!==typeof a.avoidCSSTransitions?
-a.avoidCSSTransitions:C)))if(!(t=!O))if(!(t=B(a))){var k;a:{for(k in a)if(("width"==k||"height"==k)&&("show"==a[k]||"hide"==a[k]||"toggle"==a[k])){k=!0;break a}k=!1}t=k||0>=h.duration}return t?J.apply(this,arguments):this[!0===h.queue?"queue":"each"](function(){var b=d(this),c=d.extend({},h),l=function(c){var g=b.data("jQe")||{original:{}},f={};if(2==c.eventPhase){if(!0!==a.leaveTransforms){for(c=r.length-1;0<=c;c--)f[r[c]+"transform"]="";if(j&&"undefined"!==typeof g.meta){c=0;for(var e;e=I[c];++c)f[e]=
-g.meta[e+"_o"]+"px",d(this).css(e,f[e])}}b.unbind("webkitTransitionEnd oTransitionEnd transitionend").css(g.original).css(f).data("jQe",null);"hide"===a.opacity&&b.css({display:"none",opacity:""});q.call(this)}},k={bounce:"cubic-bezier(0.0, 0.35, .5, 1.3)",linear:"linear",swing:"ease-in-out",easeInQuad:"cubic-bezier(0.550, 0.085, 0.680, 0.530)",easeInCubic:"cubic-bezier(0.550, 0.055, 0.675, 0.190)",easeInQuart:"cubic-bezier(0.895, 0.030, 0.685, 0.220)",easeInQuint:"cubic-bezier(0.755, 0.050, 0.855, 0.060)",
-easeInSine:"cubic-bezier(0.470, 0.000, 0.745, 0.715)",easeInExpo:"cubic-bezier(0.950, 0.050, 0.795, 0.035)",easeInCirc:"cubic-bezier(0.600, 0.040, 0.980, 0.335)",easeInBack:"cubic-bezier(0.600, -0.280, 0.735, 0.045)",easeOutQuad:"cubic-bezier(0.250, 0.460, 0.450, 0.940)",easeOutCubic:"cubic-bezier(0.215, 0.610, 0.355, 1.000)",easeOutQuart:"cubic-bezier(0.165, 0.840, 0.440, 1.000)",easeOutQuint:"cubic-bezier(0.230, 1.000, 0.320, 1.000)",easeOutSine:"cubic-bezier(0.390, 0.575, 0.565, 1.000)",easeOutExpo:"cubic-bezier(0.190, 1.000, 0.220, 1.000)",
-easeOutCirc:"cubic-bezier(0.075, 0.820, 0.165, 1.000)",easeOutBack:"cubic-bezier(0.175, 0.885, 0.320, 1.275)",easeInOutQuad:"cubic-bezier(0.455, 0.030, 0.515, 0.955)",easeInOutCubic:"cubic-bezier(0.645, 0.045, 0.355, 1.000)",easeInOutQuart:"cubic-bezier(0.770, 0.000, 0.175, 1.000)",easeInOutQuint:"cubic-bezier(0.860, 0.000, 0.070, 1.000)",easeInOutSine:"cubic-bezier(0.445, 0.050, 0.550, 0.950)",easeInOutExpo:"cubic-bezier(1.000, 0.000, 0.000, 1.000)",easeInOutCirc:"cubic-bezier(0.785, 0.135, 0.150, 0.860)",
-easeInOutBack:"cubic-bezier(0.680, -0.550, 0.265, 1.550)"},y={},k=k[c.easing||"swing"]?k[c.easing||"swing"]:c.easing||"swing",e;for(e in a)if(-1===d.inArray(e,T)){var p=-1<d.inArray(e,I),m;var g=b,w=a[e],u=e,s=p&&!0!==a.avoidTransforms;if("d"==u)m=void 0;else if(M(g)){var f=U.exec(w);m="auto"===g.css(u)?0:g.css(u);m="string"==typeof m?H(m):m;"string"==typeof w&&H(w);var s=!0===s?0:m,t=g.is(":hidden"),v=g.translation();"left"==u&&(s=parseInt(m,10)+v.x);"right"==u&&(s=parseInt(m,10)+v.x);"top"==u&&
-(s=parseInt(m,10)+v.y);"bottom"==u&&(s=parseInt(m,10)+v.y);!f&&"show"==w?(s=1,t&&g.css({display:R(g.context.tagName),opacity:0})):!f&&"hide"==w&&(s=0);f?(g=parseFloat(f[2]),f[1]&&(g=("-="===f[1]?-1:1)*g+parseInt(s,10)),m=g):m=s}else m=void 0;f=e;g=m;w=b;if(M(w)){u=-1<d.inArray(f,S);if(("width"==f||"height"==f||"opacity"==f)&&parseFloat(g)===parseFloat(w.css(f)))u=!1;f=u}else f=!1;if(f){var f=b,g=e,w=c.duration,u=k,p=p&&!0!==a.avoidTransforms,s=j,t=a.useTranslate3d,v=(v=f.data("jQe"))&&!B(v)?v:d.extend(!0,
-{},W),A=m;if(-1<d.inArray(g,I)){var E=v.meta,C=H(f.css(g))||0,z=g+"_o",A=m-C;E[g]=A;E[z]="auto"==f.css(g)?0+A:C+A||0;v.meta=E;s&&0===A&&(A=0-E[z],E[g]=A,E[z]=0)}f.data("jQe",P(f,v,g,w,u,A,p,s,t))}else y[e]=a[e]}b.unbind("webkitTransitionEnd oTransitionEnd transitionend");if((e=b.data("jQe"))&&!B(e)&&!B(e.secondary)){n++;b.css(e.properties);var G=e.secondary;setTimeout(function(){b.bind("webkitTransitionEnd oTransitionEnd transitionend",l).css(G)})}else c.queue=!1;B(y)||(n++,J.apply(b,[y,{duration:c.duration,
-easing:d.easing[c.easing]?c.easing:d.easing.swing?"swing":"linear",complete:q,queue:c.queue}]));return!0})};d.fn.animate.defaults={};d.fn.stop=function(a,b,p){if(!O)return K.apply(this,[a,b]);a&&this.queue([]);this.each(function(){var l=d(this),j=l.data("jQe");if(j&&!B(j)){var h,c={};if(b){if(c=j.secondary,!p&&void 0!==typeof j.meta.left_o||void 0!==typeof j.meta.top_o){c.left=void 0!==typeof j.meta.left_o?j.meta.left_o:"auto";c.top=void 0!==typeof j.meta.top_o?j.meta.top_o:"auto";for(h=r.length-
-1;0<=h;h--)c[r[h]+"transform"]=""}}else if(!B(j.secondary)){var n=window.getComputedStyle(l[0],null);if(n)for(var q in j.secondary)if(j.secondary.hasOwnProperty(q)&&(q=q.replace(V,"-$1").toLowerCase(),c[q]=n.getPropertyValue(q),!p&&/matrix/i.test(c[q]))){h=c[q].replace(/^matrix\(/i,"").split(/, |\)$/g);c.left=parseFloat(h[4])+parseFloat(l.css("left"))+"px"||"auto";c.top=parseFloat(h[5])+parseFloat(l.css("top"))+"px"||"auto";for(h=r.length-1;0<=h;h--)c[r[h]+"transform"]=""}}l.unbind("webkitTransitionEnd oTransitionEnd transitionend");
-l.css(j.original).css(c).data("jQe",null)}else K.apply(l,[a,b])});return this}})(jQuery,jQuery.fn.animate,jQuery.fn.stop);
 /*
  * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
  *
@@ -1731,663 +3513,6 @@ function handler(event) {
 }
 
 })(jQuery);
-/*! Superslides - v0.6.2 - 2013-07-10
-* https://github.com/nicinabox/superslides
-* Copyright (c) 2013 Nic Aitch; Licensed MIT */
-(function(window, $) {
-
-var Superslides, plugin = 'superslides';
-
-Superslides = function(el, options) {
-  this.options = $.extend({
-    play: false,
-    animation_speed: 600,
-    animation_easing: 'swing',
-    animation: 'slide',
-    inherit_width_from: window,
-    inherit_height_from: window,
-    pagination: true,
-    hashchange: false,
-    scrollable: true,
-    elements: {
-      preserve: '.preserve',
-      nav: '.slides-navigation',
-      container: '.slides-container',
-      pagination: '.slides-pagination'
-    }
-  }, options);
-
-  var that       = this,
-      $control   = $('<div>', { "class": 'slides-control' }),
-      multiplier = 1;
-
-  this.$el        = $(el);
-  this.$container = this.$el.find(this.options.elements.container);
-
-  // Private Methods
-  var initialize = function() {
-    multiplier = that._findMultiplier();
-
-    that.$el.on('click', that.options.elements.nav + " a", function(e) {
-      e.preventDefault();
-
-      that.stop();
-      if ($(this).hasClass('next')) {
-        that.animate('next', function() {
-          that.start();
-        });
-      } else {
-        that.animate('prev', function() {
-          that.start();
-        });
-      }
-    });
-
-    $(document).on('keyup', function(e) {
-      if (e.keyCode === 37) {
-        that.animate('prev');
-      }
-      if (e.keyCode === 39) {
-        that.animate('next');
-      }
-    });
-
-    $(window).on('resize', function() {
-      setTimeout(function() {
-        var $children = that.$container.children();
-
-        that.width  = that._findWidth();
-        that.height = that._findHeight();
-
-        $children.css({
-          width: that.width,
-          left: that.width
-        });
-
-        that.css.containers();
-        that.css.images();
-      }, 10);
-    });
-
-    $(window).on('hashchange', function() {
-      var hash = that._parseHash(), index;
-
-      if (hash && !isNaN(hash)) {
-        // Minus 1 here because we don't want the url
-        // to be zero-indexed
-        index = that._upcomingSlide(hash - 1);
-
-      } else {
-        index = that._upcomingSlide(hash);
-      }
-
-      if (index >= 0 && index !== that.current) {
-        that.animate(index);
-      }
-    });
-
-    that.pagination._events();
-
-    that.start();
-    return that;
-  };
-
-var css = {
-  containers: function() {
-    if (that.init) {
-      that.$el.css({
-        height: that.height
-      });
-
-      that.$control.css({
-        width: that.width * multiplier,
-        left: -that.width
-      });
-
-      that.$container.css({
-
-      });
-    } else {
-      $('body').css({
-        margin: 0
-      });
-
-      that.$el.css({
-        position: 'relative',
-        overflow: 'hidden',
-        width: '100%',
-        height: that.height
-      });
-
-      that.$control.css({
-        position: 'relative',
-        transform: 'translate3d(0)',
-        height: '100%',
-        width: that.width * multiplier,
-        left: -that.width
-      });
-
-      that.$container.css({
-        display: 'none',
-        margin: '0',
-        padding: '0',
-        listStyle: 'none',
-        position: 'relative',
-        height: '100%'
-      });
-    }
-
-    if (that.size() === 1) {
-      that.$el.find(that.options.elements.nav).hide();
-    }
-  },
-  images: function() {
-    var $images = that.$container.find('img')
-                                 .not(that.options.elements.preserve)
-
-    $images.removeAttr('width').removeAttr('height')
-      .css({
-        "-webkit-backface-visibility": 'hidden',
-        "-ms-interpolation-mode": 'bicubic',
-        "position": 'absolute',
-        "left": '0',
-        "top": '0',
-        "z-index": '-1',
-        "max-width": 'none'
-      });
-
-    $images.each(function() {
-      var image_aspect_ratio = that.image._aspectRatio(this),
-          image = this;
-
-      if (!$.data(this, 'processed')) {
-        var img = new Image();
-        img.onload = function() {
-          that.image._scale(image, image_aspect_ratio);
-          that.image._center(image, image_aspect_ratio);
-          $.data(image, 'processed', true);
-        };
-        img.src = this.src;
-
-      } else {
-        that.image._scale(image, image_aspect_ratio);
-        that.image._center(image, image_aspect_ratio);
-      }
-    });
-  },
-  children: function() {
-    var $children = that.$container.children();
-
-    if ($children.is('img')) {
-      $children.each(function() {
-        if ($(this).is('img')) {
-          $(this).wrap('<div>');
-
-          // move id attribute
-          var id = $(this).attr('id');
-          $(this).removeAttr('id');
-          $(this).parent().attr('id', id);
-        }
-      });
-
-      $children = that.$container.children();
-    }
-
-    if (!that.init) {
-      $children.css({
-        display: 'none',
-        left: that.width * 2
-      });
-    }
-
-    $children.css({
-      position: 'absolute',
-      overflow: 'hidden',
-      height: '100%',
-      width: that.width,
-      top: 0,
-      zIndex: 0
-    });
-
-  }
-}
-
-var fx = {
-  slide: function(orientation, complete) {
-    var $children = that.$container.children(),
-        $target   = $children.eq(orientation.upcoming_slide);
-
-    $target.css({
-      left: orientation.upcoming_position,
-      display: 'block'
-    });
-
-    that.$control.animate({
-      left: orientation.offset
-    },
-    that.options.animation_speed,
-    that.options.animation_easing,
-    function() {
-      if (that.size() > 1) {
-        that.$control.css({
-          left: -that.width
-        });
-
-        $children.eq(orientation.upcoming_slide).css({
-          left: that.width,
-          zIndex: 2
-        });
-
-        if (orientation.outgoing_slide >= 0) {
-          $children.eq(orientation.outgoing_slide).css({
-            left: that.width,
-            display: 'none',
-            zIndex: 0
-          });
-        }
-      }
-
-      complete();
-    });
-  },
-  fade: function(orientation, complete) {
-    var that = this,
-        $children = that.$container.children(),
-        $outgoing = $children.eq(orientation.outgoing_slide),
-        $target = $children.eq(orientation.upcoming_slide);
-
-    $target.css({
-      left: this.width,
-      opacity: 1,
-      display: 'block'
-    });
-
-    if (orientation.outgoing_slide >= 0) {
-      $outgoing.animate({
-        opacity: 0
-      },
-      that.options.animation_speed,
-      that.options.animation_easing,
-      function() {
-        if (that.size() > 1) {
-          $children.eq(orientation.upcoming_slide).css({
-            zIndex: 2
-          });
-
-          if (orientation.outgoing_slide >= 0) {
-            $children.eq(orientation.outgoing_slide).css({
-              opacity: 1,
-              display: 'none',
-              zIndex: 0
-            });
-          }
-        }
-
-        complete();
-      });
-    } else {
-      $target.css({
-        zIndex: 2
-      });
-      complete();
-    }
-  }
-};
-
-fx = $.extend(fx, $.fn.superslides.fx);
-
-var image = {
-  _centerY: function(image) {
-    var $img = $(image);
-
-    $img.css({
-      top: (that.height - $img.height()) / 2
-    });
-  },
-  _centerX: function(image) {
-    var $img = $(image);
-
-    $img.css({
-      left: (that.width - $img.width()) / 2
-    });
-  },
-  _center: function(image) {
-    that.image._centerX(image);
-    that.image._centerY(image);
-  },
-  _aspectRatio: function(image) {
-    if (!image.naturalHeight && !image.naturalWidth) {
-      var img = new Image();
-      img.src = image.src;
-      image.naturalHeight = img.height;
-      image.naturalWidth = img.width;
-    }
-
-    return image.naturalHeight / image.naturalWidth;
-  },
-  _scale: function(image, image_aspect_ratio) {
-    image_aspect_ratio = image_aspect_ratio || that.image._aspectRatio(image);
-
-    var container_aspect_ratio = that.height / that.width,
-        $img = $(image);
-
-    if (container_aspect_ratio > image_aspect_ratio) {
-      $img.css({
-        height: that.height,
-        width: that.height / image_aspect_ratio
-      });
-
-    } else {
-      $img.css({
-        height: that.width * image_aspect_ratio,
-        width: that.width
-      });
-    }
-  }
-};
-
-var pagination = {
-  _setCurrent: function(i) {
-    if (!that.$pagination) { return; }
-
-    var $pagination_children = that.$pagination.children();
-
-    $pagination_children.removeClass('current');
-    $pagination_children.eq(i)
-      .addClass('current');
-  },
-  _addItem: function(i) {
-    var slide_number = i + 1,
-        href = slide_number,
-        $slide = that.$container.children().eq(i),
-        slide_id = $slide.attr('id');
-
-    if (slide_id) {
-      href = slide_id;
-    }
-
-    var $item = $("<a>", {
-      'href': "#" + href,
-      'text': href
-    });
-
-    $item.appendTo(that.$pagination);
-  },
-  _setup: function() {
-    if (!that.options.pagination || that.size() === 1) { return; }
-
-    var $pagination = $("<nav>", {
-      'class': that.options.elements.pagination.replace(/^\./, '')
-    });
-
-    that.$pagination = $pagination.appendTo(that.$el);
-
-    for (var i = 0; i < that.size(); i++) {
-      that.pagination._addItem(i);
-    }
-  },
-  _events: function() {
-    that.$el.on('click', that.options.elements.pagination + ' a', function(e) {
-      e.preventDefault();
-
-      var hash  = that._parseHash(this.hash),
-          index = that._upcomingSlide(hash - 1);
-
-      if (index !== that.current) {
-        that.animate(index, function() {
-          that.start();
-        });
-      }
-    });
-  }
-};
-
-  this.css = css;
-  this.image = image;
-  this.pagination = pagination;
-  this.fx = fx;
-  this.animation = this.fx[this.options.animation];
-
-  this.$control = this.$container.wrap($control).parent('.slides-control');
-
-  that._findPositions();
-  that.width  = that._findWidth();
-  that.height = that._findHeight();
-
-  this.css.children();
-  this.css.containers();
-  this.css.images();
-  this.pagination._setup();
-
-  return initialize();
-};
-
-Superslides.prototype = {
-  _findWidth: function() {
-    return $(this.options.inherit_width_from).width();
-  },
-  _findHeight: function() {
-    return $(this.options.inherit_height_from).height();
-  },
-
-  _findMultiplier: function() {
-    return this.size() === 1 ? 1 : 3;
-  },
-
-  _upcomingSlide: function(direction) {
-    if ((/next/).test(direction)) {
-      return this._nextInDom();
-
-    } else if ((/prev/).test(direction)) {
-      return this._prevInDom();
-
-    } else if ((/\d/).test(direction)) {
-      return +direction;
-
-    } else if (direction && (/\w/).test(direction)) {
-      var index = this._findSlideById(direction);
-      if (index >= 0) {
-        return index;
-      } else {
-        return 0;
-      }
-
-    } else {
-      return 0;
-    }
-  },
-
-  _findSlideById: function(id) {
-    return this.$container.find('#' + id).index();
-  },
-
-  _findPositions: function(current, thisRef) {
-    thisRef = thisRef || this;
-
-    if (current === undefined) {
-      current = -1;
-    }
-
-    thisRef.current = current;
-    thisRef.next    = thisRef._nextInDom();
-    thisRef.prev    = thisRef._prevInDom();
-  },
-
-  _nextInDom: function() {
-    var index = this.current + 1;
-
-    if (index === this.size()) {
-      index = 0;
-    }
-
-    return index;
-  },
-
-  _prevInDom: function() {
-    var index = this.current - 1;
-
-    if (index < 0) {
-      index = this.size() - 1;
-    }
-
-    return index;
-  },
-
-  _parseHash: function(hash) {
-    hash = hash || window.location.hash;
-    hash = hash.replace(/^#/, '');
-
-    if (hash && !isNaN(+hash)) {
-      hash = +hash;
-    }
-
-    return hash;
-  },
-
-  size: function() {
-    return this.$container.children().length;
-  },
-
-  destroy: function() {
-    return this.$el.removeData();
-  },
-
-  update: function() {
-    this.css.children();
-    this.css.containers();
-    this.css.images();
-
-    this.pagination._addItem(this.size())
-
-    this._findPositions(this.current);
-    this.$el.trigger('updated.slides');
-  },
-
-  stop: function() {
-    clearInterval(this.play_id);
-    delete this.play_id;
-
-    this.$el.trigger('stopped.slides');
-  },
-
-  start: function() {
-    var that = this;
-
-    if (that.options.hashchange) {
-      $(window).trigger('hashchange');
-    } else {
-      this.animate();
-    }
-
-    if (this.options.play) {
-      if (this.play_id) {
-        this.stop();
-      }
-
-      this.play_id = setInterval(function() {
-        that.animate();
-      }, this.options.play);
-    }
-
-    this.$el.trigger('started.slides');
-  },
-
-  animate: function(direction, userCallback) {
-    var that = this,
-        orientation = {};
-
-    if (this.animating) {
-      return;
-    }
-
-    this.animating = true;
-
-    if (direction === undefined) {
-      direction = 'next';
-    }
-
-    orientation.upcoming_slide = this._upcomingSlide(direction);
-
-    if (orientation.upcoming_slide >= this.size()) {
-      return;
-    }
-
-    orientation.outgoing_slide    = this.current;
-    orientation.upcoming_position = this.width * 2;
-    orientation.offset            = -orientation.upcoming_position;
-
-    if (direction === 'prev' || direction < orientation.outgoing_slide) {
-      orientation.upcoming_position = 0;
-      orientation.offset            = 0;
-    }
-
-    if (that.size() > 1) {
-      that.pagination._setCurrent(orientation.upcoming_slide);
-    }
-
-    if (that.options.hashchange) {
-      var hash = orientation.upcoming_slide + 1,
-          id = that.$container.children(':eq(' + orientation.upcoming_slide + ')').attr('id');
-
-      if (id) {
-        window.location.hash = id;
-      } else {
-        window.location.hash = hash;
-      }
-    }
-
-    that.$el.trigger('animating.slides', [orientation]);
-
-    that.animation(orientation, function() {
-      that._findPositions(orientation.upcoming_slide, that);
-
-      if (typeof userCallback === 'function') {
-        userCallback();
-      }
-
-      that.animating = false;
-      that.$el.trigger('animated.slides');
-
-      if (!that.init) {
-        that.$el.trigger('init.slides');
-        that.init = true;
-        that.$container.fadeIn('fast');
-      }
-    });
-  }
-};
-
-// jQuery plugin definition
-
-$.fn[plugin] = function(option, args) {
-  var result = [];
-
-  this.each(function() {
-    var $this, data, options;
-
-    $this = $(this);
-    data = $this.data(plugin);
-    options = typeof option === 'object' && option;
-
-    if (!data) {
-      result = $this.data(plugin, (data = new Superslides(this, options)));
-    }
-
-    if (typeof option === "string") {
-      result = data[option];
-      if (typeof result === 'function') {
-        return result = result.call(data, args);
-      }
-    }
-  });
-
-  return result;
-};
-
-$.fn[plugin].fx = {};
-
-})(this, jQuery);
-
 /*!
  * jQuery Validation Plugin v1.13.1
  *
@@ -3753,1423 +4878,6 @@ $.extend($.fn, {
 });
 
 }));
-//     Underscore.js 1.7.0
-//     http://underscorejs.org
-//     (c) 2009-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-//     Underscore may be freely distributed under the MIT license.
-
-(function() {
-
-  // Baseline setup
-  // --------------
-
-  // Establish the root object, `window` in the browser, or `exports` on the server.
-  var root = this;
-
-  // Save the previous value of the `_` variable.
-  var previousUnderscore = root._;
-
-  // Save bytes in the minified (but not gzipped) version:
-  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
-
-  // Create quick reference variables for speed access to core prototypes.
-  var
-    push             = ArrayProto.push,
-    slice            = ArrayProto.slice,
-    concat           = ArrayProto.concat,
-    toString         = ObjProto.toString,
-    hasOwnProperty   = ObjProto.hasOwnProperty;
-
-  // All **ECMAScript 5** native function implementations that we hope to use
-  // are declared here.
-  var
-    nativeIsArray      = Array.isArray,
-    nativeKeys         = Object.keys,
-    nativeBind         = FuncProto.bind;
-
-  // Create a safe reference to the Underscore object for use below.
-  var _ = function(obj) {
-    if (obj instanceof _) return obj;
-    if (!(this instanceof _)) return new _(obj);
-    this._wrapped = obj;
-  };
-
-  // Export the Underscore object for **Node.js**, with
-  // backwards-compatibility for the old `require()` API. If we're in
-  // the browser, add `_` as a global object.
-  if (typeof exports !== 'undefined') {
-    if (typeof module !== 'undefined' && module.exports) {
-      exports = module.exports = _;
-    }
-    exports._ = _;
-  } else {
-    root._ = _;
-  }
-
-  // Current version.
-  _.VERSION = '1.7.0';
-
-  // Internal function that returns an efficient (for current engines) version
-  // of the passed-in callback, to be repeatedly applied in other Underscore
-  // functions.
-  var createCallback = function(func, context, argCount) {
-    if (context === void 0) return func;
-    switch (argCount == null ? 3 : argCount) {
-      case 1: return function(value) {
-        return func.call(context, value);
-      };
-      case 2: return function(value, other) {
-        return func.call(context, value, other);
-      };
-      case 3: return function(value, index, collection) {
-        return func.call(context, value, index, collection);
-      };
-      case 4: return function(accumulator, value, index, collection) {
-        return func.call(context, accumulator, value, index, collection);
-      };
-    }
-    return function() {
-      return func.apply(context, arguments);
-    };
-  };
-
-  // A mostly-internal function to generate callbacks that can be applied
-  // to each element in a collection, returning the desired result — either
-  // identity, an arbitrary callback, a property matcher, or a property accessor.
-  _.iteratee = function(value, context, argCount) {
-    if (value == null) return _.identity;
-    if (_.isFunction(value)) return createCallback(value, context, argCount);
-    if (_.isObject(value)) return _.matches(value);
-    return _.property(value);
-  };
-
-  // Collection Functions
-  // --------------------
-
-  // The cornerstone, an `each` implementation, aka `forEach`.
-  // Handles raw objects in addition to array-likes. Treats all
-  // sparse array-likes as if they were dense.
-  _.each = _.forEach = function(obj, iteratee, context) {
-    if (obj == null) return obj;
-    iteratee = createCallback(iteratee, context);
-    var i, length = obj.length;
-    if (length === +length) {
-      for (i = 0; i < length; i++) {
-        iteratee(obj[i], i, obj);
-      }
-    } else {
-      var keys = _.keys(obj);
-      for (i = 0, length = keys.length; i < length; i++) {
-        iteratee(obj[keys[i]], keys[i], obj);
-      }
-    }
-    return obj;
-  };
-
-  // Return the results of applying the iteratee to each element.
-  _.map = _.collect = function(obj, iteratee, context) {
-    if (obj == null) return [];
-    iteratee = _.iteratee(iteratee, context);
-    var keys = obj.length !== +obj.length && _.keys(obj),
-        length = (keys || obj).length,
-        results = Array(length),
-        currentKey;
-    for (var index = 0; index < length; index++) {
-      currentKey = keys ? keys[index] : index;
-      results[index] = iteratee(obj[currentKey], currentKey, obj);
-    }
-    return results;
-  };
-
-  var reduceError = 'Reduce of empty array with no initial value';
-
-  // **Reduce** builds up a single result from a list of values, aka `inject`,
-  // or `foldl`.
-  _.reduce = _.foldl = _.inject = function(obj, iteratee, memo, context) {
-    if (obj == null) obj = [];
-    iteratee = createCallback(iteratee, context, 4);
-    var keys = obj.length !== +obj.length && _.keys(obj),
-        length = (keys || obj).length,
-        index = 0, currentKey;
-    if (arguments.length < 3) {
-      if (!length) throw new TypeError(reduceError);
-      memo = obj[keys ? keys[index++] : index++];
-    }
-    for (; index < length; index++) {
-      currentKey = keys ? keys[index] : index;
-      memo = iteratee(memo, obj[currentKey], currentKey, obj);
-    }
-    return memo;
-  };
-
-  // The right-associative version of reduce, also known as `foldr`.
-  _.reduceRight = _.foldr = function(obj, iteratee, memo, context) {
-    if (obj == null) obj = [];
-    iteratee = createCallback(iteratee, context, 4);
-    var keys = obj.length !== + obj.length && _.keys(obj),
-        index = (keys || obj).length,
-        currentKey;
-    if (arguments.length < 3) {
-      if (!index) throw new TypeError(reduceError);
-      memo = obj[keys ? keys[--index] : --index];
-    }
-    while (index--) {
-      currentKey = keys ? keys[index] : index;
-      memo = iteratee(memo, obj[currentKey], currentKey, obj);
-    }
-    return memo;
-  };
-
-  // Return the first value which passes a truth test. Aliased as `detect`.
-  _.find = _.detect = function(obj, predicate, context) {
-    var result;
-    predicate = _.iteratee(predicate, context);
-    _.some(obj, function(value, index, list) {
-      if (predicate(value, index, list)) {
-        result = value;
-        return true;
-      }
-    });
-    return result;
-  };
-
-  // Return all the elements that pass a truth test.
-  // Aliased as `select`.
-  _.filter = _.select = function(obj, predicate, context) {
-    var results = [];
-    if (obj == null) return results;
-    predicate = _.iteratee(predicate, context);
-    _.each(obj, function(value, index, list) {
-      if (predicate(value, index, list)) results.push(value);
-    });
-    return results;
-  };
-
-  // Return all the elements for which a truth test fails.
-  _.reject = function(obj, predicate, context) {
-    return _.filter(obj, _.negate(_.iteratee(predicate)), context);
-  };
-
-  // Determine whether all of the elements match a truth test.
-  // Aliased as `all`.
-  _.every = _.all = function(obj, predicate, context) {
-    if (obj == null) return true;
-    predicate = _.iteratee(predicate, context);
-    var keys = obj.length !== +obj.length && _.keys(obj),
-        length = (keys || obj).length,
-        index, currentKey;
-    for (index = 0; index < length; index++) {
-      currentKey = keys ? keys[index] : index;
-      if (!predicate(obj[currentKey], currentKey, obj)) return false;
-    }
-    return true;
-  };
-
-  // Determine if at least one element in the object matches a truth test.
-  // Aliased as `any`.
-  _.some = _.any = function(obj, predicate, context) {
-    if (obj == null) return false;
-    predicate = _.iteratee(predicate, context);
-    var keys = obj.length !== +obj.length && _.keys(obj),
-        length = (keys || obj).length,
-        index, currentKey;
-    for (index = 0; index < length; index++) {
-      currentKey = keys ? keys[index] : index;
-      if (predicate(obj[currentKey], currentKey, obj)) return true;
-    }
-    return false;
-  };
-
-  // Determine if the array or object contains a given value (using `===`).
-  // Aliased as `include`.
-  _.contains = _.include = function(obj, target) {
-    if (obj == null) return false;
-    if (obj.length !== +obj.length) obj = _.values(obj);
-    return _.indexOf(obj, target) >= 0;
-  };
-
-  // Invoke a method (with arguments) on every item in a collection.
-  _.invoke = function(obj, method) {
-    var args = slice.call(arguments, 2);
-    var isFunc = _.isFunction(method);
-    return _.map(obj, function(value) {
-      return (isFunc ? method : value[method]).apply(value, args);
-    });
-  };
-
-  // Convenience version of a common use case of `map`: fetching a property.
-  _.pluck = function(obj, key) {
-    return _.map(obj, _.property(key));
-  };
-
-  // Convenience version of a common use case of `filter`: selecting only objects
-  // containing specific `key:value` pairs.
-  _.where = function(obj, attrs) {
-    return _.filter(obj, _.matches(attrs));
-  };
-
-  // Convenience version of a common use case of `find`: getting the first object
-  // containing specific `key:value` pairs.
-  _.findWhere = function(obj, attrs) {
-    return _.find(obj, _.matches(attrs));
-  };
-
-  // Return the maximum element (or element-based computation).
-  _.max = function(obj, iteratee, context) {
-    var result = -Infinity, lastComputed = -Infinity,
-        value, computed;
-    if (iteratee == null && obj != null) {
-      obj = obj.length === +obj.length ? obj : _.values(obj);
-      for (var i = 0, length = obj.length; i < length; i++) {
-        value = obj[i];
-        if (value > result) {
-          result = value;
-        }
-      }
-    } else {
-      iteratee = _.iteratee(iteratee, context);
-      _.each(obj, function(value, index, list) {
-        computed = iteratee(value, index, list);
-        if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
-          result = value;
-          lastComputed = computed;
-        }
-      });
-    }
-    return result;
-  };
-
-  // Return the minimum element (or element-based computation).
-  _.min = function(obj, iteratee, context) {
-    var result = Infinity, lastComputed = Infinity,
-        value, computed;
-    if (iteratee == null && obj != null) {
-      obj = obj.length === +obj.length ? obj : _.values(obj);
-      for (var i = 0, length = obj.length; i < length; i++) {
-        value = obj[i];
-        if (value < result) {
-          result = value;
-        }
-      }
-    } else {
-      iteratee = _.iteratee(iteratee, context);
-      _.each(obj, function(value, index, list) {
-        computed = iteratee(value, index, list);
-        if (computed < lastComputed || computed === Infinity && result === Infinity) {
-          result = value;
-          lastComputed = computed;
-        }
-      });
-    }
-    return result;
-  };
-
-  // Shuffle a collection, using the modern version of the
-  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
-  _.shuffle = function(obj) {
-    var set = obj && obj.length === +obj.length ? obj : _.values(obj);
-    var length = set.length;
-    var shuffled = Array(length);
-    for (var index = 0, rand; index < length; index++) {
-      rand = _.random(0, index);
-      if (rand !== index) shuffled[index] = shuffled[rand];
-      shuffled[rand] = set[index];
-    }
-    return shuffled;
-  };
-
-  // Sample **n** random values from a collection.
-  // If **n** is not specified, returns a single random element.
-  // The internal `guard` argument allows it to work with `map`.
-  _.sample = function(obj, n, guard) {
-    if (n == null || guard) {
-      if (obj.length !== +obj.length) obj = _.values(obj);
-      return obj[_.random(obj.length - 1)];
-    }
-    return _.shuffle(obj).slice(0, Math.max(0, n));
-  };
-
-  // Sort the object's values by a criterion produced by an iteratee.
-  _.sortBy = function(obj, iteratee, context) {
-    iteratee = _.iteratee(iteratee, context);
-    return _.pluck(_.map(obj, function(value, index, list) {
-      return {
-        value: value,
-        index: index,
-        criteria: iteratee(value, index, list)
-      };
-    }).sort(function(left, right) {
-      var a = left.criteria;
-      var b = right.criteria;
-      if (a !== b) {
-        if (a > b || a === void 0) return 1;
-        if (a < b || b === void 0) return -1;
-      }
-      return left.index - right.index;
-    }), 'value');
-  };
-
-  // An internal function used for aggregate "group by" operations.
-  var group = function(behavior) {
-    return function(obj, iteratee, context) {
-      var result = {};
-      iteratee = _.iteratee(iteratee, context);
-      _.each(obj, function(value, index) {
-        var key = iteratee(value, index, obj);
-        behavior(result, value, key);
-      });
-      return result;
-    };
-  };
-
-  // Groups the object's values by a criterion. Pass either a string attribute
-  // to group by, or a function that returns the criterion.
-  _.groupBy = group(function(result, value, key) {
-    if (_.has(result, key)) result[key].push(value); else result[key] = [value];
-  });
-
-  // Indexes the object's values by a criterion, similar to `groupBy`, but for
-  // when you know that your index values will be unique.
-  _.indexBy = group(function(result, value, key) {
-    result[key] = value;
-  });
-
-  // Counts instances of an object that group by a certain criterion. Pass
-  // either a string attribute to count by, or a function that returns the
-  // criterion.
-  _.countBy = group(function(result, value, key) {
-    if (_.has(result, key)) result[key]++; else result[key] = 1;
-  });
-
-  // Use a comparator function to figure out the smallest index at which
-  // an object should be inserted so as to maintain order. Uses binary search.
-  _.sortedIndex = function(array, obj, iteratee, context) {
-    iteratee = _.iteratee(iteratee, context, 1);
-    var value = iteratee(obj);
-    var low = 0, high = array.length;
-    while (low < high) {
-      var mid = low + high >>> 1;
-      if (iteratee(array[mid]) < value) low = mid + 1; else high = mid;
-    }
-    return low;
-  };
-
-  // Safely create a real, live array from anything iterable.
-  _.toArray = function(obj) {
-    if (!obj) return [];
-    if (_.isArray(obj)) return slice.call(obj);
-    if (obj.length === +obj.length) return _.map(obj, _.identity);
-    return _.values(obj);
-  };
-
-  // Return the number of elements in an object.
-  _.size = function(obj) {
-    if (obj == null) return 0;
-    return obj.length === +obj.length ? obj.length : _.keys(obj).length;
-  };
-
-  // Split a collection into two arrays: one whose elements all satisfy the given
-  // predicate, and one whose elements all do not satisfy the predicate.
-  _.partition = function(obj, predicate, context) {
-    predicate = _.iteratee(predicate, context);
-    var pass = [], fail = [];
-    _.each(obj, function(value, key, obj) {
-      (predicate(value, key, obj) ? pass : fail).push(value);
-    });
-    return [pass, fail];
-  };
-
-  // Array Functions
-  // ---------------
-
-  // Get the first element of an array. Passing **n** will return the first N
-  // values in the array. Aliased as `head` and `take`. The **guard** check
-  // allows it to work with `_.map`.
-  _.first = _.head = _.take = function(array, n, guard) {
-    if (array == null) return void 0;
-    if (n == null || guard) return array[0];
-    if (n < 0) return [];
-    return slice.call(array, 0, n);
-  };
-
-  // Returns everything but the last entry of the array. Especially useful on
-  // the arguments object. Passing **n** will return all the values in
-  // the array, excluding the last N. The **guard** check allows it to work with
-  // `_.map`.
-  _.initial = function(array, n, guard) {
-    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
-  };
-
-  // Get the last element of an array. Passing **n** will return the last N
-  // values in the array. The **guard** check allows it to work with `_.map`.
-  _.last = function(array, n, guard) {
-    if (array == null) return void 0;
-    if (n == null || guard) return array[array.length - 1];
-    return slice.call(array, Math.max(array.length - n, 0));
-  };
-
-  // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
-  // Especially useful on the arguments object. Passing an **n** will return
-  // the rest N values in the array. The **guard**
-  // check allows it to work with `_.map`.
-  _.rest = _.tail = _.drop = function(array, n, guard) {
-    return slice.call(array, n == null || guard ? 1 : n);
-  };
-
-  // Trim out all falsy values from an array.
-  _.compact = function(array) {
-    return _.filter(array, _.identity);
-  };
-
-  // Internal implementation of a recursive `flatten` function.
-  var flatten = function(input, shallow, strict, output) {
-    if (shallow && _.every(input, _.isArray)) {
-      return concat.apply(output, input);
-    }
-    for (var i = 0, length = input.length; i < length; i++) {
-      var value = input[i];
-      if (!_.isArray(value) && !_.isArguments(value)) {
-        if (!strict) output.push(value);
-      } else if (shallow) {
-        push.apply(output, value);
-      } else {
-        flatten(value, shallow, strict, output);
-      }
-    }
-    return output;
-  };
-
-  // Flatten out an array, either recursively (by default), or just one level.
-  _.flatten = function(array, shallow) {
-    return flatten(array, shallow, false, []);
-  };
-
-  // Return a version of the array that does not contain the specified value(s).
-  _.without = function(array) {
-    return _.difference(array, slice.call(arguments, 1));
-  };
-
-  // Produce a duplicate-free version of the array. If the array has already
-  // been sorted, you have the option of using a faster algorithm.
-  // Aliased as `unique`.
-  _.uniq = _.unique = function(array, isSorted, iteratee, context) {
-    if (array == null) return [];
-    if (!_.isBoolean(isSorted)) {
-      context = iteratee;
-      iteratee = isSorted;
-      isSorted = false;
-    }
-    if (iteratee != null) iteratee = _.iteratee(iteratee, context);
-    var result = [];
-    var seen = [];
-    for (var i = 0, length = array.length; i < length; i++) {
-      var value = array[i];
-      if (isSorted) {
-        if (!i || seen !== value) result.push(value);
-        seen = value;
-      } else if (iteratee) {
-        var computed = iteratee(value, i, array);
-        if (_.indexOf(seen, computed) < 0) {
-          seen.push(computed);
-          result.push(value);
-        }
-      } else if (_.indexOf(result, value) < 0) {
-        result.push(value);
-      }
-    }
-    return result;
-  };
-
-  // Produce an array that contains the union: each distinct element from all of
-  // the passed-in arrays.
-  _.union = function() {
-    return _.uniq(flatten(arguments, true, true, []));
-  };
-
-  // Produce an array that contains every item shared between all the
-  // passed-in arrays.
-  _.intersection = function(array) {
-    if (array == null) return [];
-    var result = [];
-    var argsLength = arguments.length;
-    for (var i = 0, length = array.length; i < length; i++) {
-      var item = array[i];
-      if (_.contains(result, item)) continue;
-      for (var j = 1; j < argsLength; j++) {
-        if (!_.contains(arguments[j], item)) break;
-      }
-      if (j === argsLength) result.push(item);
-    }
-    return result;
-  };
-
-  // Take the difference between one array and a number of other arrays.
-  // Only the elements present in just the first array will remain.
-  _.difference = function(array) {
-    var rest = flatten(slice.call(arguments, 1), true, true, []);
-    return _.filter(array, function(value){
-      return !_.contains(rest, value);
-    });
-  };
-
-  // Zip together multiple lists into a single array -- elements that share
-  // an index go together.
-  _.zip = function(array) {
-    if (array == null) return [];
-    var length = _.max(arguments, 'length').length;
-    var results = Array(length);
-    for (var i = 0; i < length; i++) {
-      results[i] = _.pluck(arguments, i);
-    }
-    return results;
-  };
-
-  // Converts lists into objects. Pass either a single array of `[key, value]`
-  // pairs, or two parallel arrays of the same length -- one of keys, and one of
-  // the corresponding values.
-  _.object = function(list, values) {
-    if (list == null) return {};
-    var result = {};
-    for (var i = 0, length = list.length; i < length; i++) {
-      if (values) {
-        result[list[i]] = values[i];
-      } else {
-        result[list[i][0]] = list[i][1];
-      }
-    }
-    return result;
-  };
-
-  // Return the position of the first occurrence of an item in an array,
-  // or -1 if the item is not included in the array.
-  // If the array is large and already in sort order, pass `true`
-  // for **isSorted** to use binary search.
-  _.indexOf = function(array, item, isSorted) {
-    if (array == null) return -1;
-    var i = 0, length = array.length;
-    if (isSorted) {
-      if (typeof isSorted == 'number') {
-        i = isSorted < 0 ? Math.max(0, length + isSorted) : isSorted;
-      } else {
-        i = _.sortedIndex(array, item);
-        return array[i] === item ? i : -1;
-      }
-    }
-    for (; i < length; i++) if (array[i] === item) return i;
-    return -1;
-  };
-
-  _.lastIndexOf = function(array, item, from) {
-    if (array == null) return -1;
-    var idx = array.length;
-    if (typeof from == 'number') {
-      idx = from < 0 ? idx + from + 1 : Math.min(idx, from + 1);
-    }
-    while (--idx >= 0) if (array[idx] === item) return idx;
-    return -1;
-  };
-
-  // Generate an integer Array containing an arithmetic progression. A port of
-  // the native Python `range()` function. See
-  // [the Python documentation](http://docs.python.org/library/functions.html#range).
-  _.range = function(start, stop, step) {
-    if (arguments.length <= 1) {
-      stop = start || 0;
-      start = 0;
-    }
-    step = step || 1;
-
-    var length = Math.max(Math.ceil((stop - start) / step), 0);
-    var range = Array(length);
-
-    for (var idx = 0; idx < length; idx++, start += step) {
-      range[idx] = start;
-    }
-
-    return range;
-  };
-
-  // Function (ahem) Functions
-  // ------------------
-
-  // Reusable constructor function for prototype setting.
-  var Ctor = function(){};
-
-  // Create a function bound to a given object (assigning `this`, and arguments,
-  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
-  // available.
-  _.bind = function(func, context) {
-    var args, bound;
-    if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
-    if (!_.isFunction(func)) throw new TypeError('Bind must be called on a function');
-    args = slice.call(arguments, 2);
-    bound = function() {
-      if (!(this instanceof bound)) return func.apply(context, args.concat(slice.call(arguments)));
-      Ctor.prototype = func.prototype;
-      var self = new Ctor;
-      Ctor.prototype = null;
-      var result = func.apply(self, args.concat(slice.call(arguments)));
-      if (_.isObject(result)) return result;
-      return self;
-    };
-    return bound;
-  };
-
-  // Partially apply a function by creating a version that has had some of its
-  // arguments pre-filled, without changing its dynamic `this` context. _ acts
-  // as a placeholder, allowing any combination of arguments to be pre-filled.
-  _.partial = function(func) {
-    var boundArgs = slice.call(arguments, 1);
-    return function() {
-      var position = 0;
-      var args = boundArgs.slice();
-      for (var i = 0, length = args.length; i < length; i++) {
-        if (args[i] === _) args[i] = arguments[position++];
-      }
-      while (position < arguments.length) args.push(arguments[position++]);
-      return func.apply(this, args);
-    };
-  };
-
-  // Bind a number of an object's methods to that object. Remaining arguments
-  // are the method names to be bound. Useful for ensuring that all callbacks
-  // defined on an object belong to it.
-  _.bindAll = function(obj) {
-    var i, length = arguments.length, key;
-    if (length <= 1) throw new Error('bindAll must be passed function names');
-    for (i = 1; i < length; i++) {
-      key = arguments[i];
-      obj[key] = _.bind(obj[key], obj);
-    }
-    return obj;
-  };
-
-  // Memoize an expensive function by storing its results.
-  _.memoize = function(func, hasher) {
-    var memoize = function(key) {
-      var cache = memoize.cache;
-      var address = hasher ? hasher.apply(this, arguments) : key;
-      if (!_.has(cache, address)) cache[address] = func.apply(this, arguments);
-      return cache[address];
-    };
-    memoize.cache = {};
-    return memoize;
-  };
-
-  // Delays a function for the given number of milliseconds, and then calls
-  // it with the arguments supplied.
-  _.delay = function(func, wait) {
-    var args = slice.call(arguments, 2);
-    return setTimeout(function(){
-      return func.apply(null, args);
-    }, wait);
-  };
-
-  // Defers a function, scheduling it to run after the current call stack has
-  // cleared.
-  _.defer = function(func) {
-    return _.delay.apply(_, [func, 1].concat(slice.call(arguments, 1)));
-  };
-
-  // Returns a function, that, when invoked, will only be triggered at most once
-  // during a given window of time. Normally, the throttled function will run
-  // as much as it can, without ever going more than once per `wait` duration;
-  // but if you'd like to disable the execution on the leading edge, pass
-  // `{leading: false}`. To disable execution on the trailing edge, ditto.
-  _.throttle = function(func, wait, options) {
-    var context, args, result;
-    var timeout = null;
-    var previous = 0;
-    if (!options) options = {};
-    var later = function() {
-      previous = options.leading === false ? 0 : _.now();
-      timeout = null;
-      result = func.apply(context, args);
-      if (!timeout) context = args = null;
-    };
-    return function() {
-      var now = _.now();
-      if (!previous && options.leading === false) previous = now;
-      var remaining = wait - (now - previous);
-      context = this;
-      args = arguments;
-      if (remaining <= 0 || remaining > wait) {
-        clearTimeout(timeout);
-        timeout = null;
-        previous = now;
-        result = func.apply(context, args);
-        if (!timeout) context = args = null;
-      } else if (!timeout && options.trailing !== false) {
-        timeout = setTimeout(later, remaining);
-      }
-      return result;
-    };
-  };
-
-  // Returns a function, that, as long as it continues to be invoked, will not
-  // be triggered. The function will be called after it stops being called for
-  // N milliseconds. If `immediate` is passed, trigger the function on the
-  // leading edge, instead of the trailing.
-  _.debounce = function(func, wait, immediate) {
-    var timeout, args, context, timestamp, result;
-
-    var later = function() {
-      var last = _.now() - timestamp;
-
-      if (last < wait && last > 0) {
-        timeout = setTimeout(later, wait - last);
-      } else {
-        timeout = null;
-        if (!immediate) {
-          result = func.apply(context, args);
-          if (!timeout) context = args = null;
-        }
-      }
-    };
-
-    return function() {
-      context = this;
-      args = arguments;
-      timestamp = _.now();
-      var callNow = immediate && !timeout;
-      if (!timeout) timeout = setTimeout(later, wait);
-      if (callNow) {
-        result = func.apply(context, args);
-        context = args = null;
-      }
-
-      return result;
-    };
-  };
-
-  // Returns the first function passed as an argument to the second,
-  // allowing you to adjust arguments, run code before and after, and
-  // conditionally execute the original function.
-  _.wrap = function(func, wrapper) {
-    return _.partial(wrapper, func);
-  };
-
-  // Returns a negated version of the passed-in predicate.
-  _.negate = function(predicate) {
-    return function() {
-      return !predicate.apply(this, arguments);
-    };
-  };
-
-  // Returns a function that is the composition of a list of functions, each
-  // consuming the return value of the function that follows.
-  _.compose = function() {
-    var args = arguments;
-    var start = args.length - 1;
-    return function() {
-      var i = start;
-      var result = args[start].apply(this, arguments);
-      while (i--) result = args[i].call(this, result);
-      return result;
-    };
-  };
-
-  // Returns a function that will only be executed after being called N times.
-  _.after = function(times, func) {
-    return function() {
-      if (--times < 1) {
-        return func.apply(this, arguments);
-      }
-    };
-  };
-
-  // Returns a function that will only be executed before being called N times.
-  _.before = function(times, func) {
-    var memo;
-    return function() {
-      if (--times > 0) {
-        memo = func.apply(this, arguments);
-      } else {
-        func = null;
-      }
-      return memo;
-    };
-  };
-
-  // Returns a function that will be executed at most one time, no matter how
-  // often you call it. Useful for lazy initialization.
-  _.once = _.partial(_.before, 2);
-
-  // Object Functions
-  // ----------------
-
-  // Retrieve the names of an object's properties.
-  // Delegates to **ECMAScript 5**'s native `Object.keys`
-  _.keys = function(obj) {
-    if (!_.isObject(obj)) return [];
-    if (nativeKeys) return nativeKeys(obj);
-    var keys = [];
-    for (var key in obj) if (_.has(obj, key)) keys.push(key);
-    return keys;
-  };
-
-  // Retrieve the values of an object's properties.
-  _.values = function(obj) {
-    var keys = _.keys(obj);
-    var length = keys.length;
-    var values = Array(length);
-    for (var i = 0; i < length; i++) {
-      values[i] = obj[keys[i]];
-    }
-    return values;
-  };
-
-  // Convert an object into a list of `[key, value]` pairs.
-  _.pairs = function(obj) {
-    var keys = _.keys(obj);
-    var length = keys.length;
-    var pairs = Array(length);
-    for (var i = 0; i < length; i++) {
-      pairs[i] = [keys[i], obj[keys[i]]];
-    }
-    return pairs;
-  };
-
-  // Invert the keys and values of an object. The values must be serializable.
-  _.invert = function(obj) {
-    var result = {};
-    var keys = _.keys(obj);
-    for (var i = 0, length = keys.length; i < length; i++) {
-      result[obj[keys[i]]] = keys[i];
-    }
-    return result;
-  };
-
-  // Return a sorted list of the function names available on the object.
-  // Aliased as `methods`
-  _.functions = _.methods = function(obj) {
-    var names = [];
-    for (var key in obj) {
-      if (_.isFunction(obj[key])) names.push(key);
-    }
-    return names.sort();
-  };
-
-  // Extend a given object with all the properties in passed-in object(s).
-  _.extend = function(obj) {
-    if (!_.isObject(obj)) return obj;
-    var source, prop;
-    for (var i = 1, length = arguments.length; i < length; i++) {
-      source = arguments[i];
-      for (prop in source) {
-        if (hasOwnProperty.call(source, prop)) {
-            obj[prop] = source[prop];
-        }
-      }
-    }
-    return obj;
-  };
-
-  // Return a copy of the object only containing the whitelisted properties.
-  _.pick = function(obj, iteratee, context) {
-    var result = {}, key;
-    if (obj == null) return result;
-    if (_.isFunction(iteratee)) {
-      iteratee = createCallback(iteratee, context);
-      for (key in obj) {
-        var value = obj[key];
-        if (iteratee(value, key, obj)) result[key] = value;
-      }
-    } else {
-      var keys = concat.apply([], slice.call(arguments, 1));
-      obj = new Object(obj);
-      for (var i = 0, length = keys.length; i < length; i++) {
-        key = keys[i];
-        if (key in obj) result[key] = obj[key];
-      }
-    }
-    return result;
-  };
-
-   // Return a copy of the object without the blacklisted properties.
-  _.omit = function(obj, iteratee, context) {
-    if (_.isFunction(iteratee)) {
-      iteratee = _.negate(iteratee);
-    } else {
-      var keys = _.map(concat.apply([], slice.call(arguments, 1)), String);
-      iteratee = function(value, key) {
-        return !_.contains(keys, key);
-      };
-    }
-    return _.pick(obj, iteratee, context);
-  };
-
-  // Fill in a given object with default properties.
-  _.defaults = function(obj) {
-    if (!_.isObject(obj)) return obj;
-    for (var i = 1, length = arguments.length; i < length; i++) {
-      var source = arguments[i];
-      for (var prop in source) {
-        if (obj[prop] === void 0) obj[prop] = source[prop];
-      }
-    }
-    return obj;
-  };
-
-  // Create a (shallow-cloned) duplicate of an object.
-  _.clone = function(obj) {
-    if (!_.isObject(obj)) return obj;
-    return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
-  };
-
-  // Invokes interceptor with the obj, and then returns obj.
-  // The primary purpose of this method is to "tap into" a method chain, in
-  // order to perform operations on intermediate results within the chain.
-  _.tap = function(obj, interceptor) {
-    interceptor(obj);
-    return obj;
-  };
-
-  // Internal recursive comparison function for `isEqual`.
-  var eq = function(a, b, aStack, bStack) {
-    // Identical objects are equal. `0 === -0`, but they aren't identical.
-    // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
-    if (a === b) return a !== 0 || 1 / a === 1 / b;
-    // A strict comparison is necessary because `null == undefined`.
-    if (a == null || b == null) return a === b;
-    // Unwrap any wrapped objects.
-    if (a instanceof _) a = a._wrapped;
-    if (b instanceof _) b = b._wrapped;
-    // Compare `[[Class]]` names.
-    var className = toString.call(a);
-    if (className !== toString.call(b)) return false;
-    switch (className) {
-      // Strings, numbers, regular expressions, dates, and booleans are compared by value.
-      case '[object RegExp]':
-      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
-      case '[object String]':
-        // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
-        // equivalent to `new String("5")`.
-        return '' + a === '' + b;
-      case '[object Number]':
-        // `NaN`s are equivalent, but non-reflexive.
-        // Object(NaN) is equivalent to NaN
-        if (+a !== +a) return +b !== +b;
-        // An `egal` comparison is performed for other numeric values.
-        return +a === 0 ? 1 / +a === 1 / b : +a === +b;
-      case '[object Date]':
-      case '[object Boolean]':
-        // Coerce dates and booleans to numeric primitive values. Dates are compared by their
-        // millisecond representations. Note that invalid dates with millisecond representations
-        // of `NaN` are not equivalent.
-        return +a === +b;
-    }
-    if (typeof a != 'object' || typeof b != 'object') return false;
-    // Assume equality for cyclic structures. The algorithm for detecting cyclic
-    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
-    var length = aStack.length;
-    while (length--) {
-      // Linear search. Performance is inversely proportional to the number of
-      // unique nested structures.
-      if (aStack[length] === a) return bStack[length] === b;
-    }
-    // Objects with different constructors are not equivalent, but `Object`s
-    // from different frames are.
-    var aCtor = a.constructor, bCtor = b.constructor;
-    if (
-      aCtor !== bCtor &&
-      // Handle Object.create(x) cases
-      'constructor' in a && 'constructor' in b &&
-      !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
-        _.isFunction(bCtor) && bCtor instanceof bCtor)
-    ) {
-      return false;
-    }
-    // Add the first object to the stack of traversed objects.
-    aStack.push(a);
-    bStack.push(b);
-    var size, result;
-    // Recursively compare objects and arrays.
-    if (className === '[object Array]') {
-      // Compare array lengths to determine if a deep comparison is necessary.
-      size = a.length;
-      result = size === b.length;
-      if (result) {
-        // Deep compare the contents, ignoring non-numeric properties.
-        while (size--) {
-          if (!(result = eq(a[size], b[size], aStack, bStack))) break;
-        }
-      }
-    } else {
-      // Deep compare objects.
-      var keys = _.keys(a), key;
-      size = keys.length;
-      // Ensure that both objects contain the same number of properties before comparing deep equality.
-      result = _.keys(b).length === size;
-      if (result) {
-        while (size--) {
-          // Deep compare each member
-          key = keys[size];
-          if (!(result = _.has(b, key) && eq(a[key], b[key], aStack, bStack))) break;
-        }
-      }
-    }
-    // Remove the first object from the stack of traversed objects.
-    aStack.pop();
-    bStack.pop();
-    return result;
-  };
-
-  // Perform a deep comparison to check if two objects are equal.
-  _.isEqual = function(a, b) {
-    return eq(a, b, [], []);
-  };
-
-  // Is a given array, string, or object empty?
-  // An "empty" object has no enumerable own-properties.
-  _.isEmpty = function(obj) {
-    if (obj == null) return true;
-    if (_.isArray(obj) || _.isString(obj) || _.isArguments(obj)) return obj.length === 0;
-    for (var key in obj) if (_.has(obj, key)) return false;
-    return true;
-  };
-
-  // Is a given value a DOM element?
-  _.isElement = function(obj) {
-    return !!(obj && obj.nodeType === 1);
-  };
-
-  // Is a given value an array?
-  // Delegates to ECMA5's native Array.isArray
-  _.isArray = nativeIsArray || function(obj) {
-    return toString.call(obj) === '[object Array]';
-  };
-
-  // Is a given variable an object?
-  _.isObject = function(obj) {
-    var type = typeof obj;
-    return type === 'function' || type === 'object' && !!obj;
-  };
-
-  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp.
-  _.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp'], function(name) {
-    _['is' + name] = function(obj) {
-      return toString.call(obj) === '[object ' + name + ']';
-    };
-  });
-
-  // Define a fallback version of the method in browsers (ahem, IE), where
-  // there isn't any inspectable "Arguments" type.
-  if (!_.isArguments(arguments)) {
-    _.isArguments = function(obj) {
-      return _.has(obj, 'callee');
-    };
-  }
-
-  // Optimize `isFunction` if appropriate. Work around an IE 11 bug.
-  if (typeof /./ !== 'function') {
-    _.isFunction = function(obj) {
-      return typeof obj == 'function' || false;
-    };
-  }
-
-  // Is a given object a finite number?
-  _.isFinite = function(obj) {
-    return isFinite(obj) && !isNaN(parseFloat(obj));
-  };
-
-  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
-  _.isNaN = function(obj) {
-    return _.isNumber(obj) && obj !== +obj;
-  };
-
-  // Is a given value a boolean?
-  _.isBoolean = function(obj) {
-    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
-  };
-
-  // Is a given value equal to null?
-  _.isNull = function(obj) {
-    return obj === null;
-  };
-
-  // Is a given variable undefined?
-  _.isUndefined = function(obj) {
-    return obj === void 0;
-  };
-
-  // Shortcut function for checking if an object has a given property directly
-  // on itself (in other words, not on a prototype).
-  _.has = function(obj, key) {
-    return obj != null && hasOwnProperty.call(obj, key);
-  };
-
-  // Utility Functions
-  // -----------------
-
-  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
-  // previous owner. Returns a reference to the Underscore object.
-  _.noConflict = function() {
-    root._ = previousUnderscore;
-    return this;
-  };
-
-  // Keep the identity function around for default iteratees.
-  _.identity = function(value) {
-    return value;
-  };
-
-  // Predicate-generating functions. Often useful outside of Underscore.
-  _.constant = function(value) {
-    return function() {
-      return value;
-    };
-  };
-
-  _.noop = function(){};
-
-  _.property = function(key) {
-    return function(obj) {
-      return obj[key];
-    };
-  };
-
-  // Returns a predicate for checking whether an object has a given set of `key:value` pairs.
-  _.matches = function(attrs) {
-    var pairs = _.pairs(attrs), length = pairs.length;
-    return function(obj) {
-      if (obj == null) return !length;
-      obj = new Object(obj);
-      for (var i = 0; i < length; i++) {
-        var pair = pairs[i], key = pair[0];
-        if (pair[1] !== obj[key] || !(key in obj)) return false;
-      }
-      return true;
-    };
-  };
-
-  // Run a function **n** times.
-  _.times = function(n, iteratee, context) {
-    var accum = Array(Math.max(0, n));
-    iteratee = createCallback(iteratee, context, 1);
-    for (var i = 0; i < n; i++) accum[i] = iteratee(i);
-    return accum;
-  };
-
-  // Return a random integer between min and max (inclusive).
-  _.random = function(min, max) {
-    if (max == null) {
-      max = min;
-      min = 0;
-    }
-    return min + Math.floor(Math.random() * (max - min + 1));
-  };
-
-  // A (possibly faster) way to get the current timestamp as an integer.
-  _.now = Date.now || function() {
-    return new Date().getTime();
-  };
-
-   // List of HTML entities for escaping.
-  var escapeMap = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#x27;',
-    '`': '&#x60;'
-  };
-  var unescapeMap = _.invert(escapeMap);
-
-  // Functions for escaping and unescaping strings to/from HTML interpolation.
-  var createEscaper = function(map) {
-    var escaper = function(match) {
-      return map[match];
-    };
-    // Regexes for identifying a key that needs to be escaped
-    var source = '(?:' + _.keys(map).join('|') + ')';
-    var testRegexp = RegExp(source);
-    var replaceRegexp = RegExp(source, 'g');
-    return function(string) {
-      string = string == null ? '' : '' + string;
-      return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
-    };
-  };
-  _.escape = createEscaper(escapeMap);
-  _.unescape = createEscaper(unescapeMap);
-
-  // If the value of the named `property` is a function then invoke it with the
-  // `object` as context; otherwise, return it.
-  _.result = function(object, property) {
-    if (object == null) return void 0;
-    var value = object[property];
-    return _.isFunction(value) ? object[property]() : value;
-  };
-
-  // Generate a unique integer id (unique within the entire client session).
-  // Useful for temporary DOM ids.
-  var idCounter = 0;
-  _.uniqueId = function(prefix) {
-    var id = ++idCounter + '';
-    return prefix ? prefix + id : id;
-  };
-
-  // By default, Underscore uses ERB-style template delimiters, change the
-  // following template settings to use alternative delimiters.
-  _.templateSettings = {
-    evaluate    : /<%([\s\S]+?)%>/g,
-    interpolate : /<%=([\s\S]+?)%>/g,
-    escape      : /<%-([\s\S]+?)%>/g
-  };
-
-  // When customizing `templateSettings`, if you don't want to define an
-  // interpolation, evaluation or escaping regex, we need one that is
-  // guaranteed not to match.
-  var noMatch = /(.)^/;
-
-  // Certain characters need to be escaped so that they can be put into a
-  // string literal.
-  var escapes = {
-    "'":      "'",
-    '\\':     '\\',
-    '\r':     'r',
-    '\n':     'n',
-    '\u2028': 'u2028',
-    '\u2029': 'u2029'
-  };
-
-  var escaper = /\\|'|\r|\n|\u2028|\u2029/g;
-
-  var escapeChar = function(match) {
-    return '\\' + escapes[match];
-  };
-
-  // JavaScript micro-templating, similar to John Resig's implementation.
-  // Underscore templating handles arbitrary delimiters, preserves whitespace,
-  // and correctly escapes quotes within interpolated code.
-  // NB: `oldSettings` only exists for backwards compatibility.
-  _.template = function(text, settings, oldSettings) {
-    if (!settings && oldSettings) settings = oldSettings;
-    settings = _.defaults({}, settings, _.templateSettings);
-
-    // Combine delimiters into one regular expression via alternation.
-    var matcher = RegExp([
-      (settings.escape || noMatch).source,
-      (settings.interpolate || noMatch).source,
-      (settings.evaluate || noMatch).source
-    ].join('|') + '|$', 'g');
-
-    // Compile the template source, escaping string literals appropriately.
-    var index = 0;
-    var source = "__p+='";
-    text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
-      source += text.slice(index, offset).replace(escaper, escapeChar);
-      index = offset + match.length;
-
-      if (escape) {
-        source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
-      } else if (interpolate) {
-        source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
-      } else if (evaluate) {
-        source += "';\n" + evaluate + "\n__p+='";
-      }
-
-      // Adobe VMs need the match returned to produce the correct offest.
-      return match;
-    });
-    source += "';\n";
-
-    // If a variable is not specified, place data values in local scope.
-    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
-
-    source = "var __t,__p='',__j=Array.prototype.join," +
-      "print=function(){__p+=__j.call(arguments,'');};\n" +
-      source + 'return __p;\n';
-
-    try {
-      var render = new Function(settings.variable || 'obj', '_', source);
-    } catch (e) {
-      e.source = source;
-      throw e;
-    }
-
-    var template = function(data) {
-      return render.call(this, data, _);
-    };
-
-    // Provide the compiled source as a convenience for precompilation.
-    var argument = settings.variable || 'obj';
-    template.source = 'function(' + argument + '){\n' + source + '}';
-
-    return template;
-  };
-
-  // Add a "chain" function. Start chaining a wrapped Underscore object.
-  _.chain = function(obj) {
-    var instance = _(obj);
-    instance._chain = true;
-    return instance;
-  };
-
-  // OOP
-  // ---------------
-  // If Underscore is called as a function, it returns a wrapped object that
-  // can be used OO-style. This wrapper holds altered versions of all the
-  // underscore functions. Wrapped objects may be chained.
-
-  // Helper function to continue chaining intermediate results.
-  var result = function(obj) {
-    return this._chain ? _(obj).chain() : obj;
-  };
-
-  // Add your own custom functions to the Underscore object.
-  _.mixin = function(obj) {
-    _.each(_.functions(obj), function(name) {
-      var func = _[name] = obj[name];
-      _.prototype[name] = function() {
-        var args = [this._wrapped];
-        push.apply(args, arguments);
-        return result.call(this, func.apply(_, args));
-      };
-    });
-  };
-
-  // Add all of the Underscore functions to the wrapper object.
-  _.mixin(_);
-
-  // Add all mutator Array functions to the wrapper.
-  _.each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
-    var method = ArrayProto[name];
-    _.prototype[name] = function() {
-      var obj = this._wrapped;
-      method.apply(obj, arguments);
-      if ((name === 'shift' || name === 'splice') && obj.length === 0) delete obj[0];
-      return result.call(this, obj);
-    };
-  });
-
-  // Add all accessor Array functions to the wrapper.
-  _.each(['concat', 'join', 'slice'], function(name) {
-    var method = ArrayProto[name];
-    _.prototype[name] = function() {
-      return result.call(this, method.apply(this._wrapped, arguments));
-    };
-  });
-
-  // Extracts the result from a wrapped and chained object.
-  _.prototype.value = function() {
-    return this._wrapped;
-  };
-
-  // AMD registration happens at the end for compatibility with AMD loaders
-  // that may not enforce next-turn semantics on modules. Even though general
-  // practice for AMD registration is to be anonymous, underscore registers
-  // as a named module because, like jQuery, it is a base library that is
-  // popular enough to be bundled in a third party lib, but not be part of
-  // an AMD load request. Those cases could generate an error when an
-  // anonymous define() is called outside of a loader request.
-  if (typeof define === 'function' && define.amd) {
-    define('underscore', [], function() {
-      return _;
-    });
-  }
-}.call(this));
-
 /*
  * Copyright (c) 2014 Chris O'Hara <cohara87@gmail.com>
  *
@@ -5205,7 +4913,7 @@ $.extend($.fn, {
 
     'use strict';
 
-    validator = { version: '3.22.2' };
+    validator = { version: '3.22.0' };
 
     var email = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i;
 
@@ -5330,7 +5038,7 @@ $.extend($.fn, {
         }
         options = merge(options, default_url_options);
         var protocol, user, pass, auth, host, hostname, port,
-            port_str, path, query, hash, split;
+            path, query, hash, split;
         split = url.split('://');
         if (split.length > 1) {
             protocol = split.shift();
@@ -5378,9 +5086,8 @@ $.extend($.fn, {
         split = hostname.split(':');
         host = split.shift();
         if (split.length) {
-            port_str = split.join(':');
-            port = parseInt(port_str, 10);
-            if (!/^[0-9]+$/.test(port_str) || port <= 0 || port > 65535) {
+            port = parseInt(split.join(':'), 10);
+            if (port <= 0 || port > 65535) {
                 return false;
             }
         }
@@ -5437,7 +5144,7 @@ $.extend($.fn, {
                 }
                 part = part.replace(/_/g, '');
             }
-            if (!/^[a-z\u00a1-\uffff0-9-]+$/i.test(part)) {
+            if (!/^[a-z\\u00a1-\\uffff0-9-]+$/i.test(part)) {
                 return false;
             }
             if (part[0] === '-' || part[part.length - 1] === '-' ||
