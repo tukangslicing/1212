@@ -1673,6 +1673,11 @@
 label.error {
   display: none !important;
 }
+.caret.md {
+  border-top: 9px dashed;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+}
 .pos-rlt {
   position: relative;
 }
@@ -4583,6 +4588,59 @@ html[xmlns] .flexslider .slides {
 }
 .blog-post-list .post-item .post-header h3 {
   line-height: 24px;
+}
+.block-category-dropdown,
+.block-sortby-dropdown {
+  width: 210px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 0px 1px #d0d0d0, 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #d0d0d0, 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 8px 0 0 0;
+}
+.block-category-dropdown .dropdown,
+.block-sortby-dropdown .dropdown {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 8px;
+}
+.block-category-dropdown .dropdown-toggle,
+.block-sortby-dropdown .dropdown-toggle {
+  font-size: 16px;
+  color: #202020;
+  position: relative;
+  cursor: pointer;
+}
+.block-category-dropdown .dropdown-toggle span,
+.block-sortby-dropdown .dropdown-toggle span {
+  position: relative;
+  z-index: 1;
+}
+.block-category-dropdown .dropdown-toggle span.caret,
+.block-sortby-dropdown .dropdown-toggle span.caret {
+  position: absolute;
+  bottom: 9px;
+  right: 0;
+  z-index: 0;
+}
+.block-category-dropdown .dropdown-menu,
+.block-sortby-dropdown .dropdown-menu {
+  width: 100%;
+}
+.block-category-dropdown .dropdown-menu li a:hover,
+.block-sortby-dropdown .dropdown-menu li a:hover,
+.block-category-dropdown .dropdown-menu li a:focus,
+.block-sortby-dropdown .dropdown-menu li a:focus,
+.block-category-dropdown .dropdown-menu li a:active,
+.block-sortby-dropdown .dropdown-menu li a:active {
+  outline: 0;
+}
+.block-category-dropdown label,
+.block-sortby-dropdown label {
+  padding-left: 10px;
+  color: #606060;
+  font-weight: 300;
+  font-family: "Gotham Book";
+  font-size: 11px;
 }
 .datepicker {
   border-radius: 4px;

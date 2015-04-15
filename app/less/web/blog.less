@@ -93,3 +93,59 @@
     }
   }
 }
+
+.block-category-dropdown,
+.block-sortby-dropdown {
+  width: 210px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 0px 1px #d0d0d0, 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #d0d0d0, 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 8px 0 0 0;
+
+  .dropdown {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 8px;
+  }
+
+  .dropdown-toggle {
+    font-size: 16px;
+    color: #202020;
+    position: relative;
+    cursor: pointer;
+
+    span {
+      position: relative;
+      z-index: 1;
+
+      &.caret {
+        position: absolute;
+        bottom: 9px;
+        right: 0;
+        z-index: 0
+      }
+    }
+  }
+
+  .dropdown-menu {
+    width: 100%;
+
+    li {
+      a {
+        &:hover,
+        &:focus,
+        &:active {
+          outline: 0;
+        }
+      }
+    }
+  }
+
+  label {
+    padding-left: 10px;
+    color: #606060;
+    font-weight: 300;
+    font-family: "Gotham Book";
+    font-size: 11px;
+  }
+}
