@@ -4507,6 +4507,83 @@ html[xmlns] .flexslider .slides {
   width: 50%;
   height: 100%;
 }
+.blog-page .head-title {
+  font-family: "Gotham Black";
+  font-size: 30px;
+}
+.blog-page h3 {
+  font-size: 36px;
+  line-height: 170px;
+  margin: 0;
+  font-family: "Gotham Black";
+}
+.blog-page .banner {
+  height: 170px;
+  background: url(../img/heading_blog.jpg) no-repeat top center;
+}
+.blog-post-list .post-item {
+  overflow-y: hidden;
+  position: relative;
+  border-left: 1px dashed #e5e5e5;
+  border-right: 1px dashed #e5e5e5;
+  border-bottom: 1px dashed #e5e5e5;
+}
+.blog-post-list .post-item .pos-rlt.wrapping {
+  overflow: hidden;
+  background: #fff;
+}
+.blog-post-list .post-item:nth-child(1),
+.blog-post-list .post-item:nth-child(2) {
+  background: none;
+  border-top: 1px dashed #e5e5e5;
+}
+.blog-post-list .post-item:nth-child(1) figure,
+.blog-post-list .post-item:nth-child(2) figure {
+  height: 323px;
+}
+.blog-post-list .post-item:nth-child(1) .post-header,
+.blog-post-list .post-item:nth-child(2) .post-header {
+  height: 113px;
+}
+.blog-post-list .post-item:nth-child(3n+1) {
+  border-right: none;
+  border-left: none;
+}
+.blog-post-list .post-item:nth-child(1) {
+  border-bottom: 1px dashed #e5e5e5;
+  border-right: 1px dashed #e5e5e5;
+  border-left: 1px dashed #e5e5e5;
+}
+.blog-post-list .post-item:nth-child(2) {
+  border-bottom: 1px dashed #e5e5e5;
+  border-right: 1px dashed #e5e5e5;
+  border-left: none;
+}
+.blog-post-list .post-item figure {
+  height: 245px;
+  margin-top: 10px;
+}
+.blog-post-list .post-item img {
+  width: 100%;
+  height: 100%;
+}
+.blog-post-list .post-item .post-header {
+  margin-bottom: 10px;
+  background-color: #fcbc56;
+  height: 135px;
+  padding: 25px;
+  color: #393030;
+  font-size: 18px;
+  font-family: "Gotham Black";
+}
+.blog-post-list .post-item .post-header label {
+  color: #8f3000;
+  font-family: "Gotham Book";
+  font-size: 11px;
+}
+.blog-post-list .post-item .post-header h3 {
+  line-height: 24px;
+}
 .datepicker {
   border-radius: 4px;
   color: #000;

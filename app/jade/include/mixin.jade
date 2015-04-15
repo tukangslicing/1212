@@ -7,3 +7,9 @@ mixin destinationInfo(region, destinantion, price, tour)
         span From
         span.currency  USD
         span.price  #{price}
+
+
+mixin postHeader(label, title)
+  article.post-header
+    label.block.text-u-c #{label}
+    h3.text-u-c.m-t-none #{title}

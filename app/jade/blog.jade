@@ -1,0 +1,83 @@
+extends layouts/default
+
+include include/mixin
+
+block main
+  .blog-page.p-t-70
+    .banner
+      h3.text-white.text-center Sapta Blog
+
+  .container.m-t-xl
+    .blog-post-list.row
+
+      .post-item.col-md-6
+        .pos-rlt.wrapping
+          figure
+            img(src="img/destinations/Korea.jpg", alt="")
+
+          mixin postHeader('International', 'Top 10 most romantic Destinations in the world ')
+
+      .post-item.col-md-6
+        .pos-rlt.wrapping
+          figure
+            img(src="img/destinations/New-Zealand.jpg", alt="")
+
+          mixin postHeader('Oceania', 'New Zealand Hobbiton')
+
+      .post-item.col-md-4
+        .pos-rlt.wrapping
+          figure
+            img(src="img/destinations/Kyoto.jpg", alt="")
+          mixin postHeader('Asia', 'Kyoto’s hidden Gems')
+
+      .post-item.col-md-4
+        .pos-rlt.wrapping
+          figure
+            img(src="img/destinations/Nice.jpg", alt="")
+          mixin postHeader('Europe', 'Russia Scandinavia')
+
+      .post-item.col-md-4
+        .pos-rlt.wrapping
+          figure
+            img(src="img/destinations/packing.jpg", alt="")
+          mixin postHeader('Tips', 'How to Pack light during winter travel')
+
+      .post-item.col-md-4
+        .pos-rlt.wrapping
+          figure
+            img(src="img/destinations/Eastern-Europe.jpg", alt="")
+          mixin postHeader('Europe', 'Eastern Europe')
+
+      .post-item.col-md-4
+        .pos-rlt.wrapping
+          figure
+            img(src="img/destinations/Jiuzhaigou.jpg", alt="")
+          mixin postHeader('Asia', 'Beautiful Jiu ZHai Gou and Beyond')
+
+      .post-item.col-md-4
+        .pos-rlt.wrapping
+          figure
+            img(src="img/destinations/Sky-Lantern-Festival-Taiwan.jpg", alt="")
+          mixin postHeader('Europe', 'Russia Scandinavia')
+
+      .post-item.col-md-4
+        .pos-rlt.wrapping
+          figure
+            img(src="img/destinations/Maldives.jpg", alt="")
+          mixin postHeader('Europe', 'Russia Scandinavia')
+
+      .post-item.col-md-4
+        .pos-rlt.wrapping
+          figure
+            img(src="img/destinations/Bangkok02.jpg", alt="")
+          mixin postHeader('Asia', 'Sacred Places in Asia')
+
+      .post-item.col-md-4
+        .pos-rlt.wrapping
+          figure
+            img(src="img/destinations/Bangka-Belitung.jpg", alt="")
+          mixin postHeader('Indonesia', 'The Best Beaches in Indonesia')
+
+  .wrapper-lg.container.text-center.m-t-lg.m-b-lg
+    a.btn.btn-white.m-auto(href="#")
+      span.block.m-r-md.m-l-md Load More Post

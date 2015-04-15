@@ -1,0 +1,95 @@
+.blog-page {
+  .head-title {
+    font-family: "Gotham Black";
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 36px;
+    line-height: 170px;
+    margin: 0;
+    font-family: "Gotham Black";
+  }
+
+  .banner {
+    height: 170px;
+    background: url(../img/heading_blog.jpg) no-repeat top center;
+  }
+}
+
+
+.blog-post-list {
+  .post-item {
+    overflow-y: hidden;
+    position: relative;
+    .b-dashed-l-gray;
+    .b-dashed-r-gray;
+    .b-dashed-b-gray;
+
+    .pos-rlt.wrapping {
+      overflow: hidden;
+      background: #fff;
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      background: none;
+      .b-dashed-t-gray;
+      figure {
+        height: 323px;
+      }
+
+      .post-header {
+        height: 113px;
+      }
+    }
+
+    &:nth-child(3n+1) {
+      border-right: none;
+      border-left: none;
+    }
+
+    &:nth-child(1) {
+      .b-dashed-b-gray;
+      .b-dashed-r-gray;
+      .b-dashed-l-gray;
+    }
+
+    &:nth-child(2) {
+      .b-dashed-b-gray;
+      .b-dashed-r-gray;
+      border-left: none;
+    }
+
+
+    figure {
+      height: 245px;
+      margin-top: 10px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .post-header {
+      margin-bottom: 10px;
+      background-color: #fcbc56;
+      height: 135px;
+      padding: 25px;
+      color: #393030;
+      font-size: 18px;
+      font-family: "Gotham Black";
+
+      label {
+        color: #8f3000;
+        font-family: "Gotham Book";
+        font-size: 11px;
+      }
+
+      h3 {
+        line-height: 24px;
+      }
+    }
+  }
+}
