@@ -1,5 +1,6 @@
 .booking-page {
   margin-top: 70px;
+  overflow-x:hidden;
 
   .display-table {
     display: table;
@@ -11,19 +12,11 @@
   }
 
   .content-left {
+    position: relative;
+    z-index: 1;
     width: 700px;
-    padding-right: 33px
-  }
-
-  .aside {
-    width: 240px;
-    background: #f4f4f4;
-    padding-left: 35px;
-
-    h5 {
-      color: #4c4c4c;
-      font-size: 26px;
-    }
+    padding-right: 33px;
+    background-color: #fff;
   }
 
   p {
@@ -103,5 +96,141 @@
     span {
       margin-right: 5px;
     }
+  }
+
+  .aside {
+    width: 240px;
+    background: #f4f4f4;
+    padding-left: 35px;
+    position: relative;
+
+    h5 {
+      color: #4c4c4c;
+      font-size: 26px;
+    }
+
+    ul {
+      background: #fff;
+      -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 0px 3px 2px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 0px 3px 2px rgba(0, 0, 0, 0.1);
+
+      li {
+        position: relative;
+        width: 100%;
+        border-bottom: 1px solid #d8d8d8;
+
+        &:first-child {
+          color: #000000;
+          font-family: "Gotham Black";
+          line-height: 20px !important;
+          font-size: 15px;
+        }
+      }
+    }
+
+    ul.tour-ticket {
+
+      li {
+        padding: 10px 20px 10px 50px;
+        height: 50px;
+        line-height: 30px;
+
+        &:first-child {
+          height: 68px;
+          padding: 15px 0;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .ico {
+          position: absolute;
+          top: 13px;
+          left: 20px;
+
+          &-departure {
+            top: 17px;
+          }
+          &-return {
+            top: 12px;
+          }
+
+          &-adult {
+            top: 11px;
+            left: 26px;
+          }
+
+          &-airline-circle {
+            left: 22px;
+            top: 14px;
+          }
+        }
+
+        &.bg-white {
+          background-color: #fff;
+        }
+        &.bg-light {
+          background-color: #f8f8f8;
+        }
+      }
+    }
+
+    ul.tour-pricing {
+
+      li {
+        padding: 14px 15px 14px 25px;
+        font-family: "Gotham Black";
+        font-size: 13px;
+        color: #000;
+
+        span {
+          line-height: 20px;
+
+          &.gray {
+            font-size: 11px;
+            color: #888;
+          }
+
+          &.light {
+            font-family: "Gotham Book"
+          }
+
+          &.pricing {
+            display: table;
+            margin-top: 5px;
+
+            .currency {
+              vertical-align: top;
+              display: table-cell;
+              line-height: 12px;
+            }
+            .price {
+              padding-left: 5px;
+              display: table-cell;
+              font-size: 20px;
+              line-height: 18px;
+            }
+
+          }
+        }
+      }
+    }
+
+    p {
+      line-height: 18px;
+      color: #939393;
+      font-size: 11px;
+    }
+  }
+
+  .wrapping-gray {
+    background: #f4f4f4;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
   }
 }
