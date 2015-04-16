@@ -12,4 +12,5 @@ mixin destinationInfo(region, destinantion, price, tour)
 mixin postHeader(label, title)
   article.post-header
     label.block.text-u-c #{label}
-    h3.text-u-c.m-t-none #{title}
+    h3.text-u-c.m-t-none
+      a(href="blog-detail.html", title="#{title}") #{title}
