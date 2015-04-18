@@ -2,57 +2,9 @@ extends layouts/default
 
 include include/mixin
 
-mixin dealInfo(region, destination, day, price)
-  .dealinfo
-    .wrapper-md
-      label.text-light.text-sm.text-u-c.block #{region}
-      a.text-lg.title.text-u-c(href="tour-detail.html") #{destination}
-
-    .bg-white.pos-rtl
-
-      a.days-trip.tour.text-center(href="tour-detail.html")
-        i.ico.ico-time
-        span.count #{day}
-        label.text-u-c.text-sm DAYS
-
-      a.pricing.tour.text-center(href="tour-detail.html")
-        label.block.text-u-c FROM
-        span.currency  $
-        span.price #{price}
-  .rollover.bg-orange.pos-abt
-    .wrapper-lg.text-center.bg-white
-      .ico.ico-hotel
-
-      .cities.block.m-t-sm.m-b-lg
-        a.inline(href="tour-detail.html") Dubai
-        a.inline(href="tour-detail.html") Moscow
-        a.inline(href="tour-detail.html") St. Petersburg
-        a.inline(href="tour-detail.html") Helsinki
-        a.inline(href="tour-detail.html") Stockholm
-        a.inline(href="tour-detail.html") Karlstad
-        a.inline(href="tour-detail.html") Hamar
-        a.inline(href="tour-detail.html") Flam
-        a.inline(href="tour-detail.html") Gudvangen
-        a.inline(href="tour-detail.html") Flam
-        a.inline(href="tour-detail.html") Voss
-        a.inline(href="tour-detail.html") Bergen
-        a.inline(href="tour-detail.html") Bruravik
-        a.inline(href="tour-detail.html") Geilo
-        a.inline(href="tour-detail.html") Oslo
-        a.inline(href="tour-detail.html") Copenhagen
-
-      .ico.ico-calendar
-
-      .calendar.m-t-sm.m-b-lg
-        a.inline(href="tour-detail.html") 08 Mar
-        a.inline(href="tour-detail.html") 15 Mar
-        a.inline(href="tour-detail.html") 24 Mar
-        a.inline(href="tour-detail.html") 30 Mar
-        a.inline(href="tour-detail.html") 31 Mar
-
-      a.text-u-c.more-details(href="tour-detail.html") Click for More Details
-
 block main
+
+  mixin headerActive('tours')
 
   .tours-page.p-t-70
     .banner

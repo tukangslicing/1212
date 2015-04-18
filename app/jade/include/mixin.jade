@@ -14,3 +14,134 @@ mixin postHeader(label, title)
     label.block.text-u-c #{label}
     h3.text-u-c.m-t-none
       a(href="blog-detail.html", title="#{title}") #{title}
+
+mixin headerActive(current)
+  div.navbar.navbar-fixed-top(role='navigation')
+    .container
+      .navbar-header
+        a.navbar-brand(href='index.html', title='TS Starter')
+          img(src='img/sapta-tour-logo.png', title='TS Starter')
+      #navbar.collapse.navbar-collapse
+        ul.nav.navbar-nav.main-menu
+          if (current == 'tours')
+            li(class="active")
+              a(href='tours.html')
+                i.ico.ico-tours
+                span.block TOURS
+
+              include ../form/tour
+          else
+            li
+              a(href='tours.html')
+                i.ico.ico-tours
+                span.block TOURS
+
+              include ../form/tour
+
+          if (current == 'fights')
+            li(class="active")
+              a(href='flights.html')
+                i.ico.ico-flight
+                span.block BOOK FLIGHTS
+
+              include ../form/flight
+
+          else
+            li
+              a(href='flights.html')
+                i.ico.ico-flight
+                span.block BOOK FLIGHTS
+
+              include ../form/flight
+
+          if (current == 'hotels')
+            li(class="active")
+              a.hotel(href='#hotels')
+                i.ico.ico-hotel
+                span.block BOOK HOTELS
+          else
+            li()
+              a.hotel(href='#hotels')
+                i.ico.ico-hotel
+                span.block BOOK HOTELS
+
+          if (current == "documents")
+            li(class="active")
+              a(href='#documents')
+                i.ico.ico-document
+                span.block DOCUMENTS
+          else
+            li
+              a(href='#documents')
+                i.ico.ico-document
+                span.block DOCUMENTS
+
+          if (current == 'blog')
+            li(class="active")
+              a(href='blog.html')
+                i.ico.ico-blog
+                span.block BLOG
+          else
+            li
+              a(href='blog.html')
+                i.ico.ico-blog
+                span.block BLOG
+
+        ul.nav.navbar-nav.navbar-right
+          li
+            a.b-r-white(href='login.html') Login
+          li
+            a(href='register.html') Register
+
+      .clearfix
+
+
+mixin dealInfo(region, destination, day, price)
+  .dealinfo
+    .wrapper-md
+      label.text-light.text-sm.text-u-c.block #{region}
+      a.text-lg.title.text-u-c(href="tour-detail.html") #{destination}
+
+    .bg-white.pos-rtl
+
+      a.days-trip.tour.text-center(href="tour-detail.html")
+        i.ico.ico-time
+        span.count #{day}
+        label.text-u-c.text-sm DAYS
+
+      a.pricing.tour.text-center(href="tour-detail.html")
+        label.block.text-u-c FROM
+        span.currency  $
+        span.price #{price}
+  .rollover.bg-orange.pos-abt
+    .wrapper-lg.text-center.bg-white
+      .ico.ico-hotel
+
+      .cities.block.m-t-sm.m-b-lg
+        a.inline(href="tour-detail.html") Dubai
+        a.inline(href="tour-detail.html") Moscow
+        a.inline(href="tour-detail.html") St. Petersburg
+        a.inline(href="tour-detail.html") Helsinki
+        a.inline(href="tour-detail.html") Stockholm
+        a.inline(href="tour-detail.html") Karlstad
+        a.inline(href="tour-detail.html") Hamar
+        a.inline(href="tour-detail.html") Flam
+        a.inline(href="tour-detail.html") Gudvangen
+        a.inline(href="tour-detail.html") Flam
+        a.inline(href="tour-detail.html") Voss
+        a.inline(href="tour-detail.html") Bergen
+        a.inline(href="tour-detail.html") Bruravik
+        a.inline(href="tour-detail.html") Geilo
+        a.inline(href="tour-detail.html") Oslo
+        a.inline(href="tour-detail.html") Copenhagen
+
+      .ico.ico-calendar
+
+      .calendar.m-t-sm.m-b-lg
+        a.inline(href="tour-detail.html") 08 Mar
+        a.inline(href="tour-detail.html") 15 Mar
+        a.inline(href="tour-detail.html") 24 Mar
+        a.inline(href="tour-detail.html") 30 Mar
+        a.inline(href="tour-detail.html") 31 Mar
+
+      a.text-u-c.more-details(href="tour-detail.html") Click for More Details

@@ -78,8 +78,7 @@
 }
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
-  -o-animation: fa-spin 2s infinite linear;
-     animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
 }
 @-webkit-keyframes fa-spin {
   0% {
@@ -91,72 +90,52 @@
     transform: rotate(359deg);
   }
 }
-@-o-keyframes fa-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-       transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-       transform: rotate(359deg);
-  }
-}
 @keyframes fa-spin {
   0% {
     -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-       transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-       transform: rotate(359deg);
+    transform: rotate(359deg);
   }
 }
 .fa-rotate-90 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-     transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 .fa-rotate-180 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-     transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 .fa-rotate-270 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   -webkit-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-     transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 .fa-flip-horizontal {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
   -webkit-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
-  -o-transform: scale(-1, 1);
-     transform: scale(-1, 1);
+  transform: scale(-1, 1);
 }
 .fa-flip-vertical {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
   -webkit-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
-  -o-transform: scale(1, -1);
-     transform: scale(1, -1);
+  transform: scale(1, -1);
 }
 :root .fa-rotate-90,
 :root .fa-rotate-180,
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
 :root .fa-flip-vertical {
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 .fa-stack {
   position: relative;
@@ -1939,12 +1918,10 @@ a.text-orange {
   display: inline-block !important;
 }
 .box-shadow {
-  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
-          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
 }
 .box-shadow-none {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 .wrapper-xxs {
   padding: 4px 6px;
@@ -2429,6 +2406,8 @@ a.text-orange {
   -o-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
   -webkit-transition: all opacity 0.1s ease-in-out ease;
+  -moz-transition: all opacity 0.1s ease-in-out ease;
+  -ms-transition: all opacity 0.1s ease-in-out ease;
   -o-transition: all opacity 0.1s ease-in-out ease;
   transition: all opacity 0.1s ease-in-out ease;
 }
@@ -2529,6 +2508,8 @@ fieldset[disabled] .i-checks input + i:before {
   -o-transition: all 0.2s ease-in-out 0.1s;
   transition: all 0.2s ease-in-out 0.1s;
   -webkit-transition: all all 0.2s ease-in-out 0.1s ease;
+  -moz-transition: all all 0.2s ease-in-out 0.1s ease;
+  -ms-transition: all all 0.2s ease-in-out 0.1s ease;
   -o-transition: all all 0.2s ease-in-out 0.1s ease;
   transition: all all 0.2s ease-in-out 0.1s ease;
 }
@@ -2748,6 +2729,31 @@ fieldset[disabled] .form-control.bg-white-only {
   height: 17px;
   background-position: -427px -14px;
 }
+.bg-white .ico-customer-service {
+  height: 64px;
+  width: 75px;
+  background-position: -95px -64px;
+}
+.bg-white .ico-customer-service {
+  height: 64px;
+  width: 75px;
+  background-position: -95px -64px;
+}
+.bg-white .ico-safe {
+  height: 65px;
+  width: 48px;
+  background-position: -212px -64px;
+}
+.bg-white .ico-payment {
+  height: 50px;
+  width: 73px;
+  background-position: -313px -75px;
+}
+.bg-white .ico-tax {
+  width: 120px;
+  height: 53px;
+  background-position: -436px -77px;
+}
 .btn {
   border-radius: 0;
   font-family: "Gotham Black";
@@ -2782,7 +2788,6 @@ fieldset[disabled] .form-control.bg-white-only {
   border-radius: 4px;
   background-image: -webkit-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
   background-image: -o-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#ffffff));
   background-image: linear-gradient(to bottom, #f4f4f4 0%, #ffffff 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4f4f4', endColorstr='#ffffffff', GradientType=0);
@@ -2884,8 +2889,11 @@ html[xmlns] .flexslider .slides {
   border: 0;
   position: relative;
   zoom: 1;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
   border-radius: 0;
   -webkit-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
   -o-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
   box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
 }
@@ -2898,6 +2906,8 @@ html[xmlns] .flexslider .slides {
 .flex-viewport {
   max-height: 2000px;
   -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
 }
@@ -2925,6 +2935,8 @@ html[xmlns] .flexslider .slides {
   color: rgba(0, 0, 0, 0.8);
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
   -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -3011,8 +3023,11 @@ html[xmlns] .flexslider .slides {
   cursor: pointer;
   text-indent: -9999px;
   -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
   -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
   border-radius: 20px;
 }
 .flex-control-paging li a:hover {
@@ -3041,6 +3056,8 @@ html[xmlns] .flexslider .slides {
   opacity: .7;
   cursor: pointer;
   -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
 }
@@ -3141,6 +3158,8 @@ html[xmlns] .flexslider .slides {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   -webkit-transition: all all 0.5s ease-in-out ease;
+  -moz-transition: all all 0.5s ease-in-out ease;
+  -ms-transition: all all 0.5s ease-in-out ease;
   -o-transition: all all 0.5s ease-in-out ease;
   transition: all all 0.5s ease-in-out ease;
 }
@@ -3320,6 +3339,7 @@ html[xmlns] .flexslider .slides {
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   -o-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -3338,6 +3358,7 @@ html[xmlns] .flexslider .slides {
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   -o-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -3412,6 +3433,7 @@ html[xmlns] .flexslider .slides {
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   -o-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -3609,7 +3631,7 @@ html[xmlns] .flexslider .slides {
 .featured .popular-destinations .big-item img,
 .featured .recommended-domestic .big-item img,
 .featured .recommended-international .big-item img {
-  height: 420px;
+  height: 421px;
   width: 100%;
 }
 .featured .popular-destinations .square:last-child .item img,
@@ -3638,7 +3660,6 @@ html[xmlns] .flexslider .slides {
   color: #393030;
   background-image: -webkit-linear-gradient(top, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
   background-image: -o-linear-gradient(top, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #ffffff), to(rgba(0, 0, 0, 0.08)));
   background-image: linear-gradient(to bottom, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#14000000', GradientType=0);
@@ -3824,8 +3845,8 @@ html[xmlns] .flexslider .slides {
   color: #8f3000;
 }
 .featured.blog-inspirations .blog-item .post-item h3 {
-  font-size: 20px;
-  line-height: 26px;
+  font-size: 18px;
+  line-height: 24px;
 }
 .featured.blog-inspirations .blog-item .post-item h3 a:hover {
   color: #555555;
@@ -3930,6 +3951,7 @@ html[xmlns] .flexslider .slides {
   height: 349px;
   background-color: #fcbc56;
   -webkit-transform: translateX(-309px);
+  -moz-transform: translateX(-309px);
   -o-transform: translateX(-309px);
   -ms-transform: translateX(-309px);
   transform: translateX(-309px);
@@ -3937,6 +3959,8 @@ html[xmlns] .flexslider .slides {
   -o-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
   -webkit-transition: all all 0.6s ease-in-out ease;
+  -moz-transition: all all 0.6s ease-in-out ease;
+  -ms-transition: all all 0.6s ease-in-out ease;
   -o-transition: all all 0.6s ease-in-out ease;
   transition: all all 0.6s ease-in-out ease;
 }
@@ -4051,6 +4075,7 @@ html[xmlns] .flexslider .slides {
 .tour-list .tour-item:nth-child(3n+1) .rollover {
   width: 298px;
   -webkit-transform: translateX(-308px);
+  -moz-transform: translateX(-308px);
   -o-transform: translateX(-308px);
   -ms-transform: translateX(-308px);
   transform: translateX(-308px);
@@ -4066,6 +4091,7 @@ html[xmlns] .flexslider .slides {
 }
 .tour-list .tour-item:hover .rollover {
   -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
   -o-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0);
@@ -4322,6 +4348,7 @@ html[xmlns] .flexslider .slides {
 }
 .tour-detail-page .info-harga {
   background-color: #fcbc56;
+  -moz-box-shadow: inset 0 0 20px #f28c05;
   -webkit-box-shadow: inset 0 0 20px #f28c05;
   box-shadow: inset 0 0 20px #f28c05;
 }
@@ -4768,7 +4795,6 @@ html[xmlns] .flexslider .slides {
   color: #393030;
   background-image: -webkit-linear-gradient(top, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
   background-image: -o-linear-gradient(top, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #ffffff), to(rgba(0, 0, 0, 0.08)));
   background-image: linear-gradient(to bottom, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#14000000', GradientType=0);
@@ -4778,6 +4804,87 @@ html[xmlns] .flexslider .slides {
 }
 .related-blog-post .btn-show-more strong {
   font-family: "Gotham Black";
+}
+.flight-page .head-title {
+  color: #4c4c4c;
+  font-size: 30px;
+}
+.flight-page .flight-lists {
+  padding-bottom: 20px;
+}
+.flight-page .flight-lists .item {
+  height: 210px;
+}
+.flight-page .flight-lists .item img {
+  max-width: 100%;
+  height: 210px;
+  position: relative;
+  z-index: 0;
+}
+.flight-page .flight-lists .item .destination {
+  font-family: "Gotham Black";
+  font-size: 18px;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  height: 121px;
+  line-height: 23px;
+  padding-top: 40px;
+  width: 100%;
+  background: url(../img/overlay-box.png) repeat-x bottom left;
+  color: #fff;
+}
+.flight-page .flight-lists .item .destination .flight-class {
+  font-size: 11px;
+  font-family: "Gotham Book";
+}
+.flight-page .flight-lists .item .destination.hotel {
+  padding-top: 65px;
+}
+.flight-page .flight-lists .item .destination.hotel .hotel-counts {
+  margin-top: 5px;
+  letter-spacing: 1px;
+  font-size: 11.3px;
+}
+.flight-page .flight-lists .item .pricing {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  color: #8f3000;
+  font-size: 10px;
+  text-align: center;
+  padding: 11px 27px;
+  line-height: 20px;
+}
+.flight-page .flight-lists .item .pricing .price {
+  font-family: "Gotham Black";
+  font-size: 20px;
+  color: #393030;
+}
+.flight-page .flight-lists .item .pricing .currency {
+  font-size: 14px;
+}
+.flight-page .flight-lists .bg-orange {
+  background-color: #fcbc56;
+}
+.why-book-withs-sapta {
+  padding: 60px 0 30px 0;
+}
+.why-book-withs-sapta .reason span.bg-white {
+  display: block;
+  margin: 0 auto 0;
+  height: 70px;
+}
+.why-book-withs-sapta .reason p {
+  padding: 0 16px;
+  line-height: 24px;
+}
+.why-book-withs-sapta .reason h6 {
+  padding: 10px;
+  font-family: "Gotham Black";
+  font-size: 13px;
+  line-height: 21px;
 }
 .datepicker {
   border-radius: 4px;

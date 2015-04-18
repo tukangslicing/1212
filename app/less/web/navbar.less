@@ -84,24 +84,21 @@
   }
 
   > li {
+
+    // &.active {
+    //   .form {
+    //     display: block;
+    //   }
+    // }
+
     .form {
       display: none;
-      // -webkit-transform: translateY(-309px);
-      // -moz-transform: translateY(-309px);
-      // -o-transform: translateY(-309px);
-      // -ms-transform: translateY(-309px);
-      // transform: translateY(-309px);
       .transition(all 0.5s ease-in-out);
     }
 
-    &:hover {
+    &:hover, {
       .form {
         display: block;
-        // -webkit-transform: translateY(70px);
-        // -moz-transform: translateY(70px);
-        // -o-transform: translateY(70px);
-        // -ms-transform: translateY(70px);
-        // transform: translateY(70px);
       }
     }
   }

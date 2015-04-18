@@ -1,0 +1,101 @@
+.flight-page {
+  .head-title {
+    color: #4c4c4c;
+    font-size: 30px;
+  }
+
+  .flight-lists {
+    padding-bottom: 20px;
+
+    .item {
+      height: 210px;
+
+      img {
+        max-width: 100%;
+        height: 210px;
+        position: relative;
+        z-index: 0;
+      }
+
+      .destination {
+        font-family: "Gotham Black";
+        font-size: 18px;
+        z-index: 1;
+        left: 0;
+        bottom: 0;
+        height: 121px;
+        line-height: 23px;
+        padding-top: 40px;
+        width: 100%;
+        background: url(../img/overlay-box.png) repeat-x bottom left;
+        color: #fff;
+
+        .flight-class {
+          font-size: 11px;
+          font-family: "Gotham Book"
+        }
+
+        &.hotel {
+          padding-top: 65px;
+
+          .hotel-counts {
+            margin-top: 5px;
+            letter-spacing: 1px;
+            font-size: 11.3px;
+          }
+        }
+      }
+
+      .pricing {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        color: #8f3000;
+        font-size: 10px;
+        text-align: center;
+        padding: 11px 27px;
+        line-height: 20px;
+
+        .price {
+          font-family: "Gotham Black";
+          font-size: 20px;
+          color: #393030;
+        }
+
+        .currency {
+          font-size: 14px;
+        }
+      }
+    }
+    .bg-orange {
+      background-color: #fcbc56;
+    }
+  }
+}
+
+.why-book-withs-sapta {
+  padding: 60px 0 30px 0;
+
+  .reason {
+    span {
+      &.bg-white {
+        display: block;
+        margin: 0 auto 0;
+        height:70px;
+      }
+    }
+
+    p {
+      padding: 0 16px;
+      line-height: 24px;
+    }
+
+    h6 {
+      padding: 10px;
+      font-family: "Gotham Black";
+      font-size: 13px;
+      line-height: 21px;
+    }
+  }
+}

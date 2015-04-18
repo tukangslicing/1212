@@ -4,6 +4,8 @@ include include/mixin
 
 block main
 
+  mixin headerActive('index')
+
   .home-page.p-t-70
     .hero-banner
       .flexslider
@@ -119,7 +121,7 @@ block main
 
               a.block.info-detail.text-u-c(href="#")
                 .destination-type Domestic
-                .location.package.block.wrapper-sm Karimun Jawa 4d/5n
+                .location.package.block Karimun Jawa 4d/5n
                 .pricing
                   span From
                   span.currency  USD
@@ -271,36 +273,6 @@ block main
               strong  Hotels
         .clearfix
 
-      .featured.blog-inspirations
-        h4.title-box.c-text Need
-          span.text-orange  Inspirations ?
-
-        .row
-          .col-md-6.blog-item.pos-rlt
-            img(src="img/destinations/Prague-02.jpg", alt="")
-
-            .pos-rlt.post-header.bg-orange
-              .post-item.text-darker.pos-abt.text-u-c.wrapper
-                label.inline.m-l-sm.f-normal.text-u-c Blog
-                h3.wrapper-sm.m-t-none
-                  a.text-darker(href="blog-detail.html") Top 10 most romantic Destinations in the world
-
-          .col-md-6.blog-item.pos-rlt
-            img(src="img/destinations/Asia.jpg", alt="")
-
-            .pos-rlt.post-header.bg-orange
-              .post-item.text-darker.pos-abt.text-u-c.wrapper
-                label.inline.m-l-sm.f-normal.text-u-c Blog
-                h3.wrapper-sm.m-t-none
-                  a.text-darker(href="blog-detail.html") Japan Off the beaten tracks
-
-
-          .clearfix
-
-        .col-md-12
-          .row
-            a.block.btn-show-more.c-text(href="#") Show me more
-              strong  Inspirations
-        .clearfix
+        include helpers/featured-blog-inspirations
 
   include helpers/inquiry

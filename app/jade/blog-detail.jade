@@ -3,6 +3,8 @@ extends layouts/default
 include include/mixin
 
 block main
+  mixin headerActive('blog')
+
   .blog-detail-page.p-t-70
     .container.m-t-xl
       label.wrapper-lg.pad-b-n.text-light.text-u-c.block.text-center.text-yellow International
@@ -17,7 +19,7 @@ block main
             span.block.m-t-sm.st_facebook_vcount(class='', displayText='Facebook')
             span.block.m-t-sm.st_twitter_vcount(class='', displayText='Tweet')
             span.block.m-t-sm.st_pinterest_vcount(class='', displayText='Pinterest')
-            script(type="text/javascript", src="http://w.sharethis.com/button/buttons.js")
+            script(type="text/javascript", src="http://w.sharethis.com/button/buttons.js", async="true")
             script.
               stLight.options({doNotHash: false, doNotCopy: false, hashAddressBar: false});
 
