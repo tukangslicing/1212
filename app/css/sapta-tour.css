@@ -2683,10 +2683,20 @@ fieldset[disabled] .form-control.bg-white-only {
   height: 11px;
   background-position: -355px -20px;
 }
+.bg-white .ico-departure-lg {
+  width: 41px;
+  height: 15px;
+  background: url(../img/ico-departure-lg.png) no-repeat 0 0;
+}
 .bg-white .ico-return {
   width: 19px;
   height: 15px;
   background-position: -393px -15px;
+}
+.bg-white .ico-return-lg {
+  width: 35px;
+  height: 25px;
+  background: url(../img/ico-return-lg.png) no-repeat 0 0;
 }
 .bg-white .ico-idea {
   width: 24px;
@@ -2753,6 +2763,26 @@ fieldset[disabled] .form-control.bg-white-only {
   width: 120px;
   height: 53px;
   background-position: -436px -77px;
+}
+.bg-white .ico-info {
+  width: 16px;
+  height: 16px;
+  background-position: -593px -16px;
+}
+.bg-white .ico-check {
+  width: 16px;
+  height: 16px;
+  background-position: -569px -17px;
+}
+.bg-white .ico-cross {
+  width: 16px;
+  height: 16px;
+  background-position: -544px -17px;
+}
+.bg-white .ico-warn {
+  width: 14px;
+  height: 14px;
+  background-position: -517px -18px;
 }
 .btn {
   border-radius: 0;
@@ -4809,6 +4839,9 @@ html[xmlns] .flexslider .slides {
   color: #4c4c4c;
   font-size: 30px;
 }
+.flight-page .head-title.text-white {
+  color: #fff;
+}
 .flight-page .flight-lists {
   padding-bottom: 20px;
 }
@@ -4885,6 +4918,258 @@ html[xmlns] .flexslider .slides {
   font-family: "Gotham Black";
   font-size: 13px;
   line-height: 21px;
+}
+.outbond-flight-list .flight-item,
+#selectedFlights .flight-item {
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 1px 3px 2px rgba(216, 216, 216, 0.5);
+  box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 1px 3px 2px rgba(216, 216, 216, 0.5);
+  height: 78px;
+}
+.outbond-flight-list .flight-item .column,
+#selectedFlights .flight-item .column {
+  height: 78px;
+  border-color: #d8d8d8;
+}
+.outbond-flight-list .flight-item .column label,
+#selectedFlights .flight-item .column label {
+  font-size: 11px;
+  margin-bottom: 0;
+  font-family: "Gotham Black";
+  color: #888;
+}
+.outbond-flight-list .flight-item .column .light,
+#selectedFlights .flight-item .column .light {
+  font-family: "Gotham Book";
+  font-size: 11px;
+  font-weight: 200;
+  color: #888;
+}
+.outbond-flight-list .flight-item > .arline,
+#selectedFlights .flight-item > .arline {
+  padding-top: 13px;
+  width: 95px;
+  text-align: center;
+}
+.outbond-flight-list .flight-item > .arline img,
+#selectedFlights .flight-item > .arline img {
+  max-width: 30px;
+  max-height: 30px;
+}
+.outbond-flight-list .flight-item > .schedule,
+#selectedFlights .flight-item > .schedule {
+  width: 425px;
+  background: url(../img/bg-shedule-departure.png) no-repeat center left;
+}
+.outbond-flight-list .flight-item > .schedule .departure.pos-rlt,
+#selectedFlights .flight-item > .schedule .departure.pos-rlt,
+.outbond-flight-list .flight-item > .schedule .return.pos-rlt,
+#selectedFlights .flight-item > .schedule .return.pos-rlt {
+  height: 78px;
+  padding-left: 45px;
+}
+.outbond-flight-list .flight-item > .schedule .departure.pos-rlt .ico,
+#selectedFlights .flight-item > .schedule .departure.pos-rlt .ico,
+.outbond-flight-list .flight-item > .schedule .return.pos-rlt .ico,
+#selectedFlights .flight-item > .schedule .return.pos-rlt .ico {
+  position: absolute;
+  top: 35px;
+  left: 15px;
+}
+.outbond-flight-list .flight-item > .schedule .departure.pos-rlt .ico-return,
+#selectedFlights .flight-item > .schedule .departure.pos-rlt .ico-return,
+.outbond-flight-list .flight-item > .schedule .return.pos-rlt .ico-return,
+#selectedFlights .flight-item > .schedule .return.pos-rlt .ico-return {
+  top: 29px;
+}
+.outbond-flight-list .flight-item > .schedule .departure.pos-rlt .time,
+#selectedFlights .flight-item > .schedule .departure.pos-rlt .time,
+.outbond-flight-list .flight-item > .schedule .return.pos-rlt .time,
+#selectedFlights .flight-item > .schedule .return.pos-rlt .time {
+  margin-top: 15px;
+  font-size: 11px;
+}
+.outbond-flight-list .flight-item > .schedule .departure.pos-rlt .date,
+#selectedFlights .flight-item > .schedule .departure.pos-rlt .date,
+.outbond-flight-list .flight-item > .schedule .return.pos-rlt .date,
+#selectedFlights .flight-item > .schedule .return.pos-rlt .date {
+  font-size: 13px;
+}
+.outbond-flight-list .flight-item > .schedule .departure.pos-rlt .date strong,
+#selectedFlights .flight-item > .schedule .departure.pos-rlt .date strong,
+.outbond-flight-list .flight-item > .schedule .return.pos-rlt .date strong,
+#selectedFlights .flight-item > .schedule .return.pos-rlt .date strong {
+  font-family: "Gotham Black";
+}
+.outbond-flight-list .flight-item > .schedule .return.pos-rlt,
+#selectedFlights .flight-item > .schedule .return.pos-rlt {
+  padding-left: 40px;
+  width: 182px;
+}
+.outbond-flight-list .flight-item > .schedule .arrow,
+#selectedFlights .flight-item > .schedule .arrow {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 187px;
+  background: url(../img/arrow-thin-medium.png) no-repeat center 0;
+  width: 26px;
+  height: 78px;
+  z-index: 0;
+}
+.outbond-flight-list .flight-item > .schedule .duration,
+#selectedFlights .flight-item > .schedule .duration {
+  left: 178px;
+  top: 50%;
+  margin-top: -12.5px;
+  position: absolute;
+  width: 60px;
+  text-align: center;
+  font-size: 11px;
+  color: #000;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  border-radius: 2px;
+  background-image: -webkit-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
+  background-image: -o-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
+  background-image: linear-gradient(to bottom, #f4f4f4 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4f4f4', endColorstr='#ffffffff', GradientType=0);
+  font-family: "Gotham Black";
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+}
+.outbond-flight-list .flight-item > .transit,
+#selectedFlights .flight-item > .transit {
+  width: 130px;
+  padding-left: 23px;
+}
+.outbond-flight-list .flight-item > .transit label,
+#selectedFlights .flight-item > .transit label {
+  margin-top: 25px;
+}
+.outbond-flight-list .flight-item > .transit .ico,
+#selectedFlights .flight-item > .transit .ico {
+  top: 45px;
+  margin-top: -13px;
+  right: 15px;
+}
+.outbond-flight-list .flight-item > .pricing,
+#selectedFlights .flight-item > .pricing {
+  width: 160px;
+  padding-left: 23px;
+  background: #f8f8f8;
+  color: #158ea3;
+  padding-top: 14px;
+}
+.outbond-flight-list .flight-item > .pricing .price,
+#selectedFlights .flight-item > .pricing .price,
+.outbond-flight-list .flight-item > .pricing .currency,
+#selectedFlights .flight-item > .pricing .currency {
+  font-family: "Gotham Black";
+  font-size: 18px;
+  line-height: 15px;
+  vertical-align: top;
+}
+.outbond-flight-list .flight-item > .pricing .currency,
+#selectedFlights .flight-item > .pricing .currency {
+  font-size: 13px;
+  margin-top: -2px;
+  margin-right: 3px;
+}
+.outbond-flight-list .flight-item > .button,
+#selectedFlights .flight-item > .button {
+  font-family: "Gotham Black";
+  width: 130px;
+  line-height: 78px;
+  background: #158ea3;
+  text-shadow: 1px 2px 0px #006678;
+}
+.outbond-flight-list .flight-item > .button a,
+#selectedFlights .flight-item > .button a {
+  color: #fff;
+  font-size: 13.89px;
+  letter-spacing: 0.9px;
+}
+#selectedFlights {
+  background: #fcaf56;
+  padding: 55px;
+}
+#selectedFlights .isBlock {
+  border: 1px solid #d8d8d8;
+  -webkit-box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.1);
+}
+#selectedFlights .flight-item {
+  background: #fff;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  height: 78px;
+}
+#selectedFlights .flight-item .flight-class {
+  width: 130px;
+  height: 77px;
+  text-align: center;
+}
+#selectedFlights .flight-item .flight-class label {
+  margin-top: 23px;
+}
+#selectedFlights .select-departure-flight {
+  border-bottom: 1px solid rgba(230, 230, 230, 0.9);
+}
+#selectedFlights .select-departure-flight .schedule {
+  height: 77px;
+}
+#selectedFlights .book-now-flights {
+  height: 156px;
+  border-left: 1px solid rgba(230, 230, 230, 0.9);
+  width: 158px;
+  background: #fff;
+  padding-left: 23px;
+}
+#selectedFlights .book-now-flights > .pricing {
+  padding-top: 25px;
+  padding-top: 14px;
+}
+#selectedFlights .book-now-flights > .pricing label {
+  font-size: 11px;
+  margin-bottom: 0;
+  font-family: "Gotham Black";
+  color: #888;
+}
+#selectedFlights .book-now-flights > .pricing label.light {
+  font-family: "Gotham Book";
+  font-size: 11px;
+  font-weight: 200;
+  color: #888;
+}
+#selectedFlights .book-now-flights > .pricing .price,
+#selectedFlights .book-now-flights > .pricing .currency {
+  color: #158ea3;
+  font-family: "Gotham Black";
+  font-size: 18px;
+  line-height: 15px;
+  vertical-align: top;
+}
+#selectedFlights .book-now-flights > .pricing .currency {
+  font-size: 13px;
+  margin-top: -2px;
+  margin-right: 3px;
+}
+#selectedFlights .book-now-flights .btn-primary {
+  padding: 10px 15px;
+  -webkit-box-shadow: 0px -2px 0px 0px #53aebd;
+  box-shadow: 0px -2px 0px 0px #53aebd;
+}
+#selectedFlights .book-now-flights .btn-primary:hover {
+  border-color: #158ea3;
+}
+#selectedFlights .book-now-flights .btn-primary:active,
+#selectedFlights .book-now-flights .btn-primary:focus {
+  border-color: #158ea3;
+  -webkit-box-shadow: 0px -2px 0px 0px #0f6776;
+  box-shadow: 0px -2px 0px 0px #0f6776;
 }
 .datepicker {
   border-radius: 4px;

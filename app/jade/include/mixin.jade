@@ -145,3 +145,48 @@ mixin dealInfo(region, destination, day, price)
         a.inline(href="tour-detail.html") 31 Mar
 
       a.text-u-c.more-details(href="tour-detail.html") Click for More Details
+
+
+mixin flightOutbound(airline, departure, _return, transit, pricing)
+  .flight-item.m-b-sm
+    .arline.column.b-r.pull-left
+      img.block.m-auto(src="#{airline.logo}", alt="")
+      span.block #{airline.name}
+
+
+    .schedule.pos-rlt.column.pull-left
+
+      .departure.pos-rlt.bg-white.pull-left
+        i.ico.ico-departure
+        span.block.time #{departure.time}
+        span.block.date
+          | #{departure.day}, &nbsp;
+          strong #{departure.date}
+        label.text-u-c.block #{departure.airport}
+
+      span.arrow
+      .duration 2h 30m
+
+      .return.pos-rlt.bg-white.pull-right
+        i.ico.ico-return
+        span.block.time #{_return.time}
+        span.block.date
+          | #{_return.day}, &nbsp;
+          strong #{_return.date}
+        label.text-u-c.block #{_return.airport}
+
+
+    .transit.column.b-r.b-l.pull-left.bg-white.pos-rlt
+      label.text-u-c.block transit
+      span.block #{transit}
+      if (transit != 'No')
+        .ico.ico-info.pos-abt
+
+    .pricing.column.pull-left
+      label.text-u-c.block Total Price
+      span.block.m-t-xs
+        span.inline.currency Rp
+        span.inline.price  #{pricing}
+      label.light per person
+    .button.column.pull-left.text-center
+      a.block.pos-rlt(href="flight-inbound.html") Select Flight
