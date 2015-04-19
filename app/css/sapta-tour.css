@@ -2132,6 +2132,9 @@ a.text-orange {
 .m-l-xl {
   margin-left: 40px;
 }
+.m-l-xxl {
+  margin-left: 50px;
+}
 .m-l-n-xxs {
   margin-left: -1px;
 }
@@ -2224,6 +2227,9 @@ a.text-orange {
 }
 .m-r-xl {
   margin-right: 40px;
+}
+.m-r-xxl {
+  margin-left: 50px;
 }
 .m-r-n-xxs {
   margin-right: -1px;
@@ -4643,8 +4649,8 @@ html[xmlns] .flexslider .slides {
 }
 .booking-page .aside ul {
   background: #fff;
-  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 0px 3px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 0px 3px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
 }
 .booking-page .aside ul li {
   position: relative;
@@ -4656,6 +4662,11 @@ html[xmlns] .flexslider .slides {
   font-family: "Gotham Black";
   line-height: 20px !important;
   font-size: 15px;
+}
+.booking-page .aside ul.bg-yellow {
+  -webkit-box-shadow: 0px 0px 0px 1px #e3de99, 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #e3de99, 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+  background-color: #ffffcc;
 }
 .booking-page .aside ul.tour-ticket li {
   padding: 10px 20px 10px 50px;
@@ -4775,6 +4786,36 @@ html[xmlns] .flexslider .slides {
   line-height: 18px;
   color: #939393;
   font-size: 11px;
+}
+.booking-page .aside p a {
+  color: #e67b00;
+}
+.booking-page .aside p.text-dark {
+  color: #000;
+}
+.booking-page .aside p .text-sm {
+  font-size: 12px;
+}
+.booking-page .aside .btn-primary {
+  width: 100%;
+  padding: 15px;
+  border-radius: 4px;
+  color: #fff;
+  -webkit-box-shadow: 0px -2px 0px 0px #50aaba;
+  box-shadow: 0px -2px 0px 0px #50aaba;
+}
+.booking-page .flight-payment-step-2 .aside {
+  padding-left: 0;
+  width: 100%;
+  background: none;
+}
+.booking-page .flight-payment-step-2 .aside .outbound-flight,
+.booking-page .flight-payment-step-2 .aside .inbound-flight {
+  width: 320px;
+}
+.booking-page .flight-payment-step-2 .aside ul {
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 2px 3px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 2px 3px 2px rgba(0, 0, 0, 0.1);
 }
 .booking-page .wrapping-gray {
   background: #f4f4f4;
@@ -5363,8 +5404,121 @@ html[xmlns] .flexslider .slides {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.flight-payment-step-1 .ssl-message p {
-  width: 480px;
+.flight-payment-step-2 .passenger-item {
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 1px 3px 2px rgba(216, 216, 216, 0.5);
+  box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 1px 3px 2px rgba(216, 216, 216, 0.5);
+  height: 74px;
+  min-height: 74px;
+  height: auto !important;
+}
+.flight-payment-step-2 .passenger-item .column {
+  padding: 13px 22px 15px;
+  float: left;
+  height: 74px;
+  min-height: 74px;
+  height: auto !important;
+  border-color: #d8d8d8;
+}
+.flight-payment-step-2 .passenger-item .column label {
+  font-size: 11px;
+  margin-bottom: 0;
+  color: #888;
+  font-family: "Gotham Black";
+}
+.flight-payment-step-2 .passenger-item .column .number {
+  color: #d9d9d9;
+  font-size: 31px;
+  font-family: "Gotham Black";
+  top: 20px;
+  line-height: 22px;
+  position: absolute;
+  left: 13px;
+}
+.flight-payment-step-2 .passenger-item .column:first-child {
+  padding-left: 68px;
+  width: 255px;
+}
+.flight-payment-step-2 .passenger-item .column:nth-child(2) {
+  width: 133px;
+}
+.flight-payment-step-2 .passenger-item .column:nth-child(3) {
+  width: 140px;
+}
+.flight-payment-step-2 .passenger-item .column:nth-child(4) {
+  width: 135px;
+}
+.ssl-message p {
+  width: 74%;
+}
+.flight-payment-step-5 {
+  font-size: 13px;
+}
+.flight-payment-step-5 .section-title {
+  font-size: 30px;
+  color: #4c4c4c;
+}
+.flight-payment-step-5 .ticket-header {
+  background: #f4f4f2;
+  height: 36px;
+  line-height: 36px;
+  margin-bottom: 70px;
+}
+.flight-payment-step-5 .ticket-header .order-number {
+  width: 160px;
+  text-align: center;
+}
+.flight-payment-step-5 .ticket-header .departure,
+.flight-payment-step-5 .ticket-header .return {
+  padding-left: 20px;
+}
+.flight-payment-step-5 .ticket-header .departure {
+  width: 377px;
+}
+.flight-payment-step-5 .ticket-header .departure,
+.flight-payment-step-5 .ticket-header .order-number {
+  border-right: 2px solid #fff;
+}
+.flight-payment-step-5 .ticket-has-created {
+  background-color: #f4f4f2;
+  padding: 35px;
+  font-size: 13px;
+}
+.flight-payment-step-5 .ssl-message {
+  border-top: 1px dashed #e5e5e5;
+}
+.flight-payment-step-5 .ssl-message p {
+  width: 80%;
+  padding-top: 14px;
+  font-size: 11px;
+}
+.flight-payment-step-5 .tanda-bukti-pemesanan {
+  padding: 50px 80px;
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 2px 6px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 2px 6px 1px rgba(0, 0, 0, 0.1);
+}
+.flight-payment-step-5 .tanda-bukti-pemesanan .f-bold {
+  font-size: 15px;
+}
+.flight-payment-step-5 .tanda-bukti-pemesanan .info {
+  width: 50%;
+  height: 270px;
+  border-color: #e6e6e6;
+}
+.flight-payment-step-5 .tanda-bukti-pemesanan .info.right {
+  padding-left: 48px;
+  line-height: 23px;
+}
+.flight-payment-step-5 .tanda-bukti-pemesanan ol {
+  margin-left: 0;
+  padding-left: 16px;
+  width: 100%;
+}
+.flight-payment-step-5 .message-customer-service {
+  color: #999;
+  font-size: 11px;
+}
+.flight-payment-step-5 .message-customer-service a {
+  color: #ff9966;
 }
 .datepicker {
   border-radius: 4px;

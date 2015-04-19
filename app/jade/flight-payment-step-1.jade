@@ -9,7 +9,7 @@ block main
     .wrapping-gray
     .container.display-table
       .content-left.display-cell.p-t-70.b-r
-        .flight-payment-step-1
+        .flight-payment-step-1.m-b-xl
           form.sapta-form.booking.booking-flight(action="flight-payment-step-2.html")
             h4.section-title.m-t-none.m-b-lg.text-c-l.text-left.text-rounded Contact&nbsp;
               span.text-yellow Details
@@ -30,9 +30,9 @@ block main
 
               .dashed.m-t-xl.m-b-xl
 
-            mixin PassengerInfo(1);
+            mixin PassengerInfo(1)
 
-            mixin PassengerInfo(2);
+            mixin PassengerInfo(2)
 
 
             a.pull-left.block.btn-white.text-c-l.btn(href="#", id="btnAddMorePassenger")
@@ -42,13 +42,9 @@ block main
             button(type="submit", class="btn btn-primary btn-submit pull-right m-b-lg") Continue
             .clearfix
 
-          .wrapper-lg.m-t-lg.ssl-message
-            .m-l-n-xl.m-b-xl
-              img.block.pull-left.m-l-n-xs(src="img/ssl-image.png", alt="")
-              p.pull-left.block.m-l-md Sapta Tour selalu mementingkan keamanan transaksi Anda. Semua transaksi melalui Saptatour.com dijamin 100% aman
-              .clearfix
+          include helpers/ssl-message
 
-      .aside.display-cell.p-t-70
+      .aside.display-cell.p-t-70.m-b-md
         h5.m-t-xs.m-b-lg.text-rounded Flight Details
         ul.list-unstyled.tour-ticket.outbound-flight
           li.text-left
@@ -80,7 +76,7 @@ block main
               |  Person
           li.bg-white
             i.ico.ico-bag
-            span.inline Economy
+            span.inline 20 Kg
 
          ul.list-unstyled.tour-ticket.inbound-flight.m-t-md
           li.text-left
@@ -131,7 +127,7 @@ block main
               |  Person
           li.bg-white
             i.ico.ico-bag
-            span.inline Economy
+            span.inline 20 Kg
 
         ul.list-unstyled.tour-pricing.m-t-lg
           li

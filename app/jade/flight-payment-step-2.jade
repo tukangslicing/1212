@@ -5,5 +5,186 @@ include include/mixin
 block main
   mixin headerFlightPayment(2)
 
-  .flight-payment.step-2.p-t-70
-    p
+  .booking-page.flight-payment
+    .wrapping-gray
+    .container.display-table
+      .content-left.display-cell.p-t-70.b-r
+        .flight-payment-step-2
+
+          .m-b-md
+            img.inline.m-r-sm(src="img/ico-big-check.png", alt="")
+            span.inline Harga telah dikonfirmasi. Periksa kembali pesanan anda lalu klik tombol&nbsp;
+              strong.f-bold Continue To Payment
+
+          .dashed.clearfix
+
+          h4.section-title.m-t-lg.m-b-lg.text-c-l.text-left.text-rounded Flights&nbsp;
+            span.text-yellow Details
+
+          .aside.m-b-md
+            ul.list-unstyled.tour-ticket.outbound-flight.pull-left
+              li.text-left
+                span.block.m-l-md.text-md Outbound Flight
+              li.bg-light.bg-white.schedule
+                i.ico.ico-departure
+                span.time.block 13.00 PM
+                span.block
+                  | Kamis,&nbsp;
+                  strong.f-bold 12 Feb ‘15
+                label.text-u-c Jakarta (CGK)
+              li.bg-light.bg-white.schedule
+                i.ico.ico-return
+                span.time.block 16.00 PM
+                span.block
+                  | Kamis,&nbsp;
+                  strong.f-bold 12 Feb ‘15
+                label.text-u-c Denpasar (DPS)
+              li.bg-white.airline
+                img.inline.m-r-sm(src="img/icon_airasia.png", width="30")
+                span.inline Air Asia QZ 888h
+              li.bg-white
+                i.ico.ico-chair
+                span.inline Economy
+              //- li.bg-white
+              //-   i.ico.ico-adult
+              //-   span.inline
+              //-     span#count-adult 2
+              //-     |  Person
+              //- li.bg-white
+              //-   i.ico.ico-bag
+              //-   span.inline 20 Kg
+
+            ul.list-unstyled.tour-ticket.inbound-flight.pull-left.m-l-md
+              li.text-left
+                span.block.m-l-md.text-md Outbound Flight
+              li.bg-light.bg-white.schedule
+                i.ico.ico-departure
+                span.time.block 13.00 PM
+                span.block
+                  | Kamis,&nbsp;
+                  strong.f-bold 22 Feb ‘15
+                label.text-u-c Denpasar (DPS)
+              li.bg-light.bg-white.schedule
+                i.ico.ico-return
+                span.time.block 16.00 PM
+                span.block
+                  | Kamis,&nbsp;
+                  strong.f-bold 22 Feb ‘15
+                label.text-u-c Jakarta (CGK)
+
+              li.bg-white
+                i.ico.ico-marker
+                span.inline Transit: Surabaya
+
+              li.bg-light.bg-white.schedule
+                i.ico.ico-departure
+                span.time.block 13.00 PM
+                span.block
+                  | Kamis,&nbsp;
+                  strong.f-bold 22 Feb ‘15
+                label.text-u-c Denpasar (DPS)
+              li.bg-light.bg-white.schedule
+                i.ico.ico-return
+                span.time.block 16.00 PM
+                span.block
+                  | Kamis,&nbsp;
+                  strong.f-bold 22 Feb ‘15
+                label.text-u-c Jakarta (CGK)
+              li.bg-white.airline
+                img.inline.m-r-sm(src="img/icon_airasia.png", width="30")
+                span.inline Air Asia QZ 888h
+              li.bg-white
+                i.ico.ico-chair
+                span.inline Economy
+              //- li.bg-white
+              //-   i.ico.ico-adult
+              //-   span.inline
+              //-     span#count-adult 2
+              //-     |  Person
+              //- li.bg-white
+              //-   i.ico.ico-bag
+              //-   span.inline 20 Kg
+            .clearfix
+
+          .dashed.clearfix
+          h4.section-title.m-t-xl.m-b-lg.text-c-l.text-left.text-rounded Passenger&nbsp;
+            span.text-yellow List
+
+          .passenger-list
+            .passenger-item.m-b-md
+              .column.name.pos-rlt
+                span.block.number 01
+                label.text-u-c ADULT
+                span.block.f-bold Miss Esperanza Kumala Wendyono
+              .column.passport.b-l.b-r
+                label.text-u-c PASSPORT NO.
+                span.block A D78JKI
+              .column.bod.b-r
+                label.text-u-c DATE OF BIRTH
+                span.block 21 Aug 1985
+              .column.baggage
+                label.text-u-c BAGGAGE
+                span.block 0kg + 20kg
+
+            .passenger-item.m-b-md
+              .column.name.pos-rlt
+                span.block.number 02
+                label.text-u-c ADULT
+                span.block.f-bold Mr Alexander Adijana
+              .column.passport.b-l.b-r
+                label.text-u-c PASSPORT NO.
+                span.block A P78JKI
+              .column.bod.b-r
+                label.text-u-c DATE OF BIRTH
+                span.block 12 Mar 1985
+              .column.baggage
+                label.text-u-c BAGGAGE
+                span.block 20kg + 20kg
+
+          include helpers/ssl-message
+
+      .aside.display-cell.p-t-70
+        ul.list-unstyled.bg-yellow
+          li.text-md
+            span.wrapper.block Order Number&nbsp;
+              strong.f-bold 378938
+
+        ul.list-unstyled.tour-pricing.m-t-lg
+          li
+            span.block.text-md Total Price
+          li
+            span.block.gray.text-u-c Air Asia
+            span.block.light.pull-left 2 Adult
+            span
+              strong.block.pull-right Rp 900.000
+            .clearfix
+          li
+            span.block.gray.text-u-c Air Asia
+            span.block.light.pull-left 2 Adult
+            span
+              strong.block.pull-right Rp 1.500.000
+            .clearfix
+          li
+            span.block.gray.text-u-c Luggage
+            span.block.light.pull-left 20 Kg
+            span
+              strong.block.pull-right Rp 100.000
+            .clearfix
+          li
+            span.block.gray.text-u-c Total Price
+            span.block.text-primary.pricing
+              span.currency Rp
+              span.price
+                span.number 2,500,000
+
+
+        p.text-sm.text-dark.m-t-md.m-b-xl Dengan mengklik tombol di bawah, Anda menyetujui&nbsp;
+          a.text-yellow(href="#") Syarat dan Ketentuan
+          |  dan&nbsp;
+          a.text-yellow(href="#") Kebijakan Privasi
+          |  Saptatour.com
+
+          a(class="btn btn-primary btn-submit btn-md pull-right m-b-lg text-md m-t-md", href="flight-payment-step-3.html") Continue To Payment
+
+
+
