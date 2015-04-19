@@ -1,0 +1,166 @@
+extends layouts/default
+
+include include/mixin
+
+block main
+  mixin headerFlightPayment(1)
+
+  .booking-page.flight-payment
+    .wrapping-gray
+    .container.display-table
+      .content-left.display-cell.p-t-70.b-r
+        .flight-payment-step-1
+          form.sapta-form.booking.booking-flight(action="flight-payment-step-2.html")
+            h4.section-title.m-t-none.m-b-lg.text-c-l.text-left.text-rounded Contact&nbsp;
+              span.text-yellow Details
+
+            .form-group
+              .boxing.name.b.m-t-md
+                label.block.text-xs Name
+                input(type="text", value="Anissa Sudirman")
+
+              .boxing.phone-number.b.m-t-md.m-r-md.pull-left
+                label.block.text-xs Phone Number
+                input(type="text", value="", placeholder="+62 (home or mobile number)")
+
+              .boxing.email.b.m-t-md.pull-left
+                label.block.text-xs Email
+                input(type="text", value="Anissa@gmail.com")
+              .clearfix
+
+              .dashed.m-t-xl.m-b-xl
+
+            mixin PassengerInfo(1);
+
+            mixin PassengerInfo(2);
+
+
+            a.pull-left.block.btn-white.text-c-l.btn(href="#", id="btnAddMorePassenger")
+              span.block.pull-left.m-r-sm +
+              strong.block.pull-right  Add More Passenger
+
+            button(type="submit", class="btn btn-primary btn-submit pull-right m-b-lg") Continue
+            .clearfix
+
+          .wrapper-lg.m-t-lg.ssl-message
+            .m-l-n-xl.m-b-xl
+              img.block.pull-left.m-l-n-xs(src="img/ssl-image.png", alt="")
+              p.pull-left.block.m-l-md Sapta Tour selalu mementingkan keamanan transaksi Anda. Semua transaksi melalui Saptatour.com dijamin 100% aman
+              .clearfix
+
+      .aside.display-cell.p-t-70
+        h5.m-t-xs.m-b-lg.text-rounded Flight Details
+        ul.list-unstyled.tour-ticket.outbound-flight
+          li.text-left
+            span.block.m-l-md.text-md Outbound Flight
+          li.bg-light.bg-white.schedule
+            i.ico.ico-departure
+            span.time 13.00 PM
+            span.inline
+              | Kamis,&nbsp;
+              strong.f-bold 12 Feb ‘15
+            label.text-u-c Jakarta (CGK)
+          li.bg-light.bg-white.schedule
+            i.ico.ico-return
+            span.time 16.00 PM
+            span.inline
+              | Kamis,&nbsp;
+              strong.f-bold 12 Feb ‘15
+            label.text-u-c Denpasar (DPS)
+          li.bg-white.airline
+            img.inline.m-r-sm(src="img/icon_airasia.png", width="30")
+            span.inline Air Asia QZ 888h
+          li.bg-white
+            i.ico.ico-chair
+            span.inline Economy
+          li.bg-white
+            i.ico.ico-adult
+            span.inline
+              span#count-adult 2
+              |  Person
+          li.bg-white
+            i.ico.ico-bag
+            span.inline Economy
+
+         ul.list-unstyled.tour-ticket.inbound-flight.m-t-md
+          li.text-left
+            span.block.m-l-md.text-md Outbound Flight
+          li.bg-light.bg-white.schedule
+            i.ico.ico-departure
+            span.time 13.00 PM
+            span.inline
+              | Kamis,&nbsp;
+              strong.f-bold 22 Feb ‘15
+            label.text-u-c Denpasar (DPS)
+          li.bg-light.bg-white.schedule
+            i.ico.ico-return
+            span.time 16.00 PM
+            span.inline
+              | Kamis,&nbsp;
+              strong.f-bold 22 Feb ‘15
+            label.text-u-c Jakarta (CGK)
+
+          li.bg-white
+            i.ico.ico-marker
+            span.inline Transit: Surabaya
+
+          li.bg-light.bg-white.schedule
+            i.ico.ico-departure
+            span.time 13.00 PM
+            span.inline
+              | Kamis,&nbsp;
+              strong.f-bold 22 Feb ‘15
+            label.text-u-c Denpasar (DPS)
+          li.bg-light.bg-white.schedule
+            i.ico.ico-return
+            span.time 16.00 PM
+            span.inline
+              | Kamis,&nbsp;
+              strong.f-bold 22 Feb ‘15
+            label.text-u-c Jakarta (CGK)
+          li.bg-white.airline
+            img.inline.m-r-sm(src="img/icon_airasia.png", width="30")
+            span.inline Air Asia QZ 888h
+          li.bg-white
+            i.ico.ico-chair
+            span.inline Economy
+          li.bg-white
+            i.ico.ico-adult
+            span.inline
+              span#count-adult 2
+              |  Person
+          li.bg-white
+            i.ico.ico-bag
+            span.inline Economy
+
+        ul.list-unstyled.tour-pricing.m-t-lg
+          li
+            span.block.text-md Total Price
+          li
+            span.block.gray.text-u-c Air Asia
+            span.block.light.pull-left 2 Adult
+            span
+              strong.block.pull-right Rp 900.000
+            .clearfix
+          li
+            span.block.gray.text-u-c Air Asia
+            span.block.light.pull-left 2 Adult
+            span
+              strong.block.pull-right Rp 1.500.000
+            .clearfix
+          li
+            span.block.gray.text-u-c Luggage
+            span.block.light.pull-left 20 Kg
+            span
+              strong.block.pull-right Rp 100.000
+            .clearfix
+          li
+            span.block.gray.text-u-c Total Price
+            span.block.text-primary.pricing
+              span.currency Rp
+              span.price
+                span.number 2,500,000
+
+        p.text-sm.m-t-md.m-b-xl Maskapai tetap dapat meng-update harga. Harga final akan Anda dapatkan di halaman review pembayaran
+
+

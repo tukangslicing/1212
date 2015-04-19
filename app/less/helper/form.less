@@ -158,12 +158,14 @@
         font-size: 11px;
       }
 
-      input {
+      input,
+      select {
         padding: 0;
         height: auto !important;
         font-size: 15px;
         font-weight: 500;
         color: #202020;
+        width: 100%;
 
         &:focus,
         &:active {
@@ -171,6 +173,11 @@
           border-color: transparent;
           .box-shadow(none);
         }
+      }
+
+      select {
+        background: none;
+        border: none;
       }
 
       textarea {
@@ -198,7 +205,50 @@
       }
 
       &.email {
-        width: 382px;
+        width: 379px;
+      }
+
+      &.gender {
+        width: 150px;
+      }
+
+      &.selectbox {
+        width: 150px;
+        padding-left: 0;
+        padding-right: 10px;
+
+        &.baggage {
+          width: 320px;
+        }
+
+        label {
+          padding-left: 8px;
+        }
+
+        select {
+          cursor: pointer !important
+        }
+
+        &:after {
+          z-index: 0;
+          display: block;
+          content: " ";
+          width: 20px;
+          height: 20px;
+          background: #fff url(../img/dropdown-icon.png) no-repeat center center;
+          position: absolute;
+          right: 7px;
+          bottom: 8px;
+          cursor: pointer;
+        }
+      }
+
+      &.passport {
+        width: 245px;
+      }
+
+      &.nationality {
+        width: 320px
       }
 
       &.departure,

@@ -2,6 +2,10 @@
   margin-top: 70px;
   overflow-x:hidden;
 
+  &.flight-payment {
+    margin-top: 0
+  }
+
   .display-table {
     display: table;
   }
@@ -172,6 +176,56 @@
         }
         &.bg-light {
           background-color: #f8f8f8;
+        }
+      }
+
+      &.outbound-flight,
+      &.inbound-flight {
+        li {
+          height: 50px;
+          min-height: 50px;
+          height: auto !important;
+
+          &:first-child {
+            height: 48px;
+            padding: 15px 0;
+          }
+
+          &.schedule {
+            height: 80px;
+            line-height: 18px;
+
+            .ico-departure {
+              top: 30px
+            }
+
+            .ico-return {
+              top: 26px
+            }
+          }
+
+          .ico {
+            &-bag {
+              top: 17px;
+            }
+
+            &-adult {
+              left: 23px
+            }
+            &-marker {
+              top: 17px;
+            }
+          }
+
+          &.airline {
+            padding-left: 15px;
+          }
+
+          label {
+            color: #888;
+            font-size: 11px;
+            font-family: "Gotham Black"
+          }
         }
       }
     }

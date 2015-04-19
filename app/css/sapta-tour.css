@@ -2784,6 +2784,51 @@ fieldset[disabled] .form-control.bg-white-only {
   height: 14px;
   background-position: -517px -18px;
 }
+.bg-white .ico-chair {
+  width: 15px;
+  height: 15px;
+  background-position: -624px -17px;
+}
+.bg-white .ico-bag {
+  width: 15px;
+  height: 15px;
+  background-position: -653px -17px;
+}
+.bg-white .ico-marker {
+  width: 10px;
+  height: 15px;
+  background-position: -680px -15px;
+}
+.bg-white .ico-hotel-in {
+  width: 25px;
+  height: 18px;
+  background-position: -707px -13px;
+}
+.bg-white .ico-hotel-in {
+  width: 25px;
+  height: 18px;
+  background-position: -743px -13px;
+}
+.bg-white .ico-waiting {
+  width: 17px;
+  height: 20px;
+  background-position: -695px -93px;
+}
+.bg-white .ico-gear {
+  width: 33px;
+  height: 33px;
+  background-position: -730px -84px;
+}
+.bg-white .ico-wifi {
+  width: 17px;
+  height: 13px;
+  background-position: -459px -17px;
+}
+.bg-white .ico-star {
+  width: 12px;
+  height: 12px;
+  background-position: -490px -18px;
+}
 .btn {
   border-radius: 0;
   font-family: "Gotham Black";
@@ -3210,6 +3255,56 @@ html[xmlns] .flexslider .slides {
   height: auto !important;
   display: block;
 }
+.navbar .navbar-brand.md {
+  padding-top: 20px;
+}
+.payment-nav {
+  padding: 39px 0;
+}
+.payment-step {
+  width: 589px;
+  height: 42px;
+}
+.payment-step-1 {
+  background: url(../img/flight-payment-step-1.png) no-repeat 0 0;
+}
+.payment-step-2 {
+  background: url(../img/flight-payment-step-2.png) no-repeat 0 0;
+}
+.payment-step-3 {
+  background: url(../img/flight-payment-step-3.png) no-repeat 0 0;
+}
+.payment-step-4 {
+  background: url(../img/flight-payment-step-4.png) no-repeat 0 0;
+}
+.payment-step-5 {
+  background: url(../img/flight-payment-step-5.png) no-repeat 0 0;
+}
+.payment-step a {
+  display: block;
+  float: left;
+  width: 117px;
+  line-height: 42px;
+  text-align: center;
+  font-family: "Gotham Black";
+  color: #01414c;
+  text-shadow: 1px 2px 0px rgba(61, 153, 169, 0.2);
+  padding-left: 20px;
+}
+.payment-step a:last-child {
+  padding-left: 0;
+}
+.payment-step a:hover {
+  color: #fff;
+  text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+.payment-step a.active {
+  color: #000;
+  text-shadow: none;
+}
+.payment-step a.active:hover {
+  text-shadow: none;
+}
 .tour-form.inline-text,
 .flight-form.inline-text {
   background-color: #007589;
@@ -3355,15 +3450,19 @@ html[xmlns] .flexslider .slides {
   font-family: "Gotham Book";
   font-size: 11px;
 }
-.sapta-form.booking .boxing input {
+.sapta-form.booking .boxing input,
+.sapta-form.booking .boxing select {
   padding: 0;
   height: auto !important;
   font-size: 15px;
   font-weight: 500;
   color: #202020;
+  width: 100%;
 }
 .sapta-form.booking .boxing input:focus,
-.sapta-form.booking .boxing input:active {
+.sapta-form.booking .boxing select:focus,
+.sapta-form.booking .boxing input:active,
+.sapta-form.booking .boxing select:active {
   outline: 0;
   border-color: transparent;
   -webkit-box-shadow: none;
@@ -3372,6 +3471,10 @@ html[xmlns] .flexslider .slides {
   -moz-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   -o-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
+}
+.sapta-form.booking .boxing select {
+  background: none;
+  border: none;
 }
 .sapta-form.booking .boxing textarea {
   border: none;
@@ -3399,7 +3502,42 @@ html[xmlns] .flexslider .slides {
   width: 265px;
 }
 .sapta-form.booking .boxing.email {
-  width: 382px;
+  width: 379px;
+}
+.sapta-form.booking .boxing.gender {
+  width: 150px;
+}
+.sapta-form.booking .boxing.selectbox {
+  width: 150px;
+  padding-left: 0;
+  padding-right: 10px;
+}
+.sapta-form.booking .boxing.selectbox.baggage {
+  width: 320px;
+}
+.sapta-form.booking .boxing.selectbox label {
+  padding-left: 8px;
+}
+.sapta-form.booking .boxing.selectbox select {
+  cursor: pointer !important;
+}
+.sapta-form.booking .boxing.selectbox:after {
+  z-index: 0;
+  display: block;
+  content: " ";
+  width: 20px;
+  height: 20px;
+  background: #ffffff url(../img/dropdown-icon.png) no-repeat center center;
+  position: absolute;
+  right: 7px;
+  bottom: 8px;
+  cursor: pointer;
+}
+.sapta-form.booking .boxing.passport {
+  width: 245px;
+}
+.sapta-form.booking .boxing.nationality {
+  width: 320px;
 }
 .sapta-form.booking .boxing.departure,
 .sapta-form.booking .boxing.return {
@@ -4413,6 +4551,9 @@ html[xmlns] .flexslider .slides {
   margin-top: 70px;
   overflow-x: hidden;
 }
+.booking-page.flight-payment {
+  margin-top: 0;
+}
 .booking-page .display-table {
   display: table;
 }
@@ -4552,6 +4693,52 @@ html[xmlns] .flexslider .slides {
 }
 .booking-page .aside ul.tour-ticket li.bg-light {
   background-color: #f8f8f8;
+}
+.booking-page .aside ul.tour-ticket.outbound-flight li,
+.booking-page .aside ul.tour-ticket.inbound-flight li {
+  height: 50px;
+  min-height: 50px;
+  height: auto !important;
+}
+.booking-page .aside ul.tour-ticket.outbound-flight li:first-child,
+.booking-page .aside ul.tour-ticket.inbound-flight li:first-child {
+  height: 48px;
+  padding: 15px 0;
+}
+.booking-page .aside ul.tour-ticket.outbound-flight li.schedule,
+.booking-page .aside ul.tour-ticket.inbound-flight li.schedule {
+  height: 80px;
+  line-height: 18px;
+}
+.booking-page .aside ul.tour-ticket.outbound-flight li.schedule .ico-departure,
+.booking-page .aside ul.tour-ticket.inbound-flight li.schedule .ico-departure {
+  top: 30px;
+}
+.booking-page .aside ul.tour-ticket.outbound-flight li.schedule .ico-return,
+.booking-page .aside ul.tour-ticket.inbound-flight li.schedule .ico-return {
+  top: 26px;
+}
+.booking-page .aside ul.tour-ticket.outbound-flight li .ico-bag,
+.booking-page .aside ul.tour-ticket.inbound-flight li .ico-bag {
+  top: 17px;
+}
+.booking-page .aside ul.tour-ticket.outbound-flight li .ico-adult,
+.booking-page .aside ul.tour-ticket.inbound-flight li .ico-adult {
+  left: 23px;
+}
+.booking-page .aside ul.tour-ticket.outbound-flight li .ico-marker,
+.booking-page .aside ul.tour-ticket.inbound-flight li .ico-marker {
+  top: 17px;
+}
+.booking-page .aside ul.tour-ticket.outbound-flight li.airline,
+.booking-page .aside ul.tour-ticket.inbound-flight li.airline {
+  padding-left: 15px;
+}
+.booking-page .aside ul.tour-ticket.outbound-flight li label,
+.booking-page .aside ul.tour-ticket.inbound-flight li label {
+  color: #888;
+  font-size: 11px;
+  font-family: "Gotham Black";
 }
 .booking-page .aside ul.tour-pricing li {
   padding: 14px 15px 14px 25px;
@@ -5170,6 +5357,14 @@ html[xmlns] .flexslider .slides {
   border-color: #158ea3;
   -webkit-box-shadow: 0px -2px 0px 0px #0f6776;
   box-shadow: 0px -2px 0px 0px #0f6776;
+}
+.flight-payment-step-1 #btnAddMorePassenger {
+  text-shadow: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.flight-payment-step-1 .ssl-message p {
+  width: 480px;
 }
 .datepicker {
   border-radius: 4px;

@@ -92,9 +92,44 @@ mixin headerActive(current)
             a.b-r-white(href='login.html') Login
           li
             a(href='register.html') Register
-
       .clearfix
 
+
+mixin headerFlightPayment(step)
+  div.navbar(role='navigation')
+    .container
+      .navbar-header
+        a.navbar-brand.md.block(href='index.html', title='Sapta Tour and Travel')
+          img(src='img/sapta-logo-md.png', title='Sapta Tour and Travel')
+
+      .pull-right.nav.payment-nav
+        div(class="payment-step payment-step-#{step}")
+          if (step == 1)
+            a.step.one.active(href="#") Details
+          else
+            a.step.one(href="flight-payment-step-1.html") Details
+
+          if (step == 2)
+            a.step.two.active(href="#") Review
+          else
+            a.step.two(href="flight-payment-step-2.html") Review
+
+          if (step == 3)
+            a.step.three.active(href="#") Payment
+          else
+            a.step.three(href="flight-payment-step-3.html") Payment
+
+          if (step == 4)
+            a.step.four.active(href="#") Process
+          else
+            a.step.four(href="flight-payment-step-4.html") Process
+
+          if (step == 5)
+            a.step.five.active(href="#") E-Ticket
+          else
+            a.step.five(href="flight-payment-step-5.html") E-Ticket
+
+      .clearfix
 
 mixin dealInfo(region, destination, day, price)
   .dealinfo
@@ -190,3 +225,103 @@ mixin flightOutbound(airline, departure, _return, transit, pricing)
       label.light per person
     .button.column.pull-left.text-center
       a.block.pos-rlt(href="flight-inbound.html") Select Flight
+
+mixin PassengerInfo(number)
+  .form-group.passenger-info(id="passenger-#{number}")
+    h4.section-title.m-t-none.m-b-lg.text-c-l.text-left.text-rounded Adult Passenger 0#{number}&nbsp;
+      span.text-yellow Details
+    p
+      strong.f-bold Perhatian:
+      |  Nama pernumpang rute International harus tepat dan sesuai Paspor, sedangkan domestik dapat
+      strong.f-bold  sesuai
+      |  KTP/SIM/Paspor. Data Penumpang tidak dapat diubah setelah halaman berpindah
+
+    .pull-left.m-r-md.m-b-md
+      .boxing.gender.selectbox.b.m-t-md.pos-rlt
+        label.block.text-xs Title
+        select(name="gender")
+          option(selected="selected") Miss
+          option() Mr
+
+    .pull-left.m-b-md
+      .boxing.name.b.m-t-md
+        label.block.text-xs Name as written in Passport
+        input(type="text", placeholder="Passenger’s Name")
+
+    .clearfix
+    .pull-left.m-r-md.m-b-md
+      .boxing.passport.b.m-t-md
+        label.block.text-xs Pasport Number
+        input(type="text", value="", placeholder="Type Passport Number")
+
+    .pull-left.m-b-md
+      .boxing.nationality.selectbox.b.m-t-md.pos-rlt
+        label.block.text-xs Nationality
+        select(name="nationality")
+          option(selected="selected") Indonesian
+          option() Singaporean
+          option() Malaysian
+
+    .clearfix
+
+    .pull-left.m-r-md.m-b-md
+      .boxing.bod.selectbox.b.m-t-md.pos-rlt
+        label.block.text-xs Day of Birth
+        select(name="day")
+          option(selected="selected") 29
+          option() 1
+          option() 2
+          option() 3
+          option() 4
+
+    .pull-left.m-r-md.m-b-md
+      .boxing.bod.selectbox.b.m-t-md.pos-rlt
+        label.block.text-xs Month of Birth
+        select(name="month")
+          option January
+          option February
+          option March
+          option April
+          option May
+          option June
+          option July
+          option August
+          option(selected="selected") September
+          option October
+          option November
+          option Desember
+
+    .pull-left.m-r-md.m-b-md
+      .boxing.bod.selectbox.b.m-t-md.pos-rlt
+        label.block.text-xs Year of Birth
+        select(name="year")
+          option 1987
+          option(selected) 1986
+          option 1985
+          option 1984
+          option 1983
+          option 1982
+
+    .clearfix
+      .pull-left.m-r-md.m-b-md
+        .boxing.baggage.selectbox.b.m-t-md.pos-rlt
+          label.block.text-xs Baggage Jakarta - Denpasar
+          select(name="baggage_departure")
+            option(selected="selected") No Baggage
+            option 20kg
+            option 30 Kg
+            option 40 Kg
+            option 50 Kg
+
+      .pull-left.m-b-md
+        .boxing.baggage.selectbox.b.m-t-md.pos-rlt
+          label.block.text-xs Baggage Denpasar - Jakarta
+          select(name="baggage_return")
+            option No Baggage
+            option(selected="selected") 20kg
+            option 30 Kg
+            option 40 Kg
+            option 50 Kg
+
+      .clearfix
+    .dashed.m-t-lg.m-b-lg
