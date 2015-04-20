@@ -1,0 +1,107 @@
+.document-page {
+  overflow-x:hidden;
+
+  .head-title {
+    font-family: "Gotham Black";
+    font-size: 30px;
+  }
+
+  .head-title {
+    font-size: 36px;
+    line-height: 177px;
+    margin: 0;
+    font-family: "Gotham Black";
+    background: url(../img/heading_document_title_bg.png) no-repeat center center;
+  }
+
+  .banner {
+    height: 177px;
+    background: url(../img/heading_document.jpg) repeat-x top center;
+  }
+
+  .display-table {
+    display: table;
+  }
+
+  .display-cell {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .content-left {
+    position: relative;
+    z-index: 1;
+    width: 700px;
+    padding-right: 33px;
+    background-color: #fff;
+
+    article {
+      padding-top: 55px;
+      line-height: 24px;
+
+      p {
+        margin-bottom: 30px
+      }
+
+      h5 {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+    }
+
+    h3 {
+      font-size: 30px;
+      margin-top: 0
+    }
+  }
+
+  .flags-list {
+    .flag-item {
+      -webkit-box-shadow: 0px 0px 0px 1px #dadada, 0px 1px 3px 2px rgba(216, 216, 216, 0.5);
+      box-shadow: 0px 0px 0px 1px #dadada, 0px 1px 3px 2px rgba(216, 216, 216, 0.5);
+      padding: 25px;
+      height: 84px;
+
+      img {
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      span {
+        font-size: 15px;
+        line-height: 34px
+      }
+    }
+  }
+
+  .aside {
+    width: 240px;
+    background: #f4f4f4;
+    padding-left: 35px;
+    position: relative;
+
+    ul {
+      margin-top: 55px;
+
+      li {
+        display: block;
+        margin-bottom: 15px
+      }
+    }
+
+    a {
+      color: #353535;
+      text-decoration: underline;
+
+      &:hover {
+        color: darken(#b2b2b2, 10%);
+        text-decoration: none;
+      }
+
+      &.active {
+        color: #b2b2b2;
+        text-decoration: none;
+      }
+    }
+  }
+}
