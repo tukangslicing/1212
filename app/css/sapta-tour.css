@@ -1870,7 +1870,7 @@ a.text-orange {
   font-size: 22px;
 }
 .text-lg {
-  font-size: 15px;
+  font-size: 16px;
 }
 .text-md {
   font-size: 14px;
@@ -2835,6 +2835,11 @@ fieldset[disabled] .form-control.bg-white-only {
   height: 12px;
   background-position: -490px -18px;
 }
+.bg-white .ico-download-voucher {
+  width: 233px;
+  height: 50px;
+  background-position: -304px -258px;
+}
 .btn {
   border-radius: 0;
   font-family: "Gotham Black";
@@ -3227,7 +3232,9 @@ html[xmlns] .flexslider .slides {
   line-height: 14px;
   padding: 0 10px;
 }
-.nav.navbar-right > li > a:hover {
+.nav.navbar-right > li > a:hover,
+.nav.navbar-right > li > a:focus {
+  outline: 0;
   background: none;
 }
 .nav.navbar-nav > li {
@@ -3444,20 +3451,20 @@ html[xmlns] .flexslider .slides {
   padding-left: 5px;
   padding-right: 5px;
 }
-.sapta-form.booking .boxing {
+.sapta-form .boxing {
   border-radius: 5px;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   padding: 8px 10px;
 }
-.sapta-form.booking .boxing label {
+.sapta-form .boxing label {
   color: #606060;
   font-weight: 300;
   font-family: "Gotham Book";
   font-size: 11px;
 }
-.sapta-form.booking .boxing input,
-.sapta-form.booking .boxing select {
+.sapta-form .boxing input,
+.sapta-form .boxing select {
   padding: 0;
   height: auto !important;
   font-size: 15px;
@@ -3465,10 +3472,10 @@ html[xmlns] .flexslider .slides {
   color: #202020;
   width: 100%;
 }
-.sapta-form.booking .boxing input:focus,
-.sapta-form.booking .boxing select:focus,
-.sapta-form.booking .boxing input:active,
-.sapta-form.booking .boxing select:active {
+.sapta-form .boxing input:focus,
+.sapta-form .boxing select:focus,
+.sapta-form .boxing input:active,
+.sapta-form .boxing select:active {
   outline: 0;
   border-color: transparent;
   -webkit-box-shadow: none;
@@ -3478,11 +3485,11 @@ html[xmlns] .flexslider .slides {
   -o-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
 }
-.sapta-form.booking .boxing select {
+.sapta-form .boxing select {
   background: none;
   border: none;
 }
-.sapta-form.booking .boxing textarea {
+.sapta-form .boxing textarea {
   border: none;
   font-size: 16px;
   font-family: "Gotham Book";
@@ -3490,8 +3497,8 @@ html[xmlns] .flexslider .slides {
   width: 100%;
   height: 80px;
 }
-.sapta-form.booking .boxing textarea:focus,
-.sapta-form.booking .boxing textarea:active {
+.sapta-form .boxing textarea:focus,
+.sapta-form .boxing textarea:active {
   outline: 0;
   border-color: transparent;
   -webkit-box-shadow: none;
@@ -3501,33 +3508,33 @@ html[xmlns] .flexslider .slides {
   -o-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
 }
-.sapta-form.booking .boxing.name {
+.sapta-form .boxing.name {
   width: 320px;
 }
-.sapta-form.booking .boxing.phone-number {
+.sapta-form .boxing.phone-number {
   width: 265px;
 }
-.sapta-form.booking .boxing.email {
+.sapta-form .boxing.email {
   width: 379px;
 }
-.sapta-form.booking .boxing.gender {
+.sapta-form .boxing.gender {
   width: 150px;
 }
-.sapta-form.booking .boxing.selectbox {
+.sapta-form .boxing.selectbox {
   width: 150px;
   padding-left: 0;
   padding-right: 10px;
 }
-.sapta-form.booking .boxing.selectbox.baggage {
+.sapta-form .boxing.selectbox.baggage {
   width: 320px;
 }
-.sapta-form.booking .boxing.selectbox label {
+.sapta-form .boxing.selectbox label {
   padding-left: 8px;
 }
-.sapta-form.booking .boxing.selectbox select {
+.sapta-form .boxing.selectbox select {
   cursor: pointer !important;
 }
-.sapta-form.booking .boxing.selectbox:after {
+.sapta-form .boxing.selectbox:after {
   z-index: 0;
   display: block;
   content: " ";
@@ -3539,25 +3546,25 @@ html[xmlns] .flexslider .slides {
   bottom: 8px;
   cursor: pointer;
 }
-.sapta-form.booking .boxing.passport {
+.sapta-form .boxing.passport {
   width: 245px;
 }
-.sapta-form.booking .boxing.nationality {
+.sapta-form .boxing.nationality {
   width: 320px;
 }
-.sapta-form.booking .boxing.departure,
-.sapta-form.booking .boxing.return {
+.sapta-form .boxing.departure,
+.sapta-form .boxing.return {
   width: 187px;
   padding: 5px 0 0 0;
   position: relative;
 }
-.sapta-form.booking .boxing.departure label,
-.sapta-form.booking .boxing.return label {
+.sapta-form .boxing.departure label,
+.sapta-form .boxing.return label {
   padding: 4px 10px;
   margin-bottom: 2px;
 }
-.sapta-form.booking .boxing.departure input,
-.sapta-form.booking .boxing.return input {
+.sapta-form .boxing.departure input,
+.sapta-form .boxing.return input {
   width: 100%;
   cursor: pointer;
   padding: 0 30px 7px 10px;
@@ -3566,8 +3573,8 @@ html[xmlns] .flexslider .slides {
   z-index: 1;
   background: transparent;
 }
-.sapta-form.booking .boxing.departure:after,
-.sapta-form.booking .boxing.return:after {
+.sapta-form .boxing.departure:after,
+.sapta-form .boxing.return:after {
   z-index: 0;
   display: block;
   content: " ";
@@ -3579,10 +3586,10 @@ html[xmlns] .flexslider .slides {
   bottom: 13px;
   cursor: pointer;
 }
-.sapta-form.booking .boxing.airline {
+.sapta-form .boxing.airline {
   width: 335px;
 }
-.sapta-form.booking .boxing.message {
+.sapta-form .boxing.message {
   width: 100%;
 }
 .sapta-form .btn {
@@ -5453,6 +5460,15 @@ html[xmlns] .flexslider .slides {
 .flight-payment-step-5 {
   font-size: 13px;
 }
+.flight-payment-step-5 .btn-download-e-ticket {
+  display: inline-block;
+  width: 296px;
+  height: 50px;
+  background-image: url(../img/icon-bg-white.png);
+  background-position: -2px -258px;
+  text-indent: -9999px;
+  overflow: hidden;
+}
 .flight-payment-step-5 .section-title {
   font-size: 30px;
   color: #4c4c4c;
@@ -5605,6 +5621,100 @@ html[xmlns] .flexslider .slides {
 .document-page .aside a.active {
   color: #b2b2b2;
   text-decoration: none;
+}
+.modal-dialog-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.modal-body {
+  overflow-y: auto;
+}
+.modal-footer {
+  margin-top: 0;
+}
+@media (max-width: 767px) {
+  .modal-dialog-center {
+    width: 100%;
+  }
+}
+#loginModal .modal-header {
+  border-bottom: none;
+}
+#loginModal .modal-header button:focus,
+#loginModal .modal-header button:hover {
+  outline: 0;
+  opacity: 1;
+}
+#loginModal .modal-header button.close {
+  right: -18px;
+  top: -12px;
+  position: absolute;
+  opacity: 1;
+  width: 36px;
+  height: 36px;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: url(../img/close.png) no-repeat 0 0;
+}
+#loginModal .modal-dialog {
+  width: 480px;
+  -webkit-box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.4);
+}
+#loginModal .modal-footer {
+  border-top: none;
+  padding: 0;
+  text-align: center;
+}
+#loginModal .modal-footer a {
+  color: #ef9630;
+}
+#loginModal .modal-footer span {
+  color: #cacaca;
+}
+#loginModal .modal-content {
+  height: 440px;
+  border-radius: 0;
+}
+#loginModal .modal-content h6 {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+#loginModal .modal-content .boxing {
+  border-color: #d0d0d0;
+}
+#loginModal .modal-content form {
+  padding: 40px 65px 30px 65px;
+}
+#loginModal .modal-content form .btn {
+  margin: 0 auto;
+  display: block;
+  border-radius: 6px;
+  line-height: 48px;
+  padding: 0 25px;
+  font-size: 18px;
+  width: 125px;
+  text-align: center;
+}
+#loginModal .modal-content form .password {
+  font-size: 25px;
+  line-height: 25px;
+}
+#loginModal .modal-content form ::-webkit-input-placeholder {
+  font-size: 15px;
+}
+#loginModal .modal-content form :-moz-placeholder {
+  /* Firefox 18- */
+  font-size: 15px;
+}
+#loginModal .modal-content form ::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 15px;
+}
+#loginModal .modal-content form :-ms-input-placeholder {
+  font-size: 15px;
 }
 .datepicker {
   border-radius: 4px;

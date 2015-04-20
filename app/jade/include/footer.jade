@@ -56,3 +56,31 @@
       span.text-dark-light.text-u-c.m-r-sm Share
       a.m-r-sm.ico.ico-fb(href="#", target="_blank") FB
       a.m-r-sm.ico.ico-tw(href="#", target="_blank") TW
+
+
+#loginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+  .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+        .modal-body
+          h6.text-lg.f-bold.text-u-c.text-center Login to your account
+          form.sapta-form
+            .form-group.m-b-md
+              .boxing.b
+                label(for='InputEmail') Email Address
+                input#InputEmail.form-control(type='email', placeholder='Enter email')
+
+            .form-group.m-b-lg
+              .boxing.b
+                label(for='InputPassword') Password
+                input#InputPassword.password.form-control(type='password', placeholder='Password')
+
+            button.btn.btn-primary.btn-lg.m-auto(type='submit') Submit
+
+        .modal-footer
+          a.inline(href="register.html") Register New Account
+          span.inline.m-r-sm.m-l-sm |
+          a.inline(href="#") Forgot Password?
+

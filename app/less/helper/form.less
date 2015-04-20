@@ -145,153 +145,153 @@
 .sapta-form {
 
   &.booking {
-    .boxing {
-      border-radius: 5px;
-      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      padding: 8px 10px;
+  }
+  .boxing {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 8px 10px;
 
-      label {
-        color: #606060;
-        font-weight: 300;
-        font-family: "Gotham Book";
-        font-size: 11px;
+    label {
+      color: #606060;
+      font-weight: 300;
+      font-family: "Gotham Book";
+      font-size: 11px;
+    }
+
+    input,
+    select {
+      padding: 0;
+      height: auto !important;
+      font-size: 15px;
+      font-weight: 500;
+      color: #202020;
+      width: 100%;
+
+      &:focus,
+      &:active {
+        outline: 0;
+        border-color: transparent;
+        .box-shadow(none);
       }
+    }
 
-      input,
-      select {
-        padding: 0;
-        height: auto !important;
-        font-size: 15px;
-        font-weight: 500;
-        color: #202020;
-        width: 100%;
+    select {
+      background: none;
+      border: none;
+    }
 
-        &:focus,
-        &:active {
-          outline: 0;
-          border-color: transparent;
-          .box-shadow(none);
-        }
+    textarea {
+      border: none;
+      font-size: 16px;
+      font-family: "Gotham Book";
+      resize: none;
+      width: 100%;
+      height: 80px;
+
+      &:focus,
+      &:active {
+        outline: 0;
+        border-color: transparent;
+        .box-shadow(none);
       }
+    }
 
-      select {
-        background: none;
-        border: none;
-      }
+    &.name {
+      width: 320px;
+    }
 
-      textarea {
-        border: none;
-        font-size: 16px;
-        font-family: "Gotham Book";
-        resize: none;
-        width: 100%;
-        height: 80px;
+    &.phone-number {
+      width: 265px;
+    }
 
-        &:focus,
-        &:active {
-          outline: 0;
-          border-color: transparent;
-          .box-shadow(none);
-        }
-      }
+    &.email {
+      width: 379px;
+    }
 
-      &.name {
+    &.gender {
+      width: 150px;
+    }
+
+    &.selectbox {
+      width: 150px;
+      padding-left: 0;
+      padding-right: 10px;
+
+      &.baggage {
         width: 320px;
       }
 
-      &.phone-number {
-        width: 265px;
+      label {
+        padding-left: 8px;
       }
 
-      &.email {
-        width: 379px;
+      select {
+        cursor: pointer !important
       }
 
-      &.gender {
-        width: 150px;
+      &:after {
+        z-index: 0;
+        display: block;
+        content: " ";
+        width: 20px;
+        height: 20px;
+        background: #fff url(../img/dropdown-icon.png) no-repeat center center;
+        position: absolute;
+        right: 7px;
+        bottom: 8px;
+        cursor: pointer;
+      }
+    }
+
+    &.passport {
+      width: 245px;
+    }
+
+    &.nationality {
+      width: 320px
+    }
+
+    &.departure,
+    &.return {
+      width: 187px;
+      padding: 5px 0 0 0;
+      position: relative;
+
+      label {
+        padding: 4px 10px;
+        margin-bottom: 2px;
       }
 
-      &.selectbox {
-        width: 150px;
-        padding-left: 0;
-        padding-right: 10px;
-
-        &.baggage {
-          width: 320px;
-        }
-
-        label {
-          padding-left: 8px;
-        }
-
-        select {
-          cursor: pointer !important
-        }
-
-        &:after {
-          z-index: 0;
-          display: block;
-          content: " ";
-          width: 20px;
-          height: 20px;
-          background: #fff url(../img/dropdown-icon.png) no-repeat center center;
-          position: absolute;
-          right: 7px;
-          bottom: 8px;
-          cursor: pointer;
-        }
-      }
-
-      &.passport {
-        width: 245px;
-      }
-
-      &.nationality {
-        width: 320px
-      }
-
-      &.departure,
-      &.return {
-        width: 187px;
-        padding: 5px 0 0 0;
-        position: relative;
-
-        label {
-          padding: 4px 10px;
-          margin-bottom: 2px;
-        }
-
-        input {
-          width: 100%;
-          cursor: pointer;
-          padding: 0 30px 7px 10px;
-          border-radius: 5px;
-          position: relative;
-          z-index: 1;
-          background: transparent;
-        }
-        &:after {
-          z-index: 0;
-          display: block;
-          content: " ";
-          width: 12px;
-          height: 9px;
-          background: url(../img/dropdown-icon.png) no-repeat 0 0;
-          position: absolute;
-          right: 13px;
-          bottom: 13px;
-          cursor: pointer;
-        }
-      }
-
-      &.airline {
-        width: 335px;
-      }
-
-      &.message {
+      input {
         width: 100%;
+        cursor: pointer;
+        padding: 0 30px 7px 10px;
+        border-radius: 5px;
+        position: relative;
+        z-index: 1;
+        background: transparent;
       }
+      &:after {
+        z-index: 0;
+        display: block;
+        content: " ";
+        width: 12px;
+        height: 9px;
+        background: url(../img/dropdown-icon.png) no-repeat 0 0;
+        position: absolute;
+        right: 13px;
+        bottom: 13px;
+        cursor: pointer;
+      }
+    }
+
+    &.airline {
+      width: 335px;
+    }
+
+    &.message {
+      width: 100%;
     }
   }
 
