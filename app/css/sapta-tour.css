@@ -4839,6 +4839,42 @@ html[xmlns] .flexslider .slides {
   width: 50%;
   height: 100%;
 }
+.booking-thank-you {
+  padding-top: 30px;
+}
+.booking-thank-you .section-title {
+  font-size: 30px;
+  color: #4c4c4c;
+}
+.booking-thank-you .thank-your-header {
+  background: #f4f4f2;
+  height: 36px;
+  line-height: 36px;
+  margin-bottom: 70px;
+  font-size: 13px;
+}
+.booking-thank-you .thank-your-header .tour-name {
+  width: 220px;
+  padding: 0 0 0 20px;
+}
+.booking-thank-you .thank-your-header .count-adult,
+.booking-thank-you .thank-your-header .tour-date {
+  padding-left: 20px;
+}
+.booking-thank-you .thank-your-header .tour-date {
+  width: 320px;
+}
+.booking-thank-you .thank-your-header .tour-name,
+.booking-thank-you .thank-your-header .tour-date {
+  border-right: 2px solid #fff;
+}
+.booking-thank-you .thank-your-message {
+  width: 780px;
+  margin: 0 auto;
+}
+.booking-thank-you .thank-your-message a {
+  color: #ff9966;
+}
 .blog-page .head-title {
   font-family: "Gotham Black";
   font-size: 30px;
