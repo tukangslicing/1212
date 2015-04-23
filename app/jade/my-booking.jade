@@ -7,22 +7,14 @@ block main
 
   .account-page.p-t-70
     .banner
-      h2.head-title.text-white.text-center Visa &amp; Documents
+      h2.head-title.text-white.text-center My Account
 
     .my-booking-page
       .wrapping-gray
       .container.display-table
 
         .aside.display-cell.p-t-70.pull-right
-          ul.list-unstyled.m-r-md.m-b-xl
-            li
-              a(href="#") Profile Settings
-            li
-              a.active(href="#") My Bookings
-            li
-              a(href="#") Credit Card Settings
-            li
-              a(href="#") Passenger List
+          mixin myAccountMenu('booking')
 
           .clearfix.wrapper-xl
 

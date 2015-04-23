@@ -1,0 +1,32 @@
+extends layouts/default
+
+include include/mixin
+
+block main
+  mixin headerActive('')
+
+  .account-page.p-t-70
+    .banner
+      h2.head-title.text-white.text-center My Account
+
+    .my-booking-page
+      .wrapping-gray
+      .container.display-table
+
+        .aside.display-cell.p-t-70.pull-right
+          mixin myAccountMenu('credit-card')
+
+          .clearfix.wrapper-xl
+
+        .content-right.display-cell.p-t-70.b-l.m-b-xl
+          .my-booking-block
+            h3.title-block.text-rounded.m-b-lg
+              | My Saved&nbsp;
+              span.text-yellow Credit Card
+
+            .block.bg-white.m-b-lg
+              i.ico.ico-lock.block.pull-left
+              span.block.pull-left.m-l-sm Your payment details are stored securely
+              .clearfix
+
+            .m-b-lg.b-dashed-b-gray

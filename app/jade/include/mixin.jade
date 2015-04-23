@@ -181,6 +181,29 @@ mixin dealInfo(region, destination, day, price)
 
       a.text-u-c.more-details(href="tour-detail.html") Click for More Details
 
+mixin myAccountMenu(current)
+  ul.list-unstyled.m-r-md.m-b-xl
+    li
+      if (current == 'profile')
+        a.active(href="my-profile-setting.html") Profile Settings
+      else
+        a(href="my-profile-setting.html") Profile Settings
+    li
+      if (current == 'booking')
+        a.active(href="my-booking.html") My Bookings
+      else
+        a(href="my-booking.html") My Bookings
+    li
+      if (current == 'credit-card')
+        a.active(href="my-credit-card.html") Credit Card Settings
+      else
+        a(href="my-credit-card.html") Credit Card Settings
+    li
+      if (current == 'passenger')
+        a.active(href="my-passenger-list.html") Passenger List
+      else
+        a(href="my-passenger-list.html") Passenger List
+
 
 mixin flightOutbound(airline, departure, _return, transit, pricing)
   .flight-item.m-b-sm
