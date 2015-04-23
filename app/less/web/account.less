@@ -1,0 +1,195 @@
+.account-page {
+  overflow-x:hidden;
+
+  .head-title {
+    font-family: "Gotham Black";
+    font-size: 30px;
+  }
+
+  .head-title {
+    font-size: 36px;
+    line-height: 177px;
+    margin: 0;
+    font-family: "Gotham Black";
+    background: url(../img/heading_document_title_bg.png) no-repeat center center;
+  }
+
+  .banner {
+    height: 177px;
+    background: #f4f4f4 url(../img/heading_document.jpg) repeat-x top center;
+  }
+}
+
+.my-booking-page {
+  overflow-x:hidden;
+
+  .wrapping-gray {
+    background: #f4f4f4;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+  }
+
+  .display-table {
+    display: table;
+  }
+
+  .display-cell {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .content-right {
+    position: relative;
+    z-index: 1;
+    width: 770px;
+    background-color: #fff;
+  }
+
+  .aside {
+    width: 150px;
+    background: #f4f4f4;
+    position: relative;
+
+    ul {
+
+      li {
+        display: block;
+        margin-bottom: 15px
+      }
+    }
+
+    a {
+      color: #353535;
+      border-bottom: 1px solid #c4c4c4;
+      display: inline-block;
+      line-height: 12px;
+
+      &:hover {
+        color: darken(#b2b2b2, 10%);
+        text-decoration: none;
+      }
+
+      &.active {
+        color: #b2b2b2;
+        border-bottom: 0;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.my-booking-block {
+  padding: 0 0 0 45px;
+
+  h3.title-block {
+    font-size: 30px;
+    margin-top: 0;
+  }
+
+  .order-item {
+
+    .content {
+      -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 3px 2px 4px rgba(216, 216, 216, 0.5);
+      box-shadow: 0px 0px 0px 1px #d8d8d8, 3px 2px 4px rgba(216, 216, 216, 0.5);
+    }
+
+    .order-head {
+      height: 95px;
+      background: #f8f8f8;
+
+      .column {
+        height: 95px;
+        float: left;
+        width: 118px;
+
+        &.type-order {
+          text-align: center;
+
+          .ico {
+            position: absolute;
+            left: 50%;
+
+            &-flight-md {
+              top: 29px;
+              margin-left: -15px;
+            }
+
+            &-hotel-md {
+              top: 25px;
+              margin-left: -8px;
+            }
+
+            &-bag-md {
+              top: 25px;
+              margin-left: -12px;
+            }
+          }
+          span {
+            padding-top: 50px;
+            color: #158ea3;
+            font-size: 15px;
+          }
+        }
+
+        &.second {
+          padding-left: 30px;
+          width: 305px;
+
+          .order-id {
+            margin-top: 25px;
+            line-height: 24px;
+            font-size: 30px;
+            color: #4c4c4c;
+          }
+
+          .order-date {
+            color: #999;
+            font-size: 12px;
+          }
+        }
+
+        &.download {
+          text-align: center;
+          width: 300px
+        }
+      }
+    }
+
+    .order-info {
+      font-size: 13px;
+      display: table;
+
+      .column-left,
+      .column-right {
+        display: table-cell;
+        vertical-align: top;
+        padding-bottom: 20px;
+
+        .f-bold {
+          font-size: 15px;
+        }
+      }
+
+      .column-left {
+        width: 320px;
+        padding: 40px;
+
+        ol,
+        ul {
+          margin-left: 0;
+          padding-left: 16px;
+          width: 100%;
+        }
+      }
+
+      .column-right {
+        width: 400px;
+        padding: 40px;
+      }
+    }
+  }
+}
