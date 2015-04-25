@@ -24,14 +24,14 @@ mixin headerActive(current)
       #navbar.collapse.navbar-collapse
         ul.nav.navbar-nav.main-menu
           if (current == 'tours')
-            li(class="active")
+            li.menu-tours-form.active
               a(href='tours.html')
                 i.ico.ico-tours
                 span.block TOURS
 
               include ../form/tour
           else
-            li
+            li.menu-tours-form
               a(href='tours.html')
                 i.ico.ico-tours
                 span.block TOURS
@@ -39,7 +39,7 @@ mixin headerActive(current)
               include ../form/tour
 
           if (current == 'fights')
-            li(class="active")
+            li.menu-flight-form.active
               a(href='flights.html')
                 i.ico.ico-flight
                 span.block BOOK FLIGHTS
@@ -47,7 +47,7 @@ mixin headerActive(current)
               include ../form/flight
 
           else
-            li
+            li.menu-flight-form
               a(href='flights.html')
                 i.ico.ico-flight
                 span.block BOOK FLIGHTS
@@ -55,18 +55,23 @@ mixin headerActive(current)
               include ../form/flight
 
           if (current == 'hotels')
-            li(class="active")
-              a.hotel(href='#hotels')
-                i.ico.ico-hotel
-                span.block BOOK HOTELS
-          else
-            li()
-              a.hotel(href='#hotels')
+            li.active.menu-hotels-form
+              a.hotel(href='hotels-search.html')
                 i.ico.ico-hotel
                 span.block BOOK HOTELS
 
+              include ../form/hotel
+
+          else
+            li.menu-hotels-form
+              a.hotel(href='hotels-search.html')
+                i.ico.ico-hotel
+                span.block BOOK HOTELS
+
+              include ../form/hotel
+
           if (current == "document")
-            li(class="active")
+            li.active
               a(href='document.html')
                 i.ico.ico-document
                 span.block DOCUMENTS

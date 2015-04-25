@@ -13,7 +13,7 @@ $(function () {
   });
 
   $('.inline-text form input[type=text]').attr('size', function () {
-    var length = 2;
+    var length = 3;
 
     if (this.value.length < 1) {
       $(this).addClass('is-empty');
@@ -31,7 +31,7 @@ $(function () {
     return Math.ceil(length);
 
   }).on('keyup', function () {
-    var length = 2;
+    var length = 3;
 
     if (this.value.length < 1) {
       $(this).addClass('is-empty');
@@ -59,6 +59,22 @@ $(function () {
     orientation: 'top left',
     format: 'D, dd M yyyy',
     autoclose: true
+    // todayHighlight: true
+  });
+
+  $('.flight-form form input.date').datepicker({
+    orientation: 'top left',
+    format: 'dd-mm-yy',
+    // autoclose: true,
+    container: '.menu-flight-form'
+    // todayHighlight: true
+  });
+
+  $('.hotel-form form input.date').datepicker({
+    orientation: 'top left',
+    format: 'dd-mm-yy',
+    // autoclose: true,
+    container: '.menu-hotel-form'
     // todayHighlight: true
   });
 

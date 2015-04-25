@@ -22,7 +22,7 @@
         <div class="navbar-header"><a href="index.html" title="TS Starter" class="navbar-brand"><img src="img/sapta-tour-logo.png" title="TS Starter"/></a></div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav main-menu">
-            <li><a href="tours.html"><i class="ico ico-tours"></i><span class="block">TOURS</span></a>
+            <li class="menu-tours-form"><a href="tours.html"><i class="ico ico-tours"></i><span class="block">TOURS</span></a>
               <div class="tour-form inline-text pos-abt form">
                 <form action="" method="POST" autocomplete="off" class="container">
                   <div class="left">
@@ -42,7 +42,7 @@
                 </form>
               </div>
             </li>
-            <li><a href="flights.html"><i class="ico ico-flight"></i><span class="block">BOOK FLIGHTS</span></a>
+            <li class="menu-flight-form"><a href="flights.html"><i class="ico ico-flight"></i><span class="block">BOOK FLIGHTS</span></a>
               <div class="flight-form inline-text pos-abt form">
                 <form action="" method="POST" autocomplete="off" class="container">
                   <div class="left">
@@ -50,8 +50,8 @@
                       <input type="text" value="two ways" size="5"/><span>ticket from</span>
                       <input type="text" value="jakarta" size="5"/><span>to</span>
                       <input type="text" value="type city" size="5"/><span>on</span>
-                      <input type="text" value="02/01/15" size="5"/><span>, returning on</span>
-                      <input type="text" value="type date" size="5"/><span> for</span>
+                      <input type="text" value="type date" readonly="readonly" size="5" class="date"/><span>, returning on</span>
+                      <input type="text" value="type date" readonly="readonly" size="5" class="date"/><span> for</span>
                       <input type="text" value="one" name="activity" size="5"/><span> adult and</span>
                       <input type="text" value="no" name="price" size="5"/><span> children in</span>
                       <input type="text" value="economy" name="price" size="5"/><span> class</span>
@@ -61,7 +61,21 @@
                 </form>
               </div>
             </li>
-            <li><a href="#hotels" class="hotel"><i class="ico ico-hotel"></i><span class="block">BOOK HOTELS</span></a></li>
+            <li class="menu-hotels-form"><a href="hotels-search.html" class="hotel"><i class="ico ico-hotel"></i><span class="block">BOOK HOTELS</span></a>
+              <div class="hotel-form inline-text pos-abt form">
+                <form action="" method="POST" autocomplete="off" class="container">
+                  <div class="left">
+                    <div><span>I’d like to find a hotel in</span>
+                      <input type="text" value="two ways" size="5"/><span>for</span>
+                      <input type="text" value="jakarta" size="5"/><span>checking in on</span><span>&nbsp;,&nbsp;</span>
+                      <input type="text" value="02/01/15" size="5" class="date"/><span>checking out on</span>
+                      <input type="text" value="02/01/15" size="5" class="date"/>
+                    </div>
+                  </div>
+                  <div class="right"><a href="flights.html" class="pull-left btn-submit btn btn-white m-auto m-l-lg"><span class="inline m-r-md m-l-xs text-u-c">Find Flights</span><i class="fa fa-angle-right"></i></a><a href="flights.html" class="pull-right btn btn-white m-l-md"><span class="block m-r-sm m-l-sm">Why Book With Us</span></a></div>
+                </form>
+              </div>
+            </li>
             <li><a href="document.html"><i class="ico ico-document"></i><span class="block">DOCUMENTS</span></a></li>
             <li class="active"><a href="blog.html"><i class="ico ico-blog"></i><span class="block">BLOG</span></a></li>
           </ul>

@@ -3376,7 +3376,8 @@ html[xmlns] .flexslider .slides {
   text-shadow: none;
 }
 .tour-form.inline-text,
-.flight-form.inline-text {
+.flight-form.inline-text,
+.hotel-form.inline-text {
   background-color: #007589;
   height: 220px;
   width: 100%;
@@ -3384,7 +3385,8 @@ html[xmlns] .flexslider .slides {
   z-index: 1000;
 }
 .tour-form.inline-text > .container,
-.flight-form.inline-text > .container {
+.flight-form.inline-text > .container,
+.hotel-form.inline-text > .container {
   padding-top: 23px;
   background-image: url(../img/bg-logos.png);
   background-repeat: no-repeat;
@@ -3392,8 +3394,10 @@ html[xmlns] .flexslider .slides {
 }
 .tour-form.inline-text .left,
 .flight-form.inline-text .left,
+.hotel-form.inline-text .left,
 .tour-form.inline-text .right,
-.flight-form.inline-text .right {
+.flight-form.inline-text .right,
+.hotel-form.inline-text .right {
   width: 595px;
   float: left;
   border-right: 1px solid #006475;
@@ -3401,16 +3405,20 @@ html[xmlns] .flexslider .slides {
 }
 .tour-form.inline-text .left label,
 .flight-form.inline-text .left label,
+.hotel-form.inline-text .left label,
 .tour-form.inline-text .right label,
-.flight-form.inline-text .right label {
+.flight-form.inline-text .right label,
+.hotel-form.inline-text .right label {
   color: #01414c;
 }
 .tour-form.inline-text .left,
-.flight-form.inline-text .left {
+.flight-form.inline-text .left,
+.hotel-form.inline-text .left {
   padding-right: 75px;
 }
 .tour-form.inline-text .left div span,
-.flight-form.inline-text .left div span {
+.flight-form.inline-text .left div span,
+.hotel-form.inline-text .left div span {
   line-height: 27px;
   margin: 0 5px 14px 5px;
   font-size: 21px;
@@ -3419,11 +3427,13 @@ html[xmlns] .flexslider .slides {
   float: left;
 }
 .tour-form.inline-text .left div span:first-child,
-.flight-form.inline-text .left div span:first-child {
+.flight-form.inline-text .left div span:first-child,
+.hotel-form.inline-text .left div span:first-child {
   margin-left: 0;
 }
 .tour-form.inline-text .left input[type="text"],
-.flight-form.inline-text .left input[type="text"] {
+.flight-form.inline-text .left input[type="text"],
+.hotel-form.inline-text .left input[type="text"] {
   font-size: 21px;
   color: #fcaf56;
   margin: 0 0 14px 0;
@@ -3437,14 +3447,18 @@ html[xmlns] .flexslider .slides {
 }
 .tour-form.inline-text .left input[type="text"]:hover,
 .flight-form.inline-text .left input[type="text"]:hover,
+.hotel-form.inline-text .left input[type="text"]:hover,
 .tour-form.inline-text .left input[type="text"]:focus,
 .flight-form.inline-text .left input[type="text"]:focus,
+.hotel-form.inline-text .left input[type="text"]:focus,
 .tour-form.inline-text .left input[type="text"]:active,
-.flight-form.inline-text .left input[type="text"]:active {
+.flight-form.inline-text .left input[type="text"]:active,
+.hotel-form.inline-text .left input[type="text"]:active {
   outline: 0;
 }
 .tour-form.inline-text .right,
-.flight-form.inline-text .right {
+.flight-form.inline-text .right,
+.hotel-form.inline-text .right {
   border-right: 0;
   border-left: 1px solid #268a9b;
   width: 344px;
@@ -3452,13 +3466,15 @@ html[xmlns] .flexslider .slides {
   padding-top: 59px;
 }
 .tour-form.inline-text .right .btn,
-.flight-form.inline-text .right .btn {
+.flight-form.inline-text .right .btn,
+.hotel-form.inline-text .right .btn {
   padding-top: 8px;
   padding-bottom: 8px;
   font-size: 13px;
 }
 .tour-form.inline-text .right .btn.btn-submit,
-.flight-form.inline-text .right .btn.btn-submit {
+.flight-form.inline-text .right .btn.btn-submit,
+.hotel-form.inline-text .right .btn.btn-submit {
   background: #fcbc56;
   color: #fff;
   border: 1px solid rgba(252, 188, 86, 0.5);
@@ -3471,24 +3487,29 @@ html[xmlns] .flexslider .slides {
   line-height: 16px;
 }
 .tour-form.inline-text .right .btn.btn-submit:hover,
-.flight-form.inline-text .right .btn.btn-submit:hover {
+.flight-form.inline-text .right .btn.btn-submit:hover,
+.hotel-form.inline-text .right .btn.btn-submit:hover {
   text-shadow: none;
 }
 .tour-form.inline-text .right .btn.btn-submit:active,
-.flight-form.inline-text .right .btn.btn-submit:active {
+.flight-form.inline-text .right .btn.btn-submit:active,
+.hotel-form.inline-text .right .btn.btn-submit:active {
   -webkit-box-shadow: 0px 3px 0px 0px #fcbc56, 0px 1px 2px rgba(252, 188, 86, 0.5);
   box-shadow: 0px 3px 0px 0px #fcbc56, 0px 1px 2px rgba(252, 188, 86, 0.5);
 }
 .tour-form.inline-text .right .btn.btn-submit:active span:after,
-.flight-form.inline-text .right .btn.btn-submit:active span:after {
+.flight-form.inline-text .right .btn.btn-submit:active span:after,
+.hotel-form.inline-text .right .btn.btn-submit:active span:after {
   height: 36px;
 }
 .tour-form.inline-text .right .btn.btn-submit span,
-.flight-form.inline-text .right .btn.btn-submit span {
+.flight-form.inline-text .right .btn.btn-submit span,
+.hotel-form.inline-text .right .btn.btn-submit span {
   position: relative;
 }
 .tour-form.inline-text .right .btn.btn-submit span:after,
-.flight-form.inline-text .right .btn.btn-submit span:after {
+.flight-form.inline-text .right .btn.btn-submit span:after,
+.hotel-form.inline-text .right .btn.btn-submit span:after {
   content: " ";
   display: block;
   position: absolute;
@@ -3498,13 +3519,16 @@ html[xmlns] .flexslider .slides {
   background: #e9ac4d;
   width: 1px;
 }
-.flight-form.inline-text .right .btn {
+.flight-form.inline-text .right .btn,
+.hotel-form.inline-text .right .btn {
   letter-spacing: .5px;
 }
-.flight-form.inline-text .right .btn.btn-submit {
+.flight-form.inline-text .right .btn.btn-submit,
+.hotel-form.inline-text .right .btn.btn-submit {
   margin-left: 18px !important;
 }
-.flight-form.inline-text .right .btn.btn-white.pull-right {
+.flight-form.inline-text .right .btn.btn-white.pull-right,
+.hotel-form.inline-text .right .btn.btn-white.pull-right {
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -6107,6 +6131,10 @@ html[xmlns] .flexslider .slides {
 .datepicker-dropdown .datepicker-months,
 .datepicker-dropdown .datepicker-years {
   width: 334px;
+}
+.datepicker-dropdown .datepicker-months table,
+.datepicker-dropdown .datepicker-years table {
+  width: 100%;
 }
 .datepicker-dropdown .datepicker-months table thead tr th,
 .datepicker-dropdown .datepicker-years table thead tr th {
