@@ -1,0 +1,123 @@
+.card-detail
+  .column.col-card-number.pull-left.bg-white
+    i.ico.ico-master-card
+    //- i.ico.ico-visa
+    //- i.ico.ico-american-express
+
+    label Credit Card Number
+    span.f-bold.text-black xxxx xxx xxxx 1250
+
+  .column.b-r.b-l.col-name-on-card.pull-left
+    label Cardholder’s Name
+    span Esperanza Kumala Wendyono
+
+  .column.b-r.col-expire-date.pull-left
+    label Expiry Date
+    span 12/15
+
+  .column.col-btn-actions.pull-left.bg-white
+    span.btn-edit-this-cc.pointer.ico.ico-pencil
+
+  .clearfix
+.edit-credit-card.block.b-t
+  form.form-edit-credit-card.sapta-form.m-b-xl(action="#", method="")
+    .wrapper-xl.b-dashed-b-gray
+      h3.title-block.m-t-none.text-rounded.m-b-lg
+        | Edit&nbsp;
+        span.text-yellow Credit Card
+
+      .form-inline.m-b-lg
+        .form-group
+          label.m-b-none Select Card Type:
+        .checkbox.m-l-md.m-r-xs
+          label
+            input(type="checkbox", value="visa")
+            img.m-l-sm(src="img/card-visa.png", alt="Visa Card", width="50")
+
+        .checkbox.m-l-sm.m-r-xs
+          label
+            input(type="checkbox", value="master-card")
+            img.m-l-sm(src="img/card-master-card.png", alt="Master Card", width="50")
+
+        .checkbox.m-l-sm
+          label
+            input(type="checkbox", value="american-express")
+            img.m-l-sm(src="img/card-american-express.png", alt="American Express Card", width="50")
+        .clearfix
+
+      .form-group
+        .boxing.cc-number.b.b.m-b-md.m-r-md.inline
+          label.block.text-xs Credit Card Number
+          input.cc-number.credit-card-input(type="tel", autocomplete="cc-number", placeholder="•••• •••• •••• ••••")
+
+        .boxing.b.ccv.b.m-b-md.inline
+          label.block.text-xs CCV 3 Digit
+          input.cc-cvc(type="text", pattern="\d+", name="ccv", maxlength="3", placeholder="XXX")
+        .clearfix
+
+      .form-group.m-b-xl
+        .boxing.selectbox.inline.m-r-md.b.m-t-md.pos-rlt
+          label.block.text-xs Expired on Month
+          select(name="month")
+            option January
+            option February
+            option March
+            option April
+            option May
+            option June
+            option July
+            option August
+            option September
+            option October
+            option November
+            option(selected="selected") Desember
+
+        .boxing.selectbox.inline.b.m-t-md.pos-rlt
+          label.block.text-xs Expired on Year
+          select(name="year")
+            option 2015
+            option 2016
+            option(selected="selected") 2017
+            option 2018
+            option 2019
+            option 2020
+            option 2021
+
+      h5.f-bold.text-md.text-u-c.block.m-b-sm Credit Card Billing Address
+      .form-group.m-b-none
+        .boxing.name.b.b.m-b-md.m-r-md.inline
+          label.block.text-xs Name as written in Credit Card
+          input.credit-card-input(type="text", value="Esperanza Kumala Wendyono")
+
+        .boxing.selectbox.inline.m-r-md.b.m-t-md.pos-rlt
+          label.block.text-xs Country
+          select(name="country")
+            option(selected="selected") Indonesia
+            option Singapore
+            option Malaysia
+            option Thailand
+            option Vietname
+            option India
+            option Australia
+        .clearfix
+
+      .form-group.m-b-none
+        .boxing.selectbox.inline.m-r-md.b.m-t-xs.pos-rlt
+          label.block.text-xs City
+          select(name="city")
+            option(selected="selected") Jakarta
+            option Bandung
+            option Surabaya
+            option Medan
+            option Semarang
+
+        .boxing.post-code.b.b.m-t-xs.m-r-md.inline
+          label.block.text-xs Post Code
+          input.credit-card-input(type="text", value="11520")
+
+        .boxing.phone-number.b.m-t-xs.b.m-r-md.inline
+          label.block.text-xs Phone Number
+          input.credit-card-input(type="text", value="08123456789")
+    .wrapper-lg
+      button.block.btn.btn-primary.btn-submit.pull-right(type="submit") Save Changes
+      .clearfix

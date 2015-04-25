@@ -2868,6 +2868,35 @@ fieldset[disabled] .form-control.bg-white-only {
   height: 16px;
   background-position: -592px -176px;
 }
+.bg-white .ico-american-express {
+  width: 33px;
+  height: 21px;
+  background-image: url(../img/card-american-express.png);
+  background-repeat: no-repeat;
+  background-size: 33px 21px;
+}
+.bg-white .ico-visa {
+  width: 33px;
+  height: 21px;
+  background-image: url(../img/card-visa.png);
+  background-repeat: no-repeat;
+  background-size: 33px 21px;
+}
+.bg-white .ico-master-card {
+  width: 33px;
+  height: 21px;
+  background-image: url(../img/card-master-card.png);
+  background-repeat: no-repeat;
+  background-size: 33px 21px;
+}
+.bg-white .ico-pencil {
+  background-position: -616px -175px;
+  width: 17px;
+  height: 17px;
+}
+.bg-white .ico-pencil-black {
+  background-position: -640px -175px;
+}
 .btn {
   border-radius: 0;
   font-family: "Gotham Black";
@@ -3542,7 +3571,8 @@ html[xmlns] .flexslider .slides {
 .sapta-form .boxing.register.b {
   border-color: #d0d0d0;
 }
-.sapta-form .boxing.name {
+.sapta-form .boxing.name,
+.sapta-form .boxing.cc-number {
   width: 320px;
 }
 .sapta-form .boxing.phone-number {
@@ -3553,6 +3583,9 @@ html[xmlns] .flexslider .slides {
 }
 .sapta-form .boxing.gender {
   width: 150px;
+}
+.sapta-form .boxing.ccv {
+  width: 145px;
 }
 .sapta-form .boxing.selectbox {
   width: 150px;
@@ -5848,10 +5881,10 @@ html[xmlns] .flexslider .slides {
   height: 177px;
   background: #f4f4f4 url(../img/heading_document.jpg) repeat-x top center;
 }
-.my-booking-page {
+.sidebar-gray {
   overflow-x: hidden;
 }
-.my-booking-page .wrapping-gray {
+.sidebar-gray .wrapping-gray {
   background: #f4f4f4;
   position: fixed;
   z-index: -1;
@@ -5860,45 +5893,43 @@ html[xmlns] .flexslider .slides {
   width: 50%;
   height: 100%;
 }
-.my-booking-page .display-table {
+.sidebar-gray .display-table {
   display: table;
 }
-.my-booking-page .display-cell {
+.sidebar-gray .display-cell {
   display: table-cell;
   vertical-align: top;
 }
-.my-booking-page .content-right {
+.sidebar-gray .content-right {
   position: relative;
   z-index: 1;
-  width: 770px;
+  width: 780px;
+  padding-left: 45px;
   background-color: #fff;
 }
-.my-booking-page .aside {
+.sidebar-gray .aside {
   width: 150px;
   background: #f4f4f4;
   position: relative;
 }
-.my-booking-page .aside ul li {
+.sidebar-gray .aside ul li {
   display: block;
   margin-bottom: 15px;
 }
-.my-booking-page .aside a {
+.sidebar-gray .aside a {
   color: #353535;
   border-bottom: 1px solid #c4c4c4;
   display: inline-block;
   line-height: 12px;
 }
-.my-booking-page .aside a:hover {
+.sidebar-gray .aside a:hover {
   color: #999999;
   text-decoration: none;
 }
-.my-booking-page .aside a.active {
+.sidebar-gray .aside a.active {
   color: #b2b2b2;
   border-bottom: 0;
   text-decoration: none;
-}
-.my-booking-block {
-  padding: 0 0 0 45px;
 }
 .my-booking-block h3.title-block {
   font-size: 30px;
@@ -5986,6 +6017,73 @@ html[xmlns] .flexslider .slides {
 .my-booking-block .order-item .order-info .column-right {
   width: 400px;
   padding: 40px;
+}
+.credit-card-list .card-item {
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 1px 3px 2px rgba(216, 216, 216, 0.5);
+  box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 1px 3px 2px rgba(216, 216, 216, 0.5);
+}
+.credit-card-list .card-item.open .edit-credit-card,
+.credit-card-list .card-item.editable .edit-credit-card {
+  display: block;
+}
+.credit-card-list .card-item.open .col-btn-actions .ico-pencil,
+.credit-card-list .card-item.editable .col-btn-actions .ico-pencil {
+  background-position: -640px -175px;
+}
+.credit-card-list .card-item .column {
+  padding-top: 22px;
+  height: 85px;
+  position: relative;
+}
+.credit-card-list .card-item .column.col-card-number {
+  width: 235px;
+  padding-left: 65px;
+}
+.credit-card-list .card-item .column.col-card-number .ico {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  margin-top: -16px;
+}
+.credit-card-list .card-item .column.col-name-on-card {
+  width: 275px;
+  padding-left: 25px;
+}
+.credit-card-list .card-item .column.col-expire-date {
+  width: 139px;
+  padding-left: 25px;
+}
+.credit-card-list .card-item .column.col-btn-actions {
+  width: 85px;
+  text-align: center;
+  line-height: 85px;
+  padding-top: 0;
+}
+.credit-card-list .card-item .column.col-btn-actions .ico {
+  cursor: pointer;
+}
+.credit-card-list .card-item .column label {
+  color: #888;
+  font-family: "Gotham Black";
+  text-transform: uppercase;
+  display: block;
+  line-height: 18px;
+}
+.credit-card-list .card-item .column span {
+  color: #000;
+}
+.credit-card-list .card-detail {
+  height: 85px;
+}
+.credit-card-list .edit-credit-card {
+  display: none;
+}
+.credit-card-list .form-edit-credit-card .boxing {
+  border-color: #d0d0d0;
+}
+.credit-card-list .form-edit-credit-card .boxing.phone-number,
+.credit-card-list .form-edit-credit-card .boxing.post-code {
+  width: 200px;
 }
 .datepicker {
   border-radius: 4px;

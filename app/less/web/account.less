@@ -20,7 +20,7 @@
   }
 }
 
-.my-booking-page {
+.sidebar-gray {
   overflow-x:hidden;
 
   .wrapping-gray {
@@ -45,7 +45,8 @@
   .content-right {
     position: relative;
     z-index: 1;
-    width: 770px;
+    width: 780px;
+    padding-left: 45px;
     background-color: #fff;
   }
 
@@ -83,8 +84,6 @@
 }
 
 .my-booking-block {
-  padding: 0 0 0 45px;
-
   h3.title-block {
     font-size: 30px;
     margin-top: 0;
@@ -189,6 +188,96 @@
       .column-right {
         width: 400px;
         padding: 40px;
+      }
+    }
+  }
+}
+
+
+.credit-card-list {
+  .card-item {
+    -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 1px 3px 2px rgba(216, 216, 216, 0.5);
+    box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 1px 3px 2px rgba(216, 216, 216, 0.5);
+
+    &.open,
+    &.editable {
+      .edit-credit-card {
+        display: block;
+      }
+
+      .col-btn-actions {
+        .ico-pencil {
+          background-position: -640px -175px;
+        }
+      }
+    }
+
+    .column {
+      padding-top: 22px;
+      height: 85px;
+      position: relative;
+
+      &.col-card-number {
+        width: 235px;
+        padding-left: 65px;
+
+        .ico {
+          position: absolute;
+          top: 50%;
+          left: 18px;
+          margin-top: -16px;
+        }
+      }
+
+      &.col-name-on-card {
+        width: 275px;
+        padding-left: 25px;
+      }
+
+      &.col-expire-date {
+        width: 139px;
+        padding-left: 25px;
+      }
+
+      &.col-btn-actions {
+        width: 85px;
+        text-align: center;
+        line-height: 85px;
+        padding-top: 0;
+
+        .ico {
+          cursor: pointer;
+        }
+      }
+
+      label {
+        color: #888;
+        font-family: "Gotham Black";
+        .text-u-c;
+        .block;
+        line-height: 18px;
+      }
+
+      span {
+        color: #000;
+      }
+    }
+  }
+  .card-detail {
+    height: 85px;
+  }
+
+  .edit-credit-card {
+    display: none;
+  }
+
+  .form-edit-credit-card {
+    .boxing {
+      border-color: #d0d0d0;
+
+      &.phone-number,
+      &.post-code {
+        width: 200px;
       }
     }
   }

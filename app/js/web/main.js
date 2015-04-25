@@ -149,6 +149,14 @@ $(function () {
     $(window).resize(adjustModalMaxHeightAndPosition).trigger('resize');
   }
 
+  $('input.cc-number').payment('formatCardNumber');
+  // $('input.cc-exp').payment('formatCardExpiry');
+  $('input.cc-cvc').payment('formatCardCVC');
+
+  $(document).on('click', '.btn-edit-this-cc', function (argument) {
+    var $this = $(this);
+    var $blockCreditCarditem = $this.parents('.card-item').toggleClass('open')
+  })
 })
 
 $(window).on('scroll', function () {

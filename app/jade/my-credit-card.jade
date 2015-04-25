@@ -9,7 +9,7 @@ block main
     .banner
       h2.head-title.text-white.text-center My Account
 
-    .my-booking-page
+    .my-credit-page.sidebar-gray
       .wrapping-gray
       .container.display-table
 
@@ -19,14 +19,27 @@ block main
           .clearfix.wrapper-xl
 
         .content-right.display-cell.p-t-70.b-l.m-b-xl
-          .my-booking-block
+          .my-credit-block
             h3.title-block.text-rounded.m-b-lg
               | My Saved&nbsp;
               span.text-yellow Credit Card
 
-            .block.bg-white.m-b-lg
+            .block.bg-white.m-b-lg.m-t-n-xs
               i.ico.ico-lock.block.pull-left
               span.block.pull-left.m-l-sm Your payment details are stored securely
               .clearfix
 
             .m-b-lg.b-dashed-b-gray
+
+            .credit-card-list
+              .block.card-item.m-b-md
+                include include/credit-card-item
+
+              .block.card-item.m-b-md.open
+                include include/credit-card-item
+
+            .m-t-n-sm
+              a.pull-left.block.btn-white.text-c-l.btn(href="#", id="btnAddCreditCard")
+                span.block.pull-left.m-r-sm +
+                strong.block.pull-right  Add Credit Card
+          .clearfix.wrapper-xl

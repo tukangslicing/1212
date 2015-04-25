@@ -77,7 +77,7 @@
       <div class="banner">
         <h2 class="head-title text-white text-center">My Account</h2>
       </div>
-      <div class="my-booking-page">
+      <div class="my-credit-page sidebar-gray">
         <div class="wrapping-gray"></div>
         <div class="container display-table">
           <div class="aside display-cell p-t-70 pull-right">
@@ -94,13 +94,275 @@
             <div class="clearfix wrapper-xl"></div>
           </div>
           <div class="content-right display-cell p-t-70 b-l m-b-xl">
-            <div class="my-booking-block">
+            <div class="my-credit-block">
               <h3 class="title-block text-rounded m-b-lg">My Saved&nbsp;<span class="text-yellow">Credit Card</span></h3>
-              <div class="block bg-white m-b-lg"><i class="ico ico-lock block pull-left"></i><span class="block pull-left m-l-sm">Your payment details are stored securely</span>
+              <div class="block bg-white m-b-lg m-t-n-xs"><i class="ico ico-lock block pull-left"></i><span class="block pull-left m-l-sm">Your payment details are stored securely</span>
                 <div class="clearfix"></div>
               </div>
               <div class="m-b-lg b-dashed-b-gray"></div>
+              <div class="credit-card-list">
+                <div class="block card-item m-b-md">
+                  <div class="card-detail">
+                    <div class="column col-card-number pull-left bg-white"><i class="ico ico-master-card"></i>
+                      <label>Credit Card Number</label><span class="f-bold text-black">xxxx xxx xxxx 1250</span>
+                    </div>
+                    <div class="column b-r b-l col-name-on-card pull-left">
+                      <label>Cardholder’s Name</label><span>Esperanza Kumala Wendyono</span>
+                    </div>
+                    <div class="column b-r col-expire-date pull-left">
+                      <label>Expiry Date</label><span>12/15</span>
+                    </div>
+                    <div class="column col-btn-actions pull-left bg-white"><span class="btn-edit-this-cc pointer ico ico-pencil"></span></div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="edit-credit-card block b-t">
+                    <form action="#" method="" class="form-edit-credit-card sapta-form m-b-xl">
+                      <div class="wrapper-xl b-dashed-b-gray">
+                        <h3 class="title-block m-t-none text-rounded m-b-lg">Edit&nbsp;<span class="text-yellow">Credit Card</span></h3>
+                        <div class="form-inline m-b-lg">
+                          <div class="form-group">
+                            <label class="m-b-none">Select Card Type:</label>
+                          </div>
+                          <div class="checkbox m-l-md m-r-xs">
+                            <label>
+                              <input type="checkbox" value="visa"><img src="img/card-visa.png" alt="Visa Card" width="50" class="m-l-sm">
+                            </label>
+                          </div>
+                          <div class="checkbox m-l-sm m-r-xs">
+                            <label>
+                              <input type="checkbox" value="master-card"><img src="img/card-master-card.png" alt="Master Card" width="50" class="m-l-sm">
+                            </label>
+                          </div>
+                          <div class="checkbox m-l-sm">
+                            <label>
+                              <input type="checkbox" value="american-express"><img src="img/card-american-express.png" alt="American Express Card" width="50" class="m-l-sm">
+                            </label>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                          <div class="boxing cc-number b b m-b-md m-r-md inline">
+                            <label class="block text-xs">Credit Card Number</label>
+                            <input type="tel" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" class="cc-number credit-card-input">
+                          </div>
+                          <div class="boxing b ccv b m-b-md inline">
+                            <label class="block text-xs">CCV 3 Digit</label>
+                            <input type="text" pattern="d+" name="ccv" maxlength="3" placeholder="XXX" class="cc-cvc">
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group m-b-xl">
+                          <div class="boxing selectbox inline m-r-md b m-t-md pos-rlt">
+                            <label class="block text-xs">Expired on Month</label>
+                            <select name="month">
+                              <option>January</option>
+                              <option>February</option>
+                              <option>March</option>
+                              <option>April</option>
+                              <option>May</option>
+                              <option>June</option>
+                              <option>July</option>
+                              <option>August</option>
+                              <option>September</option>
+                              <option>October</option>
+                              <option>November</option>
+                              <option selected="selected">Desember</option>
+                            </select>
+                          </div>
+                          <div class="boxing selectbox inline b m-t-md pos-rlt">
+                            <label class="block text-xs">Expired on Year</label>
+                            <select name="year">
+                              <option>2015</option>
+                              <option>2016</option>
+                              <option selected="selected">2017</option>
+                              <option>2018</option>
+                              <option>2019</option>
+                              <option>2020</option>
+                              <option>2021</option>
+                            </select>
+                          </div>
+                        </div>
+                        <h5 class="f-bold text-md text-u-c block m-b-sm">Credit Card Billing Address</h5>
+                        <div class="form-group m-b-none">
+                          <div class="boxing name b b m-b-md m-r-md inline">
+                            <label class="block text-xs">Name as written in Credit Card</label>
+                            <input type="text" value="Esperanza Kumala Wendyono" class="credit-card-input">
+                          </div>
+                          <div class="boxing selectbox inline m-r-md b m-t-md pos-rlt">
+                            <label class="block text-xs">Country</label>
+                            <select name="country">
+                              <option selected="selected">Indonesia</option>
+                              <option>Singapore</option>
+                              <option>Malaysia</option>
+                              <option>Thailand</option>
+                              <option>Vietname</option>
+                              <option>India</option>
+                              <option>Australia</option>
+                            </select>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group m-b-none">
+                          <div class="boxing selectbox inline m-r-md b m-t-xs pos-rlt">
+                            <label class="block text-xs">City</label>
+                            <select name="city">
+                              <option selected="selected">Jakarta</option>
+                              <option>Bandung</option>
+                              <option>Surabaya</option>
+                              <option>Medan</option>
+                              <option>Semarang</option>
+                            </select>
+                          </div>
+                          <div class="boxing post-code b b m-t-xs m-r-md inline">
+                            <label class="block text-xs">Post Code</label>
+                            <input type="text" value="11520" class="credit-card-input">
+                          </div>
+                          <div class="boxing phone-number b m-t-xs b m-r-md inline">
+                            <label class="block text-xs">Phone Number</label>
+                            <input type="text" value="08123456789" class="credit-card-input">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="wrapper-lg">
+                        <button type="submit" class="block btn btn-primary btn-submit pull-right">Save Changes</button>
+                        <div class="clearfix"></div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="block card-item m-b-md open">
+                  <div class="card-detail">
+                    <div class="column col-card-number pull-left bg-white"><i class="ico ico-master-card"></i>
+                      <label>Credit Card Number</label><span class="f-bold text-black">xxxx xxx xxxx 1250</span>
+                    </div>
+                    <div class="column b-r b-l col-name-on-card pull-left">
+                      <label>Cardholder’s Name</label><span>Esperanza Kumala Wendyono</span>
+                    </div>
+                    <div class="column b-r col-expire-date pull-left">
+                      <label>Expiry Date</label><span>12/15</span>
+                    </div>
+                    <div class="column col-btn-actions pull-left bg-white"><span class="btn-edit-this-cc pointer ico ico-pencil"></span></div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="edit-credit-card block b-t">
+                    <form action="#" method="" class="form-edit-credit-card sapta-form m-b-xl">
+                      <div class="wrapper-xl b-dashed-b-gray">
+                        <h3 class="title-block m-t-none text-rounded m-b-lg">Edit&nbsp;<span class="text-yellow">Credit Card</span></h3>
+                        <div class="form-inline m-b-lg">
+                          <div class="form-group">
+                            <label class="m-b-none">Select Card Type:</label>
+                          </div>
+                          <div class="checkbox m-l-md m-r-xs">
+                            <label>
+                              <input type="checkbox" value="visa"><img src="img/card-visa.png" alt="Visa Card" width="50" class="m-l-sm">
+                            </label>
+                          </div>
+                          <div class="checkbox m-l-sm m-r-xs">
+                            <label>
+                              <input type="checkbox" value="master-card"><img src="img/card-master-card.png" alt="Master Card" width="50" class="m-l-sm">
+                            </label>
+                          </div>
+                          <div class="checkbox m-l-sm">
+                            <label>
+                              <input type="checkbox" value="american-express"><img src="img/card-american-express.png" alt="American Express Card" width="50" class="m-l-sm">
+                            </label>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                          <div class="boxing cc-number b b m-b-md m-r-md inline">
+                            <label class="block text-xs">Credit Card Number</label>
+                            <input type="tel" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" class="cc-number credit-card-input">
+                          </div>
+                          <div class="boxing b ccv b m-b-md inline">
+                            <label class="block text-xs">CCV 3 Digit</label>
+                            <input type="text" pattern="d+" name="ccv" maxlength="3" placeholder="XXX" class="cc-cvc">
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group m-b-xl">
+                          <div class="boxing selectbox inline m-r-md b m-t-md pos-rlt">
+                            <label class="block text-xs">Expired on Month</label>
+                            <select name="month">
+                              <option>January</option>
+                              <option>February</option>
+                              <option>March</option>
+                              <option>April</option>
+                              <option>May</option>
+                              <option>June</option>
+                              <option>July</option>
+                              <option>August</option>
+                              <option>September</option>
+                              <option>October</option>
+                              <option>November</option>
+                              <option selected="selected">Desember</option>
+                            </select>
+                          </div>
+                          <div class="boxing selectbox inline b m-t-md pos-rlt">
+                            <label class="block text-xs">Expired on Year</label>
+                            <select name="year">
+                              <option>2015</option>
+                              <option>2016</option>
+                              <option selected="selected">2017</option>
+                              <option>2018</option>
+                              <option>2019</option>
+                              <option>2020</option>
+                              <option>2021</option>
+                            </select>
+                          </div>
+                        </div>
+                        <h5 class="f-bold text-md text-u-c block m-b-sm">Credit Card Billing Address</h5>
+                        <div class="form-group m-b-none">
+                          <div class="boxing name b b m-b-md m-r-md inline">
+                            <label class="block text-xs">Name as written in Credit Card</label>
+                            <input type="text" value="Esperanza Kumala Wendyono" class="credit-card-input">
+                          </div>
+                          <div class="boxing selectbox inline m-r-md b m-t-md pos-rlt">
+                            <label class="block text-xs">Country</label>
+                            <select name="country">
+                              <option selected="selected">Indonesia</option>
+                              <option>Singapore</option>
+                              <option>Malaysia</option>
+                              <option>Thailand</option>
+                              <option>Vietname</option>
+                              <option>India</option>
+                              <option>Australia</option>
+                            </select>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group m-b-none">
+                          <div class="boxing selectbox inline m-r-md b m-t-xs pos-rlt">
+                            <label class="block text-xs">City</label>
+                            <select name="city">
+                              <option selected="selected">Jakarta</option>
+                              <option>Bandung</option>
+                              <option>Surabaya</option>
+                              <option>Medan</option>
+                              <option>Semarang</option>
+                            </select>
+                          </div>
+                          <div class="boxing post-code b b m-t-xs m-r-md inline">
+                            <label class="block text-xs">Post Code</label>
+                            <input type="text" value="11520" class="credit-card-input">
+                          </div>
+                          <div class="boxing phone-number b m-t-xs b m-r-md inline">
+                            <label class="block text-xs">Phone Number</label>
+                            <input type="text" value="08123456789" class="credit-card-input">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="wrapper-lg">
+                        <button type="submit" class="block btn btn-primary btn-submit pull-right">Save Changes</button>
+                        <div class="clearfix"></div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="m-t-n-sm"><a href="#" id="btnAddCreditCard" class="pull-left block btn-white text-c-l btn"><span class="block pull-left m-r-sm">+</span><strong class="block pull-right"> Add Credit Card</strong></a></div>
             </div>
+            <div class="clearfix wrapper-xl"></div>
           </div>
         </div>
       </div>
