@@ -169,11 +169,43 @@ $(function () {
   // $('input.cc-exp').payment('formatCardExpiry');
   $('input.cc-cvc').payment('formatCardCVC');
 
-  $(document).on('click', '.btn-edit-this-cc', function (argument) {
+  $(document).on('click', '.btn-edit-this-cc', function () {
     var $this = $(this);
     var $blockCreditCarditem = $this.parents('.card-item').toggleClass('open')
   })
+
+  $('.aside').on('click', '.filtering .toggle .ico', function () {
+    var thiz = $(this);
+    var parent = thiz.parent('.toggle');
+    var target = parent.siblings('.form-group');
+    console.log(target);
+
+    target.slideToggle(500, function () {
+      if (thiz.hasClass('ico-down-circle-arrow-md')) {
+        thiz.removeClass('ico-down-circle-arrow-md').addClass('ico-right-circle-arrow-md')
+      } else {
+        thiz.removeClass('ico-right-circle-arrow-md').addClass('ico-down-circle-arrow-md')
+      }
+    });
+
+  })
 })
+
+function isNumber (evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode(key);
+  if (key.length === 0) {
+    return true
+  }
+  var regex = /^[0-9.,\b]+$/;
+  if (!regex.test(key)) {
+    theEvent.returnValue = false;
+    if (theEvent.preventDefault) {
+      return theEvent.preventDefault();
+    }
+  }
+}
 
 $(window).on('scroll', function () {
   if ($('.nav-go-to').length > 0) {

@@ -1,0 +1,412 @@
+extends layouts/default
+
+include include/mixin
+
+block main
+  mixin headerActive('hotels')
+
+  .hotel-page.p-t-70
+    .hotel-search-page.sidebar-hotel
+      .wrapping-gray
+      .container.display-table
+
+        .aside.display-cell.pull-right
+          h2.f-bold.text-md.text-u-c.m-t-xs Narrow Your Results
+
+          form.filtering.sapta-form(action="GET")
+            .boxing.selectbox.b.m-t-md.pos-rlt.m-b-xl
+              label.block.text-xs Area
+              select(name="areas")
+                option(selected="selected") All Areas
+                option() Jakarta
+                option() Bandung
+                option() Semarang
+                option() Surabaya
+                option() Singapore
+                option() Medan
+
+            .m-b-lg.b-dashed-b-gray
+              h4.pos-rlt.f-bold.text-md.bg-white.m-b-md.toggle
+                | SORT BY
+                span.ico.ico-down-circle-arrow-md.pos-abt
+
+              .form-group.m-b-lg
+                .radio
+                  label
+                    input(type="radio", name="sortBy")
+                    span.inline Price Low to High
+                .radio
+                  label
+                    input(type="radio", name="sortBy")
+                    span.inline Price High to Low
+                .radio
+                  label
+                    input(type="radio", name="sortBy")
+                    span.inline Highest Rating
+                .radio
+                  label
+                    input(type="radio", name="sortBy")
+                    span.inline Popularity
+
+            .m-b-lg.b-dashed-b-gray
+              h4.pos-rlt.f-bold.text-md.bg-white.m-b-md.toggle
+                | HOTEL CLASS
+                span.ico.ico-down-circle-arrow-md.pos-abt
+
+              .form-group.m-b-lg
+                .checkbox.bg-white.m-b-md
+                  label
+                    input.input-hotel-class(type="checkbox", name="hotelClass")
+                    i.ico.ico-star.inline
+                    i.ico.ico-star.inline
+                    i.ico.ico-star.inline
+                    i.ico.ico-star.inline
+                    i.ico.ico-star.inline
+
+                .checkbox.bg-white.m-b-md
+                  label
+                    input.input-hotel-class(type="checkbox", name="hotelClass")
+                    i.ico.ico-star.inline
+                    i.ico.ico-star.inline
+                    i.ico.ico-star.inline
+                    i.ico.ico-star.inline
+                .checkbox.bg-white.m-b-md
+                  label
+                    input.input-hotel-class(type="checkbox", name="hotelClass")
+                    i.ico.ico-star.inline
+                    i.ico.ico-star.inline
+                    i.ico.ico-star.inline
+                .checkbox.bg-white.m-b-md
+                  label
+                    input.input-hotel-class(type="checkbox", name="hotelClass")
+                    i.ico.ico-star.inline
+                    i.ico.ico-star.inline
+                .checkbox.bg-white.m-b-md
+                  label
+                    input.input-hotel-class(type="checkbox", name="hotelClass")
+                    i.ico.ico-star.inline
+
+            .m-b-lg.b-dashed-b-gray
+              h4.pos-rlt.f-bold.text-md.bg-white.m-b-md.toggle
+                | PRICE RANGE
+                span.ico.ico-down-circle-arrow-md.pos-abt
+
+              .form-group.m-b-lg.price-range.pos-rlt.bg-white
+                .boxing.b.pos-rlt.m-b-sm
+                  label.block.text-xs Minimal Amount
+                  input(type="text", pattern="[-+]?[0-9]*[.,]?[0-9]+", onkeypress="isNumber()", max-lenght="12", name="min-amount")
+                  span.block.placeholder.pos-abt.f-bold IDR
+
+                .boxing.b.pos-rlt
+                  label.block.text-xs Maximal Amount
+                  input(type="text", pattern="[-+]?[0-9]*[.,]?[0-9]+", onkeypress="isNumber()", max-lenght="12", name="max-amount")
+                  span.block.placeholder.pos-abt.f-bold IDR
+
+                span.ico.ico-price-range.pos-abt
+
+
+        .content-right.display-cell.b-l.m-b-xl
+          .block.text-md.m-b-md
+            | Showing&nbsp;
+            strong.f-bold 10 results
+            |  out of&nbsp;
+            strong.f-bold 800
+          .search-result-hotel-block
+            .hotem-item.m-b-md
+              .column.pull-left.picture-thumb.pos-rlt
+                a(href="#")
+                  img(src="img/destinations/hotel03.jpg", alt="")
+
+              .column.pull-left.hotel-info
+                span.block.f-bold.text-u-c.hotel-name Mulia Resort Nusa Dua
+                span.block.f-light.location Nusa Dua/Benoa
+
+                span.block.hotel-star.bg-white.m-t-sm
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  span.inline.m-l-xs.m-t-n-xs Hotel
+
+                .fasilitas.pos-abt
+                  span.bg-white
+                    i.ico.ico-wifi
+                    span &nbsp;Free Wi-Fi
+
+              .column.pull-left.rating.text-center
+                span.text-u-c.text-primary.block.f-bold RATING
+                .block.rating-count.bg-white
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+
+              .column.pull-left.pricing
+                label.f-bold.m-t-sm.text-u-c Price From
+                span.block.price.f-bold
+                  sup.inline.currency Rp
+                  span.inline.rate
+                    | 3,967,
+                    small 000
+                span.block.f-light.text-sm per night
+
+                a.btn.f-bold.text-primary(href="#") See Details
+
+              .clearfix
+
+            .hotem-item.m-b-md
+              .column.pull-left.picture-thumb.pos-rlt
+                a(href="#")
+                  img(src="img/destinations/hotel02.jpg", alt="")
+
+              .column.pull-left.hotel-info
+                span.block.f-bold.text-u-c.hotel-name W Retreat & Spa Bali Seminyak
+                span.block.f-light.location Seminyak / Kerobokan
+
+                span.block.hotel-star.bg-white.m-t-sm
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  span.inline.m-l-xs.m-t-n-xs Hotel
+
+                .fasilitas.pos-abt
+                  span.bg-white
+                    i.ico.ico-wifi
+                    span &nbsp;Free Wi-Fi
+
+              .column.pull-left.rating.text-center
+                span.text-u-c.text-primary.block.f-bold RATING
+                .block.rating-count.bg-white
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill-half
+
+              .column.pull-left.pricing
+                label.f-bold.m-t-sm.text-u-c Price From
+                span.block.price.f-bold
+                  sup.inline.currency Rp
+                  span.inline.rate
+                    | 2,950,
+                    small 000
+                span.block.f-light.text-sm per night
+
+                a.btn.f-bold.text-primary(href="#") See Details
+
+            .hotem-item.m-b-md
+              .column.pull-left.picture-thumb.pos-rlt
+                a(href="#")
+                  img(src="img/destinations/hotel01.jpg", alt="")
+
+              .column.pull-left.hotel-info
+                span.block.f-bold.text-u-c.hotel-name Ayana Resort & Spa
+                span.block.f-light.location Jimbaran
+
+                span.block.hotel-star.bg-white.m-t-sm
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  span.inline.m-l-xs.m-t-n-xs Hotel
+
+                .fasilitas.pos-abt
+                  span.bg-white
+                    i.ico.ico-wifi
+                    span &nbsp;Free Wi-Fi
+
+              .column.pull-left.rating.text-center
+                span.text-u-c.text-primary.block.f-bold RATING
+                .block.rating-count.bg-white
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating
+
+              .column.pull-left.pricing
+                label.f-bold.m-t-sm.text-u-c Price From
+                span.block.price.f-bold
+                  sup.inline.currency Rp
+                  span.inline.rate
+                    | 2,900,
+                    small 000
+                span.block.f-light.text-sm per night
+
+                a.btn.f-bold.text-primary(href="#") See Details
+
+            .hotem-item.m-b-md
+              .column.pull-left.picture-thumb.pos-rlt
+                a(href="#")
+                  img(src="img/destinations/hotel04.jpg", alt="")
+
+              .column.pull-left.hotel-info
+                span.block.f-bold.text-u-c.hotel-name Alila Villas Uluwatu
+                span.block.f-light.location Uluwatu
+
+                span.block.hotel-star.bg-white.m-t-sm
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  span.inline.m-l-xs.m-t-n-xs Hotel
+
+                .fasilitas.pos-abt
+                  span.bg-white
+                    i.ico.ico-wifi
+                    span &nbsp;Free Wi-Fi
+
+              .column.pull-left.rating.text-center
+                span.text-u-c.text-primary.block.f-bold RATING
+                .block.rating-count.bg-white
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill-half
+
+              .column.pull-left.pricing
+                label.f-bold.m-t-sm.text-u-c Price From
+                span.block.price.f-bold
+                  sup.inline.currency Rp
+                  span.inline.rate
+                    | 2,000,
+                    small 000
+                span.block.f-light.text-sm per night
+
+                a.btn.f-bold.text-primary(href="#") See Details
+
+            .hotem-item.m-b-md
+              .column.pull-left.picture-thumb.pos-rlt
+                a(href="#")
+                  img(src="img/destinations/hotel05.jpg", alt="")
+
+              .column.pull-left.hotel-info
+                span.block.f-bold.text-u-c.hotel-name Nusa Dua Beach Hotel Spa
+                span.block.f-light.location Nusa Dua / Benoa
+
+                span.block.hotel-star.bg-white.m-t-sm
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  span.inline.m-l-xs.m-t-n-xs Hotel
+
+                .fasilitas.pos-abt
+                  span.bg-white
+                    i.ico.ico-wifi
+                    span &nbsp;Free Wi-Fi
+
+              .column.pull-left.rating.text-center
+                span.text-u-c.text-primary.block.f-bold RATING
+                .block.rating-count.bg-white
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill-half
+                  i.ico.ico-rating.ico-rating
+
+              .column.pull-left.pricing
+                label.f-bold.m-t-sm.text-u-c Price From
+                span.block.price.f-bold
+                  sup.inline.currency Rp
+                  span.inline.rate
+                    | 2,000,
+                    small 000
+                span.block.f-light.text-sm per night
+
+                a.btn.f-bold.text-primary(href="#") See Details
+
+            .hotem-item.m-b-md
+              .column.pull-left.picture-thumb.pos-rlt
+                a(href="#")
+                  img(src="img/destinations/hotel06.jpg", alt="")
+
+              .column.pull-left.hotel-info
+                span.block.f-bold.text-u-c.hotel-name Amaris Hotel Kuta
+                span.block.f-light.location Kuta
+
+                span.block.hotel-star.bg-white.m-t-sm
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  span.inline.m-l-xs.m-t-n-xs Hotel
+
+                .fasilitas.pos-abt
+                  span.bg-white
+                    i.ico.ico-wifi
+                    span &nbsp;Free Wi-Fi
+
+              .column.pull-left.rating.text-center
+                span.text-u-c.text-primary.block.f-bold RATING
+                .block.rating-count.bg-white
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill-half
+                  i.ico.ico-rating.ico-rating
+
+              .column.pull-left.pricing
+                label.f-bold.m-t-sm.text-u-c Price From
+                span.block.price.f-bold
+                  sup.inline.currency Rp
+                  span.inline.rate
+                    | 2,000,
+                    small 000
+                span.block.f-light.text-sm per night
+
+                a.btn.f-bold.text-primary(href="#") See Details
+
+            .hotem-item.m-b-md
+              .column.pull-left.picture-thumb.pos-rlt
+                a(href="#")
+                  img(src="img/destinations/hotel07.jpg", alt="")
+
+              .column.pull-left.hotel-info
+                span.block.f-bold.text-u-c.hotel-name Courtyard By Marriott bali Seminyak
+                span.block.f-light.location Seminyak / Kerobokan
+
+                span.block.hotel-star.bg-white.m-t-sm
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  span.inline.m-l-xs.m-t-n-xs Hotel
+
+                .fasilitas.pos-abt
+                  span.bg-white
+                    i.ico.ico-wifi
+                    span &nbsp;Free Wi-Fi
+
+              .column.pull-left.rating.text-center
+                span.text-u-c.text-primary.block.f-bold RATING
+                .block.rating-count.bg-white
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill
+                  i.ico.ico-rating.ico-rating-fill-half
+                  i.ico.ico-rating.ico-rating
+
+              .column.pull-left.pricing
+                label.f-bold.m-t-sm.text-u-c Price From
+                span.block.price.f-bold
+                  sup.inline.currency Rp
+                  span.inline.rate
+                    | 2,000,
+                    small 000
+                span.block.f-light.text-sm per night
+
+                a.btn.f-bold.text-primary(href="#") See Details
+
+          .wrapper.m-t-md.m-b-lg.text-center
+            a.btn.btn-white.m-auto(href="#")
+              span.block.m-r-md.m-l-md Load More Result
+
+    include helpers/inquiry
