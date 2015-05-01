@@ -1,12 +1,35 @@
 $(window).load(function () {
   'use strict';
 
-})
+  // The slider being synced must be initialized first
+  $('#gallery-slider-carousel').flexslider({
+    animation: 'slide',
+    controlNav: false,
+    animationLoop: false,
+    slideshow: false,
+    itemWidth: 60,
+    itemMargin: 5,
+    asNavFor: '#gallery-slider',
+    prevText: '',
+    nextText: ''
+  });
+
+  $('#gallery-slider').flexslider({
+    animation: 'slide',
+    controlNav: false,
+    animationLoop: false,
+    slideshow: false,
+    sync: '#gallery-slider-carousel',
+    directionNav: false
+  });
+
+});
+
 
 $(function () {
   'use strict';
 
-  $('.flexslider').flexslider({
+  $('.hero-banner .flexslider').flexslider({
     animation: 'slide',
     slideshow: false,
     directionNav: false

@@ -6711,6 +6711,87 @@ html[xmlns] .flexslider .slides {
   float: left;
   line-height: 16px;
 }
+.hotel-photo-gallery {
+  height: 540px;
+  width: 682px;
+  margin-top: 30px;
+}
+.hotel-photo-gallery #gallery-slider .slides .wrapper-md {
+  position: absolute;
+  z-index: 1000;
+  width: 215px;
+  height: 185px;
+  background: #fcbc56;
+  top: 0;
+  right: 0;
+}
+.hotel-photo-gallery #gallery-slider .slides .wrapper-md a {
+  color: #cc6600;
+  border-bottom: 1px solid #cc6600;
+}
+.hotel-photo-gallery #gallery-slider .slides img {
+  display: block;
+  position: relative;
+  width: 680px;
+  height: 455px;
+}
+.hotel-photo-gallery #gallery-slider-carousel {
+  margin-top: 12px;
+  padding: 0 20px;
+}
+.hotel-photo-gallery #gallery-slider-carousel .slides img {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  display: block;
+}
+.hotel-photo-gallery #gallery-slider-carousel .slides li {
+  width: 60px;
+  height: 60px;
+  margin-right: 12px;
+}
+.hotel-photo-gallery #gallery-slider-carousel .slides li:last-child {
+  margin-right: 0;
+}
+.hotel-photo-gallery #gallery-slider-carousel .slides li.flex-active-slide {
+  box-shadow: inset 0 0 0 3px #f39d12;
+}
+.hotel-photo-gallery #gallery-slider-carousel .slides li.flex-active-slide img {
+  padding: 3px;
+}
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav a {
+  opacity: 1;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav a:before {
+  display: none;
+}
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav .flex-disabled {
+  opacity: 1 !important;
+}
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav .flex-prev,
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav .flex-next {
+  height: 24px;
+  width: 24px;
+  margin-top: -12px;
+}
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav .flex-prev:hover,
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav .flex-next:hover,
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav .flex-prev:focus,
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav .flex-next:focus,
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav .flex-prev:active,
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav .flex-next:active {
+  outline: 0;
+}
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav .flex-prev {
+  left: -4px;
+  background: url(../img/arrow-left.png) no-repeat 0 0;
+}
+.hotel-photo-gallery #gallery-slider-carousel .flex-direction-nav .flex-next {
+  right: -4px;
+  background: url(../img/arrow-right.png) no-repeat 0 0;
+}
 .datepicker {
   border-radius: 4px;
   color: #000;
