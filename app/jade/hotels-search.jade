@@ -6,14 +6,14 @@ block main
   mixin headerActive('hotels')
 
   .hotel-page.p-t-70
-    .hotel-search-page.sidebar-hotel
+    .hotel-search-page
       .wrapping-gray
       .container.display-table
 
         .aside.display-cell.pull-right
           h2.f-bold.text-md.text-u-c.m-t-xs Narrow Your Results
 
-          form.filtering.sapta-form(action="GET")
+          form.filtering.sapta-form(action="#", method="GET")
             .boxing.selectbox.b.m-t-md.pos-rlt.m-b-xl
               label.block.text-xs Area
               select(name="areas")
@@ -152,7 +152,7 @@ block main
                     small 000
                 span.block.f-light.text-sm per night
 
-                a.btn.f-bold.text-primary(href="#") See Details
+                a.btn.f-bold.text-primary(href="hotel-detail.html") See Details
 
               .clearfix
 
@@ -196,7 +196,7 @@ block main
                     small 000
                 span.block.f-light.text-sm per night
 
-                a.btn.f-bold.text-primary(href="#") See Details
+                a.btn.f-bold.text-primary(href="hotel-detail.html") See Details
 
             .hotem-item.m-b-md
               .column.pull-left.picture-thumb.pos-rlt
@@ -238,7 +238,7 @@ block main
                     small 000
                 span.block.f-light.text-sm per night
 
-                a.btn.f-bold.text-primary(href="#") See Details
+                a.btn.f-bold.text-primary(href="hotel-detail.html") See Details
 
             .hotem-item.m-b-md
               .column.pull-left.picture-thumb.pos-rlt
@@ -280,7 +280,7 @@ block main
                     small 000
                 span.block.f-light.text-sm per night
 
-                a.btn.f-bold.text-primary(href="#") See Details
+                a.btn.f-bold.text-primary(href="hotel-detail.html") See Details
 
             .hotem-item.m-b-md
               .column.pull-left.picture-thumb.pos-rlt
@@ -321,7 +321,7 @@ block main
                     small 000
                 span.block.f-light.text-sm per night
 
-                a.btn.f-bold.text-primary(href="#") See Details
+                a.btn.f-bold.text-primary(href="hotel-detail.html") See Details
 
             .hotem-item.m-b-md
               .column.pull-left.picture-thumb.pos-rlt
@@ -362,7 +362,7 @@ block main
                     small 000
                 span.block.f-light.text-sm per night
 
-                a.btn.f-bold.text-primary(href="#") See Details
+                a.btn.f-bold.text-primary(href="hotel-detail.html") See Details
 
             .hotem-item.m-b-md
               .column.pull-left.picture-thumb.pos-rlt
@@ -403,7 +403,7 @@ block main
                     small 000
                 span.block.f-light.text-sm per night
 
-                a.btn.f-bold.text-primary(href="#") See Details
+                a.btn.f-bold.text-primary(href="hotel-detail.html") See Details
 
           .wrapper.m-t-md.m-b-lg.text-center
             a.btn.btn-white.m-auto(href="#")

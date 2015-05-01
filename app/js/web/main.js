@@ -55,10 +55,14 @@ $(function () {
 
   }).trigger('keyup');
 
+  var nowDate = new Date();
+  var today = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), 0, 0, 0, 0);
+
   var chooseDate = $('.chooseDate input').datepicker({
     orientation: 'top left',
     format: 'D, dd M yyyy',
-    autoclose: true
+    autoclose: true,
+    startDate: today
     // todayHighlight: true
   });
 
@@ -66,7 +70,8 @@ $(function () {
     orientation: 'top left',
     format: 'dd-mm-yy',
     // autoclose: true,
-    container: '.menu-flight-form'
+    container: '.menu-flight-form',
+    startDate: today
     // todayHighlight: true
   });
 
@@ -74,7 +79,8 @@ $(function () {
     orientation: 'top left',
     format: 'dd-mm-yy',
     // autoclose: true,
-    container: '.menu-hotel-form'
+    container: '.menu-hotel-form',
+    startDate: today
     // todayHighlight: true
   });
 

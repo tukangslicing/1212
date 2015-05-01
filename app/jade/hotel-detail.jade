@@ -1,0 +1,629 @@
+extends layouts/default
+
+include include/mixin
+
+block main
+  mixin headerActive('hotels')
+
+  .hotel-page.p-t-70
+    .hotel-detail-page
+      .wrapping-gray
+      .container.display-table
+
+        .aside.display-cell.pull-right
+          .filtering
+
+            .m-b-lg
+              h4.text-u-c.pos-rlt.f-bold.text-md.bg-white.m-b-md.toggle
+                | ABOUT THE HOTEL
+                span.ico.ico-down-circle-arrow-md.pos-abt
+
+              article.m-b-lg.form-group
+                p Renovated in 2011, the Pan Pacific Nirwana Bali Resort guarantees guests a pleasant stay whether in Bali for business or pleasure
+                a.block(href="#") Read More
+
+            .m-b-lg.b-dashed-b-gray
+              h4.text-u-c.pos-rlt.f-bold.text-md.bg-white.m-b-md.toggle
+                | Hotel Facilities
+                span.ico.ico-down-circle-arrow-md.pos-abt
+
+              .form-group.m-b-md
+                ul.list-unstyled.facilities-list
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs 24-hours front desk
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs 24-hours room service
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Airport Transfer
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Bar
+
+                  li
+                    i.ico.ico-is-uncheck
+                    span.inline.m-l-xs Business Centre
+
+                  li
+                    i.ico.ico-is-uncheck
+                    span.inline.m-l-xs Car Hire
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Coffee Shop
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Library
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Meeting Facilities
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Restaurant
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Salon
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Shops
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Tours
+
+                  li
+                    i.ico.ico-is-uncheck
+                    span.inline.m-l-xs ATM Machine
+
+                  li
+                    i.ico.ico-is-uncheck
+                    span.inline.m-l-xs Bicycle Rental
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Car Park
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Currency Exchange
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Express Chec-in/check-out
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Laundry Service
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Poolside Bar
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Safet Deposit Boxes
+
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Shuttle Service
+
+            .m-b-lg.b-dashed-b-gray
+              h4.text-u-c.pos-rlt.f-bold.text-md.bg-white.m-b-md.toggle
+                | Hotel POLICIES
+                span.ico.ico-down-circle-arrow-md.pos-abt
+
+              .form-group.m-b-md
+                ul.list-unstyled.facilities-list
+                  li
+                    i.ico.ico-is-check
+                    span.inline.m-l-xs Last Checkout : 12:00
+
+        .content-right.display-cell.b-l.m-b-xl.hotel-detail-block
+          .row.m-t-x
+            .col-md-9
+              h2.text-rounded Pan Pacific Nirwana Resort Bali
+              .block
+                span.star-hotel.bg-white
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                span.address.m-l-sm Jalan Raya Tanah Lot, Tanah Lot, Bali, Indonesia 82171
+            .col-md-3
+              span.block.hotel-rating.bg-white.text-right
+                i.ico.ico-rating.ico-rating-big.ico-rating-big-fill
+                i.ico.ico-rating.ico-rating-big.ico-rating-big-fill
+                i.ico.ico-rating.ico-rating-big.ico-rating-big-fill
+                i.ico.ico-rating.ico-rating-big.ico-rating-big-fill
+                i.ico.ico-rating.ico-rating-big.ico-rating-big-fill
+              span.review-count.block.text-yellow.text-right 1234 Reviews
+
+          .choose-room.m-t-xl.b-dashed-t-gray
+            h3.head-title.text-c-l.text-rounded.m-b-lg.m-t-lg
+              | Choose&nbsp;
+              span.text-orange Your Rooms
+
+            form.choose-date.sapta-form(action="#", method="GET")
+              .boxing.check-in.b.m-b-md.m-r-sm.pull-left
+                label.block.text-xs Enter Check In Date
+                .pos-rlt.chooseDate
+                  input(type="text", class="date", readonly="readonly")
+
+              .boxing.check-out.b.m-b-md.m-l-sm.pull-left.pos-rlt
+                label.block.text-xs Enter Check Out Date
+                .pos-rlt.chooseDate
+                  input(type="text", class="date", readonly="readonly")
+
+              button.btn.btn-yellow.m-l-md(type="submit") Show Best Price
+
+              .clearfix
+
+            .list-rooms
+              .room-item.m-b-md
+                .column.pull-left.picture-thumb.pos-rlt
+                  a(href="#")
+                    img(src="img/destinations/room01.jpg", alt="")
+                .column.pull-left.room-type.pos-rlt
+                  label.block.f-bold.text-u-c Room Type
+                  span.block.f-bold.text-u-c.room-name Superior Golf King
+                  a.block.text-yellow(href="#") Lihat info kamar ini
+                  span.block.pos-abt.bg-white.fasilitas
+                    i.ico.ico-food
+
+                  span.block.pos-abt.bg-white.warning-msg
+                    i.ico.ico-warn
+                    span.inline.m-l-xs Only 1 Left
+
+                .column.pull-left.guest.b-l
+                  label.block.f-bold.text-u-c.text-center Guest
+                  span.block.bg-white.text-center.m-t-md.count-guest.pos-rlt
+                    i.ico.ico-adult
+                    i.ico.ico-adult
+
+                .column.pull-left.room-count.b-r.b-l.te
+                  label.block.f-bold.text-u-c.text-center Room
+                  span.block.bg-white.pos-rlt.text-center.m-t-sm.increase
+                    i.ico.ico-up-circle-arrow
+                  span.block.bg-white.pos-rlt.text-center
+                    input.inline.text-center.no-border.m-b-xs(type="text", value="1", size="1", maxlength="1", readonly="readonly")
+                  span.block.bg-white.pos-rlt.text-center.decrease
+                    i.ico.ico-down-circle-arrow
+
+                .column.pull-left.pricing
+                  .no-pricing
+                    span.block.bg-white
+                      i.ico.ico-up-arrow
+                    span.block.m-t-xs Please enter dates to see  prices
+
+              .room-item.m-b-md
+                .column.pull-left.picture-thumb.pos-rlt
+                  a(href="#")
+                    img(src="img/destinations/room02.jpg", alt="")
+                .column.pull-left.room-type.pos-rlt
+                  label.block.f-bold.text-u-c Room Type
+                  span.block.f-bold.text-u-c.room-name Superior Golf Twin
+                  a.block.text-yellow(href="#") Lihat info kamar ini
+                  span.block.pos-abt.bg-white.fasilitas
+                    i.ico.ico-food
+
+                .column.pull-left.guest.b-l
+                  label.block.f-bold.text-u-c.text-center Guest
+                  span.block.bg-white.text-center.m-t-md.count-guest.pos-rlt
+                    i.ico.ico-adult
+                    i.ico.ico-adult
+                    sup.guest-extra.text-md +
+
+                .column.pull-left.room-count.b-r.b-l.te
+                  label.block.f-bold.text-u-c.text-center Room
+                  span.block.bg-white.pos-rlt.text-center.m-t-sm.increase
+                    i.ico.ico-up-circle-arrow
+                  span.block.bg-white.pos-rlt.text-center
+                    input.inline.text-center.no-border.m-b-xs(type="text", value="1", size="1", maxlength="1", readonly="readonly")
+                  span.block.bg-white.pos-rlt.text-center.decrease
+                    i.ico.ico-down-circle-arrow
+
+                .column.pull-left.pricing
+                  .no-pricing
+                    span.block.bg-white
+                      i.ico.ico-up-arrow
+                    span.block.m-t-xs Please enter dates to see  prices
+
+              .room-item.m-b-md
+                .column.pull-left.picture-thumb.pos-rlt
+                  a(href="#")
+                    img(src="img/destinations/room03.jpg", alt="")
+                .column.pull-left.room-type.pos-rlt
+                  label.block.f-bold.text-u-c Room Type
+                  span.block.f-bold.text-u-c.room-name Superior Ocean King
+                  a.block.text-yellow(href="#") Lihat info kamar ini
+                  span.block.pos-abt.bg-white.fasilitas
+                    i.ico.ico-food
+
+                  span.block.pos-abt.bg-white.warning-msg
+                    i.ico.ico-warn
+                    span.inline.m-l-xs Only 1 Left
+
+                .column.pull-left.guest.b-l
+                  label.block.f-bold.text-u-c.text-center Guest
+                  span.block.bg-white.text-center.m-t-md.count-guest.pos-rlt
+                    i.ico.ico-adult
+                    i.ico.ico-adult
+                    i.ico.ico-adult
+                    i.ico.ico-adult
+
+                .column.pull-left.room-count.b-r.b-l.te
+                  label.block.f-bold.text-u-c.text-center Room
+                  span.block.bg-white.pos-rlt.text-center.m-t-sm.increase
+                    i.ico.ico-up-circle-arrow
+                  span.block.bg-white.pos-rlt.text-center
+                    input.inline.text-center.no-border.m-b-xs(type="text", value="1", size="1", maxlength="1", readonly="readonly")
+                  span.block.bg-white.pos-rlt.text-center.decrease
+                    i.ico.ico-down-circle-arrow
+
+                .column.pull-left.pricing
+                  span.block.price.f-bold
+                    sup.inline.currency Rp
+                    span.inline.rate
+                      | 2,050,
+                      small 000
+                  span.block.f-light.text-sm per night
+                  a.btn.f-bold.text-primary(href="hotel-detail.html") See Details
+
+              .room-item.m-b-md
+                .column.pull-left.picture-thumb.pos-rlt
+                  a(href="#")
+                    img(src="img/destinations/room05.jpg", alt="")
+                .column.pull-left.room-type.pos-rlt
+                  label.block.f-bold.text-u-c Room Type
+                  span.block.f-bold.text-u-c.room-name Superior Ocean Twin
+                  a.block.text-yellow(href="#") Lihat info kamar ini
+                  span.block.pos-abt.bg-white.fasilitas
+                    i.ico.ico-food
+
+                  span.block.pos-abt.bg-white.warning-msg
+                    i.ico.ico-warn
+                    span.inline.m-l-xs Only 1 Left
+
+                .column.pull-left.guest.b-l
+                  label.block.f-bold.text-u-c.text-center Guest
+                  span.block.bg-white.text-center.m-t-md.count-guest.pos-rlt
+                    i.ico.ico-adult
+                    i.ico.ico-adult
+                    i.ico.ico-adult
+                    i.ico.ico-adult
+
+                .column.pull-left.room-count.b-r.b-l.te
+                  label.block.f-bold.text-u-c.text-center Room
+                  span.block.bg-white.pos-rlt.text-center.m-t-sm.increase
+                    i.ico.ico-up-circle-arrow
+                  span.block.bg-white.pos-rlt.text-center
+                    input.inline.text-center.no-border.m-b-xs(type="text", value="1", size="1", maxlength="1", readonly="readonly")
+                  span.block.bg-white.pos-rlt.text-center.decrease
+                    i.ico.ico-down-circle-arrow
+
+                .column.pull-left.pricing
+                  span.block.price.f-bold
+                    sup.inline.currency Rp
+                    span.inline.rate
+                      | 2,950,
+                      small 000
+                  span.block.f-light.text-sm per night
+                  a.btn.f-bold.text-primary(href="hotel-detail.html") See Details
+
+            a.block.m-t-lg.m-t-lg.btn-show-more(href="#")
+              | Show 3 More&nbsp;
+              strong.f-bold Available Room Types
+
+          .b-dashed-b-gray.m-b-xl
+
+          .guest-review-block.m-b-xl
+            .row.m-b-lg.m-t-lg
+              .col-md-7
+                h3.head-title.text-c-l.text-rounded.pull-left.m-t-n-xs.m-b-none
+                  span.text-black.count-guest-review 1235
+                  | &nbsp;
+                  span.text-orange Guest Review
+              .col-md-5.text-right
+                span.inline Brought to you by
+                img.inline.m-l-xs(src="img/tripadvisor.png", width="87", alt="")
+
+            .row
+              .col-md-7
+                strong.block.f-bold.text-u-c.m-t-md Traveler Rating
+                ul.list-unstyled.traveler-rating.m-t-md.m-r-lg
+                  li
+                    label.block.pull-left Excellent
+                    div.block.pull-left.pos-rlt.progress
+                      .progress-bar(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%;")
+                        span(class="sr-only")
+                    span.number.pull-right.text-primary.f-bold 177
+                  li
+                    label.block.pull-left Very Good
+                    div.block.pull-left.pos-rlt.progress
+                      .progress-bar(role="progressbar", aria-valuenow="40", aria-valuemin="0", aria-valuemax="100", style="width: 40%;")
+                        span(class="sr-only")
+                    span.number.pull-right.text-primary.f-bold 137
+                  li
+                    label.block.pull-left Average
+                    div.block.pull-left.pos-rlt.progress
+                      .progress-bar(role="progressbar", aria-valuenow="24", aria-valuemin="0", aria-valuemax="100", style="width: 28%;")
+                        span(class="sr-only")
+                    span.number.pull-right.text-primary.f-bold 46
+
+                  li
+                    label.block.pull-left Poor
+                    div.block.pull-left.pos-rlt.progress
+                      .progress-bar(role="progressbar", aria-valuenow="14", aria-valuemin="0", aria-valuemax="100", style="width: 14%;")
+                        span(class="sr-only")
+                    span.number.pull-right.text-primary.f-bold 23
+
+                  li
+                    label.block.pull-left Terrible
+                    div.block.pull-left.pos-rlt.progress
+                      .progress-bar(role="progressbar", aria-valuenow="9", aria-valuemin="0", aria-valuemax="100", style="width: 9%;")
+                        span(class="sr-only")
+                    span.number.pull-right.text-primary.f-bold 12
+
+
+              .col-md-5.b-dashed-l-gray
+                strong.block.f-bold.text-u-c.m-l-xl.m-t-md Summary Rating
+
+                ul.list-unstyled.summer-rating.m-t-md
+                  li
+                    span.pull-left Sleep Quality
+                    span.pull-right.text-right.bg-white
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill-half
+                  li
+                    span.pull-left Location
+                    span.pull-right.text-right.bg-white
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating
+                  li
+                    span.pull-left Rooms
+                    span.pull-right.text-right.bg-white
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill-half
+                      i.ico.ico-rating.ico-rating
+                  li
+                    span.pull-left Service
+                    span.pull-right.text-right.bg-white
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill-half
+                      i.ico.ico-rating.ico-rating
+                  li
+                    span.pull-left Value
+                    span.pull-right.text-right.bg-white
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                  li
+                    span.pull-left Cleanliness
+                    span.pull-right.text-right.bg-white
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating-fill
+                      i.ico.ico-rating.ico-rating
+
+          .review-list.m-b-lg
+            .review-item
+              .column.pull-left.user-info.text-center
+                img.block.m-auto.m-b-sm(src="http://media-cdn.tripadvisor.com/media/photo-l/02/74/46/d7/avatar.jpg", width="41", height="41")
+                span.f-bold.block Nicole A.
+                span.block.location Jakarta,
+                span.date 14 Dec 2014
+
+
+              .column.pull-left.review-text.b-l.pos-rlt.bg-white
+                i.ico.ico-flag
+                .header-top
+                  span.f-bold.text-u-c.text-black.review-title Great Stay
+                  span.bg-white.review-rating.m-l-sm
+                    i.ico.ico-rating.ico-rating-fill
+                    i.ico.ico-rating.ico-rating-fill
+                    i.ico.ico-rating.ico-rating-fill
+                    i.ico.ico-rating.ico-rating-fill
+                    i.ico.ico-rating.ico-rating
+                  .clearfix
+
+                article.m-t-sm
+                  | Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum...
+                  a.read-more.block.text-yellow.m-t-xs(href="")
+                    | Read More&nbsp;
+                    span.caret
+
+              .clearfix
+
+            .review-item
+              .column.pull-left.user-info.text-center
+                img.block.m-auto.m-b-sm(src="http://media-cdn.tripadvisor.com/media/photo-l/06/cb/6f/70/wderella.jpg", width="41", height="41")
+                span.f-bold.block Weerella
+                span.block.location Jakarta,
+                span.date 14 Dec 2014
+
+
+              .column.pull-left.review-text.b-l.pos-rlt.bg-white
+                i.ico.ico-flag
+                .header-top
+                  span.f-bold.text-u-c.text-black.review-title Excellent!
+                  span.bg-white.review-rating.m-l-sm
+                    i.ico.ico-rating.ico-rating-fill
+                    i.ico.ico-rating.ico-rating-fill
+                    i.ico.ico-rating.ico-rating-fill
+                    i.ico.ico-rating.ico-rating-fill
+                    i.ico.ico-rating.ico-rating-fill-half
+                  .clearfix
+
+                article.m-t-sm
+                  | Saya menginap di hotel ini bersama teman-teman, saat kedatangan saya adalah dini hari kala itu, untuk awal mencari hotel ini agak sulit karena tempatnya yang tidak familiar, namun ketika kami lihat lingkungan sekitar ternyata tempatnya cukup strategis, dekat dengan trans studio dan juga dekat untuk ke arah dago, untuk hotel ini sendiri cukup bagus, tenang dan tidak bising, tidak terlalu...
+                  a.read-more.block.text-yellow.m-t-xs(href="")
+                    | Read More&nbsp;
+                    span.caret
+
+              .clearfix
+
+            .review-item
+              .column.pull-left.user-info.text-center
+                img.block.m-auto.m-b-sm(src="http://media-cdn.tripadvisor.com/media/photo-l/06/96/03/a4/irsaconsinita.jpg", width="41", height="41")
+                span.f-bold.block irsaconsinita
+                span.block.location Jakarta,
+                span.date 14 Dec 2014
+
+
+              .column.pull-left.review-text.b-l.pos-rlt.bg-white
+                i.ico.ico-flag
+                .header-top
+                  span.f-bold.text-u-c.text-black.review-title Cozy & Comfortable
+                  span.bg-white.review-rating.m-l-sm
+                    i.ico.ico-rating.ico-rating-fill
+                    i.ico.ico-rating.ico-rating-fill
+                    i.ico.ico-rating.ico-rating-fill
+                    i.ico.ico-rating.ico-rating-fill
+                    i.ico.ico-rating.ico-rating
+                  .clearfix
+
+                article.m-t-sm
+                  | Hotel ini sangat nyaman dan menyenangkan. Walaupun kecil dan letaknya tidak dijalan besar, tp justru disitulah yang membuatnya lebih nyaman, karena walaupun tidak dijalan besar, tapi dekat dengan tempat2 keramaian, pencapaiannya mudah, disisi lain juga tenang untuk istirahat. Dalam segi design pun Hotel Malaka ini bagus ; simple, cozy, dan keren. Saya sering menginap disini untuk urusan pekerjaan. Dan saya...
+                  a.read-more.block.text-yellow.m-t-xs(href="")
+                    | Read More&nbsp;
+                    span.caret
+
+              .clearfix
+
+          .m-b-lg.text-center.b-dashed-b-gray
+            a.btn.btn-white.m-b-lg.m-auto(href="#")
+              span.block.m-r-md.m-l-md Load More Result
+
+          .popular-among-customer-blog.m-b-xl
+            h3.head-title.text-c-l.text-rounded.m-b-lg
+              span.text-black.count-guest-review Popular
+              | &nbsp;
+              span.text-orange among customers
+
+            .popular-hotel-list
+              .hotem-item.m-b-md
+                .column.pull-left.picture-thumb.pos-rlt
+                  a(href="#")
+                    img(src="img/destinations/hotel03.jpg", alt="")
+
+                .column.pull-left.hotel-info
+                  span.block.f-bold.text-u-c.hotel-name Mulia Resort Nusa Dua
+                  span.block.f-light.location Nusa Dua/Benoa
+
+                  span.block.hotel-star.bg-white.m-t-sm
+                    i.ico.ico-star-yellow.m-r-xs
+                    i.ico.ico-star-yellow.m-r-xs
+                    i.ico.ico-star-yellow.m-r-xs
+                    i.ico.ico-star-yellow.m-r-xs
+                    i.ico.ico-star-yellow.m-r-xs
+
+                .column.pull-left.rating.rating-number.text-center
+                  span.text-u-c.text-primary.block.f-bold Fantastic
+                  .block
+                    span.f-bold 8.8
+                    span.f-light /10
+
+                .column.pull-left.pricing
+                  label.f-bold.m-t-sm.text-u-c Price From
+                  span.block.price.f-bold
+                    sup.inline.currency Rp
+                    span.inline.rate
+                      | 3,967,
+                      small 000
+                  span.block.f-light.text-sm per night
+                  a.btn.f-bold.text-primary(href="hotel-detail.html") See Details
+                .clearfix
+
+              .hotem-item.m-b-md
+                .column.pull-left.picture-thumb.pos-rlt
+                  a(href="#")
+                    img(src="img/destinations/hotel05.jpg", alt="")
+
+                .column.pull-left.hotel-info
+                  span.block.f-bold.text-u-c.hotel-name Mulia Resort Nusa Dua
+                  span.block.f-light.location Nusa Dua/Benoa
+
+                  span.block.hotel-star.bg-white.m-t-sm
+                    i.ico.ico-star-yellow.m-r-xs
+                    i.ico.ico-star-yellow.m-r-xs
+                    i.ico.ico-star-yellow.m-r-xs
+                    i.ico.ico-star-yellow.m-r-xs
+                    i.ico.ico-star-yellow.m-r-xs
+
+                .column.pull-left.rating.rating-number.text-center
+                  span.text-u-c.text-primary.block.f-bold Fantastic
+                  .block
+                    span.f-bold 8.8
+                    span.f-light /10
+
+                .column.pull-left.pricing
+                  label.f-bold.m-t-sm.text-u-c Price From
+                  span.block.price.f-bold
+                    sup.inline.currency Rp
+                    span.inline.rate
+                      | 3,967,
+                      small 000
+                  span.block.f-light.text-sm per night
+                  a.btn.f-bold.text-primary(href="hotel-detail.html") See Details
+                .clearfix
+
+              .hotem-item.m-b-md
+                .column.pull-left.picture-thumb.pos-rlt
+                  a(href="#")
+                    img(src="img/destinations/hotel04.jpg", alt="")
+
+                .column.pull-left.hotel-info
+                  span.block.f-bold.text-u-c.hotel-name Mulia Resort Nusa Dua
+                  span.block.f-light.location Nusa Dua/Benoa
+
+                  span.block.hotel-star.bg-white.m-t-sm
+                    i.ico.ico-star-yellow.m-r-xs
+                    i.ico.ico-star-yellow.m-r-xs
+                    i.ico.ico-star-yellow.m-r-xs
+                    i.ico.ico-star-yellow.m-r-xs
+                    i.ico.ico-star-yellow.m-r-xs
+
+                .column.pull-left.rating.rating-number.text-center
+                  span.text-u-c.text-primary.block.f-bold Fantastic
+                  .block
+                    span.f-bold 8.8
+                    span.f-light /10
+
+                .column.pull-left.pricing
+                  label.f-bold.m-t-sm.text-u-c Price From
+                  span.block.price.f-bold
+                    sup.inline.currency Rp
+                    span.inline.rate
+                      | 3,967,
+                      small 000
+                  span.block.f-light.text-sm per night
+                  a.btn.f-bold.text-primary(href="hotel-detail.html") See Details
+                .clearfix
+
+          .wrapper-md
+
+    include helpers/inquiry

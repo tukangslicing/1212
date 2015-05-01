@@ -301,6 +301,40 @@
       }
     }
 
+    &.check-in,
+    &.check-out {
+      width: 205px;
+      padding: 5px 0 0 0;
+      position: relative;
+
+      label {
+        padding: 4px 10px;
+        margin-bottom: 2px;
+      }
+
+      input {
+        width: 100%;
+        cursor: pointer;
+        padding: 0 30px 7px 10px;
+        border-radius: 5px;
+        position: relative;
+        z-index: 1;
+        background: transparent;
+      }
+      &:after {
+        z-index: 0;
+        display: block;
+        content: " ";
+        width: 12px;
+        height: 9px;
+        background: url(../img/dropdown-icon.png) no-repeat 0 0;
+        position: absolute;
+        right: 13px;
+        bottom: 13px;
+        cursor: pointer;
+      }
+    }
+
     &.airline {
       width: 335px;
     }
