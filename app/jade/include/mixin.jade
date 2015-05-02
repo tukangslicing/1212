@@ -252,7 +252,7 @@ mixin flightOutbound(airline, departure, _return, transit, pricing)
         span.inline.price  #{pricing}
       label.light per person
     .button.column.pull-left.text-center
-      a.block.pos-rlt(href="flight-inbound.html") Select Flight
+      a.block.pos-rlt(href="#selectedFlights") Select Flight
 
 mixin PassengerInfo(number)
   .form-group.passenger-info(id="passenger-#{number}")
@@ -353,3 +353,40 @@ mixin PassengerInfo(number)
 
       .clearfix
     .dashed.m-t-lg.m-b-lg
+
+
+mixin headerHotelPayment(step)
+  div.navbar(role='navigation')
+    .container
+      .navbar-header
+        a.navbar-brand.md.block(href='index.html', title='Sapta Tour and Travel')
+          img(src='img/sapta-logo-md.png', title='Sapta Tour and Travel')
+
+      .pull-right.nav.payment-nav
+        div(class="payment-step payment-step-#{step}")
+          if (step == 1)
+            a.step.one.active(href="#") Details
+          else
+            a.step.one(href="flight-payment-step-1.html") Details
+
+          if (step == 2)
+            a.step.two.active(href="#") Review
+          else
+            a.step.two(href="flight-payment-step-2.html") Review
+
+          if (step == 3)
+            a.step.three.active(href="#") Payment
+          else
+            a.step.three(href="flight-payment-step-3.html") Payment
+
+          if (step == 4)
+            a.step.four.active(href="#") Process
+          else
+            a.step.four(href="flight-payment-step-4.html") Process
+
+          if (step == 5)
+            a.step.five.active(href="#") E-Ticket
+          else
+            a.step.five(href="flight-payment-step-5.html") E-Ticket
+
+      .clearfix

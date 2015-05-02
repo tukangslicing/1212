@@ -1813,6 +1813,12 @@ label.error {
 .l-h {
   line-height: 16px;
 }
+.l-h-20 {
+  line-height: 20px;
+}
+.l-h-24 {
+  line-height: 24px;
+}
 .v-middle {
   vertical-align: middle !important;
 }
@@ -2825,10 +2831,15 @@ fieldset[disabled] .form-control.bg-white-only {
   height: 18px;
   background-position: -707px -13px;
 }
-.bg-white .ico-hotel-in {
+.bg-white .ico-hotel-out {
   width: 25px;
   height: 18px;
   background-position: -743px -13px;
+}
+.bg-white .ico-room {
+  width: 13px;
+  height: 17px;
+  background-position: -780px -14px;
 }
 .bg-white .ico-waiting {
   width: 17px;
@@ -3607,6 +3618,9 @@ html[xmlns] .flexslider .slides {
   padding-left: 5px;
   padding-right: 5px;
 }
+.sapta-form.hotel-payment .boxing.phone-number {
+  width: 250px;
+}
 .sapta-form .boxing {
   border-radius: 5px;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -3802,6 +3816,9 @@ html[xmlns] .flexslider .slides {
   height: 50px;
   width: 205px;
   border-radius: 5px;
+}
+.sapta-form .btn-submit.text-md {
+  font-size: 14px;
 }
 .sapta-form .btn-submit:hover,
 .sapta-form .btn-submit:focus,
@@ -4764,7 +4781,8 @@ html[xmlns] .flexslider .slides {
   margin-top: 70px;
   overflow-x: hidden;
 }
-.booking-page.flight-payment {
+.booking-page.flight-payment,
+.booking-page.hotel-payment {
   margin-top: 0;
 }
 .booking-page .display-table {
@@ -4869,6 +4887,10 @@ html[xmlns] .flexslider .slides {
   font-family: "Gotham Black";
   line-height: 20px !important;
   font-size: 15px;
+}
+.booking-page .aside ul li:first-child .f-light {
+  font-family: "Gotham Book";
+  font-weight: normal;
 }
 .booking-page .aside ul.bg-yellow {
   -webkit-box-shadow: 0px 0px 0px 1px #e3de99, 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
@@ -4988,6 +5010,108 @@ html[xmlns] .flexslider .slides {
   display: table-cell;
   font-size: 20px;
   line-height: 18px;
+}
+.booking-page .aside ul.tour-pricing li.bg-light {
+  background-color: #f8f8f8;
+}
+.booking-page .aside ul.hotel-booking-summary li {
+  padding: 10px 20px;
+  height: 50px;
+  min-height: 50px;
+  height: auto !important;
+  line-height: 30px;
+}
+.booking-page .aside ul.hotel-booking-summary li:first-child {
+  height: 68px;
+}
+.booking-page .aside ul.hotel-booking-summary li:first-child .ico {
+  position: static;
+}
+.booking-page .aside ul.hotel-booking-summary li:last-child {
+  border-bottom: none;
+}
+.booking-page .aside ul.hotel-booking-summary li .block.bg-white {
+  padding-left: 35px;
+}
+.booking-page .aside ul.hotel-booking-summary li .ico {
+  position: absolute;
+  top: 13px;
+  left: 20px;
+}
+.booking-page .aside ul.hotel-booking-summary li .ico-departure {
+  top: 17px;
+}
+.booking-page .aside ul.hotel-booking-summary li .ico-return {
+  top: 12px;
+}
+.booking-page .aside ul.hotel-booking-summary li .ico-adult {
+  top: 11px;
+  left: 26px;
+}
+.booking-page .aside ul.hotel-booking-summary li .ico-airline-circle {
+  left: 22px;
+  top: 14px;
+}
+.booking-page .aside ul.hotel-booking-summary li .ico-hotel-in,
+.booking-page .aside ul.hotel-booking-summary li .ico-hotel-out {
+  top: 15px;
+  left: 22px;
+}
+.booking-page .aside ul.hotel-booking-summary li .ico-room {
+  top: 15px;
+  left: 25px;
+}
+.booking-page .aside ul.hotel-booking-summary li.bg-white {
+  background-color: #fff;
+}
+.booking-page .aside ul.hotel-booking-summary li.bg-light {
+  background-color: #f8f8f8;
+}
+.booking-page .aside ul.hotel-booking-summary.outbound-flight li,
+.booking-page .aside ul.hotel-booking-summary.inbound-flight li {
+  height: 50px;
+  min-height: 50px;
+  height: auto !important;
+}
+.booking-page .aside ul.hotel-booking-summary.outbound-flight li:first-child,
+.booking-page .aside ul.hotel-booking-summary.inbound-flight li:first-child {
+  height: 48px;
+  padding: 15px 0;
+}
+.booking-page .aside ul.hotel-booking-summary.outbound-flight li.schedule,
+.booking-page .aside ul.hotel-booking-summary.inbound-flight li.schedule {
+  height: 80px;
+  line-height: 18px;
+}
+.booking-page .aside ul.hotel-booking-summary.outbound-flight li.schedule .ico-departure,
+.booking-page .aside ul.hotel-booking-summary.inbound-flight li.schedule .ico-departure {
+  top: 30px;
+}
+.booking-page .aside ul.hotel-booking-summary.outbound-flight li.schedule .ico-return,
+.booking-page .aside ul.hotel-booking-summary.inbound-flight li.schedule .ico-return {
+  top: 26px;
+}
+.booking-page .aside ul.hotel-booking-summary.outbound-flight li .ico-bag,
+.booking-page .aside ul.hotel-booking-summary.inbound-flight li .ico-bag {
+  top: 17px;
+}
+.booking-page .aside ul.hotel-booking-summary.outbound-flight li .ico-adult,
+.booking-page .aside ul.hotel-booking-summary.inbound-flight li .ico-adult {
+  left: 23px;
+}
+.booking-page .aside ul.hotel-booking-summary.outbound-flight li .ico-marker,
+.booking-page .aside ul.hotel-booking-summary.inbound-flight li .ico-marker {
+  top: 17px;
+}
+.booking-page .aside ul.hotel-booking-summary.outbound-flight li.airline,
+.booking-page .aside ul.hotel-booking-summary.inbound-flight li.airline {
+  padding-left: 15px;
+}
+.booking-page .aside ul.hotel-booking-summary.outbound-flight li label,
+.booking-page .aside ul.hotel-booking-summary.inbound-flight li label {
+  color: #888;
+  font-size: 11px;
+  font-family: "Gotham Black";
 }
 .booking-page .aside p {
   line-height: 18px;

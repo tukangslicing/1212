@@ -1,5 +1,10 @@
 $(window).load(function () {
   'use strict';
+});
+
+
+$(function () {
+  'use strict';
 
   // The slider being synced must be initialized first
   $('#gallery-slider-carousel').flexslider({
@@ -22,12 +27,6 @@ $(window).load(function () {
     sync: '#gallery-slider-carousel',
     directionNav: false
   });
-
-});
-
-
-$(function () {
-  'use strict';
 
   $('.hero-banner .flexslider').flexslider({
     animation: 'slide',
