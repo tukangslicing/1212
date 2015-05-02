@@ -6436,6 +6436,9 @@ html[xmlns] .flexslider .slides {
 .popular-hotel-list .hotem-item .column.hotel-info {
   width: 315px !important;
 }
+.popular-hotel-list .hotem-item .column.pricing {
+  width: 127px;
+}
 .popular-hotel-list .hotem-item .column.rating.rating-number .text-primary {
   margin-bottom: 0;
 }
@@ -6556,7 +6559,7 @@ html[xmlns] .flexslider .slides {
   width: 85px;
 }
 .hotel-detail-block .list-rooms .room-item .column.pricing {
-  width: 135px;
+  width: 139px;
   background: #f8f8f8;
 }
 .hotel-detail-block .list-rooms .room-item .column.pricing .no-pricing {
