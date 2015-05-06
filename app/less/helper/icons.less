@@ -71,9 +71,41 @@
     background: url(../img/input-uncheck.png) no-repeat 0 0;
   }
 
+  &-back-to-top {
+    width: 36px;
+    height: 36px;
+    border-radius: 2px;
+    background: #252525 url(../img/mobile/back-to-top.png) no-repeat 10px 8px;
+  }
+
+  &.ico-mobile {
+    background: url(../img/mobile/ico-sprite.png);
+
+    &.ico {
+
+      &-search {
+        width: 16px;
+        height: 16px;
+        background-position: 0 0;
+      }
+
+      &-login {
+        width: 14px;
+        height: 16px;
+        background-position: -17px 0;
+      }
+
+      &-register {
+        width: 12px;
+        height: 16px;
+        background-position: -33px 0;
+      }
+    }
+  }
 }
 
-.bg-white {
+.bg-white,
+.bg-transparent {
   .ico {
     background: url(../img/icon-bg-white.png) no-repeat;
     display: inline-block;
@@ -451,6 +483,11 @@
       width: 40px;
       height: 73px;
       background: url(../img/price-range-icon.png) no-repeat 0 0;
+    }
+    &-menu-button {
+      width: 22px;
+      height: 11px;
+      background-position: -552px -209px;
     }
   }
 }

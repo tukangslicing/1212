@@ -1,0 +1,288 @@
+body {
+  font-size: 12px;
+
+  &.mobile {
+    height: 100%;
+  }
+}
+
+nav#slide-menu {
+  position: fixed;
+  top: 0;
+  left: -100px;
+  bottom: 0;
+  display: block;
+  float: left;
+  width: 100%;
+  max-width: 240px;
+  height: 100%;
+  background: #1f1f1f;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  .transition(all 300ms);
+
+  a {
+    color: #fff;
+  }
+
+  .table-view-cell {
+    padding: 12px 20px 12px 50px;
+    border-top: 1px solid #2a2a2a;
+    border-bottom: 1px solid #040404;
+    position: relative;
+
+    .ico {
+      position: absolute;
+      left: 15px;
+      top: 14px;
+
+      &.ico-register {
+        left: 17px;
+      }
+    }
+
+    > a:not(.btn):active {
+      background-color: #000;
+    }
+
+    a {
+      background: #1f1f1f;
+      display: block;
+      margin: -12px -20px -12px -50px;
+    }
+
+    &.access-menu {
+      a {
+        background: #000;
+      }
+    }
+  }
+
+  ul.list-style {
+    padding-left: 36px;
+    margin: 0;
+    border-top: 1px solid #2a2a2a;
+
+    &.bg-black {
+      background: #000;
+      border-top: 0;
+    }
+
+    li {
+      padding: 12px 20px 12px 50px;
+
+      &.access-menu {
+
+        a {
+          background: #000;
+          border-bottom: 1px solid #2a2a2a;
+        }
+      }
+
+      a {
+        display: block;
+        margin: -12px -20px -12px -85px;
+        font-size: 12px;
+        padding: inherit;
+      }
+    }
+  }
+
+  .table-view {
+    border-top: 1px solid #040404;
+    border-bottom: 1px solid #2a2a2a;
+    margin-bottom: 0;
+
+    &.main-menu {
+      li {
+        a {
+          font-size: 15px;
+          font-weight: bold;
+        }
+      }
+    }
+
+  }
+
+}
+
+div#container {
+  font-family: Arial, sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: scroll;
+  background: #fff;
+  border-radius: 0;
+  .transition(all 300ms);
+}
+
+
+#main-wrap {
+  min-height: 210px;
+  height: 210px;
+  height: auto !important;
+}
+
+body.menu-active {
+
+  div#container {
+    left: 240px;
+
+  }
+  header {
+    .menu-trigger {
+      left: 250px
+    }
+  }
+
+  nav#slide-menu {
+    left: 0px;
+
+    ul {
+      left: 0px;
+      opacity: 1;
+    }
+  }
+}
+
+header {
+  &.bar {
+    background: @brand-primary;
+    height: 50px;
+    border-bottom: 0;
+  }
+
+  .menu-trigger {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    -moz-transition: all 300ms;
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+    z-index: 9999;
+
+    .ico {
+      margin-left: 14px;
+      margin-top: 19.5px;
+    }
+  }
+
+  h1.title {
+    margin: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+    height: 50px;
+    margin-left: -10px;
+
+    a {
+      text-indent: -9999px;
+      overflow: hidden;
+      display: block;
+      margin: 6px auto 0;
+      width: 73px;
+      height: 37px;
+      background: url(../img/mobile/logo.png) no-repeat 0 0;
+    }
+  }
+
+}
+.menu-bar {
+  margin-top: 50px;
+  background: #007589;
+
+  .user-info {
+    padding-left: 17px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    float: left;
+    display: block;
+    border-color: #158ea3;
+    width: 106px;
+    position: relative;
+
+    &.b-r.b-l {
+      width: 108px;
+    }
+
+    .ico {
+      position: absolute;
+      left: 10px;
+      top: 8px;
+
+      &.ico-hotel {
+        top: 8px;
+        left: 11px
+      }
+
+      &.ico-flight {
+        top: 11px;
+        left: 9px;
+      }
+    }
+
+    a {
+      background: #007589;
+      color: #fff;
+      display: block;
+      line-height: 38px;
+      font-size: 10px;
+    }
+    span {
+      padding-left: 35px;
+    }
+  }
+}
+
+footer {
+  background: #252525;
+  color: #b9b9b9;
+  font-size: 9px;
+  line-height: 47px;
+
+  a {
+    color: #fcaf56;
+  }
+}
+
+#backToTop {
+  position: fixed;
+  z-index:2000;
+  right: 10px;
+  bottom: 5px;
+  cursor: pointer;
+}
+
+
+.form-search {
+  .ico-search {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  input {
+    border: 0;
+    display: block;
+    padding-left: 30px;
+
+    &[type="text"] {
+      margin-top: 5px;
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: 400;
+      border-radius: 0;
+    }
+  }
+}

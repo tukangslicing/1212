@@ -2666,322 +2666,415 @@ fieldset[disabled] .form-control.bg-white-only {
 .ico-is-uncheck {
   background: url(../img/input-uncheck.png) no-repeat 0 0;
 }
-.bg-white .ico {
+.ico-back-to-top {
+  width: 36px;
+  height: 36px;
+  border-radius: 2px;
+  background: #252525 url(../img/mobile/back-to-top.png) no-repeat 10px 8px;
+}
+.ico.ico-mobile {
+  background: url(../img/mobile/ico-sprite.png);
+}
+.ico.ico-mobile.ico-search {
+  width: 16px;
+  height: 16px;
+  background-position: 0 0;
+}
+.ico.ico-mobile.ico-login {
+  width: 14px;
+  height: 16px;
+  background-position: -17px 0;
+}
+.ico.ico-mobile.ico-register {
+  width: 12px;
+  height: 16px;
+  background-position: -33px 0;
+}
+.bg-white .ico,
+.bg-transparent .ico {
   background: url(../img/icon-bg-white.png) no-repeat;
   display: inline-block;
 }
-.bg-white .ico-phone {
+.bg-white .ico-phone,
+.bg-transparent .ico-phone {
   width: 36px;
   height: 35px;
   background-position: -2px 0px;
 }
-.bg-white .ico-twentyfour-hour {
+.bg-white .ico-twentyfour-hour,
+.bg-transparent .ico-twentyfour-hour {
   width: 54px;
   height: 65px;
   background-position: -3px -65px;
 }
-.bg-white .ico-luggage {
+.bg-white .ico-luggage,
+.bg-transparent .ico-luggage {
   width: 30px;
   height: 26px;
   background-position: -62px -8px;
 }
-.bg-white .ico-time {
+.bg-white .ico-time,
+.bg-transparent .ico-time {
   width: 21px;
   height: 21px;
   background-position: -118px -12px;
 }
-.bg-white .ico-hotel {
+.bg-white .ico-hotel,
+.bg-transparent .ico-hotel {
   width: 14px;
   height: 19px;
   background-position: -195px -13px;
 }
-.bg-white .ico-calendar {
+.bg-white .ico-calendar,
+.bg-transparent .ico-calendar {
   width: 16px;
   height: 16px;
   background-position: -160px -16px;
 }
-.bg-white .ico-food {
+.bg-white .ico-food,
+.bg-transparent .ico-food {
   width: 13px;
   height: 20px;
   background-position: -230px -12px;
 }
-.bg-white .ico-departure {
+.bg-white .ico-departure,
+.bg-transparent .ico-departure {
   width: 22px;
   height: 11px;
   background-position: -355px -20px;
 }
-.bg-white .ico-departure-lg {
+.bg-white .ico-departure-lg,
+.bg-transparent .ico-departure-lg {
   width: 41px;
   height: 15px;
   background: url(../img/ico-departure-lg.png) no-repeat 0 0;
 }
-.bg-white .ico-return {
+.bg-white .ico-return,
+.bg-transparent .ico-return {
   width: 19px;
   height: 15px;
   background-position: -393px -15px;
 }
-.bg-white .ico-return-lg {
+.bg-white .ico-return-lg,
+.bg-transparent .ico-return-lg {
   width: 35px;
   height: 25px;
   background: url(../img/ico-return-lg.png) no-repeat 0 0;
 }
-.bg-white .ico-idea {
+.bg-white .ico-idea,
+.bg-transparent .ico-idea {
   width: 24px;
   height: 22px;
   background-position: -429px -175px;
 }
-.bg-white .ico-switch {
+.bg-white .ico-switch,
+.bg-transparent .ico-switch {
   width: 20px;
   height: 21px;
   background: url(../img/ico-switch.png) no-repeat;
   cursor: pointer;
 }
-.bg-white .ico-adult {
+.bg-white .ico-adult,
+.bg-transparent .ico-adult {
   width: 11px;
   height: 23px;
   background-position: -264px -9px;
 }
-.bg-white .ico-child {
+.bg-white .ico-child,
+.bg-transparent .ico-child {
   width: 11px;
   height: 26px;
   background-position: -292px -5px;
 }
-.bg-white .ico-baby {
+.bg-white .ico-baby,
+.bg-transparent .ico-baby {
   width: 15px;
   height: 11px;
   background-position: -323px -19px;
 }
-.bg-white .ico-right {
+.bg-white .ico-right,
+.bg-transparent .ico-right {
   height: 24px;
   width: 24px;
   background: url(../img/arrow-right.png) no-repeat 0 0;
 }
-.bg-white .ico-left {
+.bg-white .ico-left,
+.bg-transparent .ico-left {
   height: 24px;
   width: 24px;
   background: url(../img/arrow-left.png) no-repeat 0 0;
 }
-.bg-white .ico-airline-circle {
+.bg-white .ico-airline-circle,
+.bg-transparent .ico-airline-circle {
   width: 17px;
   height: 17px;
   background-position: -427px -14px;
 }
-.bg-white .ico-customer-service {
+.bg-white .ico-customer-service,
+.bg-transparent .ico-customer-service {
   height: 64px;
   width: 75px;
   background-position: -95px -64px;
 }
-.bg-white .ico-customer-service {
+.bg-white .ico-customer-service,
+.bg-transparent .ico-customer-service {
   height: 64px;
   width: 75px;
   background-position: -95px -64px;
 }
-.bg-white .ico-safe {
+.bg-white .ico-safe,
+.bg-transparent .ico-safe {
   height: 65px;
   width: 48px;
   background-position: -212px -64px;
 }
-.bg-white .ico-payment {
+.bg-white .ico-payment,
+.bg-transparent .ico-payment {
   height: 50px;
   width: 73px;
   background-position: -313px -75px;
 }
-.bg-white .ico-tax {
+.bg-white .ico-tax,
+.bg-transparent .ico-tax {
   width: 120px;
   height: 53px;
   background-position: -436px -77px;
 }
-.bg-white .ico-info {
+.bg-white .ico-info,
+.bg-transparent .ico-info {
   width: 16px;
   height: 16px;
   background-position: -593px -16px;
 }
-.bg-white .ico-check {
+.bg-white .ico-check,
+.bg-transparent .ico-check {
   width: 16px;
   height: 16px;
   background-position: -569px -17px;
 }
-.bg-white .ico-cross {
+.bg-white .ico-cross,
+.bg-transparent .ico-cross {
   width: 16px;
   height: 16px;
   background-position: -544px -17px;
 }
-.bg-white .ico-warn {
+.bg-white .ico-warn,
+.bg-transparent .ico-warn {
   width: 14px;
   height: 14px;
   background-position: -517px -18px;
 }
-.bg-white .ico-chair {
+.bg-white .ico-chair,
+.bg-transparent .ico-chair {
   width: 15px;
   height: 15px;
   background-position: -624px -17px;
 }
-.bg-white .ico-bag {
+.bg-white .ico-bag,
+.bg-transparent .ico-bag {
   width: 15px;
   height: 15px;
   background-position: -653px -17px;
 }
-.bg-white .ico-marker {
+.bg-white .ico-marker,
+.bg-transparent .ico-marker {
   width: 10px;
   height: 15px;
   background-position: -680px -15px;
 }
-.bg-white .ico-hotel-in {
+.bg-white .ico-hotel-in,
+.bg-transparent .ico-hotel-in {
   width: 25px;
   height: 18px;
   background-position: -707px -13px;
 }
-.bg-white .ico-hotel-out {
+.bg-white .ico-hotel-out,
+.bg-transparent .ico-hotel-out {
   width: 25px;
   height: 18px;
   background-position: -743px -13px;
 }
-.bg-white .ico-room {
+.bg-white .ico-room,
+.bg-transparent .ico-room {
   width: 13px;
   height: 17px;
   background-position: -780px -14px;
 }
-.bg-white .ico-waiting {
+.bg-white .ico-waiting,
+.bg-transparent .ico-waiting {
   width: 17px;
   height: 20px;
   background-position: -695px -93px;
 }
-.bg-white .ico-gear {
+.bg-white .ico-gear,
+.bg-transparent .ico-gear {
   width: 33px;
   height: 33px;
   background-position: -730px -84px;
 }
-.bg-white .ico-wifi {
+.bg-white .ico-wifi,
+.bg-transparent .ico-wifi {
   width: 17px;
   height: 13px;
   background-position: -459px -17px;
 }
-.bg-white .ico-star {
+.bg-white .ico-star,
+.bg-transparent .ico-star {
   width: 12px;
   height: 12px;
   background-position: -490px -18px;
   margin-right: 5px;
 }
-.bg-white .ico-star-yellow {
+.bg-white .ico-star-yellow,
+.bg-transparent .ico-star-yellow {
   width: 17px;
   height: 17px;
   background-position: -692px -176px;
 }
-.bg-white .ico-download-voucher {
+.bg-white .ico-download-voucher,
+.bg-transparent .ico-download-voucher {
   width: 233px;
   height: 50px;
   background-position: -304px -258px;
 }
-.bg-white .ico-flight-md {
+.bg-white .ico-flight-md,
+.bg-transparent .ico-flight-md {
   height: 17px;
   width: 30px;
   background-position: -476px -176px;
 }
-.bg-white .ico-flight-md {
+.bg-white .ico-flight-md,
+.bg-transparent .ico-flight-md {
   height: 17px;
   width: 30px;
   background-position: -476px -176px;
 }
-.bg-white .ico-hotel-md {
+.bg-white .ico-hotel-md,
+.bg-transparent .ico-hotel-md {
   height: 22px;
   width: 16px;
   background-position: -520px -173px;
 }
-.bg-white .ico-bag-md {
+.bg-white .ico-bag-md,
+.bg-transparent .ico-bag-md {
   height: 20px;
   width: 23px;
   background-position: -552px -173px;
 }
-.bg-white .ico-lock {
+.bg-white .ico-lock,
+.bg-transparent .ico-lock {
   width: 12px;
   height: 16px;
   background-position: -592px -176px;
 }
-.bg-white .ico-american-express {
+.bg-white .ico-american-express,
+.bg-transparent .ico-american-express {
   width: 33px;
   height: 21px;
   background-image: url(../img/card-american-express.png);
   background-repeat: no-repeat;
   background-size: 33px 21px;
 }
-.bg-white .ico-visa {
+.bg-white .ico-visa,
+.bg-transparent .ico-visa {
   width: 33px;
   height: 21px;
   background-image: url(../img/card-visa.png);
   background-repeat: no-repeat;
   background-size: 33px 21px;
 }
-.bg-white .ico-master-card {
+.bg-white .ico-master-card,
+.bg-transparent .ico-master-card {
   width: 33px;
   height: 21px;
   background-image: url(../img/card-master-card.png);
   background-repeat: no-repeat;
   background-size: 33px 21px;
 }
-.bg-white .ico-pencil {
+.bg-white .ico-pencil,
+.bg-transparent .ico-pencil {
   background-position: -616px -175px;
   width: 17px;
   height: 17px;
 }
-.bg-white .ico-pencil-black {
+.bg-white .ico-pencil-black,
+.bg-transparent .ico-pencil-black {
   background-position: -640px -175px;
 }
-.bg-white .ico-rating {
+.bg-white .ico-rating,
+.bg-transparent .ico-rating {
   width: 15px;
   height: 15px;
   margin-right: 1px;
   background-position: -657px -97px;
 }
-.bg-white .ico-rating-big {
+.bg-white .ico-rating-big,
+.bg-transparent .ico-rating-big {
   width: 22px;
   height: 22px;
   background-position: -615px -67px;
 }
-.bg-white .ico-rating-big-fill {
+.bg-white .ico-rating-big-fill,
+.bg-transparent .ico-rating-big-fill {
   background-position: -590px -67px;
 }
-.bg-white .ico-rating-fill {
+.bg-white .ico-rating-fill,
+.bg-transparent .ico-rating-fill {
   background-position: -625px -97px;
 }
-.bg-white .ico-rating-fill-half {
+.bg-white .ico-rating-fill-half,
+.bg-transparent .ico-rating-fill-half {
   background-position: -641px -97px;
 }
-.bg-white .ico-flag {
+.bg-white .ico-flag,
+.bg-transparent .ico-flag {
   width: 11px;
   height: 14px;
   background-position: -678px -175px;
 }
-.bg-white .ico-up-arrow {
+.bg-white .ico-up-arrow,
+.bg-transparent .ico-up-arrow {
   width: 10px;
   height: 15px;
   background-position: -664px -176px;
 }
-.bg-white .ico-up-circle-arrow {
+.bg-white .ico-up-circle-arrow,
+.bg-transparent .ico-up-circle-arrow {
   width: 24px;
   height: 24px;
   background-position: -251px -205px;
   cursor: pointer;
 }
-.bg-white .ico-down-circle-arrow {
+.bg-white .ico-down-circle-arrow,
+.bg-transparent .ico-down-circle-arrow {
   width: 24px;
   height: 24px;
   cursor: pointer;
   background-position: -279px -204px;
 }
-.bg-white .ico-right-circle-arrow-md {
+.bg-white .ico-right-circle-arrow-md,
+.bg-transparent .ico-right-circle-arrow-md {
   width: 26px;
   height: 26px;
   background-position: -219px -205px;
 }
-.bg-white .ico-down-circle-arrow-md {
+.bg-white .ico-down-circle-arrow-md,
+.bg-transparent .ico-down-circle-arrow-md {
   width: 26px;
   height: 26px;
   background-position: -220px -173px;
 }
-.bg-white .ico-price-range {
+.bg-white .ico-price-range,
+.bg-transparent .ico-price-range {
   width: 40px;
   height: 73px;
   background: url(../img/price-range-icon.png) no-repeat 0 0;
+}
+.bg-white .ico-menu-button,
+.bg-transparent .ico-menu-button {
+  width: 22px;
+  height: 11px;
+  background-position: -552px -209px;
 }
 .btn {
   border-radius: 0;

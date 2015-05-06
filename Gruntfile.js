@@ -16,7 +16,9 @@ module.exports = function (grunt) {
       css : 'app/css',
       js  : 'app/js',
       jade : 'app/jade',
-      bootstrap: 'app/js/bootstrap'
+      bootstrap: 'app/js/bootstrap',
+      mobilejade: 'app/jade-mobile',
+      mobile: 'app/mobile'
     },
     watch: {
       all: {
@@ -24,6 +26,8 @@ module.exports = function (grunt) {
           'Gruntfile.js',
           '<%= dir.jade %>/**/*.jade',
           '<%= dir.jade %>/*.jade',
+          '<%= dir.mobilejade %>/**/*.jade',
+          '<%= dir.mobilejade %>/*.jade',
           '<%= dir.js %>/*.js',
           '<%= dir.js %>/**/*.js',
           '<%= dir.less %>/*.less',
@@ -48,7 +52,8 @@ module.exports = function (grunt) {
     jade: {
       html: {
         files: {
-          'app/': ['app/jade/*.jade']
+          'app/': ['app/jade/*.jade'],
+          'app/mobile': ['<%= dir.mobilejade %>/*.jade']
         },
         options: {
           pretty: true,
@@ -99,6 +104,12 @@ module.exports = function (grunt) {
           '<%= dir.js %>/plugins/*.js'
         ],
         dest: '<%= dir.js %>/plugins.js'
+      },
+      mobile: {
+        src: [
+          '<%= dir.js %>/mobile/main-mobile.js'
+        ],
+        dest: '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.mobile.js'
       }
     },
 
@@ -121,10 +132,10 @@ module.exports = function (grunt) {
       },
       main: {
         jshintrc: '<%= dir.js %>/.jshintrc',
-        src: ['<%= dir.js %>/shared/*.js', '<%= dir.js %>/web/*.js']
+        src: ['<%= dir.js %>/shared/*.js', '<%= dir.js %>/web/*.js', '<%= dir.js %>/mobile/*.js']
       },
       afterConcat: {
-        src: ['<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js']
+        src: ['<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js', '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.mobile*.js']
       }
     },
 
@@ -137,6 +148,9 @@ module.exports = function (grunt) {
       },
       main: {
         src: ['<%= dir.js %>/shared/*.js', '<%= dir.js %>/web/*.js']
+      },
+      mobile: {
+        src: ['<%= dir.js %>/mobile/*.js']
       },
       grunt: {
         src: 'Gruntfile.js'
@@ -179,6 +193,18 @@ module.exports = function (grunt) {
         files: {
           '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.css': '<%= dir.less %>/apps.less'
         }
+      },
+      compileMobile: {
+        options: {
+          // strictMath: true,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: '<%= pkg.name.toLowerCase() %>.mobile.css.map',
+          sourceMapFilename: '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.mobile.css.map'
+        },
+        files: {
+          '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.mobile.css': '<%= dir.less %>/mobile.less'
+        }
       }
     },
 
@@ -206,6 +232,12 @@ module.exports = function (grunt) {
           map: true
         },
         src: '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.css'
+      },
+      mobile: {
+        options: {
+          map: true
+        },
+        src: '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.mobile.css'
       }
     },
 
@@ -218,6 +250,7 @@ module.exports = function (grunt) {
       core: {
         files: {
           '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.css': '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.css',
+          '<%= dir.mobile %>/css/<%= pkg.name.toLowerCase() %>.mobile.css': '<%= dir.mobile %>/css/<%= pkg.name.toLowerCase() %>.mobile.css',
           '<%= dir.css %>/bootstrap.css': '<%= dir.css %>/bootstrap.css'
         }
       }
@@ -227,7 +260,7 @@ module.exports = function (grunt) {
       options: {
         config: '<%= dir.less %>/bootstrap/.csscomb.json'
       },
-      dist: {
+      web: {
         expand: true,
         cwd: '<%= dir.css %>/',
         src: ['*.css', '!*.min.css'],
@@ -238,7 +271,8 @@ module.exports = function (grunt) {
     concurrent: {
       less: [
         'less:compileCore',
-        'less:compileWeb'
+        'less:compileWeb',
+        'less:compileMobile'
       ],
       js: [
         'jscs',
