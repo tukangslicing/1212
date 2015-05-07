@@ -9,7 +9,7 @@ body {
 nav#slide-menu {
   position: fixed;
   top: 0;
-  left: -100px;
+  left: -240px;
   bottom: 0;
   display: block;
   float: left;
@@ -21,6 +21,7 @@ nav#slide-menu {
   font-family: Arial, sans-serif;
   overflow-y: scroll;
   .transition(all 300ms);
+  z-index: 10;
 
   a {
     color: #fff;
@@ -112,6 +113,7 @@ div#container {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   padding: 0;
