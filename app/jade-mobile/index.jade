@@ -1,39 +1,24 @@
 extends layouts/default
 
+include includes/mixin
+
 block main
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
-  p Here's an easy way to create an iOS style, side sliding menu
+  .top-banner.home
+    h3.banner-title.text-u-c.text-center Don’t miss our lebaran promo
+
+  .featured-destination-list
+    mixin featuredDestination('Turkey.jpg', 'Turkey Adventure', 'MIddle East', 'USD 1000')
+
+    mixin featuredDestination('Japan.jpg', 'Japanese Essentials', 'Asia', 'USD 1500')
+
+    mixin featuredDestination('pucket.jpg', 'Bangkok Phuket', 'Asia', 'USD 1000')
+
+    mixin featuredDestination('France.jpg', 'French Riviera', 'Europe', 'USD 3000')
+
+    mixin featuredDestination('China.jpg', 'Asia Delight', 'China', 'USD 1000')
+
+    mixin featuredDestination('Jawa.jpg', 'Karimun Jawa Experience', 'Indonesia', 'USD 1500')
+
+
+  .spinner-block
+    .spinner Loading...

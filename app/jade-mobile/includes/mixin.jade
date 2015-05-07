@@ -1,0 +1,12 @@
+mixin featuredDestination(image, name, location, price)
+  .item.pos-rlt.b-b
+    figure.pos-abt
+      img(src="img/destinations/#{image}", alt="")
+
+    .featured-info.pos-abt
+      h4.name.text-lg #{name}
+      span.inline.location #{location}
+      span.inline.m-r-xs.m-l-xs |
+      span.inline
+        | From &nbsp;
+        span.f-bold #{price}
