@@ -18,9 +18,7 @@ $(function () {
   });
 
   $(document).scroll(function () {
-    console.log($(this).scrollTop());
-
-    if ($(this).scrollTop() > 100) {
+    if ($(this).scrollTop() > 80) {
       $('#backToTop').stop(true, true).fadeIn();
     } else {
       $('#backToTop').stop(true, true).fadeOut();
