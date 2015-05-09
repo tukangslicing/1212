@@ -1,12 +1,17 @@
-mixin featuredDestination(image, name, location, price)
+mixin featuredDestination(image, name, param1, param2, type)
   .item.pos-rlt.b-b
     figure.pos-abt
       img(src="img/destinations/#{image}", alt="")
 
     .featured-info.pos-abt
       h4.name.text-lg #{name}
-      span.inline.location #{location}
-      span.inline.m-r-xs.m-l-xs |
-      span.inline
-        | From &nbsp;
-        span.f-bold #{price}
+      if type == 'hotels'
+        span.inline.count-accomodations #{param1}
+        span.inline &nbsp;Accomodations
+      else
+        span.inline.location #{param1}
+        span.inline.m-r-xs.m-l-xs |
+        span.inline
+          | From &nbsp;
+          span.f-bold #{param2}
+

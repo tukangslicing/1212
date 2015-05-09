@@ -2710,6 +2710,11 @@ fieldset[disabled] .form-control.bg-white-only {
   height: 16px;
   background-position: -33px 0;
 }
+.ico.ico-mobile.ico-hotel-md {
+  width: 18px;
+  height: 25px;
+  background-position: 0px -19px;
+}
 .bg-white .ico,
 .bg-transparent .ico {
   background: url(../img/icon-bg-white.png) no-repeat;
