@@ -4,11 +4,22 @@ mixin featuredDestination(image, name, param1, param2, type)
       img(src="img/destinations/#{image}", alt="")
 
     .featured-info.pos-abt
-      h4.name.text-lg #{name}
       if type == 'hotels'
+        h4.name.text-lg #{name}
         span.inline.count-accomodations #{param1}
         span.inline &nbsp;Accomodations
+
+      else if type == 'flight'
+        h4.name.text-lg #{name}
+        span.inline.count-accomodations #{param1}
+        span.pricing-flight.block.pos-abt
+          label.text-xs From
+          span.pricing.block.f-bold
+            span.currency
+            span.price.text-lg!= param2
+
       else
+        h4.name.text-lg #{name}
         span.inline.location #{param1}
         span.inline.m-r-xs.m-l-xs |
         span.inline
