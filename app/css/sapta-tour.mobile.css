@@ -4889,6 +4889,24 @@ footer a {
   margin-right: auto;
   border-color: #d0d0d0;
 }
+.sapta-form.form-find .form-group.separator {
+  padding: 2px 0 0 0;
+  border-bottom: 1px solid #dadada;
+  border-top: 1px solid #dadada;
+  position: relative;
+  margin: 23px auto;
+}
+.sapta-form.form-find .form-group.separator span {
+  position: absolute;
+  color: #5a5353;
+  font-size: 14px;
+  background: #eee;
+  line-height: 43px;
+  top: -20px;
+  left: 50%;
+  margin-left: -50px;
+  padding: 0 15px;
+}
 .sapta-form.form-find .switch-date span.pos-abt,
 .sapta-form.form-find .one-way span.pos-abt {
   top: 50%;
@@ -4992,12 +5010,43 @@ footer a {
   line-height: 18px;
   font-size: 16px;
 }
-.sapta-form.form-find .checkbox-date {
+.sapta-form.form-find .extra-field.tours .form-group-control {
+  height: 43px;
+  padding: 10px;
+}
+.sapta-form.form-find .extra-field.tours .form-group-control span.label-text {
+  margin-top: 3px;
+  font-size: 14px;
+  color: #5a5353;
+  width: 200px;
+}
+.sapta-form.form-find .extra-field.tours .form-group-control .checkbox {
+  padding-top: 5px;
+}
+.sapta-form.form-find .checkout-date {
   padding: 10px 0 40px 0;
   font-size: 14px;
 }
-.sapta-form.form-find .checkbox-date label {
+.sapta-form.form-find .checkout-date label {
   color: #5a5353;
+}
+.sapta-form.form-find input[type=checkbox]:not(old) {
+  width: 20px;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.sapta-form.form-find input[type=checkbox]:not(old) + label {
+  cursor: pointer;
+  display: inline-block;
+  margin-left: -16px;
+  padding-left: 16px;
+  background: url('../img/mobile/custom-uncheckbox.png') no-repeat 0px 0px;
+  line-height: 17px;
+}
+.sapta-form.form-find input[type=checkbox]:not(old):checked + label {
+  background: url('../img/mobile/custom-checkbox.png') no-repeat 0px -1px;
 }
 .btn-download-e-ticket {
   background: url(../img/btn-download-eticket.png) no-repeat 0 0;

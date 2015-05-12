@@ -246,6 +246,26 @@
       margin-left: auto;
       margin-right: auto;
       border-color: #d0d0d0;
+
+      &.separator {
+        padding: 2px 0 0 0;
+        border-bottom: 1px solid #dadada;
+        border-top: 1px solid #dadada;
+        position: relative;
+        margin: 23px auto;
+
+        span {
+          position: absolute;
+          color: #5a5353;
+          font-size: 14px;
+          background: #eee;
+          line-height: 43px;
+          top: -20px;
+          left: 50%;
+          margin-left: -50px;
+          padding: 0 15px;
+        }
+      }
     }
 
     .switch-date,
@@ -328,6 +348,7 @@
           border-bottom: 0;
         }
 
+
         .increase,
         .decrease {
           position: absolute;
@@ -374,13 +395,54 @@
           }
         }
       }
+
+      &.tours {
+        .form-group-control {
+          height: 43px;
+          padding: 10px;
+
+          span.label-text {
+            margin-top: 3px;
+            font-size: 14px;
+            color: #5a5353;
+            width: 200px
+          }
+
+          .checkbox {
+            padding-top: 5px;
+          }
+        }
+      }
     }
 
-    .checkbox-date {
+    .checkout-date {
       padding:10px 0 40px 0;
       font-size: 14px;
       label {
         color: #5a5353;
+      }
+    }
+
+    input[type=checkbox]:not(old) {
+      width   : 20px;
+      margin  : 0;
+      padding : 0;
+      opacity : 0;
+      cursor: pointer;
+
+      + label {
+        cursor: pointer;
+        display      : inline-block;
+        margin-left: -16px;
+        padding-left : 16px;
+        background   : url('../img/mobile/custom-uncheckbox.png') no-repeat 0px 0px;
+        line-height  : 17px;
+      }
+
+      &:checked {
+        + label {
+          background   : url('../img/mobile/custom-checkbox.png') no-repeat 0px -1px;
+        }
       }
     }
 
