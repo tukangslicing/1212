@@ -4816,7 +4816,6 @@ footer a {
 }
 .sapta-form .boxing.check-in,
 .sapta-form .boxing.check-out {
-  width: 205px;
   padding: 5px 0 0 0;
   position: relative;
 }
@@ -4992,6 +4991,13 @@ footer a {
   margin-right: 5px;
   line-height: 18px;
   font-size: 16px;
+}
+.sapta-form.form-find .checkbox-date {
+  padding: 10px 0 40px 0;
+  font-size: 14px;
+}
+.sapta-form.form-find .checkbox-date label {
+  color: #5a5353;
 }
 .btn-download-e-ticket {
   background: url(../img/btn-download-eticket.png) no-repeat 0 0;
