@@ -107,6 +107,8 @@ module.exports = function (grunt) {
       },
       mobile: {
         src: [
+          '<%= dir.js %>/plugins/validator.js',
+          '<%= dir.js %>/plugins/bootstrap-datepicker.js',
           '<%= dir.js %>/mobile/main-mobile.js'
         ],
         dest: '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.mobile.js'
@@ -135,7 +137,7 @@ module.exports = function (grunt) {
         src: ['<%= dir.js %>/shared/*.js', '<%= dir.js %>/web/*.js', '<%= dir.js %>/mobile/*.js']
       },
       afterConcat: {
-        src: ['<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js', '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.mobile*.js']
+        src: ['<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js']
       }
     },
 
