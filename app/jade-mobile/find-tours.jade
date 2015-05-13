@@ -6,7 +6,7 @@ block main
   #main-wrap.form-pencarian.pos-rlt
     form.form-find.sapta-form(id="formFindFlight", method="GET", action="tours-search.html")
       h4.text-u-c.title-search.text-center.m-b-lg Find Tours
-        span.close
+        a.close(href="/mobile") Close
 
       .form-group
         .boxing.selectbox.b.m-b-sm.pos-rlt
@@ -59,30 +59,31 @@ block main
         span.block.text-label Also includes:
 
 
-      .form-group.extra-field.tours.m-b-xl.b
-        .form-group-control.pos-rlt
-          span.block.pull-left.label-text Scenic Views
-          .checkbox.pull-right
-            input(type="checkbox", name="extra_field[]", value="Views", checked="checked")
-            label&nbsp;
+      .form-group
+        .extra-field.tours.m-b-xl.b
+          .form-group-control.pos-rlt
+            span.block.pull-left.label-text Scenic Views
+            .checkbox.pull-right
+              input(type="checkbox", name="extra_field[]", value="Views", checked="checked")
+              label&nbsp;
 
-        .form-group-control.pos-rlt
-          span.block.pull-left.label-text Adventure/Outdoor Activities
-          .checkbox.pull-right
-            input(type="checkbox", name="extra_field[]", value="Activities", checked="checked")
-            label&nbsp;
+          .form-group-control.pos-rlt
+            span.block.pull-left.label-text Adventure/Outdoor Activities
+            .checkbox.pull-right
+              input(type="checkbox", name="extra_field[]", value="Activities", checked="checked")
+              label&nbsp;
 
-        .form-group-control.pos-rlt
-          span.block.pull-left.label-text Shopping Trips
-          .checkbox.pull-right
-            input(type="checkbox", name="extra_field[]", value="Shopping")
-            label&nbsp;
+          .form-group-control.pos-rlt
+            span.block.pull-left.label-text Shopping Trips
+            .checkbox.pull-right
+              input(type="checkbox", name="extra_field[]", value="Shopping")
+              label&nbsp;
 
-        .form-group-control.pos-rlt
-          span.block.pull-left.label-text Culinary Trips
-          .checkbox.pull-right
-            input(type="checkbox", name="extra_field[]", value="Culinary")
-            label&nbsp;
+          .form-group-control.pos-rlt
+            span.block.pull-left.label-text Culinary Trips
+            .checkbox.pull-right
+              input(type="checkbox", name="extra_field[]", value="Culinary")
+              label&nbsp;
 
       button.text-u-c.text-white.text-left.btn-flight(type="submit")
         | Find Flights

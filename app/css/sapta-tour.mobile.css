@@ -4731,29 +4731,10 @@ footer a {
 .sapta-form .boxing.register.b {
   border-color: #d0d0d0;
 }
-.sapta-form .boxing.name,
-.sapta-form .boxing.cc-number {
-  width: 320px;
-}
-.sapta-form .boxing.phone-number {
-  width: 265px;
-}
-.sapta-form .boxing.email {
-  width: 379px;
-}
-.sapta-form .boxing.gender {
-  width: 150px;
-}
-.sapta-form .boxing.ccv {
-  width: 145px;
-}
 .sapta-form .boxing.selectbox {
   width: 100%;
   padding-left: 0;
   padding-right: 10px;
-}
-.sapta-form .boxing.selectbox.baggage {
-  width: 320px;
 }
 .sapta-form .boxing.selectbox label {
   padding-left: 8px;
@@ -4772,13 +4753,6 @@ footer a {
   right: 7px;
   bottom: 8px;
   cursor: pointer;
-}
-.sapta-form .boxing.passport {
-  width: 245px;
-}
-.sapta-form .boxing.flight-to,
-.sapta-form .boxing.flight-from {
-  width: 270px;
 }
 .sapta-form .boxing.departure,
 .sapta-form .boxing.return {
@@ -4884,7 +4858,7 @@ footer a {
   outline: 0;
 }
 .sapta-form.form-find .form-group {
-  width: 270px;
+  padding: 0 25px;
   margin-left: auto;
   margin-right: auto;
   border-color: #d0d0d0;
@@ -4910,7 +4884,7 @@ footer a {
 .sapta-form.form-find .switch-date span.pos-abt,
 .sapta-form.form-find .one-way span.pos-abt {
   top: 50%;
-  left: 0;
+  left: 40px;
   margin-top: -20px;
 }
 .sapta-form.form-find .title-search {
@@ -4922,14 +4896,15 @@ footer a {
   position: relative;
 }
 .sapta-form.form-find .title-search .close {
-  width: 13px;
-  height: 13px;
+  width: 20px;
+  height: 20px;
   display: block;
   position: absolute;
   top: 50%;
-  margin-top: -6px;
+  margin-top: -10px;
   right: 10px;
-  background: url(../img/mobile/close.png) no-repeat 0 0;
+  background: url(../img/mobile/close.png) no-repeat center center;
+  text-indent: -9999px;
   cursor: pointer;
 }
 .sapta-form.form-find [type="submit"] {
@@ -4986,18 +4961,22 @@ footer a {
 .sapta-form.form-find .extra-field .form-group-control .decrease {
   left: 30px;
 }
+.sapta-form.form-find .extra-field .form-group-control .control-element {
+  width: 137px;
+  margin: 0 auto;
+}
 .sapta-form.form-find .extra-field .form-group-control .control-element .ico {
   position: absolute;
   left: 23px;
 }
 .sapta-form.form-find .extra-field .form-group-control .control-element .ico-adult {
-  top: 2px;
+  top: -2px;
 }
 .sapta-form.form-find .extra-field .form-group-control .control-element .ico-child {
-  top: 0px;
+  top: -2px;
 }
 .sapta-form.form-find .extra-field .form-group-control .control-element .ico-baby {
-  top: 10px;
+  top: 4px;
 }
 .sapta-form.form-find .extra-field .form-group-control .control-element label {
   padding-left: 50px;
@@ -5040,7 +5019,7 @@ footer a {
 .sapta-form.form-find input[type=checkbox]:not(old) + label {
   cursor: pointer;
   display: inline-block;
-  margin-left: -16px;
+  margin-left: -20px;
   padding-left: 16px;
   background: url('../img/mobile/custom-uncheckbox.png') no-repeat 0px 0px;
   line-height: 17px;

@@ -67,35 +67,10 @@
       }
     }
 
-    &.name,
-    &.cc-number {
-      width: 320px;
-    }
-
-    &.phone-number {
-      width: 265px;
-    }
-
-    &.email {
-      width: 379px;
-    }
-
-    &.gender {
-      width: 150px;
-    }
-
-    &.ccv {
-      width: 145px
-    }
-
     &.selectbox {
       width: 100%;
       padding-left: 0;
       padding-right: 10px;
-
-      &.baggage {
-        width: 320px;
-      }
 
       label {
         padding-left: 8px;
@@ -117,15 +92,6 @@
         bottom: 8px;
         cursor: pointer;
       }
-    }
-
-    &.passport {
-      width: 245px;
-    }
-
-    &.flight-to,
-    &.flight-from {
-      width: 270px
     }
 
     &.departure,
@@ -242,7 +208,7 @@
   &.form-find {
 
     .form-group {
-      width: 270px;
+      padding: 0 25px;
       margin-left: auto;
       margin-right: auto;
       border-color: #d0d0d0;
@@ -273,7 +239,7 @@
       span {
         &.pos-abt {
           top: 50%;
-          left: 0;
+          left: 40px;
           margin-top: -20px;
         }
       }
@@ -288,14 +254,16 @@
       position: relative;
 
       .close {
-        width: 13px;
-        height: 13px;
+        width: 20px;
+        height: 20px;
         display: block;
         position: absolute;
         top: 50%;
-        margin-top: -6px;
+        margin-top: -10px;
         right: 10px;
-        background: url(../img/mobile/close.png) no-repeat 0 0;
+        background: url(../img/mobile/close.png) no-repeat center center;
+        cursor: pointer;
+        text-indent: -9999px;
         cursor: pointer;
       }
 
@@ -348,7 +316,6 @@
           border-bottom: 0;
         }
 
-
         .increase,
         .decrease {
           position: absolute;
@@ -364,21 +331,23 @@
         }
 
         .control-element {
+          width: 137px;
+          margin: 0 auto;
           .ico {
             position: absolute;
             left: 23px;
           }
 
           .ico-adult {
-            top: 2px;
+            top: -2px;
           }
 
           .ico-child {
-            top: 0px;
+            top: -2px;
           }
 
           .ico-baby {
-            top: 10px;
+            top: 4px;
           }
 
           label {
@@ -433,7 +402,7 @@
       + label {
         cursor: pointer;
         display      : inline-block;
-        margin-left: -16px;
+        margin-left: -20px;
         padding-left : 16px;
         background   : url('../img/mobile/custom-uncheckbox.png') no-repeat 0px 0px;
         line-height  : 17px;
