@@ -5050,6 +5050,7 @@ footer a {
   display: inline-block;
   padding: 0;
 }
+/** Flight Search */
 .filter-sorter-block {
   height: 45px;
   background: #ffffff;
@@ -5151,5 +5152,82 @@ footer a {
 .outbound-flight-selected .separator {
   padding: 0 5px;
   color: #dc9139;
+}
+/* Hotels Search */
+.hotel-search-query {
+  background-color: #eeebeb;
+  border-color: #dadada;
+  padding: 10px;
+  color: #ef9630;
+}
+.hotel-search-query .date-info,
+.hotel-search-query .location {
+  position: relative;
+  background: #fff;
+  line-height: 44px;
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 2px 3px #d8d8d8;
+  box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 2px 3px #d8d8d8;
+}
+.hotel-search-query .date-info .ico-calendar,
+.hotel-search-query .location .ico-calendar,
+.hotel-search-query .date-info .ico-marker,
+.hotel-search-query .location .ico-marker {
+  position: absolute;
+  left: 11px;
+  top: 13px;
+}
+.hotel-search-query .date-info {
+  width: 190px;
+  padding-left: 36px;
+}
+.hotel-search-query .location {
+  width: 98px;
+  padding-left: 30px;
+}
+.hotel-card {
+  padding: 10px;
+  border-bottom: 1px solid #dadada;
+}
+.hotel-card:last-child {
+  border-top: 0;
+}
+.hotel-card .hotel-picture {
+  margin: 0;
+}
+.hotel-card .hotel-picture img {
+  border: 1px solid rgba(216, 216, 216, 0.5);
+  max-width: 60px;
+  width: 60px;
+  max-height: 60px;
+  height: 60px;
+}
+.hotel-card .hotel-meta {
+  padding: 0 10px;
+}
+.hotel-card .hotel-name {
+  margin-bottom: 3px;
+}
+.hotel-card .info-extra {
+  color: #959595;
+}
+.hotel-card .hotel-rating {
+  padding-left: 10px;
+  border-color: #959595;
+  height: 14px;
+}
+.hotel-card .hotel-review {
+  margin-top: 7px;
+  margin-bottom: 5px;
+}
+.hotel-card .review-count,
+.hotel-card .review-text {
+  margin-left: 5px;
+  color: #ef9630;
+}
+.hotel-card .hotel-price {
+  color: #158ea3;
+}
+.hotel-card .hotel-price .currency {
+  margin-right: 3px;
 }
 /*# sourceMappingURL=sapta-tour.mobile.css.map */
