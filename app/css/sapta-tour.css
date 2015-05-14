@@ -2748,6 +2748,21 @@ fieldset[disabled] .form-control.bg-white-only {
   height: 29px;
   background-position: -89px -47px;
 }
+.ico.ico-mobile.ico-arrow-down-sm,
+.ico.ico-mobile.ico-arrow-up-sm,
+.ico.ico-mobile.ico-info-circle {
+  width: 16px;
+  height: 17px;
+}
+.ico.ico-mobile.ico-arrow-down-sm {
+  background-position: -67px 0;
+}
+.ico.ico-mobile.ico-arrow-up-sm {
+  background-position: -85px 0;
+}
+.ico.ico-mobile.ico-info-circle {
+  background-position: -49px 0;
+}
 .bg-white .ico,
 .bg-transparent .ico {
   background: url(../img/icon-bg-white.png) no-repeat;

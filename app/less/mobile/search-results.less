@@ -1,0 +1,104 @@
+.filter-sorter-block {
+  height: 45px;
+  background: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding-left: 10px;
+
+  .sorting-block,
+  .filtering-block {
+    margin-top: 13px;
+    height: 17px;
+
+    label {
+      padding-top: 3px;
+    }
+  }
+
+  .sorting-block {
+    border-right: 1px dashed #aeaeae;
+  }
+}
+
+.search-criteria-block {
+  height: 70px;
+  border-color: #dadada;
+  line-height: 18px;
+  background-color: #eeebeb;
+}
+
+.flight-result-items {
+}
+.flight-card {
+  padding: 15px 0;
+  border-bottom: 1px solid #dadada;
+
+  &:last-child {
+    border-top: 0
+  }
+
+  .airline-logo {
+    margin: 0;
+    width: 60px;
+    padding:0 10px;
+    img {
+      max-width: 100%;
+      margin: 0 auto;
+      max-height: 30px;
+      display: block;
+    }
+  }
+
+  .book-btn-sm {
+    text-align: center;
+    .f-bold;
+    padding: 7px;
+    height: 30px;
+    width: 62px;
+    border: 0;
+    background: #fcbc56;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 3px 0px 0px #cf8309;
+    box-shadow: 0px 3px 0px 0px #cf8309;
+    top: 15px;
+    right: 10px;
+  }
+
+  .travel-summary {
+    line-height: 20px;
+  }
+
+  .travel-info {
+    color: #959595;
+    font-size: 10px;
+
+    .extra-info {
+      position: absolute;
+      top: 0;
+      right: -25px;
+    }
+  }
+
+  .travel-time {
+    .departure,
+    .arrival {
+      min-width: 60px;
+      width: 60px;
+      width: auto !important;
+    }
+  }
+
+  .fare-price {
+    .currency,
+    .price {
+      color: #158ea3;
+      margin-right: 5px;
+    }
+
+    .per-person {
+      color: #838383
+    }
+  }
+}
