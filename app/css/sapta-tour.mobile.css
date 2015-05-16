@@ -2023,6 +2023,11 @@ th {
 .ico.ico-mobile.ico-info-circle {
   background-position: -49px 0;
 }
+.ico.ico-mobile.ico-restaurant {
+  width: 10px;
+  height: 16px;
+  background-position: -103px 0;
+}
 .bg-white .ico,
 .bg-transparent .ico {
   background: url(../img/icon-bg-white.png) no-repeat;
@@ -3557,6 +3562,10 @@ a {
   -webkit-tap-highlight-color: transparent;
   background-color: transparent;
 }
+a:focus,
+a:active {
+  outline: 0;
+}
 h1,
 h2,
 h3,
@@ -3759,6 +3768,9 @@ p {
 .text-rounded {
   font-weight: 300;
   font-family: "Gotham Rounded";
+}
+.text-primary {
+  color: #158ea3;
 }
 .text-orange {
   color: #f6b44b;
@@ -4233,6 +4245,28 @@ a.text-orange {
 .pad-b-n {
   padding-bottom: 0;
 }
+.pad10 {
+  padding: 10px;
+}
+.pad-v-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.pad-h-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.pad15 {
+  padding: 10px;
+}
+.pad-v-15 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.pad-h-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .pointer {
   cursor: pointer;
 }
@@ -4243,6 +4277,54 @@ a.text-orange {
 }
 .clearfix:after {
   clear: both;
+}
+button:focus,
+button:active {
+  outline: 0;
+}
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  letter-spacing: 0.5px;
+}
+.btn:focus,
+.btn:active {
+  outline: 0;
+}
+.btn-white {
+  display: inline-block;
+  border-radius: 3px;
+  background-image: -webkit-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
+  background-image: -o-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
+  background-image: linear-gradient(to bottom, #f4f4f4 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4f4f4', endColorstr='#ffffffff', GradientType=0);
+  border-color: #d8d8d8;
+  color: #000;
+  font-family: "Gotham Black";
+  -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
+}
+.btn-white:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .table-view {
   padding-left: 0;
@@ -5229,5 +5311,298 @@ footer a {
 }
 .hotel-card .hotel-price .currency {
   margin-right: 3px;
+}
+.tour-header {
+  height: 202px;
+}
+.tour-header .overlay {
+  height: 202px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.tour-header figure {
+  z-index: 0;
+  width: 100%;
+  height: 202px;
+  position: relative;
+}
+.tour-header figure img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 202px;
+}
+.tour-header .tour-info {
+  z-index: 2;
+  top: 12px;
+  left: 12px;
+  color: #fff;
+}
+.tour-header .tour-meta {
+  width: 175px;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+}
+.days-trip.tour {
+  background-color: #fed594;
+  width: 50%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 11px 0;
+  height: 65px;
+}
+.days-trip.tour .ico-time {
+  display: block;
+  margin: 0 auto 5px;
+}
+.days-trip.tour label {
+  font-weight: 600;
+  font-size: 8px;
+  color: #8f3000;
+}
+.days-trip.tour .count {
+  font-weight: 600;
+  font-size: 14px;
+  color: #393030;
+}
+.pricing.tour {
+  background-color: #ffca77;
+  width: 50%;
+  height: 65px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 18px 0 0;
+}
+.pricing.tour .currency,
+.pricing.tour .price {
+  font-weight: 600;
+  color: #393030;
+  font-size: 18px;
+}
+.pricing.tour .currency {
+  font-size: 12px;
+}
+.pricing.tour label {
+  font-size: 8px;
+  margin-bottom: 5px;
+  color: #8f3000;
+}
+#tour-info {
+  font-size: 14px;
+}
+#tour-info .cities {
+  padding-left: 25px;
+}
+#tour-info .cities span {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 0 8px;
+  border-right: 1px solid #c6c6c6;
+  line-height: 12px;
+}
+#tour-info .itinerary-list .item {
+  border-color: #ddd;
+}
+#tour-info .itinerary-list .acomodation {
+  right: 15px;
+  top: 35px;
+  color: #a1a1a1;
+  font-size: 12px;
+}
+#tour-price li {
+  border-bottom: 1px solid #ddd;
+}
+#tour-price li:first-child {
+  border-top: 1px solid #ddd;
+}
+#tour-price li > div {
+  line-height: 50px;
+  padding-left: 15px;
+  font-size: 14px;
+  display: inline-block;
+}
+#tour-price li > div.room-type {
+  width: 190px;
+  border-right: 1px solid #ddd;
+}
+#tour-price li > div.pricing span {
+  margin-right: 4px;
+}
+#tour-price .show-price-block {
+  background: #eeebeb;
+  border-color: #ddd;
+}
+#tour-price .show-price-block form {
+  width: 300px;
+  margin: 0 auto;
+}
+#tour-price .show-price-block form > .check-in,
+#tour-price .show-price-block form > .check-out {
+  position: relative;
+  display: inline-block;
+  background: #fff;
+  height: 44px;
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 2px 3px #d8d8d8;
+  box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 2px 3px #d8d8d8;
+  width: 142px;
+  padding-left: 30px;
+}
+#tour-price .show-price-block form > .check-in span,
+#tour-price .show-price-block form > .check-out span {
+  color: #ef9630;
+}
+#tour-price .show-price-block form > .check-in .date,
+#tour-price .show-price-block form > .check-out .date {
+  padding-top: 15px;
+}
+#tour-price .show-price-block form > .check-in .ico-calendar,
+#tour-price .show-price-block form > .check-out .ico-calendar {
+  position: absolute;
+  left: 8px;
+  top: 14px;
+}
+#tour-price .show-price-block form button {
+  border: 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background: #fcbc56;
+  height: 47px;
+  font-size: 14px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 3px 0px 0px #cf8309;
+  box-shadow: 0px 3px 0px 0px #cf8309;
+  position: relative;
+}
+#tour-visa li {
+  border-bottom: 1px solid #ddd;
+}
+#tour-visa li:first-child {
+  border-top: 1px solid #ddd;
+}
+#tour-visa li > div {
+  line-height: 50px;
+  font-size: 14px;
+  display: inline-block;
+}
+#tour-visa li > div.name {
+  padding-left: 15px;
+  width: 117px;
+  border-right: 1px solid #ddd;
+}
+#tour-visa li > div.country {
+  text-align: center;
+  width: 60px;
+}
+#tour-visa li > div.pricing {
+  width: 92px;
+  padding-left: 0;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+}
+#tour-visa li > div.pricing span {
+  margin-right: 4px;
+}
+#tour-visa li > div.action {
+  width: 40px;
+}
+#tour-booking li {
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  padding: 15px 80px 15px 15px;
+  line-height: 20px;
+}
+#tour-booking li:first-child {
+  border-top: 1px solid #ddd;
+}
+#tour-booking li > div {
+  color: #353535;
+}
+#tour-booking li > div .label {
+  color: #838383;
+  font-size: 12px;
+}
+#tour-booking li .book-btn {
+  text-align: center;
+  font-weight: 600;
+  padding: 7px;
+  height: 30px;
+  width: 62px;
+  border: 0;
+  background: #158ea3;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px -2px 0px 0px #15a8c1;
+  box-shadow: 0px -2px 0px 0px #15a8c1;
+  border-right: 1px solid #15a8c1;
+  border-left: 1px solid #15a8c1;
+  top: 19px;
+  right: 10px;
+  position: absolute;
+}
+.tour-tabs {
+  margin: 0 auto;
+}
+.tour-tabs .nav-tabs {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+.tour-tabs .nav-tabs > li {
+  position: relative;
+  display: block;
+  float: left;
+  margin-bottom: -1px;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  width: 25%;
+}
+.tour-tabs .nav-tabs > li.active {
+  border-bottom: 0;
+}
+.tour-tabs .nav-tabs > li.active > a {
+  background: #fff;
+}
+.tour-tabs .nav-tabs > li:first-child {
+  border-left: 0;
+}
+.tour-tabs .nav-tabs > li > a {
+  display: block;
+  background: #f4f4f4;
+  line-height: 47px;
+  font-size: 12px;
+  text-align: center;
+  color: #393030;
+}
+.tour-tabs .nav-tabs:after {
+  clear: both;
+}
+.tour-tabs .nav-tabs:after,
+.tour-tabs .nav-tabs:before {
+  display: table;
+  content: " ";
+}
+.tab-content {
+  padding: 0;
+}
+.tab-content p {
+  color: #252525;
+}
+.tab-content > .tab-pane {
+  display: none;
+}
+.tab-content > .tab-pane.active {
+  display: block;
 }
 /*# sourceMappingURL=sapta-tour.mobile.css.map */

@@ -1,0 +1,204 @@
+extends layouts/default
+
+include includes/mixin
+
+block main
+  .tour-header.pos-rlt
+    .overlay
+    figure.m-n.tour-feature-picture
+      img(src="img/destinations/Paris-02.jpg", alt="")
+
+    .tour-info.pos-abt
+      h3.tour-name.text-lg.f-bold.m-b-xs The Best of West Europe
+      span.block.location EUROPE
+
+    .tour-meta.pos-abt
+      a.days-trip.tour.text-center.bg-white(href="tour-detail.html")
+        i.ico.ico-time
+        span.count 10
+        label.text-u-c.text-sm DAYS
+
+      a.pricing.tour.text-center.bg-white(href="tour-detail.html")
+        label.block.text-u-c.text-light FROM
+        span.currency  $
+        span.price 3500
+
+  div.tour-tabs(role='tabpanel')
+    ul.nav.nav-tabs(role='tablist')
+      li.active(role='presentation')
+        a.text-u-c.text-center(href='#tour-info', aria-controls='tour-info', role='tab', data-toggle='tab') Info
+      li(role='presentation')
+        a.text-u-c.text-center(href='#tour-price', aria-controls='tour-price', role='tab', data-toggle='tab') Price
+      li(role='presentation')
+        a.text-u-c.text-center(href='#tour-visa', aria-controls='tour-visa', role='tab', data-toggle='tab') Visa
+      li(role='presentation')
+        a.text-u-c.text-center(href='#tour-booking', aria-controls='tour-booking', role='tab', data-toggle='tab') Booking
+
+    .tab-content
+      #tour-info.tab-pane(role='tabpanel')
+        .summary-wrap.block.b-b
+          h6.pad-h-10.f-bold.text-md.text-u-c.m-b-md Summary
+
+          .block.m-b.pad-h-10
+            .inline.bg-white.pull-left.icon.m-r-sm
+              i.ico.ico-hotel
+
+            .cities.iniline
+              span Dubai
+              span Moscow
+              span St. Petersburg
+              span Helsinki
+              span Stockholm
+              span Karlstad
+              span Hamar
+              span Flam
+              span Gudvangen
+              span Flam
+              span Voss
+              span Bergen
+              span Bruravik
+              span Geilo
+              span Oslo
+              span Copenhagen
+            .clearfix
+
+          .m-b-md.pad-h-10
+            .inline.bg-white.pull-left.m-r-sm
+              i.ico.ico-calendar
+            .dates.iniline
+              span 12 Feb
+              span 21 Feb
+              span 04 Mar
+
+          .pad-h-10.block.m-b-lg
+            p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+
+        include helper/itinerary
+
+        .text-center.m-b-lg
+          a.btn.btn-white.text-14px.f-bold.m-auto(href="#") What’s Included in the Price
+
+      #tour-price.tab-pane.active(role='tabpanel')
+        .price-list-wrap.block
+          h6.pad-h-10.f-bold.text-md.text-u-c.m-b-md Price list
+
+          ul.list-unstyled.pad-none.m-b-lg
+            li
+              .room-type Adult Twin Share
+              .pricing
+                span.inline.currency.f-bold USD
+                span.inline.price 1,888
+
+            li
+              .room-type Adult Child Twin Share
+              .pricing
+                span.inline.currency.f-bold USD
+                span.inline.price 1,888
+
+            li
+              .room-type Child Without Bed
+              .pricing
+                span.inline.currency.f-bold USD
+                span.inline.price 1,688
+
+            li
+              .room-type Single Supplement
+              .pricing
+                span.inline.currency.f-bold USD
+                span.inline.price 958
+
+            li
+              .room-type International Tour Tax
+              .pricing
+                span.inline.currency.f-bold USD
+                span.inline.price 555
+
+        .show-price-block.pad10.m-b-lg.b-b.b-t
+          form(id="showTourPrice", action="")
+            .block.m-b-sm.check-in.bg-white
+              i.ico.ico-calendar
+              .date.in
+                label Check In:&nbsp;
+                span  19 Feb
+
+            .block.m-l-sm.check-out.bg-white
+              i.ico.ico-calendar
+              .date.out
+                label Check Out:&nbsp;
+                span  19 Feb
+
+            button.text-u-c.text-white.text-center.text-14px.f-bold(type="submit") Show Prices
+
+      #tour-visa.tab-pane(role='tabpanel')
+        .visa-doc-wrap.block
+          h6.pad-h-10.f-bold.text-md.text-u-c.m-b-md Visa & Other Info
+
+          ul.list-unstyled.pad-none.m-b-lg
+            li
+              .name Visa Europe
+              .country.text-u-c WNI
+              .pricing
+                span.inline.currency.f-bold USD
+                span.inline.price 150
+              .action.text-center
+                a.text-orange.text-u-c.text-xs(href='#') More
+            li
+              .name Visa Europe
+              .country.text-u-c WNI
+              .pricing
+                span.inline.currency.f-bold USD
+                span.inline.price 150
+              .action.text-center
+                a.text-orange.text-u-c.text-xs(href='#') More
+
+        .text-center.m-b-lg
+          a.btn.btn-white.text-14px.f-bold.m-auto(href="#") What’s Included in the Price
+
+      #tour-booking.tab-pane(role='tabpanel')
+        .booking-list-wrap.block
+          h6.pad-h-10.f-bold.text-md.text-u-c.m-b-md Booking &amp; Availability
+
+          ul.list-unstyled.pad-none.m-b-lg
+            li.pos-rlt
+              .date-travel.f-bold.text-14px 25 Feb -15 Mar 2015
+              .airline Singapore Airlines
+              .pricing
+                span.currency.inline.m-r-xs.text-primary USD
+                span.currency.inline.m-r-xs.text-primary 3000
+                span.label / person
+              a.book-btn(href="tour-booking.html") BOOK
+            li.pos-rlt
+              .date-travel.f-bold.text-14px 25 Feb -15 Mar 2015
+              .airline Singapore Airlines
+              .pricing
+                span.currency.inline.m-r-xs.text-primary USD
+                span.currency.inline.m-r-xs.text-primary 3000
+                span.label / person
+              a.book-btn(href="tour-booking.html") BOOK
+            li.pos-rlt
+              .date-travel.f-bold.text-14px 25 Feb -15 Mar 2015
+              .airline Singapore Airlines
+              .pricing
+                span.currency.inline.m-r-xs.text-primary USD
+                span.currency.inline.m-r-xs.text-primary 3000
+                span.label / person
+              a.book-btn(href="tour-booking.html") BOOK
+            li.pos-rlt
+              .date-travel.f-bold.text-14px 25 Feb -15 Mar 2015
+              .airline Singapore Airlines
+              .pricing
+                span.currency.inline.m-r-xs.text-primary USD
+                span.currency.inline.m-r-xs.text-primary 3000
+                span.label / person
+              a.book-btn(href="tour-booking.html") BOOK
+            li.pos-rlt
+              .date-travel.f-bold.text-14px 25 Feb -15 Mar 2015
+              .airline Singapore Airlines
+              .pricing
+                span.currency.inline.m-r-xs.text-primary USD
+                span.currency.inline.m-r-xs.text-primary 3000
+                span.label / person
+              a.book-btn(href="tour-booking.html") BOOK
+
+        .text-center.m-b-lg
+          a.btn.btn-white.text-14px.f-bold.m-auto(href="#") What’s Included in the Price

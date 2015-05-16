@@ -15,6 +15,11 @@ a {
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   background-color: transparent;
+
+  &:focus,
+  &:active {
+    outline: 0;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -264,6 +269,10 @@ p {
 .text-rounded {
   font-weight: 300;
   font-family: "Gotham Rounded"
+}
+
+.text-primary {
+  color: @brand-primary;
 }
 
 .text-orange {
@@ -892,9 +901,87 @@ a.text-orange {
   padding-bottom: 0
 }
 
+.pad10 {
+  padding: 10px
+}
+
+.pad-v-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.pad-h-10 {
+  padding-left: 10px;
+  padding-right: 10px
+}
+
+.pad15 {
+  padding: 10px
+}
+
+.pad-v-15 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.pad-h-15 {
+  padding-left: 15px;
+  padding-right: 15px
+}
+
 .pointer {
   cursor: pointer;
 }
 .clearfix {
   .clearfix();
+}
+
+button {
+  &:focus,
+  &:active {
+    outline: 0;
+  }
+}
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  letter-spacing: 0.5px;
+
+  &:focus,
+  &:active {
+    outline: 0;
+  }
+
+  &-white {
+    display: inline-block;
+    border-radius: 3px;
+    #gradient > .vertical(#f4f4f4, #fff);
+    border-color: #d8d8d8;
+    color: #000;
+    font-family: "Gotham Black";
+    -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+  }
 }

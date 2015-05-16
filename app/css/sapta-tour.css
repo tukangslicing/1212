@@ -2763,6 +2763,11 @@ fieldset[disabled] .form-control.bg-white-only {
 .ico.ico-mobile.ico-info-circle {
   background-position: -49px 0;
 }
+.ico.ico-mobile.ico-restaurant {
+  width: 10px;
+  height: 16px;
+  background-position: -103px 0;
+}
 .bg-white .ico,
 .bg-transparent .ico {
   background: url(../img/icon-bg-white.png) no-repeat;

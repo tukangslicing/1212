@@ -109,6 +109,7 @@ module.exports = function (grunt) {
         src: [
           '<%= dir.js %>/plugins/validator.js',
           '<%= dir.js %>/plugins/bootstrap-datepicker.js',
+          '<%= dir.bootstrap %>/tab.js',
           '<%= dir.js %>/mobile/main-mobile.js'
         ],
         dest: '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.mobile.js'
