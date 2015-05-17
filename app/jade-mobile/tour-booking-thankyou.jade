@@ -1,0 +1,58 @@
+extends layouts/default
+
+include includes/mixin
+
+block main
+    .tour-booking-thankyou-block
+      .tour-package-info.b-b
+          .tour-title.f-bold.text-14px The Best of West Europe
+          .tour-date
+            span.inline.m-r-xs.started-date 25 Mar 2015
+            span.inline.m-r-xs -
+            span.inline.m-r-xs.count-days 10 Days
+            span.inline.m-r-xs -
+            span.inline.m-r-xs.adult-count 2
+            span.inline.m-r-xs Adults
+          .tour-pricing
+            label.inline.m-r-xs Total:
+            span.inline.f-bold.text-primary
+              span.currency.inline IDR
+              span.price.inline 6000
+
+
+      .m-t-md.pad-h-10.text-14px.b-b
+        label.f-bold.text-u-c Your Booking is being Processed
+
+        .block.m-b-md.m-t-sm
+          | Terima kasih telah melakukan pemesanan di Saptatour.com. Staff kami akan segera memproses pemesanan ini & menghubungi Anda via email/telepon. Bila Anda memiliki pertanyaan, silakan hubungi kami di<br />
+          span.f-bold (021) 270 2727
+          span  atau&nbsp;
+          a.text-orange(href="#") callcenter@saptatour.com
+
+      .block-featured-post.m-t.m-b-md
+        label.f-bold.text-u-c.text-14px.block.pad-h-10.m-b Find Inspirations on our Blog:
+
+        .post-item.pos-rlt
+          .overlay
+          figure.m-n.tour-feature-picture
+            img(src="img/destinations/Prague-02.jpg", alt="")
+          .tour-info.pos-abt
+            a.block.category(href="#") International
+            h3.tour-name.text-lg.f-bold.m-b-xs
+              a(href="#") Top Ten Most Romantic Destinations In The World
+
+        .post-item.pos-rlt
+          .overlay
+          figure.m-n.tour-feature-picture
+            img(src="img/destinations/Asia.jpg", alt="")
+          .tour-info.pos-abt
+            a.block.category(href="#") Asia
+            h3.tour-name.text-lg.f-bold.m-b-xs
+              a(href="#") Japan Off The Beaten Tracks
+
+        .text-center.m-t-md.m-b-md
+          a.btn.btn-white.text-14px.f-bold.m-auto(href="#") Show More Inspirations
+
+
+
+

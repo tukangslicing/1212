@@ -290,68 +290,106 @@
   }
 }
 
-.tour-tabs {
-  .m-auto;
+.tour-package-info {
+  margin: 0 -20px 15px;
+  text-align: center;
+  padding: 20px 0 15px;
+  line-height: 20px;
+  background: #eeebeb;
+  border-color: #ddd;
 
-  .nav-tabs {
-    padding-left: 0;
-    margin: 0;
-    list-style: none;
-
-    > li {
-      position: relative;
-      display: block;
-      float: left;
-      margin-bottom: -1px;
-      border-bottom: 1px solid #ddd;
-      border-left: 1px solid #ddd;
-      width: 25%;
-
-      &.active {
-        border-bottom: 0;
-
-        > a {
-          background: #fff;
-        }
-      }
-
-      &:first-child {
-        border-left: 0;
-      }
-
-      > a {
-        display: block;
-        background: #f4f4f4;
-        line-height: 47px;
-        font-size: 12px;
-        text-align: center;
-        color: #393030
-      }
-    }
-
-    &:after {
-      clear: both;
-    }
-
-    &:after,
-    &:before {
-      display: table;
-      content: " ";
-    }
+  .currency {
+    margin-right: 3px
   }
 }
-.tab-content {
-  padding: 0;
 
-  p {
-    color: #252525
+.tour-booking-wrap {
+  // width: 320px;
+  padding: 0 20px;
+
+  .info-message {
+    line-height: 20px
   }
 
-  > .tab-pane {
-    display: none;
+  form {
+    color: #393030;
 
-    &.active {
+    input, select, textarea {
+      color: #202020
+    }
+
+    textarea {
+      padding: 0 !important
+    }
+  }
+
+  .passenger-list {
+    border-color: #ddd;
+    background-color: #eee;
+    margin: 0 -20px;
+
+  }
+
+  .passenger-info-detail {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .load-more-block {
+    background-color: #eee;
+    margin: 0 -20px 20px -20px;
+    padding: 25px 0;
+  }
+}
+
+
+.tour-booking-thankyou-block {
+  line-height: 20px
+}
+
+.block-featured-post {
+  .post-item {
+    height: 130px;
+    margin-bottom: 1px;
+    border-bottom: 1px solid #fff;
+
+    .overlay {
+      height: 130px;
+      width: 100%;
       display: block;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    figure {
+      position: relative;
+      z-index: 0;
+      width: 100%;
+      height: 130px;
+      position: relative;
+
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: 130px;
+      }
+    }
+
+    .tour-info {
+      bottom: 10px;
+      left: 10px;
+      z-index: 2;
+      line-height: 20px;
+      padding-right: 30px;
+      width: 260px;
+
+      a {
+        color: #fff
+      }
     }
   }
 }

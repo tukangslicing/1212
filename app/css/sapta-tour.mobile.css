@@ -4794,8 +4794,6 @@ footer a {
 }
 .sapta-form .boxing label {
   color: #606060;
-  font-weight: 300;
-  font-family: "Gotham Book";
   font-size: 11px;
 }
 .sapta-form .boxing input,
@@ -4820,11 +4818,11 @@ footer a {
   background: none;
   border: none;
   margin: 7px 0 0 0;
+  padding-left: 8px;
 }
 .sapta-form .boxing textarea {
   border: none;
   font-size: 16px;
-  font-family: "Gotham Book";
   resize: none;
   width: 100%;
   height: 80px;
@@ -4941,13 +4939,25 @@ footer a {
 .sapta-form .btn {
   text-shadow: 1px 2px 0px #006678;
 }
+.sapta-form .btn.btn-white {
+  text-shadow: none;
+}
 .sapta-form .btn-submit {
-  font-size: 18px;
-  font-family: "Gotham Black";
+  font-weight: 600;
+  display: block;
+  margin: 0 auto;
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  height: 48px;
+  background: #158ea3;
+  font-size: 14px;
   color: #fff;
-  height: 50px;
-  width: 205px;
   border-radius: 5px;
+  -webkit-box-shadow: 0px -2px 0px 0px #15a8c1;
+  box-shadow: 0px -2px 0px 0px #15a8c1;
+  border-right: 1px solid #15a8c1;
+  border-left: 1px solid #15a8c1;
 }
 .sapta-form .btn-submit.text-md {
   font-size: 14px;
@@ -5326,6 +5336,60 @@ footer a {
 .hotel-card .hotel-price .currency {
   margin-right: 3px;
 }
+.tour-tabs {
+  margin: 0 auto;
+}
+.tour-tabs .nav-tabs {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+.tour-tabs .nav-tabs > li {
+  position: relative;
+  display: block;
+  float: left;
+  margin-bottom: -1px;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  width: 25%;
+}
+.tour-tabs .nav-tabs > li.active {
+  border-bottom: 0;
+}
+.tour-tabs .nav-tabs > li.active > a {
+  background: #fff;
+}
+.tour-tabs .nav-tabs > li:first-child {
+  border-left: 0;
+}
+.tour-tabs .nav-tabs > li > a {
+  display: block;
+  background: #f4f4f4;
+  line-height: 47px;
+  font-size: 12px;
+  text-align: center;
+  color: #393030;
+}
+.tour-tabs .nav-tabs:after {
+  clear: both;
+}
+.tour-tabs .nav-tabs:after,
+.tour-tabs .nav-tabs:before {
+  display: table;
+  content: " ";
+}
+.tab-content {
+  padding: 0;
+}
+.tab-content p {
+  color: #252525;
+}
+.tab-content > .tab-pane {
+  display: none;
+}
+.tab-content > .tab-pane.active {
+  display: block;
+}
 .tour-header {
   height: 202px;
 }
@@ -5565,58 +5629,87 @@ footer a {
   right: 10px;
   position: absolute;
 }
-.tour-tabs {
-  margin: 0 auto;
-}
-.tour-tabs .nav-tabs {
-  padding-left: 0;
-  margin: 0;
-  list-style: none;
-}
-.tour-tabs .nav-tabs > li {
-  position: relative;
-  display: block;
-  float: left;
-  margin-bottom: -1px;
-  border-bottom: 1px solid #ddd;
-  border-left: 1px solid #ddd;
-  width: 25%;
-}
-.tour-tabs .nav-tabs > li.active {
-  border-bottom: 0;
-}
-.tour-tabs .nav-tabs > li.active > a {
-  background: #fff;
-}
-.tour-tabs .nav-tabs > li:first-child {
-  border-left: 0;
-}
-.tour-tabs .nav-tabs > li > a {
-  display: block;
-  background: #f4f4f4;
-  line-height: 47px;
-  font-size: 12px;
+.tour-package-info {
+  margin: 0 -20px 15px;
   text-align: center;
+  padding: 20px 0 15px;
+  line-height: 20px;
+  background: #eeebeb;
+  border-color: #ddd;
+}
+.tour-package-info .currency {
+  margin-right: 3px;
+}
+.tour-booking-wrap {
+  padding: 0 20px;
+}
+.tour-booking-wrap .info-message {
+  line-height: 20px;
+}
+.tour-booking-wrap form {
   color: #393030;
 }
-.tour-tabs .nav-tabs:after {
-  clear: both;
+.tour-booking-wrap form input,
+.tour-booking-wrap form select,
+.tour-booking-wrap form textarea {
+  color: #202020;
 }
-.tour-tabs .nav-tabs:after,
-.tour-tabs .nav-tabs:before {
-  display: table;
-  content: " ";
+.tour-booking-wrap form textarea {
+  padding: 0 !important;
 }
-.tab-content {
-  padding: 0;
+.tour-booking-wrap .passenger-list {
+  border-color: #ddd;
+  background-color: #eee;
+  margin: 0 -20px;
 }
-.tab-content p {
-  color: #252525;
+.tour-booking-wrap .passenger-info-detail {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
 }
-.tab-content > .tab-pane {
-  display: none;
+.tour-booking-wrap .load-more-block {
+  background-color: #eee;
+  margin: 0 -20px 20px -20px;
+  padding: 25px 0;
 }
-.tab-content > .tab-pane.active {
+.tour-booking-thankyou-block {
+  line-height: 20px;
+}
+.block-featured-post .post-item {
+  height: 130px;
+  margin-bottom: 1px;
+  border-bottom: 1px solid #fff;
+}
+.block-featured-post .post-item .overlay {
+  height: 130px;
+  width: 100%;
   display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.block-featured-post .post-item figure {
+  z-index: 0;
+  width: 100%;
+  height: 130px;
+  position: relative;
+}
+.block-featured-post .post-item figure img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 130px;
+}
+.block-featured-post .post-item .tour-info {
+  bottom: 10px;
+  left: 10px;
+  z-index: 2;
+  line-height: 20px;
+  padding-right: 30px;
+  width: 260px;
+}
+.block-featured-post .post-item .tour-info a {
+  color: #ffffff;
 }
 /*# sourceMappingURL=sapta-tour.mobile.css.map */

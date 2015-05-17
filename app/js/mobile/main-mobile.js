@@ -160,7 +160,7 @@ $(function () {
     }
   });
 
-  $('.tour-tabs li a').click(function (e) {
+  $('.tour-tabs .nav-tabs li a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
   })
