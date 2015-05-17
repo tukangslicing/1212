@@ -5005,7 +5005,7 @@ footer a {
 .sapta-form.form-find .switch-date span.pos-abt,
 .sapta-form.form-find .one-way span.pos-abt {
   top: 50%;
-  left: 40px;
+  left: 25px;
   margin-top: -20px;
 }
 .sapta-form.form-find .title-search {
@@ -5711,5 +5711,82 @@ footer a {
 }
 .block-featured-post .post-item .tour-info a {
   color: #ffffff;
+}
+.flight-booking-header {
+  margin: 0 -20px 15px;
+  text-align: center;
+  padding: 20px 0 15px;
+  line-height: 20px;
+  background: #eeebeb;
+  border-color: #ddd;
+}
+.flight-booking-progress {
+  padding: 20px 0 15px 0;
+  margin-bottom: 30px;
+}
+.flight-booking-progress.step-1 {
+  background: url(../img/mobile/payment-process-1.png) no-repeat bottom center;
+}
+.flight-booking-progress span {
+  font-size: 14px;
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+}
+.flight-booking-progress span.current {
+  font-weight: 600;
+}
+.flight-booking-progress span:first-child {
+  text-align: left;
+}
+.flight-booking-progress span:last-child {
+  text-align: right;
+}
+.flight-booking-block form {
+  padding: 0 20px;
+}
+.flight-booking-block .account-login {
+  background: #fcaf56;
+  padding: 20px 25px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px 1px #e99e46, 1px 2px 3px #d8d8d8;
+}
+.flight-booking-block .account-login .btn-login,
+.flight-booking-block .account-login .btn-fb-login {
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 13px;
+  line-height: 34px;
+}
+.flight-booking-block .account-login .btn-login {
+  margin-right: 5px;
+  width: 60px;
+  background: #fff;
+  color: #000;
+  box-shadow: 0px 0px 0px 1px #c0c0c0, 0px 1px 1px #d8d8d8;
+}
+.flight-booking-block .account-login .btn-fb-login {
+  width: 155px;
+  background: #5e76ac;
+  color: #fff;
+  box-shadow: 0px 0px 0px 1px #7287b6;
+}
+.flight-booking-block .passenger-list {
+  background: #eee;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.flight-booking-block .passenger-info-detail {
+  padding: 25px 20px;
+  border-top: 1px solid #ddd;
+}
+.flight-booking-block .add-more-passenger-block {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 25px;
+  background: #eee;
+  border-top: 1px solid rgba(230, 230, 230, 0.9);
+  border-color: #ddd;
 }
 /*# sourceMappingURL=sapta-tour.mobile.css.map */
