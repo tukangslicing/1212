@@ -2506,15 +2506,29 @@
   if (typeof $menuTrigger !== 'undefined') {
     $menuTrigger.addEventListener('click', function () {
       $body.className = ($body.className === 'menu-active') ? '' : 'menu-active';
+
+      var overlay = document.createElement('div');
+
+      overlay.className = "main-menu-overlay";
+
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function () {
+        if( hasClass(document.body, 'menu-active') ) {
+          document.body.className = '';
+          document.querySelector('.main-menu-overlay').remove();
+        }
+      });
     });
   }
+
+  function hasClass(el, className) {
+    return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
+  }
+
 }).call(this);
 
 $(function () {
-  $(document).on('click', '#main-content', function (e) {
-  });
-
-
   $(document).on('click', '#backToTop', function (e) {
     $('html, body').animate({ scrollTop: '0px' }, 800);
   });

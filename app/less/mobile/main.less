@@ -13,7 +13,7 @@ nav#slide-menu {
   font-family: Arial, sans-serif;
   overflow-y: scroll;
   .transition(all 300ms);
-  z-index: 11;
+  z-index: 1111;
 
   a {
     color: #fff;
@@ -109,6 +109,16 @@ nav#slide-menu {
 
 }
 
+.main-menu-overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+}
+
 div#container {
   font-family: Arial, sans-serif;
   position: relative;
@@ -138,6 +148,7 @@ div#container {
 }
 
 body.menu-active {
+  overflow-y: hidden;
 
   div#container {
     margin-left: 240px;

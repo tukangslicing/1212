@@ -3555,6 +3555,8 @@ body {
   font-size: 12px;
   height: 100%;
   position: static !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 a {
   color: #428bca;
@@ -4437,7 +4439,7 @@ nav#slide-menu {
   -webkit-transition: all 300ms;
   -o-transition: all 300ms;
   transition: all 300ms;
-  z-index: 11;
+  z-index: 1111;
 }
 nav#slide-menu a {
   color: #fff;
@@ -4504,6 +4506,15 @@ nav#slide-menu .table-view.main-menu li a {
   font-size: 15px;
   font-weight: bold;
 }
+.main-menu-overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+}
 div#container {
   font-family: Arial, sans-serif;
   position: relative;
@@ -4528,6 +4539,9 @@ div#container {
 #main-wrap.form-pencarian {
   background: #eee;
   padding-bottom: 50px;
+}
+body.menu-active {
+  overflow-y: hidden;
 }
 body.menu-active div#container {
   margin-left: 240px;
@@ -5535,7 +5549,7 @@ footer a {
 #tour-booking li .book-btn {
   text-align: center;
   font-weight: 600;
-  padding: 7px;
+  padding: 4px 7px 10px 7px;
   height: 30px;
   width: 62px;
   border: 0;
