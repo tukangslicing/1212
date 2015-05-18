@@ -4328,6 +4328,15 @@ button:active {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 8.5px;
+}
 .table-view {
   padding-left: 0;
   margin-top: 0;
@@ -5727,6 +5736,17 @@ footer a {
 .flight-booking-progress.step-1 {
   background: url(../img/mobile/payment-process-1.png) no-repeat bottom center;
 }
+.flight-booking-progress.step-2 {
+  padding-right: 10px;
+  padding-left: 10px;
+  background: url(../img/mobile/payment-process-2.png) no-repeat bottom center;
+}
+.flight-booking-progress.step-3 {
+  background: url(../img/mobile/payment-process-3.png) no-repeat bottom center;
+}
+.flight-booking-progress.step-4 {
+  background: url(../img/mobile/payment-process-4.png) no-repeat bottom center;
+}
 .flight-booking-progress span {
   font-size: 14px;
   display: inline-block;
@@ -5739,11 +5759,18 @@ footer a {
 .flight-booking-progress span:first-child {
   text-align: left;
 }
+.flight-booking-progress span:nth-child(3) {
+  text-align: left;
+  padding-left: 15px;
+}
 .flight-booking-progress span:last-child {
   text-align: right;
 }
 .flight-booking-block form {
   padding: 0 20px;
+}
+.flight-booking-block form#flightBookingStep2 {
+  padding: 0 10px;
 }
 .flight-booking-block .account-login {
   background: #fcaf56;
@@ -5788,5 +5815,160 @@ footer a {
   background: #eee;
   border-top: 1px solid rgba(230, 230, 230, 0.9);
   border-color: #ddd;
+}
+.flight-booking-block .flight-detail-info {
+  background: #eee;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+.flight-booking-block .flight-detail-info .outbound-flight-block,
+.flight-booking-block .flight-detail-info .inbound-flight-block {
+  padding: 10px 10px 0 10px;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight,
+.flight-booking-block .flight-detail-info ul.inbound-flight {
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 3px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 3px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li,
+.flight-booking-block .flight-detail-info ul.inbound-flight li {
+  position: relative;
+  padding: 10px 20px 10px 55px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  line-height: 30px;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li.bg-light,
+.flight-booking-block .flight-detail-info ul.inbound-flight li.bg-light {
+  background: #f8f8f8;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li:first-child,
+.flight-booking-block .flight-detail-info ul.inbound-flight li:first-child {
+  padding: 15px 0;
+  line-height: normal;
+  font-weight: 600;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li:last-child,
+.flight-booking-block .flight-detail-info ul.inbound-flight li:last-child {
+  border-bottom: 0;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li.schedule,
+.flight-booking-block .flight-detail-info ul.inbound-flight li.schedule {
+  height: 80px;
+  line-height: 18px;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li.schedule .ico-departure,
+.flight-booking-block .flight-detail-info ul.inbound-flight li.schedule .ico-departure {
+  top: 30px;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li.schedule .ico-return,
+.flight-booking-block .flight-detail-info ul.inbound-flight li.schedule .ico-return {
+  top: 26px;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li .ico,
+.flight-booking-block .flight-detail-info ul.inbound-flight li .ico {
+  position: absolute;
+  top: 17px;
+  left: 20px;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li .ico-bag,
+.flight-booking-block .flight-detail-info ul.inbound-flight li .ico-bag {
+  top: 17px;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li .ico-adult,
+.flight-booking-block .flight-detail-info ul.inbound-flight li .ico-adult {
+  left: 23px;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li .ico-marker,
+.flight-booking-block .flight-detail-info ul.inbound-flight li .ico-marker {
+  top: 17px;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li.airline,
+.flight-booking-block .flight-detail-info ul.inbound-flight li.airline {
+  padding-left: 15px;
+  line-height: 15px;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li.airline span,
+.flight-booking-block .flight-detail-info ul.inbound-flight li.airline span {
+  line-height: 27px;
+}
+.flight-booking-block .flight-detail-info ul.outbound-flight li label,
+.flight-booking-block .flight-detail-info ul.inbound-flight li label {
+  color: #888;
+  font-size: 11px;
+  font-family: "Gotham Black";
+}
+.flight-booking-block .passenger-list-block {
+  margin-left: -10px;
+  margin-right: -10px;
+  padding: 5px 0;
+}
+.flight-booking-block .passenger-list-block .passenger-info {
+  padding: 10px 10px 3px 10px;
+}
+.flight-booking-block .passenger-list-block .passenger-info ul {
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 3px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 3px 2px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #d8d8d8;
+  margin-bottom: 0;
+}
+.flight-booking-block .passenger-list-block .passenger-info li {
+  padding: 21px 0 21px 68px;
+  border-bottom: 1px solid #d8d8d8;
+}
+.flight-booking-block .passenger-list-block .passenger-info li:first-child {
+  position: relative;
+}
+.flight-booking-block .passenger-list-block .passenger-info li .number {
+  line-height: 32pxs;
+  font-size: 36px;
+  left: 17px;
+  top: 20px;
+  color: #d9d9d9;
+}
+.flight-booking-block .passenger-list-block .passenger-info li label {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #888;
+}
+.flight-booking-block .pricing-detail {
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 3px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 3px 2px rgba(0, 0, 0, 0.1);
+}
+.flight-booking-block .pricing-detail li {
+  padding: 17px 20px 17px 25px;
+  border-bottom: 1px solid #d8d8d8;
+  font-size: 14px;
+}
+.flight-booking-block .pricing-detail li:last-child {
+  border-bottom: 0;
+  text-align: right;
+}
+.flight-booking-block .pricing-detail li:last-child label {
+  padding-right: 50px;
+}
+.flight-booking-block .pricing-detail li:last-child sup {
+  font-size: 14px;
+}
+.flight-booking-block .pricing-detail li:last-child .price {
+  font-size: 24px;
+}
+.flight-booking-block .pricing-detail li span.pull-left {
+  width: 60%;
+  text-align: left;
+}
+.flight-booking-block .pricing-detail li span.pull-right {
+  width: 40%;
+  text-align: right;
+  font-weight: 600;
+}
+.flight-booking-block .pricing-detail li label {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: #888;
 }
 /*# sourceMappingURL=sapta-tour.mobile.css.map */

@@ -7,12 +7,12 @@
 
       var overlay = document.createElement('div');
 
-      overlay.className = "main-menu-overlay";
+      overlay.className = 'main-menu-overlay';
 
       document.body.appendChild(overlay);
 
       overlay.addEventListener('click', function () {
-        if( hasClass(document.body, 'menu-active') ) {
+        if (hasClass(document.body, 'menu-active')) {
           document.body.className = '';
           document.querySelector('.main-menu-overlay').remove();
         }
@@ -21,7 +21,7 @@
   }
 
   function hasClass(el, className) {
-    return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
+    return el.classList ? el.classList.contains(className) : new RegExp('\b' + className + '\b').test(el.className);
   }
 
 }).call(this);

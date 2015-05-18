@@ -1,0 +1,168 @@
+extends layouts/default
+
+include includes/mixin
+
+block main
+  .flight-booking-block.flight-booking-step-2
+    .flight-booking-header.b-b
+      .tour-title.f-bold.text-14px Jakarta (CGK) - Denpasar (DPS)
+      a.text-orange(href='#') Detail Pemesanan
+
+    form.sapta-form(id="flightBookingStep2", method="GET", action="mobile/flight-booking-2.html")
+
+      .flight-booking-progress.step-2
+        span Details
+        span.current Review
+        span Payment
+        span Ticket
+
+      .flight-detail-info
+        .outbound-flight-block
+          ul.list-unstyled.tour-ticket.outbound-flight
+            li.text-left
+              span.block.m-l.text-md Outbound Flight
+            li.bg-light.bg-white.schedule
+              i.ico.ico-departure
+              span.time.block 13.00 PM
+              span.block
+                | Kamis,&nbsp;
+                strong.f-bold 12 Feb ‘15
+              label.text-u-c Jakarta (CGK)
+            li.bg-light.bg-white.schedule
+              i.ico.ico-return
+              span.time.block 16.00 PM
+              span.block
+                | Kamis,&nbsp;
+                strong.f-bold 12 Feb ‘15
+              label.text-u-c Denpasar (DPS)
+            li.bg-white.airline
+              img.inline.pull-left.m-r-sm(src="img/icon_airasia.png", width="30")
+              span.inline.pull-left Air Asia QZ 888h
+              .clearfix
+            li.bg-white
+              i.ico.ico-chair
+              span.inline Economy
+
+        .inbound-flight-block
+          ul.list-unstyled.tour-ticket.inbound-flight
+              li.text-left
+                span.block.m-l.text-md Outbound Flight
+              li.bg-light.bg-white.schedule
+                i.ico.ico-departure
+                span.time.block 13.00 PM
+                span.block
+                  | Kamis,&nbsp;
+                  strong.f-bold 22 Feb ‘15
+                label.text-u-c Denpasar (DPS)
+              li.bg-light.bg-white.schedule
+                i.ico.ico-return
+                span.time.block 16.00 PM
+                span.block
+                  | Kamis,&nbsp;
+                  strong.f-bold 22 Feb ‘15
+                label.text-u-c Jakarta (CGK)
+
+              li.bg-white
+                i.ico.ico-marker
+                span.inline Transit: Surabaya
+
+              li.bg-light.bg-white.schedule
+                i.ico.ico-departure
+                span.time.block 13.00 PM
+                span.block
+                  | Kamis,&nbsp;
+                  strong.f-bold 22 Feb ‘15
+                label.text-u-c Denpasar (DPS)
+              li.bg-light.bg-white.schedule
+                i.ico.ico-return
+                span.time.block 16.00 PM
+                span.block
+                  | Kamis,&nbsp;
+                  strong.f-bold 22 Feb ‘15
+                label.text-u-c Jakarta (CGK)
+              li.bg-white.airline
+                img.inline.m-r-sm.pull-left(src="img/icon_airasia.png", width="30")
+                span.inline.pull-left Air Asia QZ 888h
+                .clearfix
+              li.bg-white
+                i.ico.ico-chair
+                span.inline Economy
+
+      .passenger-list-block
+        label.f-bold.text-14px.text-u-c.m-l-sm passengers
+
+        .passenger-info.item
+          ul.list-unstyled
+            li.text-left
+              span.number.block.pos-abt.f-bold 01
+              label.text-xs Adult
+              span.block.f-bold.text-14px Miss Esperanza Kumala Wendyono
+
+            li
+              label Passport No.
+              span.block.text-14px A D78JKI
+
+            li
+              label Date of Birth
+              span.block.text-14px 21 Aug 1985
+
+            li
+              label Baggage
+              span.block.text-14px 0kg + 20kg
+
+        .passenger-info.item
+          ul.list-unstyled
+            li.text-left
+              span.number.block.pos-abt.f-bold 02
+              label.text-xs Adult
+              span.block.f-bold.text-14px Miss Esperanza Kumala Wendyono
+
+            li
+              label Passport No.
+              span.block.text-14px A D78JKI
+
+            li
+              label Date of Birth
+              span.block.text-14px 21 Aug 1985
+
+            li
+              label Baggage
+              span.block.text-14px 0kg + 20kg
+
+      .pricing-detail.m-t-xs
+        ul.list-unstyled.m-b-none
+          li
+            span.f-bold Total Price
+          li
+            label.text-xs.block Air Asia
+            span.block.pull-left 2 Adults
+            span.block.pull-right
+              span.inline.currency Rp&nbsp;
+              span.inline.price 1,500,000
+            .clearfix
+
+          li
+            label.text-xs.block Air Asia
+            span.block.pull-left 2 Adults
+            span.block.pull-right
+              span.inline.currency Rp&nbsp;
+              span.inline.price 900,000
+            .clearfix
+
+          li
+            label.text-xs.block Luggage
+            span.block.pull-left 20 KG
+            span.block.pull-right
+              span.inline.currency Rp&nbsp;
+              span.inline.price 100,000
+            .clearfix
+
+          li
+            label.text-xs.block.text-u-c Total Price
+            span.block.total-price.text-primary.f-bold
+              sup.currency Rp&nbsp;
+              span.price 2,500,000
+
+
+      .form-group.m-t-lg.m-b-lg
+        button.btn.btn-primary.btn-submit.m-b-lg.text-u-c(type="submit") Continue
