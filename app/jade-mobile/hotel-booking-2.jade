@@ -1,0 +1,116 @@
+extends layouts/default
+
+include includes/mixin
+
+block main
+  .hotel-booking-block.hotel-booking-step-1
+    .hotel-booking-header.b-b
+      .tour-title.f-bold.text-14px Pan Pacific Nirwana Resort Bali
+      a.text-orange(href='#') Detail Pemesanan
+
+    form.sapta-form(id="flightBookingStep1", method="GET", action="mobile/hotel-booking-2.html")
+
+      .hotel-booking-progress.step-2
+        span.current Details
+        span Review
+        span Payment
+        span Ticket
+
+
+      .wrap-light.text-14px
+        .hotel-detail-info
+          ul.list-unstyled.hotel-booking-summary
+            li
+              span.text-md.block.m-l.text-md Pan Pacific Nirwana Resort Bali
+
+            li.bg-light
+              .block.pull-left
+                img.m-auto.block(src="img/destinations/room02.jpg", width="61", height="61")
+              .block.pull-left
+                span.block.bg-white
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                  i.ico.ico-star
+                span.block
+                  label.f-bold Guest
+                  span.inline.m-l-xs.guest-name Ms Anissa Sudirman
+                span.block.f-bold.text-u-c.room-type Twin Room Standard
+              .clearfix
+            li
+              .block.bg-white
+                i.ico.ico-time
+                span.inline.light 2 Nights
+
+            li
+              .block.bg-white.hotel-check-in-date
+                i.ico.ico-hotel-in
+                span.light Kamis,
+                span.f-bold 12 Feb '15
+
+            li
+              .block.bg-white.hotel-check-in-date
+                i.ico.ico-hotel-out
+                span.light Kamis,
+                span.f-bold 12 Feb '15
+
+            li
+              .block.bg-white
+                i.ico.ico-adult
+                span.inline
+                  span#count-adult 2
+                  |  Person
+
+            li
+              .block.bg-white.room-count-block
+                i.ico.ico-room
+                span.inline
+                  span#count-room 1
+                  |  Rooms
+
+        .block.content-text
+          .block.m-b.f-bold.text-u-c Instruksi Check-In
+
+          p.m-b-md Nominal transaksi akan dipotong dari kartu kredit pada saat booking. Kesediaan kamar dijamin sekalipun Anda terlambat check-in. Harga total sudah termasuk pajak, biaya akses dan booking. Biaya tambahan seperti parkir, telepon, layanan kamar ditangani langsung antara Anda dan hotel. Biaya penambahan orang dalam kamar dapat berlaku dan berbeda-beda menurut kebijakan hotel.
+
+          .block.m-b-md.f-bold.text-u-c Need To Know
+
+          p.m-b-md Check in time is 14.00 hrs and check out time is 12.00 noon. - No extra bed allowed on the room. -Cancellation fees and no show penalties apply. No show as well as early departure will be subject to full room night charge. - Day use/late check out until 18.00hrs will be charged 50% from the contract rates and confirmation is based on the availability only..
+
+          .block.m-b-md.f-bold.text-u-c Cancelation Policy
+
+          p.m-b-md Gratis biaya pembatalan sampai 01 Feb 2015 23:59 waktu hotel setempat.
+
+      .hotel-pricing
+        ul.list-unstyled.m-t-sm
+          li
+             span.text-md.block.text-md.f-bold Total Price
+          li
+            span.block.gray.text-u-c.f-bold Twin Room Standard
+            span.block.light.pull-left 2 x USD 150
+            strong.block.pull-right $ 300
+            span.clearfix.block
+
+          li
+            span.block.gray.text-u-c.f-bold Additional Fee
+            span.block.f-bold.pull-left Tax
+            strong.block.pull-right $ 50
+            span.clearfix.block
+
+          li
+            span.block.gray.text-u-c.text-light.text-right Total Price
+            span.block.text-primary.pricing.text-right
+              strong.block.price
+                sup $
+                span.number 7020
+            span.clearfix.block
+
+      .pad-h-20.m-l-n-md.m-r-n-md.b-b.b-t.m-t-xs.m-b-md
+        img.m-l-n-sm.m-t.m-b.block(src="img/ssl-image.png", alt="SSL Secured", height="30")
+
+        .block.text-xs.m-b-lg Sapta Tour selalu mementingkan keamanan transaksi Anda. Semua transaksi melalui Saptatour.com dijamin 100% aman
+
+      button.btn.btn-primary.btn-submit.text-u-c(type="submit") Continue
+
+      .m-b-md
