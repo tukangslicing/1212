@@ -1,0 +1,212 @@
+.hotel-header {
+  height: 202px;
+
+  .overlay {
+    height: 202px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  figure {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 202px;
+    position: relative;
+
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      height: 202px;
+    }
+  }
+
+  .hotel-info {
+    z-index: 2;
+    top: 12px;
+    left: 12px;
+    color: #fff;
+
+    .hotel-address {
+      margin-top: 5px;
+      width: 210px;
+      color: #fff;
+      line-height: 15px
+    }
+  }
+
+  .hotel-meta {
+    width: 175px;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+  }
+}
+
+.tab-content {
+  .facilities-list {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+
+    li {
+      position: relative;
+      display: block;
+      float: left;
+      padding-left: 20px;
+      width: 50%;
+      margin-bottom: 15px;
+
+      .ico {
+        position: absolute;
+        left: 0;
+        top: 2px
+      }
+      span {
+        display: block;
+      }
+    }
+  }
+
+  .traveler-rating {
+    padding: 0;
+
+    li {
+      clear: both;
+      position: relative;
+      height: 30px;
+      padding-top: 5px;
+
+      label {
+        width: 75px;
+        margin-bottom: 0;
+        line-height: 10px;
+      }
+
+      .number {
+        width: 30px;
+        position: absolute;
+        right: -10px;
+        top: 5px;
+        line-height: 10px;
+        text-align: left;
+      }
+
+      .progress {
+        width: 175px;
+        margin-right: 15px;
+        height: 10px;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: #dedede;
+        overflow: hidden;
+
+        .progress-bar {
+          float: left;
+          width: 0%;
+          height: 100%;
+          font-size: 11px;
+          line-height: 17px;
+          color: #ffffff;
+          text-align: center;
+          background-color: #158ea3;
+          -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+          -webkit-transition: width 0.6s ease;
+          -o-transition: width 0.6s ease;
+          transition: width 0.6s ease;
+        }
+      }
+    }
+  }
+
+  .review-card {
+    border-bottom: 1px solid #d5d5d5;
+    padding: 20px;
+
+    .review-message {
+      color: #252525;
+      line-height: 20px;
+    }
+  }
+
+  #hotel-photo {
+    a.swipebox {
+      margin-right: 1px;
+      margin-bottom: 1px;
+    }
+  }
+}
+
+.hotel-tabs {
+  .show-price-block {
+    font-size: 12px;
+    background: #eeebeb;
+    border-color: #ddd;
+
+    form {
+      width: 300px;
+      margin: 0 auto;
+
+      > .check-in,
+      > .check-out {
+        position: relative;
+        display: inline-block;
+        background: #fff;
+        height: 44px;
+        -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 2px 3px #d8d8d8;
+        box-shadow: 0px 0px 0px 1px #d8d8d8, 1px 2px 3px #d8d8d8;
+        width: 142px;
+        padding-left: 30px;
+
+        span {
+          color: #ef9630
+        }
+
+        .date {
+          padding-top: 15px
+        }
+
+        .ico-calendar {
+          position: absolute;
+          left: 8px;
+          top: 14px
+        }
+      }
+
+      > .check-in {
+
+      }
+
+      button {
+        border: 0;
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        background: #fcbc56;
+        height: 47px;
+        font-size: 14px;
+        border-radius: 3px;
+        -webkit-box-shadow: 0px 3px 0px 0px #cf8309;
+        box-shadow: 0px 3px 0px 0px #cf8309;
+        position: relative;
+      }
+    }
+  }
+
+  .similar-hotel-block {
+    .hotel-card {
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}

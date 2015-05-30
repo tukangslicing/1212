@@ -110,6 +110,7 @@ module.exports = function (grunt) {
           '<%= dir.js %>/plugins/validator.js',
           '<%= dir.js %>/plugins/bootstrap-datepicker.js',
           '<%= dir.bootstrap %>/tab.js',
+          '<%= dir.js %>/mobile/jquery.swipebox.js',
           '<%= dir.js %>/mobile/main-mobile.js'
         ],
         dest: '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.mobile.js'
@@ -135,7 +136,7 @@ module.exports = function (grunt) {
       },
       main: {
         jshintrc: '<%= dir.js %>/.jshintrc',
-        src: ['<%= dir.js %>/shared/*.js', '<%= dir.js %>/web/*.js', '<%= dir.js %>/mobile/*.js']
+        src: ['<%= dir.js %>/shared/*.js', '<%= dir.js %>/web/*.js', '<%= dir.js %>/mobile/main-mobile.js']
       },
       afterConcat: {
         src: ['<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js']
@@ -153,7 +154,7 @@ module.exports = function (grunt) {
         src: ['<%= dir.js %>/shared/*.js', '<%= dir.js %>/web/*.js']
       },
       mobile: {
-        src: ['<%= dir.js %>/mobile/*.js']
+        src: ['<%= dir.js %>/mobile/main-mobile.js']
       },
       grunt: {
         src: 'Gruntfile.js'

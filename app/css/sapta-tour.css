@@ -2783,6 +2783,16 @@ fieldset[disabled] .form-control.bg-white-only {
   height: 15px;
   background-position: -158px -1px;
 }
+.ico.ico-mobile.ico-star-white {
+  width: 12px;
+  height: 15px;
+  background-position: -88px -17px;
+}
+.ico.ico-mobile.ico-rate {
+  width: 13px;
+  height: 15px;
+  background-position: -107px -22px;
+}
 .bg-white .ico,
 .bg-transparent .ico {
   background: url(../img/icon-bg-white.png) no-repeat;

@@ -5,12 +5,14 @@ mixin featuredDestination(image, name, param1, param2, type)
 
     .featured-info.pos-abt
       if type == 'hotels'
-        h4.name.text-lg #{name}
+        h4.name.text-lg
+          a(href="mobile/tour-detail.html") #{name}
         span.inline.count-accomodations #{param1}
         span.inline &nbsp;Accomodations
 
       else if type == 'flight'
-        h4.name.text-lg #{name}
+        h4.name.text-lg
+          a(href="mobile/tour-detail.html") #{name}
         span.inline.count-accomodations #{param1}
         span.pricing-flight.block.pos-abt
           label.text-xs From
@@ -19,7 +21,8 @@ mixin featuredDestination(image, name, param1, param2, type)
             span.price.text-lg!= param2
 
       else
-        h4.name.text-lg #{name}
+        h4.name.text-lg
+          a(href="mobile/tour-detail.html") #{name}
         span.inline.location #{param1}
         span.inline.m-r-xs.m-l-xs |
         span.inline

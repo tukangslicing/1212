@@ -1,0 +1,385 @@
+extends layouts/default
+
+include includes/mixin
+
+block main
+  .hotel-header.pos-rlt
+    .overlay
+    figure.m-n.tour-feature-picture
+      img(src="img/destinations/hotel_heroimg.jpg", alt="")
+
+    .hotel-info.pos-abt
+      h3.tour-name.text-lg.f-bold.m-b-none Mulia Resort Nusa Dua
+      .block
+        span.location.text-u-c.text-xs.inline Nusa Dua/Benoa
+        span.inline.m-r-xs.m-l-xs.text-xs |
+        span.inline
+          i.ico.ico-mobile.ico-star-white
+          i.ico.ico-mobile.ico-star-white
+          i.ico.ico-mobile.ico-star-white
+          i.ico.ico-mobile.ico-star-white
+          i.ico.ico-mobile.ico-star-white
+          i.ico.ico-mobile.ico-star-white
+      .block.m-t-xs
+        span.block.pull-left.bg-white.m-r-xs
+          i.ico.ico-rating.ico-rating-fill
+          i.ico.ico-rating.ico-rating-fill
+          i.ico.ico-rating.ico-rating-fill
+          i.ico.ico-rating.ico-rating-fill-half
+          i.ico.ico-rating
+        span.block.pull-left.text-orange 12 Reviews
+        .clearfix
+
+      .block.hotel-address.text-xs.f-italic Jalan Raya Tanah Lot, Tanah Lot, Bali, Indonesia 82171
+
+
+    .hotel-meta.pos-abt
+
+  div.hotel-tabs(role='tabpanel')
+    ul.nav.nav-tabs(role='tablist')
+      li(role='presentation')
+        a.text-u-c.text-center(href='#hotel-info', aria-controls='hotel-info', role='tab', data-toggle='tab') Info
+      li(role='presentation')
+        a.text-u-c.text-center(href='#hotel-details', aria-controls='hotel-details', role='tab', data-toggle='tab') Details
+      li(role='presentation')
+        a.text-u-c.text-center(href='#hotel-review', aria-controls='hotel-review', role='tab', data-toggle='tab') Review
+      li.active(role='presentation')
+        a.text-u-c.text-center(href='#hotel-photo', aria-controls='hotel-photo', role='tab', data-toggle='tab') Photo
+
+    .tab-content
+      #hotel-info.tab-pane(role='tabpanel')
+        .summary-wrap.block
+          h6.pad-h-10.f-bold.text-md.text-u-c.m-b About The Hotel
+          .pad-h-10.block.m-b-lg
+            p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. Read More
+
+      #hotel-details.tab-pane(role='tabpanel')
+        h6.pad-h-10.f-bold.text-md.text-u-c.m-b-md Hotel Facilities
+
+        .pad-h-10
+          ul.list-unstyled.facilities-list
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs 24-hours front desk
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs 24-hours room service
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Airport Transfer
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Bar
+
+            li
+              i.ico.ico-is-uncheck
+              span.inline.m-l-xs Business Centre
+
+            li
+              i.ico.ico-is-uncheck
+              span.inline.m-l-xs Car Hire
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Coffee Shop
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Library
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Meeting Facilities
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Restaurant
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Salon
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Shops
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Tours
+
+            li
+              i.ico.ico-is-uncheck
+              span.inline.m-l-xs ATM Machine
+
+            li
+              i.ico.ico-is-uncheck
+              span.inline.m-l-xs Bicycle Rental
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Car Park
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Currency Exchange
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Express Chec-in/check-out
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Laundry Service
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Poolside Bar
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Safet Deposit Boxes
+
+            li
+              i.ico.ico-is-check
+              span.inline.m-l-xs Shuttle Service
+
+          .clearfix
+
+      #hotel-review.tab-pane(role='tabpanel')
+        h6.pad-h-10.f-bold.text-md.text-u-c.m-b-md Customer Reviews
+
+        .m-t-md.m-b.pad-h-10
+          span.block.hotel-rating.bg-white.text-right.pull-left
+            i.ico.ico-rating.ico-rating-big.ico-rating-big-fill
+            i.ico.ico-rating.ico-rating-big.ico-rating-big-fill
+            i.ico.ico-rating.ico-rating-big.ico-rating-big-fill
+            i.ico.ico-rating.ico-rating-big.ico-rating-big-fill
+            i.ico.ico-rating.ico-rating-big.ico-rating-big-fill
+          span.review-count.block.text-yellow.text-right.pull-left.m-l-sm.m-t-xs 1234 Reviews
+          .clearfix
+
+        .pad-h-10
+          ul.list-unstyled.traveler-rating.m-r
+            li
+              label.block.pull-left Excellent
+              div.block.pull-left.pos-rlt.progress
+                .progress-bar(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%;")
+                  span(class="sr-only")
+              span.number.pull-right.text-primary.f-bold 177
+            li
+              label.block.pull-left Very Good
+              div.block.pull-left.pos-rlt.progress
+                .progress-bar(role="progressbar", aria-valuenow="40", aria-valuemin="0", aria-valuemax="100", style="width: 40%;")
+                  span(class="sr-only")
+              span.number.pull-right.text-primary.f-bold 137
+            li
+              label.block.pull-left Average
+              div.block.pull-left.pos-rlt.progress
+                .progress-bar(role="progressbar", aria-valuenow="24", aria-valuemin="0", aria-valuemax="100", style="width: 28%;")
+                  span(class="sr-only")
+              span.number.pull-right.text-primary.f-bold 46
+
+            li
+              label.block.pull-left Poor
+              div.block.pull-left.pos-rlt.progress
+                .progress-bar(role="progressbar", aria-valuenow="14", aria-valuemin="0", aria-valuemax="100", style="width: 14%;")
+                  span(class="sr-only")
+              span.number.pull-right.text-primary.f-bold 23
+
+            li
+              label.block.pull-left Terrible
+              div.block.pull-left.pos-rlt.progress
+                .progress-bar(role="progressbar", aria-valuenow="9", aria-valuemin="0", aria-valuemax="100", style="width: 9%;")
+                  span(class="sr-only")
+              span.number.pull-right.text-primary.f-bold 12
+          .clearfix
+
+        .b-dashed-b-gray.m-r-n-sm.m-l-n-sm
+
+        .traveler-review-list.m-r-n-sm.m-l-n-sm
+          .review-card.text-14px
+            .block
+              span.hotel-rating.bg-white.pull-left
+                i.ico.ico-rating.ico-rating-fill
+                i.ico.ico-rating.ico-rating-fill
+                i.ico.ico-rating.ico-rating-fill
+                i.ico.ico-rating.ico-rating-fill-half
+                i.ico.ico-rating.ico-rating
+              span.block.m-l-xs.pull-left.reviewer-name Klara
+              .clearfix
+
+            .review-title.f-bold.m-t-xs.m-b-xs Great Stay
+            .review-message Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...
+
+          .review-card.text-14px
+            .block
+              span.hotel-rating.bg-white.pull-left
+                i.ico.ico-rating.ico-rating-fill
+                i.ico.ico-rating.ico-rating-fill
+                i.ico.ico-rating.ico-rating-fill
+                i.ico.ico-rating.ico-rating-fill-half
+                i.ico.ico-rating.ico-rating
+              span.block.m-l-xs.pull-left.reviewer-name Klara
+              .clearfix
+
+            .review-title.f-bold.m-t-xs.m-b-xs Great Stay
+            .review-message Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...
+
+          .review-card.text-14px
+            .block
+              span.hotel-rating.bg-white.pull-left
+                i.ico.ico-rating.ico-rating-fill
+                i.ico.ico-rating.ico-rating-fill
+                i.ico.ico-rating.ico-rating-fill
+                i.ico.ico-rating.ico-rating-fill-half
+                i.ico.ico-rating.ico-rating
+              span.block.m-l-xs.pull-left.reviewer-name Klara
+              .clearfix
+
+            .review-title.f-bold.m-t-xs.m-b-xs Great Stay
+            .review-message Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...
+
+        .load-more-review.pad-v-15.text-center
+          a.f-light.text-orange.text-u-c.text-center.text-14px(href="#") Read More Reviews
+
+      #hotel-photo.tab-pane.active(role='tabpanel')
+
+        h6.pad-h-10.f-bold.text-md.text-u-c.m-b.m-t-xl Photos
+
+        .hotel-photo-gallery.pad-h-10.pad-v-10.m-b-lg
+          a.swipebox(rel="gallery-1", href="img/destinations/room01.jpg")
+            img(src="img/destinations/room01.jpg", alt="image", width="59", height="59")
+          a.swipebox(rel="gallery-1", href="img/destinations/room02.jpg")
+            img(src="img/destinations/room02.jpg", alt="image", width="59", height="59")
+          a.swipebox(rel="gallery-1", href="img/destinations/room03.jpg")
+            img(src="img/destinations/room03.jpg", alt="image", width="59", height="59")
+          a.swipebox(rel="gallery-1", href="img/destinations/room04.jpg")
+            img(src="img/destinations/room04.jpg", alt="image", width="59", height="59")
+          a.swipebox(rel="gallery-1", href="img/destinations/room05.jpg")
+            img(src="img/destinations/room05.jpg", alt="image", width="59", height="59")
+          a.swipebox(rel="gallery-1", href="img/destinations/room01.jpg")
+            img(src="img/destinations/room01.jpg", alt="image", width="59", height="59")
+          a.swipebox(rel="gallery-1", href="img/destinations/room02.jpg")
+            img(src="img/destinations/room02.jpg", alt="image", width="59", height="59")
+          a.swipebox(rel="gallery-1", href="img/destinations/room03.jpg")
+            img(src="img/destinations/room03.jpg", alt="image", width="59", height="59")
+          a.swipebox(rel="gallery-1", href="img/destinations/room04.jpg")
+            img(src="img/destinations/room04.jpg", alt="image", width="59", height="59")
+          a.swipebox(rel="gallery-1", href="img/destinations/room05.jpg")
+            img(src="img/destinations/room05.jpg", alt="image", width="59", height="59")
+          a.swipebox(rel="gallery-1", href="img/destinations/room01.jpg")
+            img(src="img/destinations/room01.jpg", alt="image", width="59", height="59")
+          a.swipebox(rel="gallery-1", href="img/destinations/room01.jpg")
+            img(src="img/destinations/room01.jpg", alt="image", width="59", height="59")
+
+
+    .show-price-block.pad10.b-b.b-t
+      form(id="showTourPrice", action="")
+        .block.m-b-sm.check-in.bg-white
+          i.ico.ico-calendar
+          .date.in
+            label Check In:&nbsp;
+            span  19 Feb
+
+        .block.m-l-sm.check-out.bg-white
+          i.ico.ico-calendar
+          .date.out
+            label Check Out:&nbsp;
+            span  19 Feb
+
+        button.text-u-c.text-white.text-center.text-14px.f-bold.m-b-xs(type="submit") Show Prices
+
+    .similar-hotel-block.m-b
+      h6.pad-h-10.f-bold.text-md.text-u-c.m-b-sm Similar Hotels you might Like
+      .hotel-card.pos-rlt
+        figure.hotel-picture.pull-left
+          img(src="img/destinations/hotel02.jpg", alt="")
+        .hotel-meta.pull-left
+          .hotel-name.f-bold.text-u-c W RETREAT & SPA BALI
+          .info-extra
+            span.locationan.inline.m-r-sm.pull-left.text-u-c.text-xs SEMINYAK
+            span.hotel-rating.b-l.bg-white.pull-left
+              i.ico.ico-star
+              i.ico.ico-star
+              i.ico.ico-star
+              i.ico.ico-star
+              i.ico.ico-star
+            .clearfix
+
+          .hotel-review
+            span.review-star.bg-white.pull-left
+              i.ico.ico-rating.ico-rating-fill
+              i.ico.ico-rating.ico-rating-fill
+              i.ico.ico-rating.ico-rating-fill
+              i.ico.ico-rating.ico-rating-fill-half
+              i.ico.ico-rating.ico-rating
+            span.pull-left.review-count 12
+            span.pull-left.review-text Review
+            .clearfix
+
+          .hotel-price
+            span.currency.f-bold.text-14px Rp
+            span.price.f-bold.text-14px 3,967,000
+        .clearfix
+      .hotel-card.pos-rlt
+        figure.hotel-picture.pull-left
+          img(src="img/destinations/hotel01.jpg", alt="")
+        .hotel-meta.pull-left
+          .hotel-name.f-bold.text-u-c Ayana Resort & Spa
+          .info-extra
+            span.locationan.inline.m-r-sm.pull-left.text-u-c.text-xs Jimbaran
+            span.hotel-rating.b-l.bg-white.pull-left
+              i.ico.ico-star
+              i.ico.ico-star
+              i.ico.ico-star
+              i.ico.ico-star
+              i.ico.ico-star
+            .clearfix
+          .hotel-review
+            span.review-star.bg-white.pull-left
+              i.ico.ico-rating.ico-rating-fill
+              i.ico.ico-rating.ico-rating-fill
+              i.ico.ico-rating.ico-rating-fill
+              i.ico.ico-rating.ico-rating-fill-half
+              i.ico.ico-rating.ico-rating
+            span.pull-left.review-count 12
+            span.pull-left.review-text Review
+            .clearfix
+
+          .hotel-price
+            span.currency.f-bold.text-14px Rp
+            span.price.f-bold.text-14px 3,967,000
+        .clearfix
+      .hotel-card.pos-rlt
+        figure.hotel-picture.pull-left
+          img(src="img/destinations/hotel03.jpg", alt="")
+        .hotel-meta.pull-left
+          .hotel-name.f-bold.text-u-c Mulia Resort Nusa Dua
+          .info-extra
+            span.locationan.inline.m-r-sm.pull-left.text-u-c.text-xs Nusa Dua/Benoa
+            span.hotel-rating.b-l.bg-white.pull-left
+              i.ico.ico-star
+              i.ico.ico-star
+              i.ico.ico-star
+              i.ico.ico-star
+              i.ico.ico-star
+            .clearfix
+
+          .hotel-review
+            span.review-star.bg-white.pull-left
+              i.ico.ico-rating.ico-rating-fill
+              i.ico.ico-rating.ico-rating-fill
+              i.ico.ico-rating.ico-rating-fill
+              i.ico.ico-rating.ico-rating-fill-half
+              i.ico.ico-rating.ico-rating
+            span.pull-left.review-count 12
+            span.pull-left.review-text Review
+            .clearfix
+
+          .hotel-price
+            span.currency.f-bold.text-14px Rp
+            span.price.f-bold.text-14px 3,967,000
+        .clearfix
