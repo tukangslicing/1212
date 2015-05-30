@@ -6323,6 +6323,31 @@ footer a {
 .hotel-booking-block .content-block strong {
   color: #000;
 }
+.hotel-booking-block .info-text-pemesanan .ico-check {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.hotel-booking-block .info-text-pemesanan p {
+  font-size: 12px;
+  color: #000;
+  padding-left: 35px;
+}
+.hotel-booking-block.hotel-booking-step-3 .credit-card-payment img {
+  vertical-align: middle;
+}
+.hotel-booking-block.hotel-booking-step-3 .boxing.inline {
+  width: 133px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.hotel-booking-block.hotel-booking-step-3 .boxing.inline.m-r-none {
+  margin-right: 0;
+}
+.hotel-booking-block.hotel-booking-step-3 .billing-address-block p {
+  line-height: 20px;
+  color: #000000;
+}
 .btn-download-ticket {
   margin: 0 auto 30px;
   width: 279px;
