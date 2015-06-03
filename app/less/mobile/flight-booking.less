@@ -295,7 +295,8 @@
   }
 }
 
-.flight-ticket-block {
+.flight-ticket-block,
+.hotel-ticket-block {
   padding: 0 20px;
 
   .download-ticket-block {
@@ -371,7 +372,8 @@
     }
   }
 
-  .info-penerbangan {
+  .info-penerbangan,
+  .info-kamar {
     font-size: 14px;
     margin-bottom: 25px;
 
@@ -379,9 +381,13 @@
     .inbound-flight {
       margin-bottom: 20px;
       font-size: 13px;
+    }
 
-      > .block {
-        line-height: 20px
+    > .block {
+      line-height: 20px;
+
+      span, label {
+        font-size: 13px;
       }
     }
   }
