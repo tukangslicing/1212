@@ -3825,6 +3825,9 @@ a.text-orange {
 .text-14px {
   font-size: 14px;
 }
+.text-13px {
+  font-size: 13px;
+}
 .text-sm {
   font-size: 12px;
 }
@@ -4298,7 +4301,7 @@ a.text-orange {
   padding-right: 10px;
 }
 .pad15 {
-  padding: 10px;
+  padding: 15px;
 }
 .pad-v-15 {
   padding-top: 15px;
@@ -6988,5 +6991,34 @@ html.swipebox-html.swipebox-touch {
 }
 .user-account-profile button {
   width: 100% !important;
+}
+.user-booking-history {
+  min-height: 210px;
+  height: 210px;
+  height: auto !important;
+  background-color: #f4f4f4;
+}
+.user-booking-history .booking-item {
+  background: #fff;
+}
+.user-booking-history .booking-item .row-item > .m-t-lg {
+  margin-top: 25px;
+}
+.user-booking-history .booking-item .row-item > .m-b-lg {
+  margin-bottom: 25px;
+}
+.user-booking-history .booking-item .row-item > .pull-left {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.user-booking-history .booking-item .row-item > .pull-left:first-child {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.user-booking-history .booking-item .row-item > .pull-left:nth-child(2) {
+  padding-left: 20px;
+}
+.user-booking-history .btn-download-ticket {
+  margin-bottom: 0;
 }
 /*# sourceMappingURL=sapta-tour.mobile.css.map */
