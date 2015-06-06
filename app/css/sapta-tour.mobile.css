@@ -3807,6 +3807,9 @@ p {
 .text-black {
   color: #000;
 }
+.text-gray {
+  color: #cbcbcb;
+}
 a.text-orange {
   color: #ef9630;
 }
@@ -4589,6 +4592,10 @@ div#container {
   background: #eee;
   padding-bottom: 50px;
 }
+#main-wrap.form-login-register {
+  background: #eee;
+  padding-bottom: 30px;
+}
 body.menu-active {
   overflow-y: hidden;
 }
@@ -5030,20 +5037,26 @@ footer a {
 .sapta-form input:active {
   outline: 0;
 }
-.sapta-form.form-find .form-group {
+.sapta-form.form-find .form-group,
+.sapta-form.form-login .form-group,
+.sapta-form.form-register .form-group {
   padding: 0 25px;
   margin-left: auto;
   margin-right: auto;
   border-color: #d0d0d0;
 }
-.sapta-form.form-find .form-group.separator {
+.sapta-form.form-find .form-group.separator,
+.sapta-form.form-login .form-group.separator,
+.sapta-form.form-register .form-group.separator {
   padding: 2px 0 0 0;
   border-bottom: 1px solid #dadada;
   border-top: 1px solid #dadada;
   position: relative;
   margin: 23px auto;
 }
-.sapta-form.form-find .form-group.separator span {
+.sapta-form.form-find .form-group.separator span,
+.sapta-form.form-login .form-group.separator span,
+.sapta-form.form-register .form-group.separator span {
   position: absolute;
   color: #5a5353;
   font-size: 14px;
@@ -5055,12 +5068,18 @@ footer a {
   padding: 0 15px;
 }
 .sapta-form.form-find .switch-date span.pos-abt,
-.sapta-form.form-find .one-way span.pos-abt {
+.sapta-form.form-login .switch-date span.pos-abt,
+.sapta-form.form-register .switch-date span.pos-abt,
+.sapta-form.form-find .one-way span.pos-abt,
+.sapta-form.form-login .one-way span.pos-abt,
+.sapta-form.form-register .one-way span.pos-abt {
   top: 50%;
   left: 25px;
   margin-top: -20px;
 }
-.sapta-form.form-find .title-search {
+.sapta-form.form-find .title-search,
+.sapta-form.form-login .title-search,
+.sapta-form.form-register .title-search {
   line-height: 46px;
   background: #158ea3;
   color: #fff;
@@ -5068,7 +5087,9 @@ footer a {
   letter-spacing: 1px;
   position: relative;
 }
-.sapta-form.form-find .title-search .close {
+.sapta-form.form-find .title-search .close,
+.sapta-form.form-login .title-search .close,
+.sapta-form.form-register .title-search .close {
   width: 20px;
   height: 20px;
   display: block;
@@ -5080,7 +5101,9 @@ footer a {
   text-indent: -9999px;
   cursor: pointer;
 }
-.sapta-form.form-find [type="submit"] {
+.sapta-form.form-find [type="submit"],
+.sapta-form.form-login [type="submit"],
+.sapta-form.form-register [type="submit"] {
   border: 0;
   margin-left: auto;
   margin-right: auto;
@@ -5093,11 +5116,15 @@ footer a {
   box-shadow: 0px 3px 0px 0px #cf8309;
   position: relative;
 }
-.sapta-form.form-find [type="submit"].btn-flight {
+.sapta-form.form-find [type="submit"].btn-flight,
+.sapta-form.form-login [type="submit"].btn-flight,
+.sapta-form.form-register [type="submit"].btn-flight {
   width: 196px;
   padding-left: 20px;
 }
-.sapta-form.form-find [type="submit"] .icon {
+.sapta-form.form-find [type="submit"] .icon,
+.sapta-form.form-login [type="submit"] .icon,
+.sapta-form.form-register [type="submit"] .icon {
   display: block;
   width: 52px;
   height: 33px;
@@ -5107,7 +5134,9 @@ footer a {
   top: 6px;
   background: url(../img/mobile/search-icon.png) no-repeat 50% 50%;
 }
-.sapta-form.form-find .extra-field {
+.sapta-form.form-find .extra-field,
+.sapta-form.form-login .extra-field,
+.sapta-form.form-register .extra-field {
   margin-top: 15px;
   background: #fff;
   border-color: #e2e2e2;
@@ -5115,81 +5144,121 @@ footer a {
   -webkit-box-shadow: 0px 1px 0px 0px #e2e2e2;
   box-shadow: 0px 1px 0px 0px #e2e2e2;
 }
-.sapta-form.form-find .extra-field .form-group-control {
+.sapta-form.form-find .extra-field .form-group-control,
+.sapta-form.form-login .extra-field .form-group-control,
+.sapta-form.form-register .extra-field .form-group-control {
   padding: 10px 55px;
   height: 50px;
   border-bottom: 1px solid #e2e2e2;
 }
-.sapta-form.form-find .extra-field .form-group-control:last-child {
+.sapta-form.form-find .extra-field .form-group-control:last-child,
+.sapta-form.form-login .extra-field .form-group-control:last-child,
+.sapta-form.form-register .extra-field .form-group-control:last-child {
   border-bottom: 0;
 }
 .sapta-form.form-find .extra-field .form-group-control .increase,
-.sapta-form.form-find .extra-field .form-group-control .decrease {
+.sapta-form.form-login .extra-field .form-group-control .increase,
+.sapta-form.form-register .extra-field .form-group-control .increase,
+.sapta-form.form-find .extra-field .form-group-control .decrease,
+.sapta-form.form-login .extra-field .form-group-control .decrease,
+.sapta-form.form-register .extra-field .form-group-control .decrease {
   position: absolute;
   top: 9px;
 }
-.sapta-form.form-find .extra-field .form-group-control .increase {
+.sapta-form.form-find .extra-field .form-group-control .increase,
+.sapta-form.form-login .extra-field .form-group-control .increase,
+.sapta-form.form-register .extra-field .form-group-control .increase {
   right: 30px;
 }
-.sapta-form.form-find .extra-field .form-group-control .decrease {
+.sapta-form.form-find .extra-field .form-group-control .decrease,
+.sapta-form.form-login .extra-field .form-group-control .decrease,
+.sapta-form.form-register .extra-field .form-group-control .decrease {
   left: 30px;
 }
-.sapta-form.form-find .extra-field .form-group-control .control-element {
+.sapta-form.form-find .extra-field .form-group-control .control-element,
+.sapta-form.form-login .extra-field .form-group-control .control-element,
+.sapta-form.form-register .extra-field .form-group-control .control-element {
   width: 137px;
   margin: 0 auto;
 }
-.sapta-form.form-find .extra-field .form-group-control .control-element .ico {
+.sapta-form.form-find .extra-field .form-group-control .control-element .ico,
+.sapta-form.form-login .extra-field .form-group-control .control-element .ico,
+.sapta-form.form-register .extra-field .form-group-control .control-element .ico {
   position: absolute;
   left: 23px;
 }
-.sapta-form.form-find .extra-field .form-group-control .control-element .ico-adult {
+.sapta-form.form-find .extra-field .form-group-control .control-element .ico-adult,
+.sapta-form.form-login .extra-field .form-group-control .control-element .ico-adult,
+.sapta-form.form-register .extra-field .form-group-control .control-element .ico-adult {
   top: -2px;
 }
-.sapta-form.form-find .extra-field .form-group-control .control-element .ico-child {
+.sapta-form.form-find .extra-field .form-group-control .control-element .ico-child,
+.sapta-form.form-login .extra-field .form-group-control .control-element .ico-child,
+.sapta-form.form-register .extra-field .form-group-control .control-element .ico-child {
   top: -2px;
 }
-.sapta-form.form-find .extra-field .form-group-control .control-element .ico-baby {
+.sapta-form.form-find .extra-field .form-group-control .control-element .ico-baby,
+.sapta-form.form-login .extra-field .form-group-control .control-element .ico-baby,
+.sapta-form.form-register .extra-field .form-group-control .control-element .ico-baby {
   top: 4px;
 }
-.sapta-form.form-find .extra-field .form-group-control .control-element label {
+.sapta-form.form-find .extra-field .form-group-control .control-element label,
+.sapta-form.form-login .extra-field .form-group-control .control-element label,
+.sapta-form.form-register .extra-field .form-group-control .control-element label {
   padding-left: 50px;
   display: block;
   margin-top: 5px;
   font-size: 16px;
 }
-.sapta-form.form-find .extra-field .form-group-control .control-element input[type="text"] {
+.sapta-form.form-find .extra-field .form-group-control .control-element input[type="text"],
+.sapta-form.form-login .extra-field .form-group-control .control-element input[type="text"],
+.sapta-form.form-register .extra-field .form-group-control .control-element input[type="text"] {
   margin-right: 5px;
   line-height: 18px;
   font-size: 16px;
 }
-.sapta-form.form-find .extra-field.tours .form-group-control {
+.sapta-form.form-find .extra-field.tours .form-group-control,
+.sapta-form.form-login .extra-field.tours .form-group-control,
+.sapta-form.form-register .extra-field.tours .form-group-control {
   height: 43px;
   padding: 10px;
 }
-.sapta-form.form-find .extra-field.tours .form-group-control span.label-text {
+.sapta-form.form-find .extra-field.tours .form-group-control span.label-text,
+.sapta-form.form-login .extra-field.tours .form-group-control span.label-text,
+.sapta-form.form-register .extra-field.tours .form-group-control span.label-text {
   margin-top: 3px;
   font-size: 14px;
   color: #5a5353;
   width: 200px;
 }
-.sapta-form.form-find .extra-field.tours .form-group-control .checkbox {
+.sapta-form.form-find .extra-field.tours .form-group-control .checkbox,
+.sapta-form.form-login .extra-field.tours .form-group-control .checkbox,
+.sapta-form.form-register .extra-field.tours .form-group-control .checkbox {
   padding-top: 5px;
 }
-.sapta-form.form-find .checkout-date {
+.sapta-form.form-find .checkout-date,
+.sapta-form.form-login .checkout-date,
+.sapta-form.form-register .checkout-date {
   padding: 10px 0 40px 0;
   font-size: 14px;
 }
-.sapta-form.form-find .checkout-date label {
+.sapta-form.form-find .checkout-date label,
+.sapta-form.form-login .checkout-date label,
+.sapta-form.form-register .checkout-date label {
   color: #5a5353;
 }
-.sapta-form.form-find input[type=checkbox]:not(old) {
+.sapta-form.form-find input[type=checkbox]:not(old),
+.sapta-form.form-login input[type=checkbox]:not(old),
+.sapta-form.form-register input[type=checkbox]:not(old) {
   width: 20px;
   margin: 0;
   padding: 0;
   opacity: 0;
   cursor: pointer;
 }
-.sapta-form.form-find input[type=checkbox]:not(old) + label {
+.sapta-form.form-find input[type=checkbox]:not(old) + label,
+.sapta-form.form-login input[type=checkbox]:not(old) + label,
+.sapta-form.form-register input[type=checkbox]:not(old) + label {
   cursor: pointer;
   display: inline-block;
   margin-left: -20px;
@@ -5197,8 +5266,29 @@ footer a {
   background: url('../img/mobile/custom-uncheckbox.png') no-repeat 0px 0px;
   line-height: 17px;
 }
-.sapta-form.form-find input[type=checkbox]:not(old):checked + label {
+.sapta-form.form-find input[type=checkbox]:not(old):checked + label,
+.sapta-form.form-login input[type=checkbox]:not(old):checked + label,
+.sapta-form.form-register input[type=checkbox]:not(old):checked + label {
   background: url('../img/mobile/custom-checkbox.png') no-repeat 0px -1px;
+}
+.sapta-form.form-find .btn-fb-login,
+.sapta-form.form-login .btn-fb-login,
+.sapta-form.form-register .btn-fb-login {
+  background: #5e76ac;
+  color: #fff;
+  display: block;
+  border-radius: 3px;
+  font-size: 13px;
+  line-height: 34px;
+  -webkit-box-shadow: 0px 0px 0px 1px #5772af;
+  box-shadow: 0px 0px 0px 1px #5772af;
+}
+.sapta-form.form-login .form-group.separator {
+  margin-right: 25px !important;
+  margin-left: 25px !important;
+}
+.sapta-form.form-login .form-group.separator span {
+  margin-left: -25px !important;
 }
 .btn-download-e-ticket {
   background: url(../img/btn-download-eticket.png) no-repeat 0 0;

@@ -216,7 +216,9 @@
     }
   }
 
-  &.form-find {
+  &.form-find,
+  &.form-login,
+  &.form-register {
 
     .form-group {
       padding: 0 25px;
@@ -426,5 +428,26 @@
       }
     }
 
+    .btn-fb-login {
+      background: #5e76ac;
+      color: #fff;
+      display: block;
+      border-radius: 3px;
+      font-size: 13px;
+      line-height: 34px;
+      -webkit-box-shadow: 0px 0px 0px 1px #5772af;
+      box-shadow: 0px 0px 0px 1px #5772af;
+    }
+  }
+
+  &.form-login {
+    .form-group.separator {
+      margin-right: 25px !important;
+      margin-left: 25px !important;
+
+      span {
+        margin-left: -25px !important
+      }
+    }
   }
 }
