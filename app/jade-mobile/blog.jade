@@ -1,0 +1,26 @@
+extends layouts/default
+
+include includes/mixin
+
+block main
+  .top-banner.blog
+    span.block.text-center.m-b-xs.m-t-md
+      i.ico.ico-mobile.ico-bag-md
+    h3.banner-title.text-u-c.text-center Sapta Blog
+
+  .blog-post-list
+    mixin blogPostItem('Prague.jpg', 'International', 'Top Ten Most Romantic Destinations In The World')
+
+    mixin blogPostItem('Asia.jpg', 'Asia', 'Japan Off The Beaten Tracks')
+
+    mixin blogPostItem('london.jpg', 'Europe', 'Top Ten Places to Visit Before You Die')
+
+    mixin blogPostItem('Borobudur.jpg', 'Asia', 'Seven Wonder of the World')
+
+    mixin blogPostItem('Bali01.jpg', 'Indonesia', 'The Best Beaches in Indonesia')
+
+    mixin blogPostItem('Turkey.jpg', 'International', 'Festivals Around The World')
+
+
+  .spinner-block
+    .spinner Loading...

@@ -1975,6 +1975,11 @@ th {
   height: 25px;
   background-position: 0px -19px;
 }
+.ico.ico-mobile.ico-bag-md {
+  width: 22px;
+  height: 19px;
+  background-position: -56px -17px;
+}
 .ico.ico-mobile.ico-flight-md {
   width: 30px;
   height: 17px;
@@ -4772,19 +4777,25 @@ footer a {
   height: 65px;
   background: url(../img/mobile/bg-home-banner.png) repeat-x top center;
 }
-.top-banner.hotels {
+.top-banner.hotels,
+.top-banner.blog {
   height: 130px;
 }
-.top-banner.hotels .banner-title {
+.top-banner.hotels .banner-title,
+.top-banner.blog .banner-title {
   font-weight: 600;
   font-size: 17px;
   color: #282828;
   line-height: normal;
   margin-bottom: 5px;
 }
-.top-banner.hotels .subtitle {
+.top-banner.hotels .subtitle,
+.top-banner.blog .subtitle {
   color: #ef9630;
   margin: 0;
+}
+.top-banner.blog {
+  height: 105px;
 }
 .top-banner .banner-title {
   font-size: 14px;
@@ -7068,5 +7079,50 @@ html.swipebox-html.swipebox-touch {
 .static-page .wrapper p {
   color: #5a5353;
   line-height: 22px;
+}
+.blog-post-list .item {
+  height: 131px;
+  border-color: #fff;
+}
+.blog-post-list .overlay {
+  position: absolute;
+  height: 131px;
+  width: 100%;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.blog-post-list .featured-info {
+  position: absolute;
+  bottom: 5px;
+  left: 15px;
+  z-index: 2;
+  width: 70%;
+}
+.blog-post-list .featured-info a.blog-category {
+  display: block;
+  color: #fff;
+  margin-top: 75px;
+}
+.blog-post-list .featured-info .name {
+  margin-bottom: 5px;
+  line-height: 20px;
+}
+.blog-post-list .featured-info .name a {
+  color: #ffffff;
+}
+.blog-post-list .featured-info .f-bold {
+  font-size: 14px;
+}
+.blog-post-list figure {
+  margin: 0;
+  height: 130px;
+  width: 100%;
+  z-index: 0;
+}
+.blog-post-list figure img {
+  width: 100%;
+  height: 130px;
 }
 /*# sourceMappingURL=sapta-tour.mobile.css.map */

@@ -29,3 +29,13 @@ mixin featuredDestination(image, name, param1, param2, type)
           | From &nbsp;
           span.f-bold #{param2}
 
+mixin blogPostItem(image, category, name, param1, param2)
+  .item.pos-rlt.b-b
+    figure.pos-abt
+      img(src="img/destinations/#{image}", alt="")
+    .overlay
+    .featured-info.pos-abt
+        a.blog-category(href="#") #{category}
+        h4.name.text-lg
+          a(href="mobile/blog-detail.html") #{name}
+
