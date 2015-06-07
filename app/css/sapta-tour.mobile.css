@@ -7054,4 +7054,19 @@ html.swipebox-html.swipebox-touch {
 .user-booking-history .btn-download-ticket {
   margin-bottom: 0;
 }
+.static-page .wrapper {
+  background: #fff;
+  border-color: #ddd;
+  line-height: 22px;
+}
+.static-page .wrapper h4 {
+  line-height: 22px;
+}
+.static-page .wrapper strong {
+  color: 333;
+}
+.static-page .wrapper p {
+  color: #5a5353;
+  line-height: 22px;
+}
 /*# sourceMappingURL=sapta-tour.mobile.css.map */
