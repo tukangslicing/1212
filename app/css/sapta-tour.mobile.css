@@ -4797,6 +4797,9 @@ footer a {
 .top-banner.blog {
   height: 105px;
 }
+.top-banner.blog .blog-post-title {
+  padding: 0 60px;
+}
 .top-banner .banner-title {
   font-size: 14px;
   color: #fff;
@@ -7086,7 +7089,7 @@ html.swipebox-html.swipebox-touch {
 }
 .blog-post-list .overlay {
   position: absolute;
-  height: 131px;
+  height: 130px;
   width: 100%;
   z-index: 1;
   left: 0;
@@ -7103,7 +7106,6 @@ html.swipebox-html.swipebox-touch {
 .blog-post-list .featured-info a.blog-category {
   display: block;
   color: #fff;
-  margin-top: 75px;
 }
 .blog-post-list .featured-info .name {
   margin-bottom: 5px;
@@ -7124,5 +7126,23 @@ html.swipebox-html.swipebox-touch {
 .blog-post-list figure img {
   width: 100%;
   height: 130px;
+}
+.blog-post-block figure img {
+  max-width: 100%;
+}
+.blog-post-block .content-text {
+  line-height: 21px;
+}
+.blog-post-block .content-text p {
+  color: #252525;
+  line-height: 21px;
+}
+.blog-post-block .stButton .stFb,
+.blog-post-block .stButton .stTwbutton,
+.blog-post-block .stButton .stMainServices {
+  height: 25px;
+}
+.blog-post-block .stButton .stButton_gradient {
+  height: 21px;
 }
 /*# sourceMappingURL=sapta-tour.mobile.css.map */

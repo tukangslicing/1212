@@ -1,0 +1,62 @@
+extends layouts/default
+
+include includes/mixin
+
+block main
+  .top-banner.blog
+    span.text-orange.text-xs.text-u-c.block.m-b-sm.m-t-md.text-center International
+    h3.blog-post-title.text-lg.text-center Most Romantic Cities in the World
+
+  article.blog-post-block.pad10.b-b.m-t-n-md
+    figure.m-n
+      img(src="img/destinations/Maldives.jpg", alt="")
+
+    .social-share.m-t-md
+      span.st_facebook_hcount(class='', displayText='Facebook')
+      span.st_twitter_hcount(class='', displayText='Tweet')
+      span.st_pinterest_hcount(class='', displayText='Pinterest')
+      script(type="text/javascript", src="http://w.sharethis.com/button/buttons.js")
+      script.
+        stLight.options({doNotHash: false, doNotCopy: false, hashAddressBar: false});
+
+    .content-text.m-t-md.m-b
+      p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+
+      p
+        strong.text-primary 1. Paris, France
+
+      p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      p
+        strong.text-primary 2. London, UK
+
+      p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      p
+        strong.text-primary 3. Budapest, Hungary
+
+      p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      p
+        strong.text-primary 4. Prague, Czech
+
+      p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      p
+        strong.text-primary 5. Maldives
+
+      p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      p
+        strong.text-primary 3. Budapest, Hungary
+
+      p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+
+
+  #readMoresBlogPost.m-r-sm.m-l-sm
+    .blog-post-list
+
+      mixin blogPostItem('Bali01.jpg', 'Indonesia', 'The Best Beaches in Indonesia')
+
+      mixin blogPostItem('Turkey.jpg', 'International', 'Festivals Around The World')
