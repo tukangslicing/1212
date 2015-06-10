@@ -7068,6 +7068,72 @@ html.swipebox-html.swipebox-touch {
 .user-booking-history .btn-download-ticket {
   margin-bottom: 0;
 }
+.user-credit-cards {
+  min-height: 210px;
+  height: 210px;
+  height: auto !important;
+  background-color: #f4f4f4;
+}
+.user-credit-cards .b-b {
+  border-color: #ddd;
+}
+.user-credit-cards form {
+  padding: 10px;
+}
+.user-credit-cards form label img {
+  vertical-align: middle;
+}
+.user-credit-cards form button {
+  width: 100% !important;
+}
+.user-credit-cards form .boxing.inline {
+  width: 133px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.user-credit-cards form .boxing.inline.m-r-none {
+  margin-right: 0;
+}
+.user-credit-cards .add-more-credit-card-block {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 25px;
+  background: #eee;
+  border-top: 1px solid rgba(230, 230, 230, 0.9);
+  border-color: #ddd;
+}
+.user-credit-cards .saved-credit-card-list {
+  padding-bottom: 10px;
+}
+.user-credit-cards .credit-card-item {
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+}
+.user-credit-cards .credit-card-item li {
+  padding: 22px 22px 22px 67px;
+  position: relative;
+  display: block;
+  border-bottom: 1px solid #d9d9d9;
+}
+.user-credit-cards .credit-card-item li:last-child {
+  border-bottom: 0;
+}
+.user-credit-cards .credit-card-item li img {
+  left: 20px;
+  top: 50%;
+  margin-top: -12px;
+}
+.user-credit-cards .credit-card-item li label {
+  color: #888;
+  font-size: 11px;
+}
+.user-credit-cards .credit-card-item li span,
+.user-credit-cards .credit-card-item li .value {
+  font-size: 14px;
+  font-weight: 600;
+}
 .static-page .wrapper {
   background: #fff;
   border-color: #ddd;

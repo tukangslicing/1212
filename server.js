@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'production') {
 
 var Server = new statics.Server('./app', options);
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 4040;
 
 require('http').createServer(function (request, response) {
 
@@ -31,6 +31,6 @@ require('http').createServer(function (request, response) {
 }).listen(port);
 
 if (process.env.NODE_ENV !== 'production') {
-	console.log("> node-static is listening on http://127.0.0.1:"+ port);
-	require('open')("http://127.0.0.1:"+ port);
+	console.log("> node-static is listening on http://localhost:"+ port);
+	require('open')("http://localhost:"+ port);
 }

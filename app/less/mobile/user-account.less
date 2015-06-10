@@ -79,3 +79,85 @@
     margin-bottom: 0;
   }
 }
+
+.user-credit-cards {
+  min-height: 210px;
+  height: 210px;
+  height: auto !important;
+  background-color: #f4f4f4;
+
+  .b-b {
+    border-color: #ddd;
+  }
+
+  form {
+    padding: 10px;
+
+    label {
+      img {
+        vertical-align: middle;
+      }
+    }
+
+    button {
+      width: 100% !important;
+    }
+
+    .boxing.inline {
+      width: 133px;
+      margin-right: 10px;
+      display: inline-block;
+
+      &.m-r-none {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .add-more-credit-card-block {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 25px;
+    background: #eee;
+    border-top: 1px solid rgba(230, 230, 230, 0.9);
+    border-color: #ddd;
+  }
+
+  .saved-credit-card-list {
+    padding-bottom: 10px
+  }
+  .credit-card-item {
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+
+    li {
+      padding: 22px 22px 22px 67px;
+      position: relative;
+      display: block;
+      border-bottom: 1px solid #d9d9d9;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      img {
+        left: 20px;
+        top: 50%;
+        margin-top: -12px;
+      }
+
+      label {
+        color: #888;
+        font-size: 11px;
+      }
+
+      span,
+      .value {
+        font-size: 14px;
+        .f-bold;
+      }
+    }
+  }
+}
