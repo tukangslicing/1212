@@ -7134,6 +7134,75 @@ html.swipebox-html.swipebox-touch {
   font-size: 14px;
   font-weight: 600;
 }
+.user-passenger-list {
+  min-height: 210px;
+  height: 210px;
+  height: auto !important;
+  background-color: #f4f4f4;
+}
+.user-passenger-list .b-b {
+  border-color: #ddd;
+}
+.user-passenger-list form {
+  padding: 10px;
+}
+.user-passenger-list form label img {
+  vertical-align: middle;
+}
+.user-passenger-list form button {
+  width: 100% !important;
+}
+.user-passenger-list form .boxing.inline {
+  width: 133px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.user-passenger-list form .boxing.inline.m-r-none {
+  margin-right: 0;
+}
+.user-passenger-list .add-more-passenger-block {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 25px;
+  background: #eee;
+  border-top: 1px solid rgba(230, 230, 230, 0.9);
+  border-color: #ddd;
+}
+.user-passenger-list .passenger-list-block {
+  padding-bottom: 10px;
+}
+.user-passenger-list .passenger-item {
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+}
+.user-passenger-list .passenger-item li {
+  padding: 22px 22px 22px 67px;
+  position: relative;
+  display: block;
+  border-bottom: 1px solid #d9d9d9;
+}
+.user-passenger-list .passenger-item li:last-child {
+  border-bottom: 0;
+}
+.user-passenger-list .passenger-item li .number {
+  font-weight: 600;
+  left: 15px;
+  top: 50%;
+  line-height: 36px;
+  margin-top: -25px;
+  font-size: 36px;
+  color: #d9d9d9;
+}
+.user-passenger-list .passenger-item li label {
+  color: #888;
+  font-size: 11px;
+}
+.user-passenger-list .passenger-item li .value {
+  font-size: 14px;
+  font-weight: 600;
+}
 .static-page .wrapper {
   background: #fff;
   border-color: #ddd;
