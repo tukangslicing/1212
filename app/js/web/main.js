@@ -6,6 +6,10 @@ $(window).load(function () {
 $(function () {
   'use strict';
 
+  $('.boxing.selectbox select').selectize({
+    create: true
+  });
+
   // The slider being synced must be initialized first
   $('#gallery-slider-carousel').flexslider({
     animation: 'slide',
