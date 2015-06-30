@@ -74,18 +74,18 @@ block main
                 .boxing.selectbox.inline.m-r-md.b.m-t-md.pos-rlt
                   label.block.text-xs Expired on Month
                   select(name="month")
-                    option January
-                    option February
-                    option March
-                    option April
-                    option May
-                    option June
-                    option July
-                    option August
-                    option September
-                    option October
-                    option November
-                    option(selected="selected") Desember
+                    option(value="January") January
+                    option(value="February") February
+                    option(value="March") March
+                    option(value="April") April
+                    option(value="May") May
+                    option(value="June") June
+                    option(value="July") July
+                    option(value="August") August
+                    option(value="September") September
+                    option(value="October") October
+                    option(value="October") November
+                    option(value="Desember", selected="selected") Desember
 
                 .boxing.selectbox.inline.b.m-t-md.pos-rlt
                   label.block.text-xs Expired on Year
@@ -100,38 +100,38 @@ block main
 
               h5.f-bold.text-md.text-u-c.block.m-b-sm.m-t-xl Credit Card Billing Address
 
-              .form-group.m-b-none
-                .boxing.name.b.b.m-b-md.m-r-md.inline
+              .form-group.m-b-none.m-t-sm
+                .boxing.name.b.b.m-b-md.m-r-md.pull-left
                   label.block.text-xs Name as written in Credit Card
                   input.credit-card-input(type="text", value="Esperanza Kumala Wendyono")
 
-                .boxing.selectbox.inline.m-r-md.b.m-t-md.pos-rlt
+                .boxing.selectbox.pull-left.m-r-md.b.pos-rlt
                   label.block.text-xs Country
                   select(name="country")
-                    option(selected="selected") Indonesia
-                    option Singapore
-                    option Malaysia
-                    option Thailand
-                    option Vietname
-                    option India
-                    option Australia
+                    option(value="Indonesia", selected="selected") Indonesia
+                    option(value="Singapore") Singapore
+                    option(value="Malaysia") Malaysia
+                    option(value="Thailand") Thailand
+                    option(value="Vietname") Vietname
+                    option(value="India") India
+                    option(value="Australia") Australia
                 .clearfix
 
               .form-group.m-b-none
-                .boxing.selectbox.inline.m-r-md.b.m-t-xs.pos-rlt
+                .boxing.selectbox.pull-left.m-r-md.b.m-t-xs.pos-rlt
                   label.block.text-xs City
                   select(name="city")
-                    option(selected="selected") Jakarta
-                    option Bandung
-                    option Surabaya
-                    option Medan
-                    option Semarang
+                    option(value="Jakarta", selected="selected") Jakarta
+                    option(value="Bandung") Bandung
+                    option(value="Surabaya") Surabaya
+                    option(value="Medan") Medan
+                    option(value="Semarang") Semarang
 
-                .boxing.post-code.b.b.m-t-xs.m-r-md.inline
+                .boxing.post-code.b.b.m-t-xs.m-r-md.pull-left
                   label.block.text-xs Post Code
                   input.credit-card-input(type="text", value="11520")
 
-                .boxing.phone-number.b.m-t-xs.b.inline
+                .boxing.phone-number.b.m-t-xs.b.pull-left
                   label.block.text-xs Phone Number
                   input.credit-card-input(type="text", value="08123456789")
 
