@@ -5381,6 +5381,36 @@ html[xmlns] .flexslider .slides {
 .booking-thank-you .thank-your-message a {
   color: #ff9966;
 }
+.custom-destination-block .title-box {
+  font-family: "Gotham Rounded";
+  font-size: 30px;
+  font-weight: 200;
+}
+.custom-destination-block article p {
+  font-size: 14px;
+  margin-bottom: 0;
+  line-height: 24px;
+}
+.custom-destination-block .hint {
+  color: #cc6600;
+  font-family: "Gotham Rounded";
+}
+.custom-destination-block .question {
+  font-size: 29px;
+  font-family: "Gotham Rounded";
+  letter-spacing: -1px;
+  line-height: 45px;
+}
+.custom-destination-block .sapta-form .boxing {
+  width: 295px;
+}
+.custom-destination-block .sapta-form .boxing.answer {
+  width: 100%;
+}
+.custom-destination-block .sapta-form .btn-submit {
+  width: auto;
+  margin: 0 auto;
+}
 .blog-page .head-title {
   font-family: "Gotham Black";
   font-size: 30px;
