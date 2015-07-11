@@ -6175,6 +6175,15 @@ html[xmlns] .flexslider .slides {
   font-size: 15px;
   line-height: 34px;
 }
+.document-page .wrapping-gray {
+  background: #f4f4f4;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+}
 .document-page .aside {
   width: 240px;
   background: #f4f4f4;
@@ -6200,24 +6209,55 @@ html[xmlns] .flexslider .slides {
   color: #b2b2b2;
   text-decoration: none;
 }
-.document-page.document-passport article {
+.document-page .aside h4 {
+  padding-top: 55px;
+  font-size: 30px;
+  margin-top: 0;
+  color: #4c4c4c;
+}
+.document-page.document-passport article,
+.document-page.document-insurance article {
   padding-right: 50px;
   margin-bottom: 100px;
 }
-.document-page.document-passport .subtitle-article {
+.document-page.document-passport .subtitle-article,
+.document-page.document-insurance .subtitle-article {
   margin-bottom: 40px;
   padding-right: 50px;
 }
-.document-page.document-passport ol {
+.document-page.document-passport ol,
+.document-page.document-insurance ol {
   margin-bottom: 45px;
   padding-left: 15px;
   font-weight: bold;
 }
-.document-page.document-passport ol li {
+.document-page.document-passport ol li,
+.document-page.document-insurance ol li {
   font-weight: normal;
 }
-.document-page.document-passport ol li:before {
+.document-page.document-passport ol li:before,
+.document-page.document-insurance ol li:before {
   font-weight: bold;
+}
+.document-page.about-page .aside ul {
+  margin-top: 0;
+}
+.document-page.about-page article a {
+  color: #e67b00;
+}
+.document-page.about-page article a:hover {
+  color: #ffa033;
+}
+.document-page.about-page article strong {
+  font-family: "Gotham Black";
+  font-weight: 600;
+  font-size: 15px;
+}
+.document-page.about-page article .text-primary strong {
+  font-size: 13px;
+}
+.document-page.about-page .content-left article p {
+  margin-bottom: 20px;
 }
 .modal-dialog-center {
   margin: 0;

@@ -74,6 +74,16 @@
     }
   }
 
+  .wrapping-gray {
+    background: #f4f4f4;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+  }
+
   .aside {
     width: 240px;
     background: #f4f4f4;
@@ -103,9 +113,17 @@
         text-decoration: none;
       }
     }
+
+    h4 {
+      padding-top: 55px;
+      font-size: 30px;
+      margin-top: 0;
+      color: #4c4c4c
+    }
   }
 
-  &.document-passport {
+  &.document-passport,
+  &.document-insurance {
     article {
       padding-right: 50px;
       margin-bottom: 100px
@@ -127,6 +145,35 @@
           font-weight: bold;
         }
       }
+    }
+  }
+
+  &.about-page {
+    .aside ul {
+      margin-top: 0;
+    }
+
+    article {
+      a {
+        color: #e67b00;
+
+        &:hover {
+          color: lighten(#e67b00, 15%)
+        }
+      }
+
+      strong {
+        font-family: "Gotham Black";
+        font-weight: 600;
+        font-size: 15px;
+      }
+
+      .text-primary strong {
+        font-size: 13px;
+      }
+    }
+    .content-left article p {
+      margin-bottom: 20px
     }
   }
 }
