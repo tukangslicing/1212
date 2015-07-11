@@ -209,6 +209,13 @@ module.exports = function (grunt) {
         files: {
           '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.mobile.css': '<%= dir.less %>/mobile.less'
         }
+      },
+      email: {
+        files: {
+          '<%= dir.css %>/email-template-1.css' : '<%= dir.less %>/email-template-1.less',
+          '<%= dir.css %>/email-template-2.css' : '<%= dir.less %>/email-template-2.less',
+          '<%= dir.css %>/email-eticket.css' : '<%= dir.less %>/email-eticket.less'
+        }
       }
     },
 
