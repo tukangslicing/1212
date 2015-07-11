@@ -1,0 +1,126 @@
+.passenger-info
+  .column.b-r.b-l.col-name.pull-left
+    span.number.f-bold 01
+    label Adult
+    span.name.f-bold Miss Esperanza Kumala Wendyono
+
+  .column.b-r.col-passport.pull-left
+    label Passport No.
+    span A D78JKI
+
+  .column.b-r.col-birth-date.pull-left
+    label Date of Birth
+    span 09 Mar 1985
+
+  .column.b-r.col-national.pull-left
+    label Nationality
+    span Indonesia
+
+  .column.col-btn-actions.pull-left.bg-white
+    span.btn-edit-this-cc.pointer.ico.ico-pencil
+
+  .clearfix
+
+.edit-passenger.block.b-t
+  form.form-edit-passenger.sapta-form.m-b-xl(action="#", method="")
+    .wrapper-lg.b-dashed-b-gray
+      h3.title-block.m-t-none.text-rounded.m-b-lg
+        | Edit&nbsp;
+        span.text-yellow Details
+
+      .form-group.m-r.pull-left
+        .boxing.selectbox.title.b.pos-rlt
+          label.block.text-xs Title
+          select.block(name="")
+            option(value="Miss") Miss
+            option(value="Mr") Mr
+            option(value="Mrs") Mrs
+
+      .form-group.pull-left
+        .boxing.b.name
+          label.block.text-xs Name as written in passport
+          input.block.m-b-xs(type="text", placeholder="", value="Anissa Sudirman")
+
+      .clearfix
+
+      .form-group.pull-left.m-r
+        .boxing.b.passport
+          label.block.text-xs Passport Number
+          input.bloc.m-b-xs(type="text", value="A 893720")
+
+      .form-group.pull-left
+        .boxing.nationality.selectbox.b.pos-rlt
+          label.block.text-xs Nationality
+          select.block(name="")
+            option(value="Indonesian", selected) Indonesian
+            option(value="Malaysian") Malaysian
+            option(value="Indian") Indian
+            option(value="Singaporean") Singaporean
+
+      .clearfix
+
+      .form-group
+        .pull-left.m-r
+          .boxing.bod.selectbox.b.pos-rlt
+            label.block.text-xs Day of Birth
+            select(name="day")
+              option(selected="selected", value="29") 29
+              option(value="1") 1
+              option(value="2") 2
+              option(value="3") 3
+              option(value="4") 4
+
+        .pull-left.m-r
+          .boxing.bod.selectbox.b.pos-rlt
+            label.block.text-xs Month of Birth
+            select(name="month")
+              option(value="01") 01
+              option(value="02") 02
+              option(value="03") 03
+              option(value="04") 04
+              option(value="05") 05
+              option(value="06") 06
+              option(value="07") 07
+              option(selected="selected", value="08") 08
+              option(value="09") 09
+              option(value="10") 10
+              option(value="11") 11
+              option(value="12") 12
+
+        .pull-left
+          .boxing.bod.selectbox.b.pos-rlt
+            label.block.text-xs Year of Birth
+            select(name="year")
+              option(value="1987") 1987
+              option(value="1986", selected) 1986
+              option(value="1985") 1985
+              option(value="1984") 1984
+              option(value="1983") 1983
+              option(value="1982") 1982
+
+      .clearfix
+      .form-group.m-b-none
+        .pull-left.m-r.m-b-sm
+          .boxing.baggage.selectbox.b.m-t-md.pos-rlt
+            label.block.text-xs Baggage Jakarta - Denpasar
+            select(name="baggage_departure")
+              option(selected="selected", value="No Baggage") No Baggage
+              option(value="20") 20kg
+              option(value="30") 30 Kg
+              option(value="40") 40 Kg
+              option(value="50") 50 Kg
+
+        .pull-left.m-b-sm
+          .boxing.baggage.selectbox.b.m-t-md.pos-rlt
+            label.block.text-xs Baggage Denpasar - Jakarta
+            select(name="baggage_return")
+              option No Baggage
+              option(selected="selected", value="20") 20kg
+              option(value="30") 30 Kg
+              option(value="40") 40 Kg
+              option(value="50") 50 Kg
+        .clearfix
+
+    .wrapper-lg
+      button.block.btn.btn-primary.btn-submit.pull-right(type="submit") Save Changes
+      .clearfix

@@ -1,6 +1,11 @@
 .account-page {
   overflow-x:hidden;
 
+  h3.title-block {
+    font-size: 30px;
+    margin-top: 0;
+  }
+
   .head-title {
     font-family: "Gotham Black";
     font-size: 30px;
@@ -84,10 +89,6 @@
 }
 
 .my-booking-block {
-  h3.title-block {
-    font-size: 30px;
-    margin-top: 0;
-  }
 
   .order-item {
 
@@ -283,10 +284,6 @@
 }
 
 .my-profile-block {
-  h3.title-block {
-    font-size: 30px;
-    margin-top: 0;
-  }
 
   .connect-with-fb {
     background: #919191;
@@ -319,4 +316,108 @@
       }
     }
   }
+}
+
+
+.my-passenger {
+  .passenger-item {
+    -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 1px 3px 2px rgba(216, 216, 216, 0.5);
+    box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 1px 3px 2px rgba(216, 216, 216, 0.5);
+
+    &.open,
+    &.editable {
+      .edit-passenger {
+        display: block;
+      }
+
+      .col-btn-actions {
+        .ico-pencil {
+          background-position: -640px -175px;
+        }
+      }
+    }
+
+    .column {
+      padding-top: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+      height: 85px;
+      position: relative;
+      font-size: 13px;
+
+      &.col-name {
+        width: 275px;
+        padding-left: 70px;
+
+        span.number {
+          position: absolute;
+          font-weight: 600;
+          left: 15px;
+          top: 13px;
+          line-height: 36px;
+          font-size: 36px;
+          color: #d9d9d9;
+        }
+
+        .name {
+          font-size: 13px
+        }
+      }
+
+      &.col-passport {
+        width: 130px;
+      }
+
+      &.col-national {
+        width: 110px;
+      }
+
+      &.col-birth-date {
+        width: 130px;
+      }
+
+      &.col-btn-actions {
+        width: 85px;
+        text-align: center;
+        line-height: 85px;
+        padding-top: 0;
+
+        .ico {
+          cursor: pointer;
+        }
+      }
+
+      label {
+        color: #888;
+        font-size: 11px;
+        font-family: "Gotham Black";
+        .text-u-c;
+        .block;
+        .m-b-none;
+        line-height: 18px;
+      }
+
+      span {
+        color: #000;
+      }
+    }
+  }
+  .card-detail {
+    height: 85px;
+  }
+
+  .edit-passenger {
+    display: none;
+  }
+
+  // .form-edit-passenger {
+  //   .boxing {
+  //     border-color: #d0d0d0;
+
+  //     &.phone-number,
+  //     &.post-code {
+  //       width: 200px;
+  //     }
+  //   }
+  // }
 }
