@@ -99,9 +99,6 @@ body {
 .main {
   background-color: #fff;
 }
-.content-wrap {
-  padding: 20px 30px;
-}
 .content-block {
   padding: 0 0 20px;
   border: 1px solid #d8d8d8;
@@ -208,15 +205,34 @@ a {
 .b-r {
   border-right: 1px solid #d8d8d8;
 }
+.f-bold {
+  font-family: "Gotham Black";
+  font-family: 700;
+}
+.text-primary {
+  color: #158ea3;
+}
+.text-u-c {
+  text-transform: uppercase;
+}
 .block {
   display: block;
 }
 .padding30 {
   padding: 30px;
 }
+.m-t-25 {
+  margin-top: 25px;
+}
+.m-b-25 {
+  margin-bottom: 25px;
+}
 /* -------------------------------------
 Email Template 1
 ------------------------------------- */
+.content-wrap {
+  padding: 20px 30px;
+}
 p {
   line-height: 23px;
   margin-bottom: 25px;
