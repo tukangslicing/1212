@@ -221,9 +221,6 @@ p {
   line-height: 23px;
   margin-bottom: 25px;
 }
-.tabel-content tr:last-child td {
-  border-bottom: 0;
-}
 .tabel-content td {
   padding: 15px;
   line-height: 18px;

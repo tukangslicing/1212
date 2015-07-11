@@ -367,6 +367,14 @@ module.exports = function (grunt) {
     clean: {
       dev: ['<%= dir.js %>/plugins.js', '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js', '<%= dir.css %>/*.css', '<%= dir.css %>/*.css.map'],
       build: ['build/*']
+    },
+    premailer: {
+      simple: {
+        options: {},
+        files: {
+          'app/email-template-1-css-inline.html': ['app/email-template-1.html']
+        }
+      }
     }
   });
 
