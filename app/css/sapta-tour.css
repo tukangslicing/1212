@@ -6200,6 +6200,25 @@ html[xmlns] .flexslider .slides {
   color: #b2b2b2;
   text-decoration: none;
 }
+.document-page.document-passport article {
+  padding-right: 50px;
+  margin-bottom: 100px;
+}
+.document-page.document-passport .subtitle-article {
+  margin-bottom: 40px;
+  padding-right: 50px;
+}
+.document-page.document-passport ol {
+  margin-bottom: 45px;
+  padding-left: 15px;
+  font-weight: bold;
+}
+.document-page.document-passport ol li {
+  font-weight: normal;
+}
+.document-page.document-passport ol li:before {
+  font-weight: bold;
+}
 .modal-dialog-center {
   margin: 0;
   position: absolute;
