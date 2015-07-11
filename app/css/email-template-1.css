@@ -207,7 +207,7 @@ a {
 }
 .f-bold {
   font-family: "Gotham Black";
-  font-family: 700;
+  font-weight: 700;
 }
 .text-primary {
   color: #158ea3;
