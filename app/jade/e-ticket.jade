@@ -1,0 +1,158 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    title E-ticket
+    link(href='css/bootstrap.css', rel='stylesheet')
+    link(href='css/e-ticket.css', rel='stylesheet')
+    script(src='js/libs/modernizr.custom.js')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+
+  body
+    .container.e-ticket-wrapper.m-b-xl
+      .m-t.header.m-b-xl
+        .col-md-6
+          img(src="img/logo-for-eticket.png", alt="")
+        .col-md-6.text-right
+          h2.text-rounded Travel Itinerary
+        .clearfix
+
+      .booking-detail.m-b-xl
+        h3.subtitle.text-rounded Booking Details
+        .row
+          .col-md-6.left.b-r
+            strong Booking Number
+            .booking-number 31032000
+
+            ul.list-unstyled.m-b-md
+              li
+                label.pull-left Booking Date
+                span.block Wed, 19 Mar 2015
+              li
+                label.pull-left Name
+                span.block Esperanza Wendyono
+              li
+                label.pull-left Address
+                span.block Indonesia
+              li
+                label.pull-left Contact
+                span.block 08912832982
+              li
+                label.pull-left Email
+                span.block ricksoh@gmail.com
+
+          .col-md-offset-1.col-md-5.right
+            label.f-bold Flight Detail
+
+            .m-b
+              span Penerbangan:  Jakarta ke Denpasar (AirAsia)
+              span Tanggal:  Kamis, <strong>12 Feb 2015</strong> (Jam 13.00
+
+            .m-b-xl
+              span Penerbangan:  Denpasar ke Jakarta (AirAsia)
+              span Tanggal:  Senin, <strong>16 Feb 2015</strong> (Jam 13.00
+
+            label.f-bold Payment Detail
+
+            .m-b-md
+              span Harga total:  Rp 1,500,000
+              span Cara Pembayaran:  Kartu Kredit
+
+      .flight-detail.m-b-xl
+        h3.subtitle.text-rounded Flight Details
+
+        table.table.table-bordered(width='100%', cellpadding='0', cellspacing='0')
+          tr
+            td.text-center.flight-number
+              img(src="img/icon_airasia.png", alt="AirAsia", width="35")
+              .text-u-c AK387
+            td.departure-icon
+              img(src="img/icon-plane-departure.png", alt="")
+            td.departure-airport
+              .aiport-name Soekarno Hatta Interational Airport (Terminal 3)
+              .time Rabu, <strong>20 Feb ‘15</strong> - 09.00 AM
+              label.city Jakarta (CGK)
+            td.thin-arrow
+              img(src="img/thin-row-for-eticket.png", alt="")
+            td.arrive-icon
+              img(src="img/icon-plane-arrive.png", alt="")
+            td.arrive-airport
+              .aiport-name Ngu Rahrai Airport (Terminal 3)
+              .time Rabu, <strong>20 Feb ‘15</strong> - 10.00 AM
+              label.city Denpasar (DPS)
+            td.class
+              label Class
+              .class-name Economy
+
+          tr
+            td.text-center.flight-number
+              img(src="img/icon_airasia.png", alt="AirAsia", width="35")
+              .text-u-c AK387
+            td.departure-icon
+              img(src="img/icon-plane-departure.png", alt="")
+            td.departure-airport
+              .aiport-name Ngu Rahrai Airport (Terminal 3)
+              .time Rabu, <strong>20 Feb ‘15</strong> - 10.00 AM
+              label.city Denpasar (DPS)
+            td.thin-arrow
+              img(src="img/thin-row-for-eticket.png", alt="")
+            td.arrive-icon
+              img(src="img/icon-plane-arrive.png", alt="")
+            td.arrive-airport
+              .aiport-name Soekarno Hatta Interational Airport (Terminal 3)
+              .time Rabu, <strong>20 Feb ‘15</strong> - 09.00 AM
+              label.city Jakarta (CGK)
+            td.class
+              label Class
+              .class-name Economy
+
+      .passenger-detail.m-b-xl
+        h3.subtitle.text-rounded Passenger Details
+
+        table.table.table-bordered(width='100%', cellpadding='0', cellspacing='0')
+          tr
+            td
+              .count-number.f-bold 01
+            td.adult
+              label Adult
+              strong.passenger-name Miss Esperanza Kumala Wendyono
+            td.class
+              label Class
+              .class-name Economy
+            td.baggage
+              label Baggage
+              .weight 0kg + 20kg
+            td.ticket-number
+              label Ticket Number
+              .block 829999111133329 - 2392902830302
+
+          tr
+            td
+              .count-number.f-bold 02
+            td.adult
+              label Adult
+              strong.passenger-name Mr Alexander Adijana
+            td.class
+              label Class
+              .class-name Economy
+            td.baggage
+              label Baggage
+              .weight 0kg + 20kg
+            td.ticket-number
+              label Ticket Number
+              .block 829999111133329 - 2392902830302
+
+
+      .footer.m-t-xl
+        .b-b.padder-v.m-b
+          | Tiket ini dapat dicetak dan dibawa untuk ditunjukkan kepada petugas pada saat check-in. Sertakan identitas diri para penumpang pada saat check-in agar petugas dapat melakukan verifikasi tiket ini.
+        p
+          | Jika mengalami kendala, mohon hubungi Sapta Tours di <strong>021 270 272</strong> atau email&nbsp;
+          a(href="mailto:info@saptatours.com")
+          strong.f-bold info@saptatours.com

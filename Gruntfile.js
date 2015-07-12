@@ -214,7 +214,7 @@ module.exports = function (grunt) {
         files: {
           '<%= dir.css %>/email-template-1.css' : '<%= dir.less %>/email-template-1.less',
           '<%= dir.css %>/email-template-2.css' : '<%= dir.less %>/email-template-2.less',
-          '<%= dir.css %>/email-eticket.css' : '<%= dir.less %>/email-eticket.less'
+          '<%= dir.css %>/e-ticket.css' : '<%= dir.less %>/e-ticket.less'
         }
       }
     },

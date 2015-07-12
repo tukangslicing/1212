@@ -1,0 +1,197 @@
+@import "font-awesome/font-awesome";
+@import "bootstrap/variables.less";
+@import "bootstrap/mixins.less";
+
+@import "web/fonts.less";
+
+@import "helper/app.utilities.less";
+
+.e-ticket-wrapper {
+  .m-t-xl;
+
+  .header {
+    h2 {
+      font-size: 48px;
+      line-height: 85px;
+    }
+  }
+
+  h2, h3, h4 {
+    color: #4c4c4c;
+  }
+
+  .subtitle {
+    margin: 0 0 25px 0;
+    font-size: 30px;
+    line-height: 24px;
+  }
+
+  .booking-detail {
+    .b;
+    padding: 50px 80px;
+
+
+    .booking-number {
+      color: #158ea6;
+      font-size: 30px;
+      .f-bold;
+      padding: 10px 0 30px 0;
+    }
+
+    .left {
+      line-height: 30px;
+
+      strong {
+        display: block;
+        .f-bold;
+        font-size: 15px;
+      }
+    }
+
+    .right {
+      label {
+        .f-bold;
+        font-size: 15px;
+        margin-bottom: 10px;
+      }
+      span {
+        display: block;
+        line-height: 22px;
+      }
+    }
+
+    ul {
+      li {
+        font-size: 13px;
+
+        &:before {
+          display: block;
+          content: " ";
+          clear: both;
+        }
+
+        label {
+          display: block;
+          width: 135px;
+          .f-bold;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .flight-detail {
+    .table-bordered > tbody > tr > td {
+      vertical-align: middle;
+      padding-bottom: 0;
+      padding-top: 0;
+
+      &.thin-arrow {
+        padding: 0;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      &.departure-icon {
+        padding-left: 15px;
+      }
+
+      &.departure-icon,
+      &.arrive-icon {
+        width: 19px;
+        vertical-align: middle;
+      }
+
+
+      &.departure-airport,
+      &.departure-icon,
+      &.arrive-icon {
+        border-right: 0;
+      }
+
+      &.arrive-airport,
+      &.departure-airport,
+      &.arrive-icon {
+        border-left: 0;
+      }
+
+      &.departure-airport,
+      &.arrive-airport, {
+        width: 290px;
+      }
+
+      .aiport-name {
+        font-size: 11px;
+      }
+
+      &.class {
+        width: 125px;
+      }
+
+      strong {
+        .f-bold;
+        color: #000;
+      }
+
+      label {
+        font-size: 11px;
+        .f-bold;
+        .text-u-c;
+        color: #888;
+      }
+    }
+  }
+
+  .passenger-detail {
+    .table-bordered > tbody > tr > td {
+      padding: 20px;
+      font-size: 13px;
+      height: 99px;
+
+      &:first-child {
+        border-right: 0;
+        padding-right: 0;
+      }
+
+      &.adult {
+        border-left: 0;
+        padding-left: 0;
+        width: 200px;
+      }
+
+      strong {
+        .f-bold;
+        color: #000;
+      }
+
+      label {
+        display: block;
+        font-size: 11px;
+        .f-bold;
+        .text-u-c;
+        color: #888;
+      }
+    }
+    .count-number {
+      font-weight: 600;
+      line-height: 36px;
+      font-size: 36px;
+      color: #d9d9d9;
+    }
+  }
+}
+
+.footer {
+  font-size: 11px;
+  color: #767676;
+
+  a {
+    color: #158ea6;
+    font-size: 11px;
+  }
+
+  strong {
+    font-family: "Gotham Black";
+    font-size: 11px;
+  }
+}
