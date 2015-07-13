@@ -1,6 +1,6 @@
 @import "font-awesome/font-awesome";
 @import "bootstrap/variables.less";
-@import "bootstrap/mixins.less";
+@import "bootstrap/bootstrap.less";
 
 @import "web/fonts.less";
 
@@ -30,11 +30,10 @@
     .b;
     padding: 50px 80px;
 
-
     .booking-number {
-      color: #158ea6;
-      font-size: 30px;
       .f-bold;
+      color: #158ea6 !important;
+      font-size: 30px;
       padding: 10px 0 30px 0;
     }
 
@@ -81,15 +80,21 @@
   }
 
   .flight-detail {
-    .table-bordered > tbody > tr > td {
+
+    .table-bordered tr td {
       vertical-align: middle;
       padding-bottom: 0;
       padding-top: 0;
 
+      .flight-number {
+        width: 89px;
+      }
+
       &.thin-arrow {
+        width: 48px;
         padding: 0;
-        border-left: 0;
-        border-right: 0;
+        border-left: 0 !important;
+        border-right: 0 !important;
       }
 
       &.departure-icon {
@@ -98,7 +103,7 @@
 
       &.departure-icon,
       &.arrive-icon {
-        width: 19px;
+        width: 46px;
         vertical-align: middle;
       }
 
@@ -106,13 +111,13 @@
       &.departure-airport,
       &.departure-icon,
       &.arrive-icon {
-        border-right: 0;
+        border-right: 0 !important;
       }
 
       &.arrive-airport,
       &.departure-airport,
       &.arrive-icon {
-        border-left: 0;
+        border-left: 0 !important;
       }
 
       &.departure-airport,
@@ -125,7 +130,8 @@
       }
 
       &.class {
-        width: 125px;
+        width: 125px !important;
+        padding-left: 15px !important
       }
 
       strong {
@@ -134,28 +140,29 @@
       }
 
       label {
-        font-size: 11px;
         .f-bold;
         .text-u-c;
-        color: #888;
+        font-size: 11px;
+        color: #888 !important;
       }
     }
   }
 
   .passenger-detail {
-    .table-bordered > tbody > tr > td {
+    .table-bordered tr td {
       padding: 20px;
       font-size: 13px;
-      height: 99px;
+      height: 99px !important;
 
-      &:first-child {
-        border-right: 0;
-        padding-right: 0;
+      &:first-child,
+      &.count {
+        border-right: 0 !important;
+        padding-right: 0 !important;
       }
 
       &.adult {
-        border-left: 0;
-        padding-left: 0;
+        border-left: 0 !important;
+        padding-left: 0 !important;
         width: 200px;
       }
 
@@ -169,14 +176,14 @@
         font-size: 11px;
         .f-bold;
         .text-u-c;
-        color: #888;
+        color: #888 !important;
       }
     }
     .count-number {
       font-weight: 600;
       line-height: 36px;
       font-size: 36px;
-      color: #d9d9d9;
+      color: #d9d9d9 !important;
     }
   }
 }

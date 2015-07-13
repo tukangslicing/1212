@@ -373,7 +373,8 @@ module.exports = function (grunt) {
         options: {},
         files: {
           'app/email-template-1-css-inline.html': ['app/email-template-1.html'],
-          'app/email-template-2-css-inline.html': ['app/email-template-2.html']
+          'app/email-template-2-css-inline.html': ['app/email-template-2.html'],
+          'app/e-ticket-css-inline.html': ['app/e-ticket.html']
         }
       }
     }
