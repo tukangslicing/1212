@@ -9059,6 +9059,7 @@ fieldset[disabled] .form-control.bg-white-only {
   color: #888 !important;
 }
 .e-ticket-wrapper .passenger-detail .table-bordered tr td {
+  vertical-align: top;
   padding: 20px;
   font-size: 13px;
   height: 99px !important;
