@@ -1,0 +1,89 @@
+extends layouts/default
+
+include includes/mixin
+
+block main
+  .top-banner.custom-tour
+    span.block.text-center.m-b-sm.m-t-md
+      i.ico.ico-mobile.ico-bag-md.m-t-xs
+    h3.banner-title.text-u-c.text-center Custom Destination
+
+    p.text-center.m-r-md.m-l-md.text-md.desc.m-t-sm.m-b-lg Here at Sapta Tour, we strive to fulfill our customers’ wishes for a perfect holiday just for you. We’ve compiled 8 questions to aid in discovering your preferences. We will then work out a custom destination for you and contact you via phone or email.
+
+    form.sapta-form(method="GET", action="", id="customToursForm")
+
+      h3.text-md.m-t-md.m-b-md.text-u-c Contact Details
+
+      .contact-details.m-b
+        .form-group.m-t-md.m-b-md
+          .boxing.name.b.m-t-md
+            label.block.text-xs.m-b-sm Name
+            input.bloc.m-b-xs(type="text", value="Anissa Sudirman")
+
+          .boxing.phone-number.b.m-t-md.m-r-md.pull-left
+            label.block.text-xs.m-b-sm Phone Number
+            input.bloc.m-b-xs(type="text", value="", placeholder="+62 (home or mobile number)")
+
+          .boxing.email.b.m-t-md.pull-left
+            label.block.text-xs.m-b-sm Email
+            input.block.m-b-xs(type="text", value="Anissa@gmail.com")
+          .clearfix
+
+      .question.questions-1.m-b-lg
+        .text-primary.f-bold.text-c-l.text-md.m-t Question One
+        .question-text.f-bold.text-md  How many people are in your party, what gender and ages are they?
+        .hint.f-light Are there any physical limitations, will there be children or babies, etc.
+        .boxing.b.answer.m-t.m-b-lg
+          textarea.block(placeholder="Please Type Your Answer Here", rows="2")
+
+      .question.questions-2.m-b-lg
+        .text-primary.f-bold.text-c-l.text-md.m-t Question Two
+        .question-text.f-bold.text-md Tell us what you have in mind, where do you want to go?
+        .hint.f-light the sum of your idea of a perfect tour, your prefered destination or activities
+        .boxing.b.answer.m-t.m-b-lg
+          textarea.block(placeholder="Please Type Your Answer Here", rows="2")
+
+      .question.questions-3.m-b-lg
+        .text-primary.f-bold.text-c-l.text-md.m-t Question Three
+        .question-text.f-bold.text-md Are there landmarks or special place you want to see?
+        .hint.f-light Specific Places you want to visit
+        .boxing.b.answer.m-t.m-b-lg
+          textarea.block(placeholder="Please Type Your Answer Here", rows="2")
+
+      .question.questions-4.m-b-lg
+        .text-primary.f-bold.text-c-l.text-md.m-t Question Four
+        .question-text.f-bold.text-md When do you want to travel and how long?
+        .hint.f-light Any specific dates and length of your travel
+        .boxing.b.answer.m-t.m-b-lg
+          textarea.block(placeholder="Please Type Your Answer Here", rows="2")
+
+      .question.questions-5.m-b-lg
+        .text-primary.f-bold.text-c-l.text-md.m-t Question Five
+        .question-text.f-bold.text-md What is your budget?
+        .hint.f-light i.e., $1000 - $1500
+        .boxing.b.answer.m-t.m-b-lg
+          textarea.block(placeholder="Please Type Your Answer Here", rows="2")
+
+      .question.questions-6.m-b-lg
+        .text-primary.f-bold.text-c-l.text-md.m-t Question Six
+        .question-text.f-bold.text-md What kind of food do you prefer?
+        .hint.f-light i.e., same as home, gourmet, local cuisine, interesting and unusual, cooking ourselves
+        .boxing.b.answer.m-t.m-b-lg
+          textarea.block(placeholder="Please Type Your Answer Here", rows="2")
+
+      .question.questions-6.m-b-lg
+        .text-primary.f-bold.text-c-l.text-md.m-t Question Seven
+        .question-text.f-bold.text-md What kind of lodging do you prefer?
+        .hint.f-light i.e., chain motel or hotel, local inn, b&b, cabin, camping
+        .boxing.b.answer.m-t.m-b-lg
+          textarea.block(placeholder="Please Type Your Answer Here", rows="2")
+
+      .question.questions-6.m-b-lg
+        .text-primary.f-bold.text-c-l.text-md.m-t Question Eight
+        .question-text.f-bold.text-md Anything else you want to tell us?
+        .hint.f-light any other interests you would like to include on your trip, etc.
+        .boxing.b.answer.m-t.m-b-lg
+          textarea.block(placeholder="Please Type Your Answer Here", rows="2")
+
+      button.btn.btn-primary.btn-submit.text-c-l.block.m-b-lg.text-u-c(type="submit") SUBMIT CUSTOM TOUR REQUEST
+      .m-b-xl

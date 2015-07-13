@@ -357,7 +357,8 @@ footer {
   }
 
   &.hotels,
-  &.blog {
+  &.blog,
+  &.custom-tour {
     height: 130px;
     .banner-title {
       font-weight: 600;
@@ -370,6 +371,20 @@ footer {
     .subtitle {
       color: #ef9630;
       margin: 0;
+    }
+  }
+
+  &.custom-tour {
+    height: auto !important;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+
+    .banner-title {
+      color: #393030
+    }
+
+    p {
+      color: #252525
     }
   }
 
