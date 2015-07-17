@@ -7239,6 +7239,9 @@ html.swipebox-html.swipebox-touch {
   font-size: 14px;
   font-weight: 600;
 }
+.static-page.about-sapta-tour-page {
+  background-color: #f4f4f4;
+}
 .static-page .wrapper {
   background: #fff;
   border-color: #ddd;
