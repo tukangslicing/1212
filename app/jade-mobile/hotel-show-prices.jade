@@ -1,0 +1,143 @@
+extends layouts/default
+
+include includes/mixin
+
+block main
+
+  .hotel-show-price-page
+
+    .hotel-search-query.block.b-b.b-t
+      form.sapta-form(method="GET", action="")
+        .boxing.check-in.selectbox.b.pos-rlt.chooseDate
+          label.block.text-xs Check In
+          input.block.date(type="text", readonly)
+        .boxing.duration.selectbox.b.pos-rlt
+          label.block.text-xs Duration
+          select(name="duration")
+            option(value="1") 1 Night
+            option(value="2") 2 Night
+            option(value="3") 3 Night
+            option(value="4") 4 Night
+            option(value="5") 5 Night
+        .boxing.room.selectbox.b.pos-rlt
+          label.block.text-xs Room
+          select(name="room")
+            option(value="1") 1
+            option(value="2") 2
+            option(value="3") 3
+            option(value="4") 4
+            option(value="5") 5
+        .clearfix
+
+    .room-card-items
+      .room-card.pos-rlt
+        figure.hotel-picture.pull-left
+          img(src="img/destinations/room01.jpg", alt="")
+
+          a.block.m-t-sm.book-btn-sm.btn-yellow(href="mobile/flight-return-results.html") BOOK
+
+        .hotel-meta.pull-left
+          .hotel-name.f-bold.text-u-c.text-14px Superior Golf King
+
+          a.block.m-b-xs.m-t-xs(href="mobile/hotel-detail.html")
+            .info-kamar.text-orange Lihat info kamar ini
+
+          .facilities.m-t-xs.m-b-xs
+            .item.m-r-xs
+              i.ico.ico-mobile.ico-adult
+              span.count-adult 2
+            .item.m-r-xs
+              i.ico.ico-mobile.ico-restaurant
+            .item.m-r-xs.bg-white
+              i.ico.ico-wifi
+            .clearfix
+
+          .hotel-price.m-t-md
+            span.currency.f-bold.text-14px Rp
+            span.price.f-bold.text-14px 3,967,000
+            span.night  / night
+        .clearfix
+
+      .room-card.pos-rlt
+        figure.hotel-picture.pull-left
+          img(src="img/destinations/room02.jpg", alt="")
+
+          a.block.m-t-sm.book-btn-sm.btn-yellow(href="mobile/flight-return-results.html") BOOK
+
+        .hotel-meta.pull-left
+          .hotel-name.f-bold.text-u-c.text-14px Superior Golf Twin
+
+          a.block.m-b-xs.m-t-xs(href="mobile/hotel-detail.html")
+            .info-kamar.text-orange Lihat info kamar ini
+
+          .facilities.m-t-xs.m-b-xs
+            .item.m-r-xs
+              i.ico.ico-mobile.ico-adult
+              span.count-adult 2
+            .item.m-r-xs
+              i.ico.ico-mobile.ico-restaurant
+            .item.m-r-xs.bg-white
+              i.ico.ico-wifi
+            .clearfix
+
+          .hotel-price.m-t-md
+            span.currency.f-bold.text-14px Rp
+            span.price.f-bold.text-14px 3,967,000
+            span.night  / night
+        .clearfix
+
+      .room-card.pos-rlt
+        figure.hotel-picture.pull-left
+          img(src="img/destinations/room03.jpg", alt="")
+
+          a.block.m-t-sm.book-btn-sm.btn-yellow(href="mobile/flight-return-results.html") BOOK
+
+        .hotel-meta.pull-left
+          .hotel-name.f-bold.text-u-c.text-14px Junior Suite
+
+          a.block.m-b-xs.m-t-xs(href="mobile/hotel-detail.html")
+            .info-kamar.text-orange Lihat info kamar ini
+
+          .facilities.m-t-xs.m-b-xs
+            .item.m-r-xs
+              i.ico.ico-mobile.ico-adult
+              span.count-adult 2
+            .item.m-r-xs
+              i.ico.ico-mobile.ico-restaurant
+            .item.m-r-xs.bg-white
+              i.ico.ico-wifi
+            .clearfix
+
+          .hotel-price.m-t-md
+            span.currency.f-bold.text-14px Rp
+            span.price.f-bold.text-14px 3,967,000
+            span.night  / night
+        .clearfix
+
+      .room-card.pos-rlt
+        figure.hotel-picture.pull-left
+          img(src="img/destinations/room04.jpg", alt="")
+
+          a.block.m-t-sm.book-btn-sm.btn-yellow(href="mobile/flight-return-results.html") BOOK
+
+        .hotel-meta.pull-left
+          .hotel-name.f-bold.text-u-c.text-14px Ocean Suite
+
+          a.block.m-b-xs.m-t-xs(href="mobile/hotel-detail.html")
+            .info-kamar.text-orange Lihat info kamar ini
+
+          .facilities.m-t-xs.m-b-xs
+            .item.m-r-xs
+              i.ico.ico-mobile.ico-adult
+              span.count-adult 2
+            .item.m-r-xs
+              i.ico.ico-mobile.ico-restaurant
+            .item.m-r-xs.bg-white
+              i.ico.ico-wifi
+            .clearfix
+
+          .hotel-price.m-t-md
+            span.currency.f-bold.text-14px Rp
+            span.price.f-bold.text-14px 3,967,000
+            span.night  / night
+        .clearfix

@@ -13,7 +13,7 @@
 
             .col-md-6
               .wrapper-md.bg-gray
-                a.btn.btn-white.m-t-xs(href="#") See Document Details
+                a.btn.btn-white.m-t-xs(href="#", data-toggle="modal", data-target="#documentDetail") See Document Details
 
     .col-md-6
       .type-block
@@ -25,8 +25,30 @@
 
           .col-md-6
             .wrapper-md.bg-gray
-              a.btn.btn-white.m-t-xs(href="#") See Document Details
+              a.btn.btn-white.m-t-xs(href="#", data-toggle="modal", data-target="#documentDetail") See Document Details
     .clearfix
+
+    #documentDetail.modal.fade(tabindex='-1', role='dialog', aria-labelledby='documentDetailLabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-body.m-t-md.m-b-md
+            h4#documentDetailLabel.modal-title.text-u-c.m-l-lg.m-b-md.f-bold Dokumen yang dibutuhkan
+
+            ol.m-b-md
+              li.m-b Passport Asli (Lama &amp; Baru, Berlaku Diatas 6 Bulan)
+              li.m-b Foto 3 Lembar Berwarna Ukuran 3,5 X 4,5 Latar Belakang Putih
+              li.m-b Surat Sponsor
+              li.m-b Surat Referensi Bank
+              li.m-b Fotocopy Bukti Keuangan (3 Bulan Terakhir)
+              li.m-b Fotocopy SIUP (Jika Pemilik)
+              li.m-b Fotocopy KK
+              li.m-b Fotocopy KTP
+              li.m-b Fotocopy Akte Lahir
+              li.m-b Fotocopy Surat Ganti Nama (Jika Ada)
+              li.m-b Konfirmasi Hotel
+              li.m-b Print Out Tiket
+              li.m-b Asuransi Perjalanan
+              li.m-b Tidak Boleh Ada PENDUL ( ALAMAT PENDUDUK LUAR )
 
     .visa-doc-info.m-t-xl
       ul

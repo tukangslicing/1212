@@ -156,8 +156,13 @@
     padding-left: 30px;
   }
 }
-
-.hotel-card {
+.room-card-items {
+  .room-card {
+    padding: 13px 10px;
+  }
+}
+.hotel-card,
+.room-card {
   padding: 10px;
   border-bottom: 1px solid #dadada;
 
@@ -182,7 +187,8 @@
   }
 
   .hotel-name {
-    margin-bottom: 3px
+    margin-bottom: 3px;
+    color: #393030
   }
 
   .info-extra {
@@ -212,10 +218,93 @@
   }
 
   .hotel-price {
-    color: #158ea3;
+
+    .currency,
+    .price {
+      color: #158ea3
+    }
+
+    .night {
+      color: #838383
+    }
 
     .currency {
       margin-right: 3px;
+    }
+  }
+
+  .book-btn-sm {
+    text-align: center;
+    .f-bold;
+    padding: 7px;
+    height: 30px;
+    width: 62px;
+    border: 0;
+    background: #fcbc56;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 3px 0px 0px #cf8309;
+    box-shadow: 0px 3px 0px 0px #cf8309;
+  }
+
+  .facilities {
+    .item {
+      display: block;
+      float: left;
+      height: 18px;
+      vertical-align: middle;
+      border-left: 1px dotted #111;
+      padding:1px 10px;
+
+      &:first-child {
+        padding-left: 0;
+        padding-right: 8px;
+        border-left: 0;
+      }
+
+      span {
+        line-height: 21px;
+        vertical-align: top;
+        margin-left: 5px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.hotel-search-query {
+  .sapta-form {
+    .boxing {
+      border-radius: 0;
+      border-right-width: 0;
+      float: left;
+
+      input, select {
+        color: #ef9630;
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      &.check-in {
+        width: 45%;
+
+        label {
+          margin-bottom: 4px;
+        }
+      }
+
+      &.duration {
+        width: 30%
+      }
+
+      &.room {
+        width: 25%
+      }
+
+      &.room {
+        border-right-width: 1px
+      }
     }
   }
 }
