@@ -2619,6 +2619,83 @@ fieldset[disabled] .form-control.bg-white-only {
     display: inherit !important;
   }
 }
+.animate-spin {
+  -moz-animation: spin 1s infinite linear;
+  -o-animation: spin 1s infinite linear;
+  -webkit-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+  display: inline-block;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
 .ico {
   background: url(../img/icon-bg-green.png);
   background-repeat: no-repeat;
@@ -6093,9 +6170,11 @@ html[xmlns] .flexslider .slides {
 .ssl-message p {
   width: 74%;
 }
+.flight-payment-step-4,
 .flight-payment-step-5 {
   font-size: 13px;
 }
+.flight-payment-step-4 .btn-download-e-ticket,
 .flight-payment-step-5 .btn-download-e-ticket {
   display: inline-block;
   width: 296px;
@@ -6105,70 +6184,94 @@ html[xmlns] .flexslider .slides {
   text-indent: -9999px;
   overflow: hidden;
 }
+.flight-payment-step-4 .section-title,
 .flight-payment-step-5 .section-title {
   font-size: 30px;
   color: #4c4c4c;
 }
+.flight-payment-step-4 .ticket-header,
 .flight-payment-step-5 .ticket-header {
   background: #f4f4f2;
   height: 36px;
   line-height: 36px;
   margin-bottom: 70px;
 }
+.flight-payment-step-4 .ticket-header .order-number,
 .flight-payment-step-5 .ticket-header .order-number {
   width: 160px;
   text-align: center;
 }
+.flight-payment-step-4 .ticket-header .departure,
 .flight-payment-step-5 .ticket-header .departure,
+.flight-payment-step-4 .ticket-header .return,
 .flight-payment-step-5 .ticket-header .return {
   padding-left: 20px;
 }
+.flight-payment-step-4 .ticket-header .departure,
 .flight-payment-step-5 .ticket-header .departure {
   width: 377px;
 }
+.flight-payment-step-4 .ticket-header .departure,
 .flight-payment-step-5 .ticket-header .departure,
+.flight-payment-step-4 .ticket-header .order-number,
 .flight-payment-step-5 .ticket-header .order-number {
   border-right: 2px solid #fff;
 }
+.flight-payment-step-4 .ticket-has-created,
 .flight-payment-step-5 .ticket-has-created {
   background-color: #f4f4f2;
   padding: 35px;
   font-size: 13px;
 }
+.flight-payment-step-4 .waiting-ticket,
+.flight-payment-step-5 .waiting-ticket {
+  background-color: #f4f4f2;
+  padding: 20px 30px 31px 30px;
+  font-size: 13px;
+}
+.flight-payment-step-4 .ssl-message,
 .flight-payment-step-5 .ssl-message {
   border-top: 1px dashed #e5e5e5;
 }
+.flight-payment-step-4 .ssl-message p,
 .flight-payment-step-5 .ssl-message p {
   width: 80%;
   padding-top: 14px;
   font-size: 11px;
 }
+.flight-payment-step-4 .tanda-bukti-pemesanan,
 .flight-payment-step-5 .tanda-bukti-pemesanan {
   padding: 50px 80px;
   -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 2px 6px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 2px 6px 1px rgba(0, 0, 0, 0.1);
 }
+.flight-payment-step-4 .tanda-bukti-pemesanan .f-bold,
 .flight-payment-step-5 .tanda-bukti-pemesanan .f-bold {
   font-size: 15px;
 }
+.flight-payment-step-4 .tanda-bukti-pemesanan .info,
 .flight-payment-step-5 .tanda-bukti-pemesanan .info {
   width: 50%;
   height: 270px;
   border-color: #e6e6e6;
 }
+.flight-payment-step-4 .tanda-bukti-pemesanan .info.right,
 .flight-payment-step-5 .tanda-bukti-pemesanan .info.right {
   padding-left: 48px;
   line-height: 23px;
 }
+.flight-payment-step-4 .tanda-bukti-pemesanan ol,
 .flight-payment-step-5 .tanda-bukti-pemesanan ol {
   margin-left: 0;
   padding-left: 16px;
   width: 100%;
 }
+.flight-payment-step-4 .message-customer-service,
 .flight-payment-step-5 .message-customer-service {
   color: #999;
   font-size: 11px;
 }
+.flight-payment-step-4 .message-customer-service a,
 .flight-payment-step-5 .message-customer-service a {
   color: #ff9966;
 }
