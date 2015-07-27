@@ -1,0 +1,104 @@
+#bankTransferPaymentMethod.hidden.payment-method-block
+
+  h4.section-title.m-t-lg.m-b-md.text-c-l.text-left.text-rounded Bank Transfer
+    span.text-yellow &nbsp;Payment
+
+
+  .bank-tranfer-choose.form-inline.m-b-lg
+    .wrapper-lg.bg-warn-msg.m-b-md.m-t-md
+      strong.f-bold Penting:
+      |  Harap pastikan hanya melakukan transfer ke salah satu rekening Sapta Tour yaitu PT SAPTA TOUR. Personil Sapta Tour tidak akan pernah meminta Anda untuk membuat permintaan transfer ke rekening lain. Harap berhati-hati terhadap penipuan.
+
+    p
+      | Please make sure that you make the payment to the virtual account number below. <br />After the payment’s been made, the E-Ticket will be sent to your email in&nbsp;
+      strong.f-bold 60 minutes
+
+    .bank-account-list.m-t-lg
+      .bank-item.m-b-lg
+        .pull-left.logo.m-r-xl
+          img(src="img/bca-logo.png", alt="BCA", width="80")
+        ul.list-unstyled.pull-left.bank-info
+          li
+            label Nama penerima:
+            span PT. Sapta Tour
+          li
+            label Bank:
+            span Bank Central Asia (BCA)
+          li
+            label Cabang:
+            span KCP Permata Hijau
+          li
+            label No. Rekening:
+            span 084 084 4200
+        .clearfix
+
+      .bank-item.m-b-lg
+        .pull-left.logo.m-r-xl
+          img(src="img/mandiri-logo.png", alt="Mandiri", width="80")
+        ul.list-unstyled.pull-left.bank-info
+          li
+            label Nama penerima:
+            span PT. Sapta Tour
+          li
+            label Bank:
+            span Bank Mandiri
+          li
+            label Cabang:
+            span KCP Permata Hijau
+          li
+            label No. Rekening:
+            span 084 084 4200
+        .clearfix
+
+      .bank-item.m-b-lg
+        .pull-left.logo.m-r-xl
+          img(src="img/bri-logo.png", alt="BRI", width="80")
+        ul.list-unstyled.pull-left.bank-info
+          li
+            label Nama penerima:
+            span PT. Sapta Tour
+          li
+            label Bank:
+            span Bank Rakyat Indonesia (BRI)
+          li
+            label Cabang:
+            span KCP Permata Hijau
+          li
+            label No. Rekening:
+            span 084 084 4200
+        .clearfix
+
+    .f-bold.text-lg.text-u-c.m-b Confirm Payment
+
+    .m-b-lg
+      p Silakan melakukan pembayaran sejumlah Rp 2,500,000 ke salah satu bank yang tercantum di atas.
+      p Setelah itu, Anda dapat melakukan konfirmasi dengan klik tombol di bawah ini.
+
+    .pull-left.m-b-md
+      .boxing.name.b.m-r-md
+        label.block.text-xs Account Name
+        input(type="text", placeholder="Your Account’s Name")
+
+    .pull-left.m-b-md
+      .boxing.bank.selectbox.b.pos-rlt
+        label.block.text-xs Bank
+        select(name="bank")
+          option(selected="selected", value="BCA") BCA
+          option(value="Mandiri") Mandiri
+          option(value="BRI") BRI
+    .clearfix
+
+    .pull-left.m-b-md
+      .boxing.medium.b.m-r-md
+        label.block.text-xs Amount Transfer (IDR)
+        input(type="text", placeholder="Your Account’s Name", value="2500000")
+
+    .pull-left.m-b-md
+      .boxing.order-number.b
+        label.block.text-xs Order Number
+        input(type="text", placeholder="Enter Order Number")
+    .clearfix
+
+    button(type="submit", class="btn btn-primary btn-submit pull-right m-b-lg m-t-md") Confirm Payment
+
+    .clearfix

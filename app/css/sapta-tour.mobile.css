@@ -78,7 +78,8 @@
 }
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
-  animation: fa-spin 2s infinite linear;
+  -o-animation: fa-spin 2s infinite linear;
+     animation: fa-spin 2s infinite linear;
 }
 @-webkit-keyframes fa-spin {
   0% {
@@ -90,52 +91,72 @@
     transform: rotate(359deg);
   }
 }
-@keyframes fa-spin {
+@-o-keyframes fa-spin {
   0% {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+       transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+       transform: rotate(359deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+       transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+       transform: rotate(359deg);
   }
 }
 .fa-rotate-90 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+     transform: rotate(90deg);
 }
 .fa-rotate-180 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+     transform: rotate(180deg);
 }
 .fa-rotate-270 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   -webkit-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
-  transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+     transform: rotate(270deg);
 }
 .fa-flip-horizontal {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
   -webkit-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
-  transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+     transform: scale(-1, 1);
 }
 .fa-flip-vertical {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
   -webkit-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
-  transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+     transform: scale(1, -1);
 }
 :root .fa-rotate-90,
 :root .fa-rotate-180,
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
 :root .fa-flip-vertical {
-  filter: none;
+  -webkit-filter: none;
+          filter: none;
 }
 .fa-stack {
   position: relative;
@@ -1761,7 +1782,8 @@ figure {
 }
 hr {
   -moz-box-sizing: content-box;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   height: 0;
 }
 pre {
@@ -1811,7 +1833,9 @@ input {
 }
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
 }
 input[type="number"]::-webkit-inner-spin-button,
@@ -1941,7 +1965,8 @@ th {
 }
 .ico-is-check {
   background: url(../img/ico-big-check.png) no-repeat 0 0;
-  background-size: 13px 13px;
+  -webkit-background-size: 13px 13px;
+          background-size: 13px 13px;
 }
 .ico-is-uncheck {
   background: url(../img/input-uncheck.png) no-repeat 0 0;
@@ -2346,7 +2371,8 @@ th {
   height: 21px;
   background-image: url(../img/card-american-express.png);
   background-repeat: no-repeat;
-  background-size: 33px 21px;
+  -webkit-background-size: 33px 21px;
+          background-size: 33px 21px;
 }
 .bg-white .ico-visa,
 .bg-transparent .ico-visa {
@@ -2354,7 +2380,8 @@ th {
   height: 21px;
   background-image: url(../img/card-visa.png);
   background-repeat: no-repeat;
-  background-size: 33px 21px;
+  -webkit-background-size: 33px 21px;
+          background-size: 33px 21px;
 }
 .bg-white .ico-master-card,
 .bg-transparent .ico-master-card {
@@ -2362,7 +2389,8 @@ th {
   height: 21px;
   background-image: url(../img/card-master-card.png);
   background-repeat: no-repeat;
-  background-size: 33px 21px;
+  -webkit-background-size: 33px 21px;
+          background-size: 33px 21px;
 }
 .bg-white .ico-pencil,
 .bg-transparent .ico-pencil {
@@ -2452,30 +2480,12 @@ th {
 @-webkit-keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-moz-keyframes spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -2484,14 +2494,12 @@ th {
 @-o-keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -2500,14 +2508,12 @@ th {
 @keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -2521,17 +2527,10 @@ th {
 /* :not(:required) hides this rule from IE9 and below */
 .spinner:not(:required) {
   -webkit-animation: spinner 1500ms infinite linear;
-  -moz-animation: spinner 1500ms infinite linear;
-  -ms-animation: spinner 1500ms infinite linear;
   -o-animation: spinner 1500ms infinite linear;
   animation: spinner 1500ms infinite linear;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -ms-border-radius: 0.5em;
-  -o-border-radius: 0.5em;
   border-radius: 0.5em;
   -webkit-box-shadow: rgba(0, 0, 51, 0.3) 1.5em 0 0 0, rgba(0, 0, 51, 0.3) 1.1em 1.1em 0 0, rgba(0, 0, 51, 0.3) 0 1.5em 0 0, rgba(0, 0, 51, 0.3) -1.1em 1.1em 0 0, rgba(0, 0, 51, 0.3) -1.5em 0 0 0, rgba(0, 0, 51, 0.3) -1.1em -1.1em 0 0, rgba(0, 0, 51, 0.3) 0 -1.5em 0 0, rgba(0, 0, 51, 0.3) 1.1em -1.1em 0 0;
-  -moz-box-shadow: rgba(0, 0, 51, 0.3) 1.5em 0 0 0, rgba(0, 0, 51, 0.3) 1.1em 1.1em 0 0, rgba(0, 0, 51, 0.3) 0 1.5em 0 0, rgba(0, 0, 51, 0.3) -1.1em 1.1em 0 0, rgba(0, 0, 51, 0.3) -1.5em 0 0 0, rgba(0, 0, 51, 0.3) -1.1em -1.1em 0 0, rgba(0, 0, 51, 0.3) 0 -1.5em 0 0, rgba(0, 0, 51, 0.3) 1.1em -1.1em 0 0;
   box-shadow: rgba(0, 0, 51, 0.3) 1.5em 0 0 0, rgba(0, 0, 51, 0.3) 1.1em 1.1em 0 0, rgba(0, 0, 51, 0.3) 0 1.5em 0 0, rgba(0, 0, 51, 0.3) -1.1em 1.1em 0 0, rgba(0, 0, 51, 0.3) -1.5em 0 0 0, rgba(0, 0, 51, 0.3) -1.1em -1.1em 0 0, rgba(0, 0, 51, 0.3) 0 -1.5em 0 0, rgba(0, 0, 51, 0.3) 1.1em -1.1em 0 0;
   display: inline-block;
   font-size: 10px;
@@ -2577,7 +2576,8 @@ th {
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
 }
 .dropdown-menu.pull-right {
   right: 0;
@@ -3890,10 +3890,12 @@ a.text-orange {
   display: inline-block !important;
 }
 .box-shadow {
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
 }
 .box-shadow-none {
-  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 .wrapper-xxs {
   padding: 4px 6px;
@@ -4374,6 +4376,7 @@ button:active {
   border-radius: 3px;
   background-image: -webkit-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
   background-image: -o-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#ffffff));
   background-image: linear-gradient(to bottom, #f4f4f4 0%, #ffffff 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4f4f4', endColorstr='#ffffffff', GradientType=0);
@@ -4648,9 +4651,9 @@ header .menu-trigger {
   width: 50px;
   height: 50px;
   cursor: pointer;
-  -moz-transition: all 300ms;
   -webkit-transition: all 300ms;
-  transition: all 300ms;
+  -o-transition: all 300ms;
+     transition: all 300ms;
   z-index: 9999;
 }
 header .menu-trigger .ico {
@@ -5334,7 +5337,8 @@ footer a {
   padding: 20px 25px;
   margin-bottom: 25px;
   border-radius: 5px;
-  box-shadow: 0px 0px 0px 1px #e99e46, 1px 2px 3px #d8d8d8;
+  -webkit-box-shadow: 0px 0px 0px 1px #e99e46, 1px 2px 3px #d8d8d8;
+          box-shadow: 0px 0px 0px 1px #e99e46, 1px 2px 3px #d8d8d8;
 }
 .sapta-form.form-register .account-login .btn-login,
 .sapta-form.form-register .account-login .btn-fb-login {
@@ -5348,20 +5352,23 @@ footer a {
   width: 60px;
   background: #fff;
   color: #000;
-  box-shadow: 0px 0px 0px 1px #c0c0c0, 0px 1px 1px #d8d8d8;
+  -webkit-box-shadow: 0px 0px 0px 1px #c0c0c0, 0px 1px 1px #d8d8d8;
+          box-shadow: 0px 0px 0px 1px #c0c0c0, 0px 1px 1px #d8d8d8;
 }
 .sapta-form.form-register .account-login .btn-fb-login {
   width: 155px;
   background: #5e76ac;
   color: #fff;
-  box-shadow: 0px 0px 0px 1px #7287b6;
+  -webkit-box-shadow: 0px 0px 0px 1px #7287b6;
+          box-shadow: 0px 0px 0px 1px #7287b6;
 }
 .sapta-form.form-register button {
   width: 100%;
 }
 .btn-download-e-ticket {
   background: url(../img/btn-download-eticket.png) no-repeat 0 0;
-  background-size: 279px 44px;
+  -webkit-background-size: 279px 44px;
+          background-size: 279px 44px;
   width: 279px;
   height: 44px;
   display: inline-block;
@@ -6102,7 +6109,8 @@ footer a {
   padding: 20px 25px;
   margin-bottom: 25px;
   border-radius: 5px;
-  box-shadow: 0px 0px 0px 1px #e99e46, 1px 2px 3px #d8d8d8;
+  -webkit-box-shadow: 0px 0px 0px 1px #e99e46, 1px 2px 3px #d8d8d8;
+          box-shadow: 0px 0px 0px 1px #e99e46, 1px 2px 3px #d8d8d8;
 }
 .flight-booking-block .account-login .btn-login,
 .flight-booking-block .account-login .btn-fb-login {
@@ -6116,13 +6124,15 @@ footer a {
   width: 60px;
   background: #fff;
   color: #000;
-  box-shadow: 0px 0px 0px 1px #c0c0c0, 0px 1px 1px #d8d8d8;
+  -webkit-box-shadow: 0px 0px 0px 1px #c0c0c0, 0px 1px 1px #d8d8d8;
+          box-shadow: 0px 0px 0px 1px #c0c0c0, 0px 1px 1px #d8d8d8;
 }
 .flight-booking-block .account-login .btn-fb-login {
   width: 155px;
   background: #5e76ac;
   color: #fff;
-  box-shadow: 0px 0px 0px 1px #7287b6;
+  -webkit-box-shadow: 0px 0px 0px 1px #7287b6;
+          box-shadow: 0px 0px 0px 1px #7287b6;
 }
 .flight-booking-block .passenger-list {
   background: #eee;
@@ -6527,7 +6537,8 @@ footer a {
   margin-right: 15px;
   height: 10px;
   border-radius: 0;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   background-color: #dedede;
   overflow: hidden;
 }
@@ -6636,7 +6647,8 @@ html.swipebox-html.swipebox-touch {
 }
 #swipebox-slider {
   -webkit-transition: -webkit-transform 0.4s ease;
-  transition: transform 0.4s ease;
+  -o-transition: -o-transform 0.4s ease;
+     transition: transform 0.4s ease;
   height: 100%;
   left: 0;
   top: 0;
@@ -6679,7 +6691,8 @@ html.swipebox-html.swipebox-touch {
   width: 100%;
   padding: 5%;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
 }
 #swipebox-slider .slide .swipebox-video-container .swipebox-video {
   width: 100%;
@@ -6701,7 +6714,8 @@ html.swipebox-html.swipebox-touch {
 #swipebox-bottom-bar,
 #swipebox-top-bar {
   -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -o-transition: 0.5s;
+     transition: 0.5s;
   position: absolute;
   left: 0;
   z-index: 999;
@@ -6769,18 +6783,21 @@ html.swipebox-html.swipebox-touch {
 }
 .swipebox-no-touch #swipebox-overlay.rightSpring #swipebox-slider {
   -webkit-animation: rightSpring 0.3s;
-  animation: rightSpring 0.3s;
+  -o-animation: rightSpring 0.3s;
+     animation: rightSpring 0.3s;
 }
 .swipebox-no-touch #swipebox-overlay.leftSpring #swipebox-slider {
   -webkit-animation: leftSpring 0.3s;
-  animation: leftSpring 0.3s;
+  -o-animation: leftSpring 0.3s;
+     animation: leftSpring 0.3s;
 }
 .swipebox-touch #swipebox-container:before,
 .swipebox-touch #swipebox-container:after {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transition: all .3s ease;
-  transition: all .3s ease;
+  -o-transition: all .3s ease;
+     transition: all .3s ease;
   content: ' ';
   position: absolute;
   z-index: 999;
@@ -6816,6 +6833,17 @@ html.swipebox-html.swipebox-touch {
     left: 0;
   }
 }
+@-o-keyframes rightSpring {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -30px;
+  }
+  100% {
+    left: 0;
+  }
+}
 @keyframes rightSpring {
   0% {
     left: 0;
@@ -6828,6 +6856,17 @@ html.swipebox-html.swipebox-touch {
   }
 }
 @-webkit-keyframes leftSpring {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 30px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@-o-keyframes leftSpring {
   0% {
     left: 0;
   }
@@ -6941,7 +6980,8 @@ html.swipebox-html.swipebox-touch {
 }
 .hotel-booking-block .hotel-detail-info ul {
   webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 3px 3px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 3px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 3px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 3px 3px rgba(0, 0, 0, 0.1);
 }
 .hotel-booking-block .hotel-detail-info li {
   font-size: 14px;
@@ -7023,7 +7063,8 @@ html.swipebox-html.swipebox-touch {
   margin: 0 auto;
   background: #fff;
   webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 3px 3px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 3px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 3px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 3px 3px rgba(0, 0, 0, 0.1);
 }
 .hotel-booking-block .hotel-pricing li {
   font-size: 14px;
@@ -7058,7 +7099,8 @@ html.swipebox-html.swipebox-touch {
   padding: 20px 25px;
   margin-bottom: 25px;
   border-radius: 5px;
-  box-shadow: 0px 0px 0px 1px #e99e46, 1px 2px 3px #d8d8d8;
+  -webkit-box-shadow: 0px 0px 0px 1px #e99e46, 1px 2px 3px #d8d8d8;
+          box-shadow: 0px 0px 0px 1px #e99e46, 1px 2px 3px #d8d8d8;
 }
 .hotel-booking-block .account-login .btn-login,
 .hotel-booking-block .account-login .btn-fb-login {
@@ -7072,13 +7114,15 @@ html.swipebox-html.swipebox-touch {
   width: 60px;
   background: #fff;
   color: #000;
-  box-shadow: 0px 0px 0px 1px #c0c0c0, 0px 1px 1px #d8d8d8;
+  -webkit-box-shadow: 0px 0px 0px 1px #c0c0c0, 0px 1px 1px #d8d8d8;
+          box-shadow: 0px 0px 0px 1px #c0c0c0, 0px 1px 1px #d8d8d8;
 }
 .hotel-booking-block .account-login .btn-fb-login {
   width: 155px;
   background: #5e76ac;
   color: #fff;
-  box-shadow: 0px 0px 0px 1px #7287b6;
+  -webkit-box-shadow: 0px 0px 0px 1px #7287b6;
+          box-shadow: 0px 0px 0px 1px #7287b6;
 }
 .hotel-booking-block .content-block {
   margin-left: -20px;

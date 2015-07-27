@@ -1,0 +1,114 @@
+#creditCartPaymentMethod.payment-method-block
+
+  h4.section-title.m-t-lg.m-b-lg.text-c-l.text-left.text-rounded Credit Card
+    span.text-yellow &nbsp;Payment
+
+  .credit-cart-choose.form-inline.m-b-lg
+
+    .form-inline.m-b-lg
+      .form-group
+        label.m-b-none Select Card Type:
+      .radio.m-l-md.m-r-xs
+        label
+          input(type="radio", value="visa")
+          img.m-l-sm(src="img/card-visa.png", alt="Visa Card", width="50")
+
+      .radio.m-l-sm.m-r-xs
+        label
+          input(type="radio", value="master-card")
+          img.m-l-sm(src="img/card-master-card.png", alt="Master Card", width="50")
+
+      .radio.m-l-sm
+        label
+          input(type="radio", value="american-express")
+          img.m-l-sm(src="img/card-american-express.png", alt="American Express Card", width="50")
+      .clearfix
+
+    .form-group
+      .boxing.cc-number.b.b.m-b-md.m-r-md.inline
+        label.block.text-xs Credit Card Number
+        input.cc-number.credit-card-input(type="tel", autocomplete="cc-number", placeholder="•••• •••• •••• ••••")
+
+      .boxing.b.ccv.b.m-b-md.inline
+        label.block.text-xs CCV 3 Digit
+        input.cc-cvc(type="text", pattern="\d+", name="ccv", maxlength="3", placeholder="XXX")
+      .clearfix
+
+    .form-group.m-b-xl
+      .boxing.selectbox.inline.m-r-md.b.m-t-md.pos-rlt
+        label.block.text-xs Expired on Month
+        select(name="month")
+          option(value="January") January
+          option(value="February") February
+          option(value="March") March
+          option(value="April") April
+          option(value="May") May
+          option(value="June") June
+          option(value="July") July
+          option(value="August") August
+          option(value="September") September
+          option(value="October") October
+          option(value="October") November
+          option(value="Desember", selected="selected") Desember
+
+      .boxing.selectbox.inline.b.m-t-md.pos-rlt
+        label.block.text-xs Expired on Year
+        select(name="year")
+          option 2015
+          option 2016
+          option(selected="selected") 2017
+          option 2018
+          option 2019
+          option 2020
+          option 2021
+
+    h5.f-bold.text-md.text-u-c.block.m-b-sm.m-t-xl Credit Card Billing Address
+
+    .form-group.m-b-none.m-t-sm
+      .boxing.name.b.b.m-b-md.m-r-md.pull-left
+        label.block.text-xs Name as written in Credit Card
+        input.credit-card-input(type="text", value="Esperanza Kumala Wendyono")
+
+      .boxing.selectbox.pull-left.m-r-md.b.pos-rlt
+        label.block.text-xs Country
+        select(name="country")
+          option(value="Indonesia", selected="selected") Indonesia
+          option(value="Singapore") Singapore
+          option(value="Malaysia") Malaysia
+          option(value="Thailand") Thailand
+          option(value="Vietname") Vietname
+          option(value="India") India
+          option(value="Australia") Australia
+      .clearfix
+
+    .form-group.m-b-none
+      .boxing.selectbox.pull-left.m-r-md.b.m-t-xs.pos-rlt
+        label.block.text-xs City
+        select(name="city")
+          option(value="Jakarta", selected="selected") Jakarta
+          option(value="Bandung") Bandung
+          option(value="Surabaya") Surabaya
+          option(value="Medan") Medan
+          option(value="Semarang") Semarang
+
+      .boxing.post-code.b.b.m-t-xs.m-r-md.pull-left
+        label.block.text-xs Post Code
+        input.credit-card-input(type="text", value="11520")
+
+      .boxing.phone-number.b.m-t-xs.b.pull-left
+        label.block.text-xs Phone Number
+        input.credit-card-input(type="text", value="08123456789")
+
+    .form-group.row.m-t-xl.m-b-xl
+      .col-md-8.m-t-md.m-b-md
+        | Dengan mengklik tombol&nbsp;
+        strong.f-bold Make Payment
+        | , Anda telah menyetujui&nbsp;
+        a.text-yellow(href="#") Syarat dan Ketentuan
+        | &nbsp;dan&nbsp;
+        a.text-yellow(href="#") Kebijakan Privasi
+        |  Saptatour.com
+
+      .col-md-4.m-t-md.m-b-md
+        button.pull-right(type="submit", class="btn btn-primary btn-submit pull-right m-b-lg text-md") Make Payment
+        span.block.clearfix

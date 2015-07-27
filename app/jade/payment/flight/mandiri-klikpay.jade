@@ -1,0 +1,65 @@
+#mandiriClikpayPaymentMethod.hidden.payment-method-block
+
+  h4.section-title.m-t-lg.m-b-md.text-c-l.text-left.text-rounded Mandiri ClickPay
+    span.text-yellow &nbsp;Payment
+
+  .bank-tranfer-choose.form-inline.m-t-xl
+    .pull-left.m-b-md
+      .boxing.cc-number.b.b.m-b-md.m-r-md.inline
+        label.block.text-xs Mandiri Debit Card Number
+        input.cc-number.credit-card-input(type="tel", autocomplete="cc-number", placeholder="Enter Your Mandiri Card Number")
+
+    .pull-left.m-b-md
+      img.m-t.m-l-sm(src="img/mandiri-clickpay.png", alt="Mandiri ClickPay Button", height="45")
+
+    .clearfix
+
+    .row.m-b-lg
+      .col-md-6.mandiri-token
+        .f-bold.text-lg.text-u-c.m-b Input Mandiri Token
+
+        ul.list-unstyled.pad-none
+          li.m-t-md
+            label.f-bold APPLI
+            span : 3
+          li.m-t-md
+            label.f-bold Input 1
+            span : (Last 10 digits of your card)
+          li.m-t-md
+            label.f-bold Input 2
+            span : 2500000
+            .block.text-sm.text-dark-light Total Amount
+          li.m-t-md
+            label.f-bold Input 3
+            span : 54279
+            .block.text-sm.text-dark-light Token Request Number
+
+        .boxing.cc-number.b.b.m-t-lg
+          label.block.text-xs Challenge Token
+          input.challenge-token(type="tel", autocomplete="cc-number", placeholder="Enter response from Mandiri Token")
+
+      .col-md-6.payment-instuction
+        .f-bold.text-lg.text-u-c.m-b.m-l Payment Instructions
+
+        ol.pad-none.m-l-lg
+          li.m-t-md
+            span Activate your Mandiri Token by pressing
+          li.m-t-md
+            span Enter your Mandiri Token password
+          li.m-t-md
+            span Press '3' when it displays 'APPLI'
+          li.m-t-md
+            span Enter 'Input 1' and press    for 3 seconds
+          li.m-t-md
+            span Enter 'Input 2' and press    for 3 seconds
+          li.m-t-md
+            span Enter 'Input 3' and press    for 3 seconds
+          li.m-t-md
+            span Put the response code on your Mandiri Token into the 'Challenge Token' field
+
+
+    .clearfix
+
+    button(type="submit", class="btn btn-primary btn-submit pull-right m-b m-t-md") Confirm Payment
+
+    .clearfix

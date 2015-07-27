@@ -1890,6 +1890,9 @@ a.text-orange {
 .text-xs {
   font-size: 9px;
 }
+.text-11 {
+  font-size: 11px;
+}
 .text-ellipsis {
   display: block;
   white-space: nowrap;
@@ -3834,6 +3837,9 @@ html[xmlns] .flexslider .slides {
   font-family: "Gotham Book";
   font-size: 11px;
 }
+.sapta-form .boxing input {
+  margin-bottom: 4px;
+}
 .sapta-form .boxing input,
 .sapta-form .boxing select {
   padding: 0;
@@ -3889,6 +3895,12 @@ html[xmlns] .flexslider .slides {
 .sapta-form .boxing.cc-number {
   width: 320px;
 }
+.sapta-form .boxing.medium {
+  width: 300px;
+}
+.sapta-form .boxing.order-number {
+  width: 340px;
+}
 .sapta-form .boxing.phone-number {
   width: 265px;
 }
@@ -3915,6 +3927,9 @@ html[xmlns] .flexslider .slides {
 }
 .sapta-form .boxing.selectbox select {
   cursor: pointer !important;
+}
+.sapta-form .boxing.selectbox.bank {
+  width: 100px;
 }
 .sapta-form .boxing.passport {
   width: 245px;
@@ -5358,6 +5373,35 @@ html[xmlns] .flexslider .slides {
   right: 0;
   width: 50%;
   height: 100%;
+}
+.booking-page.flight-payment .bank-tranfer-choose {
+  font-size: 13px;
+  line-height: 23px;
+}
+.booking-page.flight-payment .bg-warn-msg {
+  background-color: #ffffcc;
+  line-height: 24px;
+}
+.booking-page.flight-payment .bank-account-list .bank-item {
+  padding-bottom: 25px;
+  border-bottom: 1px dashed #e5e5e5;
+}
+.booking-page.flight-payment .bank-account-list .bank-item li label {
+  margin-bottom: 0;
+  width: 146px;
+}
+.booking-page.flight-payment .bank-account-list .bank-item li span {
+  display: inline-block;
+  margin-left: 5px;
+}
+.booking-page.flight-payment .mandiri-token ul li label {
+  margin-bottom: 0;
+  width: 120px;
+}
+.booking-page.flight-payment .mandiri-token ul li > div {
+  line-height: 18px;
+  width: 100px;
+  font-size: 11px;
 }
 .booking-thank-you {
   padding-top: 30px;

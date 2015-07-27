@@ -221,6 +221,16 @@ $(function () {
     });
 
   })
+
+  $('.payment-method-control input:radio[name=paymentMethod]').change(function (event) {
+    $('.payment-method-block').addClass('hidden');
+
+    var targetPaymentForm = $('input:radio[name=paymentMethod]:checked').data('target');
+
+    $(targetPaymentForm).removeClass('hidden')
+
+  });
+
 })
 
 function isNumber (evt) {

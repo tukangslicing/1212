@@ -5,5 +5,171 @@ include include/mixin
 block main
   mixin headerFlightPayment(3)
 
-  .flight-payment.step-3.p-t-70
-    p
+  .booking-page.flight-payment
+    .wrapping-gray
+    .container.display-table
+      .content-left.display-cell.p-t-70.b-r
+        .flight-payment-step-3
+
+          .m-b-lg
+            img.block.pull-left.m-r-sm.m-t-xs(src="img/ico-big-check.png", alt="")
+            span.block.pull-left.l-h-2x
+              | Pemesanan dan harga untuk&nbsp;
+              strong.f-bold MIss Esperanza Kumala Wendyono
+              |  telah dikonfirmasi.<br /> Mohon selesaikan pembayaran untuk menghindari pembatalan oleh maskapai.
+            span.block.clearfix
+          .dashed.clearfix
+
+          h4.section-title.m-t-lg.m-b-lg.text-c-l.text-left.text-rounded Payment Method
+
+          form.sapta-form.flight-payment(action="flight-payment-step-5.html", method="GET")
+            .payment-method-control.form-inline.m-b-xl
+              .radio.m-t-none.m-b-none.pull-left
+                label.m-b-none
+                  input(type="radio", name="paymentMethod", value="credit-card", checked, data-target="#creditCartPaymentMethod")
+                  span.inline.m-l-sm Credit Card
+              .radio.m-t-none.m-b-none.m-l-lg.pull-left
+                label.m-b-none
+                  input(type="radio", name="paymentMethod", value="bank-transfer", data-target="#bankTransferPaymentMethod")
+                  span.inline.m-l-sm Bank Transfer
+              .radio.m-t-none.m-b-none.m-l-lg.pull-left
+                label.m-b-none
+                  input(type="radio", name="paymentMethod", value="mandiri-klikpay", data-target="#mandiriClikpayPaymentMethod")
+                  span.inline.m-l-sm Mandiri ClikPay
+              .radio.m-t-none.m-b-none.m-l-lg.pull-left
+                label.m-b-none
+                  input(type="radio", name="paymentMethod", value="atm-transfer", data-target="#atmTransferPaymentMethod")
+                  span.inline.m-l-sm ATM Transfer
+
+              .block.clearfix
+            .dashed.clearfix.m-b-xl
+
+            include payment/flight/credit-card
+
+            include payment/flight/bank-transfer
+
+            include payment/flight/mandiri-klikpay
+
+            include payment/flight/atm-transfer
+
+          .dashed.clearfix.m-b-n-md.m-t-lg
+
+          include helpers/ssl-message
+
+      .aside.display-cell.p-t-70.m-b-md
+        ul.list-unstyled.bg-yellow
+          li.text-md
+            span.wrapper.block Order Number&nbsp;
+              strong.f-bold 378938
+
+        ul.list-unstyled.tour-pricing.m-t-lg
+          li
+            span.block.text-md Total Price
+          li
+            span.block.gray.text-u-c Air Asia
+            span.block.light.pull-left 2 Adult
+            span
+              strong.block.pull-right Rp 900.000
+            .clearfix
+          li
+            span.block.gray.text-u-c Air Asia
+            span.block.light.pull-left 2 Adult
+            span
+              strong.block.pull-right Rp 1.500.000
+            .clearfix
+          li
+            span.block.gray.text-u-c Luggage
+            span.block.light.pull-left 20 Kg
+            span
+              strong.block.pull-right Rp 100.000
+            .clearfix
+          li
+            span.block.gray.text-u-c Total Price
+            span.block.text-primary.pricing
+              span.currency Rp
+              span.price
+                span.number 2,500,000
+
+        h5.m-t-lg.m-b-lg.text-rounded Flight Details
+        ul.list-unstyled.tour-ticket.outbound-flight
+          li.text-left
+            span.block.m-l-md.text-md Outbound Flight
+          li.bg-light.bg-white.schedule
+            i.ico.ico-departure
+            span.time 13.00 PM
+            span.inline
+              | Kamis,&nbsp;
+              strong.f-bold 12 Feb ‘15
+            label.text-u-c Jakarta (CGK)
+          li.bg-light.bg-white.schedule
+            i.ico.ico-return
+            span.time 16.00 PM
+            span.inline
+              | Kamis,&nbsp;
+              strong.f-bold 12 Feb ‘15
+            label.text-u-c Denpasar (DPS)
+          li.bg-white.airline
+            img.inline.m-r-sm(src="img/icon_airasia.png", width="30")
+            span.inline Air Asia QZ 888h
+          li.bg-white
+            i.ico.ico-chair
+            span.inline Economy
+          li.bg-white
+            i.ico.ico-adult
+            span.inline
+              span#count-adult 2
+              |  Person
+          li.bg-white
+            i.ico.ico-bag
+            span.inline 20 Kg
+
+         ul.list-unstyled.tour-ticket.inbound-flight.m-t-md
+          li.text-left
+            span.block.m-l-md.text-md Outbound Flight
+          li.bg-light.bg-white.schedule
+            i.ico.ico-departure
+            span.time 13.00 PM
+            span.inline
+              | Kamis,&nbsp;
+              strong.f-bold 22 Feb ‘15
+            label.text-u-c Denpasar (DPS)
+          li.bg-light.bg-white.schedule
+            i.ico.ico-return
+            span.time 16.00 PM
+            span.inline
+              | Kamis,&nbsp;
+              strong.f-bold 22 Feb ‘15
+            label.text-u-c Jakarta (CGK)
+
+          li.bg-white
+            i.ico.ico-marker
+            span.inline Transit: Surabaya
+
+          li.bg-light.bg-white.schedule
+            i.ico.ico-departure
+            span.time 13.00 PM
+            span.inline
+              | Kamis,&nbsp;
+              strong.f-bold 22 Feb ‘15
+            label.text-u-c Denpasar (DPS)
+          li.bg-light.bg-white.schedule
+            i.ico.ico-return
+            span.time 16.00 PM
+            span.inline
+              | Kamis,&nbsp;
+              strong.f-bold 22 Feb ‘15
+            label.text-u-c Jakarta (CGK)
+          li.bg-white.airline
+            img.inline.m-r-sm(src="img/icon_airasia.png", width="30")
+            span.inline Air Asia QZ 888h
+          li.bg-white
+            i.ico.ico-chair
+            span.inline Economy
+          li.bg-white
+            i.ico.ico-adult
+            span.inline
+              span#count-adult 2
+              |  Person
+          li.bg-white
+            i.ico.ico-bag
+            span.inline 20 Kg
