@@ -21,7 +21,7 @@
       <div class="container">
         <div class="navbar-header"><a href="index.html" title="Sapta Tour and Travel" class="navbar-brand md block"><img src="img/sapta-logo-md.png" title="Sapta Tour and Travel"/></a></div>
         <div class="pull-right nav payment-nav">
-          <div class="payment-step payment-step-3"><a href="flight-payment-step-1.html" class="step one">Details</a><a href="flight-payment-step-2.html" class="step two">Review</a><a href="#" class="step three active">Payment</a><a href="flight-payment-step-4.html" class="step four">Process</a><a href="flight-payment-step-5.html" class="step five">E-Ticket</a>
+          <div class="payment-step payment-step-3"><a href="hotel-payment-step-1.html" class="step one">Details</a><a href="hotel-payment-step-2.html" class="step two">Review</a><a href="#" class="step three active">Payment</a><a href="hotel-payment-step-4.html" class="step four">Process</a><a href="hotel-payment-step-5.html" class="step five">E-Ticket</a>
           </div>
         </div>
         <div class="clearfix"></div>
@@ -40,126 +40,228 @@
                 <label class="text-u-c text-md text-black m-b-none f-bold m-r-md pull-left">Select Payment Method</label>
                 <div class="radio m-t-none m-b-none pull-left">
                   <label class="m-b-none">
-                    <input type="radio" name="paymentMethod" value="credit-cart"><span class="inline m-l-sm">Credit Card</span>
+                    <input type="radio" name="paymentMethod" value="credit-cart" checked data-target="#creditCartPaymentMethod"><span class="inline m-l-sm">Credit Card</span>
                   </label>
                 </div>
                 <div class="radio m-t-none m-b-none m-l-lg pull-left">
                   <label class="m-b-none">
-                    <input type="radio" name="paymentMethod" value="bca-bank-tranfer"><span class="inline m-l-sm">BCA bank transfer</span>
+                    <input type="radio" name="paymentMethod" value="bca-bank-tranfer" data-target="#bankTransferPaymentMethod"><span class="inline m-l-sm">BCA bank transfer</span>
                   </label>
                 </div><span class="block clearfix"></span>
               </div>
               <div class="dashed clearfix m-b-xl"></div>
-              <h4 class="section-title m-t-lg m-b-lg text-c-l text-left text-rounded">Credit Card<span class="text-yellow">Payment</span></h4>
-              <div class="credit-cart-choose form-inline m-b-lg">
-                <div class="form-inline m-b-lg">
+              <div id="creditCartPaymentMethod" class="payment-method-block">
+                <h4 class="section-title m-t-lg m-b-lg text-c-l text-left text-rounded">Credit Card<span class="text-yellow">&nbsp;Payment</span></h4>
+                <div class="credit-cart-choose form-inline m-b-lg">
+                  <div class="form-inline m-b-lg">
+                    <div class="form-group">
+                      <label class="m-b-none">Select Card Type:</label>
+                    </div>
+                    <div class="radio m-l-md m-r-xs">
+                      <label>
+                        <input type="radio" value="visa"><img src="img/card-visa.png" alt="Visa Card" width="50" class="m-l-sm">
+                      </label>
+                    </div>
+                    <div class="radio m-l-sm m-r-xs">
+                      <label>
+                        <input type="radio" value="master-card"><img src="img/card-master-card.png" alt="Master Card" width="50" class="m-l-sm">
+                      </label>
+                    </div>
+                    <div class="radio m-l-sm">
+                      <label>
+                        <input type="radio" value="american-express"><img src="img/card-american-express.png" alt="American Express Card" width="50" class="m-l-sm">
+                      </label>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
                   <div class="form-group">
-                    <label class="m-b-none">Select Card Type:</label>
+                    <div class="boxing cc-number b b m-b-md m-r-md inline">
+                      <label class="block text-xs">Credit Card Number</label>
+                      <input type="tel" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" class="cc-number credit-card-input">
+                    </div>
+                    <div class="boxing b ccv b m-b-md inline">
+                      <label class="block text-xs">CCV 3 Digit</label>
+                      <input type="text" pattern="d+" name="ccv" maxlength="3" placeholder="XXX" class="cc-cvc">
+                    </div>
+                    <div class="clearfix"></div>
                   </div>
-                  <div class="radio m-l-md m-r-xs">
-                    <label>
-                      <input type="radio" value="visa"><img src="img/card-visa.png" alt="Visa Card" width="50" class="m-l-sm">
-                    </label>
+                  <div class="form-group m-b-xl">
+                    <div class="boxing selectbox inline m-r-md b m-t-md pos-rlt">
+                      <label class="block text-xs">Expired on Month</label>
+                      <select name="month">
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="October">November</option>
+                        <option value="Desember" selected="selected">Desember</option>
+                      </select>
+                    </div>
+                    <div class="boxing selectbox inline b m-t-md pos-rlt">
+                      <label class="block text-xs">Expired on Year</label>
+                      <select name="year">
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option selected="selected">2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                      </select>
+                    </div>
                   </div>
-                  <div class="radio m-l-sm m-r-xs">
-                    <label>
-                      <input type="radio" value="master-card"><img src="img/card-master-card.png" alt="Master Card" width="50" class="m-l-sm">
-                    </label>
+                  <h5 class="f-bold text-md text-u-c block m-b-sm m-t-xl">Credit Card Billing Address</h5>
+                  <div class="form-group m-b-none m-t-sm">
+                    <div class="boxing name b b m-b-md m-r-md pull-left">
+                      <label class="block text-xs">Name as written in Credit Card</label>
+                      <input type="text" value="Esperanza Kumala Wendyono" class="credit-card-input">
+                    </div>
+                    <div class="boxing selectbox pull-left m-r-md b pos-rlt">
+                      <label class="block text-xs">Country</label>
+                      <select name="country">
+                        <option value="Indonesia" selected="selected">Indonesia</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Vietname">Vietname</option>
+                        <option value="India">India</option>
+                        <option value="Australia">Australia</option>
+                      </select>
+                    </div>
+                    <div class="clearfix"></div>
                   </div>
-                  <div class="radio m-l-sm">
-                    <label>
-                      <input type="radio" value="american-express"><img src="img/card-american-express.png" alt="American Express Card" width="50" class="m-l-sm">
-                    </label>
+                  <div class="form-group m-b-none">
+                    <div class="boxing selectbox pull-left m-r-md b m-t-xs pos-rlt">
+                      <label class="block text-xs">City</label>
+                      <select name="city">
+                        <option value="Jakarta" selected="selected">Jakarta</option>
+                        <option value="Bandung">Bandung</option>
+                        <option value="Surabaya">Surabaya</option>
+                        <option value="Medan">Medan</option>
+                        <option value="Semarang">Semarang</option>
+                      </select>
+                    </div>
+                    <div class="boxing post-code b b m-t-xs m-r-md pull-left">
+                      <label class="block text-xs">Post Code</label>
+                      <input type="text" value="11520" class="credit-card-input">
+                    </div>
+                    <div class="boxing phone-number b m-t-xs b pull-left">
+                      <label class="block text-xs">Phone Number</label>
+                      <input type="text" value="08123456789" class="credit-card-input">
+                    </div>
+                  </div>
+                  <div class="form-group row m-t-xl m-b-xl">
+                    <div class="col-md-8 m-t-md m-b-md">Dengan mengklik tombol&nbsp;<strong class="f-bold">Make Payment</strong>, Anda telah menyetujui&nbsp;<a href="#" class="text-yellow">Syarat dan Ketentuan</a>&nbsp;dan&nbsp;<a href="#" class="text-yellow">Kebijakan Privasi</a> Saptatour.com</div>
+                    <div class="col-md-4 m-t-md m-b-md">
+                      <button type="submit" class="pull-right btn btn-primary btn-submit pull-right m-b-lg text-md">Make Payment</button><span class="block clearfix"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="bankTransferPaymentMethod" class="hidden payment-method-block">
+                <h4 class="section-title m-t-lg m-b-md text-c-l text-left text-rounded">Bank Transfer<span class="text-yellow">&nbsp;Payment</span></h4>
+                <div class="bank-tranfer-choose form-inline m-b-lg">
+                  <div class="wrapper-lg bg-warn-msg m-b-md m-t-md"><strong class="f-bold">Penting:</strong> Harap pastikan hanya melakukan transfer ke salah satu rekening Sapta Tour yaitu PT SAPTA TOUR. Personil Sapta Tour tidak akan pernah meminta Anda untuk membuat permintaan transfer ke rekening lain. Harap berhati-hati terhadap penipuan.</div>
+                  <p>Please make sure that you make the payment to the virtual account number below. <br />After the payment’s been made, the E-Ticket will be sent to your email in&nbsp;<strong class="f-bold">60 minutes</strong></p>
+                  <div class="bank-account-list m-t-lg">
+                    <div class="bank-item m-b-lg">
+                      <div class="pull-left logo m-r-xl"><img src="img/bca-logo.png" alt="BCA" width="80"></div>
+                      <ul class="list-unstyled pull-left bank-info">
+                        <li>
+                          <label>Nama penerima:</label><span>PT. Sapta Tour</span>
+                        </li>
+                        <li>
+                          <label>Bank:</label><span>Bank Central Asia (BCA)</span>
+                        </li>
+                        <li>
+                          <label>Cabang:</label><span>KCP Permata Hijau</span>
+                        </li>
+                        <li>
+                          <label>No. Rekening:</label><span>084 084 4200</span>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="bank-item m-b-lg">
+                      <div class="pull-left logo m-r-xl"><img src="img/mandiri-logo.png" alt="Mandiri" width="80"></div>
+                      <ul class="list-unstyled pull-left bank-info">
+                        <li>
+                          <label>Nama penerima:</label><span>PT. Sapta Tour</span>
+                        </li>
+                        <li>
+                          <label>Bank:</label><span>Bank Mandiri</span>
+                        </li>
+                        <li>
+                          <label>Cabang:</label><span>KCP Permata Hijau</span>
+                        </li>
+                        <li>
+                          <label>No. Rekening:</label><span>084 084 4200</span>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="bank-item m-b-lg">
+                      <div class="pull-left logo m-r-xl"><img src="img/bri-logo.png" alt="BRI" width="80"></div>
+                      <ul class="list-unstyled pull-left bank-info">
+                        <li>
+                          <label>Nama penerima:</label><span>PT. Sapta Tour</span>
+                        </li>
+                        <li>
+                          <label>Bank:</label><span>Bank Rakyat Indonesia (BRI)</span>
+                        </li>
+                        <li>
+                          <label>Cabang:</label><span>KCP Permata Hijau</span>
+                        </li>
+                        <li>
+                          <label>No. Rekening:</label><span>084 084 4200</span>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                  <div class="f-bold text-lg text-u-c m-b">Confirm Payment</div>
+                  <div class="m-b-lg">
+                    <p>Silakan melakukan pembayaran sejumlah Rp 2,500,000 ke salah satu bank yang tercantum di atas.</p>
+                    <p>Setelah itu, Anda dapat melakukan konfirmasi dengan klik tombol di bawah ini.</p>
+                  </div>
+                  <div class="pull-left m-b-md">
+                    <div class="boxing name b m-r-md">
+                      <label class="block text-xs">Account Name</label>
+                      <input type="text" placeholder="Your Account’s Name">
+                    </div>
+                  </div>
+                  <div class="pull-left m-b-md">
+                    <div class="boxing bank selectbox b pos-rlt">
+                      <label class="block text-xs">Bank</label>
+                      <select name="bank">
+                        <option selected="selected" value="BCA">BCA</option>
+                        <option value="Mandiri">Mandiri</option>
+                        <option value="BRI">BRI</option>
+                      </select>
+                    </div>
                   </div>
                   <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                  <div class="boxing cc-number b b m-b-md m-r-md inline">
-                    <label class="block text-xs">Credit Card Number</label>
-                    <input type="tel" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" class="cc-number credit-card-input">
+                  <div class="pull-left m-b-md">
+                    <div class="boxing medium b m-r-md">
+                      <label class="block text-xs">Amount Transfer (IDR)</label>
+                      <input type="text" placeholder="Your Account’s Name" value="2500000">
+                    </div>
                   </div>
-                  <div class="boxing b ccv b m-b-md inline">
-                    <label class="block text-xs">CCV 3 Digit</label>
-                    <input type="text" pattern="d+" name="ccv" maxlength="3" placeholder="XXX" class="cc-cvc">
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="form-group m-b-xl">
-                  <div class="boxing selectbox inline m-r-md b m-t-md pos-rlt">
-                    <label class="block text-xs">Expired on Month</label>
-                    <select name="month">
-                      <option value="January">January</option>
-                      <option value="February">February</option>
-                      <option value="March">March</option>
-                      <option value="April">April</option>
-                      <option value="May">May</option>
-                      <option value="June">June</option>
-                      <option value="July">July</option>
-                      <option value="August">August</option>
-                      <option value="September">September</option>
-                      <option value="October">October</option>
-                      <option value="October">November</option>
-                      <option value="Desember" selected="selected">Desember</option>
-                    </select>
-                  </div>
-                  <div class="boxing selectbox inline b m-t-md pos-rlt">
-                    <label class="block text-xs">Expired on Year</label>
-                    <select name="year">
-                      <option>2015</option>
-                      <option>2016</option>
-                      <option selected="selected">2017</option>
-                      <option>2018</option>
-                      <option>2019</option>
-                      <option>2020</option>
-                      <option>2021</option>
-                    </select>
-                  </div>
-                </div>
-                <h5 class="f-bold text-md text-u-c block m-b-sm m-t-xl">Credit Card Billing Address</h5>
-                <div class="form-group m-b-none m-t-sm">
-                  <div class="boxing name b b m-b-md m-r-md pull-left">
-                    <label class="block text-xs">Name as written in Credit Card</label>
-                    <input type="text" value="Esperanza Kumala Wendyono" class="credit-card-input">
-                  </div>
-                  <div class="boxing selectbox pull-left m-r-md b pos-rlt">
-                    <label class="block text-xs">Country</label>
-                    <select name="country">
-                      <option value="Indonesia" selected="selected">Indonesia</option>
-                      <option value="Singapore">Singapore</option>
-                      <option value="Malaysia">Malaysia</option>
-                      <option value="Thailand">Thailand</option>
-                      <option value="Vietname">Vietname</option>
-                      <option value="India">India</option>
-                      <option value="Australia">Australia</option>
-                    </select>
+                  <div class="pull-left m-b-md">
+                    <div class="boxing order-number b">
+                      <label class="block text-xs">Order Number</label>
+                      <input type="text" placeholder="Enter Order Number">
+                    </div>
                   </div>
                   <div class="clearfix"></div>
-                </div>
-                <div class="form-group m-b-none">
-                  <div class="boxing selectbox pull-left m-r-md b m-t-xs pos-rlt">
-                    <label class="block text-xs">City</label>
-                    <select name="city">
-                      <option value="Jakarta" selected="selected">Jakarta</option>
-                      <option value="Bandung">Bandung</option>
-                      <option value="Surabaya">Surabaya</option>
-                      <option value="Medan">Medan</option>
-                      <option value="Semarang">Semarang</option>
-                    </select>
-                  </div>
-                  <div class="boxing post-code b b m-t-xs m-r-md pull-left">
-                    <label class="block text-xs">Post Code</label>
-                    <input type="text" value="11520" class="credit-card-input">
-                  </div>
-                  <div class="boxing phone-number b m-t-xs b pull-left">
-                    <label class="block text-xs">Phone Number</label>
-                    <input type="text" value="08123456789" class="credit-card-input">
-                  </div>
-                </div>
-                <div class="form-group row m-t-xl m-b-xl">
-                  <div class="col-md-8 m-t-md m-b-md">Dengan mengklik tombol&nbsp;<strong class="f-bold">Make Payment</strong>, Anda telah menyetujui&nbsp;<a href="#" class="text-yellow">Syarat dan Ketentuan</a>&nbsp;dan&nbsp;<a href="#" class="text-yellow">Kebijakan Privasi</a> Saptatour.com</div>
-                  <div class="col-md-4 m-t-md m-b-md">
-                    <button type="submit" class="pull-right btn btn-primary btn-submit pull-right m-b-lg text-md">Make Payment</button><span class="block clearfix"></span>
-                  </div>
+                  <button type="submit" class="btn btn-primary btn-submit pull-right m-b-lg m-t-md">Confirm Payment</button>
+                  <div class="clearfix"></div>
                 </div>
               </div>
             </form>

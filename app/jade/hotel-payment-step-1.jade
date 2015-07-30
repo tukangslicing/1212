@@ -1,0 +1,144 @@
+extends layouts/default
+
+include include/mixin
+
+block main
+  mixin headerHotelPayment(1)
+
+  .booking-page.hotel-payment
+    .wrapping-gray
+    .container.display-table
+      .content-left.display-cell.p-t-70.b-r
+        .hotel-payment-step-1
+
+          form.sapta-form.booking(action="hotel-payment-step-2.html")
+            h4.section-title.m-t-none.m-b-lg.text-c-l.text-left.text-rounded Contact&nbsp;
+              span.text-yellow Details
+
+            .form-group
+              .boxing.name.b.m-t-md
+                label.block.text-xs Name
+                input(type="text", value="Anissa Sudirman")
+
+              .boxing.phone-number.b.m-t-md.m-r-md.pull-left
+                label.block.text-xs Phone Number
+                input(type="text", value="", placeholder="+62 (home or mobile number)")
+
+              .boxing.email.b.m-t-md.pull-left
+                label.block.text-xs Email
+                input(type="text", value="Anissa@gmail.com")
+              .clearfix
+
+              .boxing.name.pull-left.b.m-t-md
+                label.block.text-xs Guest’s Name
+                input(type="text", placeholder="Type Full Name")
+
+              .pull-left.checkbox.m-l-md.m-b-none
+                .wrapper-md
+                label.m-b-none.block.m-t
+                  input(type="checkbox", name="sameAsContact")
+                  span.inline.m-l-xs Same as Contact’s name
+              .clearfix
+
+            .dashed.clearfix.m-b-lg.m-t-lg
+
+            .boxing.message.b.m-t-md.m-b-lg
+              label.block.text-xs Let us know if there’s any other comments or requests about this booking
+              textarea.message(placeholder="Type Message")
+
+            p.m-r-xl
+              strong.f-bold Catatan:
+              |  Permintaan spesifik bergantung pada ketersediaan setiap hotel dan tidak dapat dijamin. Check-in awal atau Transfer Bandara dapat menimbulkan biaya ekstra. Silakan hubungi pihak hotel untuk memastikan.
+
+            .dashed.clearfix.m-b-lg.m-t-lg
+
+            h5.f-bold.text-md.text-u-c.m-b Need to Know
+
+            p.m-b-xs Check in time is 14.00 hrs and check out time is 12.00 noon.
+            ul.list-unstyled.m-t-none.m-b-md
+              li.m-b-xs - No extra bed allowed on the room.
+              li.m-b-xs - Cancellation fees and no show penalties apply. No show as well as early departure will be subject to full room night charge.
+              li.m-b-xs - Day use/late check out until 18.00hrs will be charged 50% from the contract rates and confirmation is based on the availability only..
+
+            h5.f-bold.text-md.text-u-c.m-b Cancelation Policy
+
+            p Gratis biaya pembatalan sampai 01 Feb 2015 23:59 waktu hotel setempat.
+
+            .dashed.clearfix.m-b-lg.m-t-lg
+
+            button(type="submit", class="btn btn-primary btn-submit pull-right m-b-lg") Continue
+
+            .clearfix
+
+          include helpers/ssl-message
+
+      .aside.display-cell.p-t-70
+        ul.list-unstyled.bg-yellow
+          li.text-md
+            span.wrapper.block
+              strong.f-bold Order Number&nbsp;
+              strong.f-light 378938
+
+        ul.list-unstyled.hotel-booking-summary.m-t-lg
+          li
+            .block.bg-white.text-center
+              span.block.text-md.text-center.m-b-xs Pan Pacific Nirwana Resort Bali
+              span.block.bg-white
+                i.ico.ico-star
+                i.ico.ico-star
+                i.ico.ico-star
+                i.ico.ico-star
+                i.ico.ico-star
+          li.bg-light
+            .block.m-t-sm
+              img.m-auto.block(src="img/destinations/room02.jpg", width="122", height="122")
+              span.block.f-bold.m-t-sm.text-center Twin Room Standard
+
+          li
+            .block.bg-white
+              i.ico.ico-time
+              span.inline.light 2 Nights
+
+          li
+            .block.bg-white.hotel-check-in-date
+              i.ico.ico-hotel-in
+              span.light Kamis,
+              span.f-bold 12 Feb '15
+
+          li
+            .block.bg-white.hotel-check-in-date
+              i.ico.ico-hotel-out
+              span.light Kamis,
+              span.f-bold 12 Feb '15
+
+          li
+            .block.bg-white
+              i.ico.ico-adult
+              span.inline
+                span#count-adult 2
+                |  Person
+
+          li
+            .block.bg-white.room-count-block
+              i.ico.ico-room
+              span.inline
+                span#count-room 1
+                |  Rooms
+
+        ul.list-unstyled.tour-pricing.m-t-lg
+          li
+            span.block Total Price
+          li
+            span.block.gray.text-u-c Twin Room Standard
+            span.block.light 2 x USD 150
+            strong.block $ 300
+          li
+            span.block.gray.text-u-c Tax Fee
+            strong.block $ 50
+          li.bg-light
+            span.block.gray.text-u-c Total Price
+            span.block.text-primary.pricing
+              span.currency USD
+              span.price
+                span $
+                span.number 7020
