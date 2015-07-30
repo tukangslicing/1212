@@ -3609,5 +3609,14 @@ $(function () {
     afterClose: function () {}, // called after closing
     loopAtEnd: false // true will return to the first image after the last image is reached
   });
+
+  $('.payment-type input:radio[name=paymentMethod]').change(function (event) {
+    $('.payment-method-block').addClass('hidden');
+
+    var targetPaymentForm = $('input:radio[name=paymentMethod]:checked').data('target');
+
+    $(targetPaymentForm).removeClass('hidden')
+
+  });
 })
 
