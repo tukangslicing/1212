@@ -6223,17 +6223,20 @@ footer a {
   border-right-width: 1px;
 }
 .tour-tabs,
-.hotel-tabs {
+.hotel-tabs,
+.static-page-tabs {
   margin: 0 auto;
 }
 .tour-tabs .nav-tabs,
-.hotel-tabs .nav-tabs {
+.hotel-tabs .nav-tabs,
+.static-page-tabs .nav-tabs {
   padding-left: 0;
   margin: 0;
   list-style: none;
 }
 .tour-tabs .nav-tabs > li,
-.hotel-tabs .nav-tabs > li {
+.hotel-tabs .nav-tabs > li,
+.static-page-tabs .nav-tabs > li {
   position: relative;
   display: block;
   float: left;
@@ -6243,19 +6246,23 @@ footer a {
   width: 25%;
 }
 .tour-tabs .nav-tabs > li.active,
-.hotel-tabs .nav-tabs > li.active {
+.hotel-tabs .nav-tabs > li.active,
+.static-page-tabs .nav-tabs > li.active {
   border-bottom: 0;
 }
 .tour-tabs .nav-tabs > li.active > a,
-.hotel-tabs .nav-tabs > li.active > a {
+.hotel-tabs .nav-tabs > li.active > a,
+.static-page-tabs .nav-tabs > li.active > a {
   background: #fff;
 }
 .tour-tabs .nav-tabs > li:first-child,
-.hotel-tabs .nav-tabs > li:first-child {
+.hotel-tabs .nav-tabs > li:first-child,
+.static-page-tabs .nav-tabs > li:first-child {
   border-left: 0;
 }
 .tour-tabs .nav-tabs > li > a,
-.hotel-tabs .nav-tabs > li > a {
+.hotel-tabs .nav-tabs > li > a,
+.static-page-tabs .nav-tabs > li > a {
   display: block;
   background: #f4f4f4;
   line-height: 47px;
@@ -6264,15 +6271,28 @@ footer a {
   color: #393030;
 }
 .tour-tabs .nav-tabs:after,
-.hotel-tabs .nav-tabs:after {
+.hotel-tabs .nav-tabs:after,
+.static-page-tabs .nav-tabs:after {
   clear: both;
 }
 .tour-tabs .nav-tabs:after,
 .hotel-tabs .nav-tabs:after,
+.static-page-tabs .nav-tabs:after,
 .tour-tabs .nav-tabs:before,
-.hotel-tabs .nav-tabs:before {
+.hotel-tabs .nav-tabs:before,
+.static-page-tabs .nav-tabs:before {
   display: table;
   content: " ";
+}
+.static-page-tabs {
+  border-color: #ddd;
+}
+.static-page-tabs ul.nav-tabs > li {
+  width: 33.3%;
+}
+#page-visa-document .flag-item {
+  -webkit-box-shadow: 0px 1px 4px rgba(216, 216, 216, 0.5);
+  box-shadow: 0px 1px 4px rgba(216, 216, 216, 0.5);
 }
 .tab-content {
   padding: 0;
@@ -7940,6 +7960,18 @@ html.swipebox-html.swipebox-touch {
 .static-page .wrapper p {
   color: #5a5353;
   line-height: 22px;
+}
+.static-page .heading-static-page {
+  height: 111px;
+  width: 100%;
+  background: url(../img/mobile/bg-heading-static-page.png) repeat-x center center;
+}
+.static-page .heading-static-page .title-page {
+  padding: 6px 0 0 0;
+  margin: 0;
+  color: #fff;
+  font-size: 17px;
+  line-height: 111px;
 }
 .blog-post-list .item {
   height: 131px;
