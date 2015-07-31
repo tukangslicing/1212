@@ -22,7 +22,7 @@
         <div class="navbar-header"><a href="index.html" title="TS Starter" class="navbar-brand"><img src="img/sapta-tour-logo.png" title="TS Starter"/></a></div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav main-menu">
-            <li class="menu-tours-form"><a href="tours.html"><i class="ico ico-tours"></i><span class="block">TOURS</span></a>
+            <li class="menu-tours-form active"><a href="tours.html"><i class="ico ico-tours"></i><span class="block">TOURS</span></a>
               <div class="tour-form inline-text pos-abt form">
                 <form action="" method="POST" autocomplete="off" class="container">
                   <div class="left">
@@ -61,7 +61,7 @@
                 </form>
               </div>
             </li>
-            <li class="active menu-hotels-form"><a href="hotels-search.html" class="hotel"><i class="ico ico-hotel"></i><span class="block">BOOK HOTELS</span></a>
+            <li class="menu-hotels-form"><a href="hotels-search.html" class="hotel"><i class="ico ico-hotel"></i><span class="block">BOOK HOTELS</span></a>
               <div class="hotel-form inline-text pos-abt form">
                 <form action="" method="POST" autocomplete="off" class="container">
                   <div class="left">
@@ -87,59 +87,79 @@
         <div class="clearfix"></div>
       </div>
     </div>
-    <div class="hotel-page p-t-70">
-      <div class="container m-t-xl m-b-xl">
-        <div class="row">
-          <h2 class="head-title text-left text-rounded col-xs-6 m-t-none">Search<span class="text-yellow"> Results</span></h2>
-          <div class="text-left text-rounded col-xs-6 text-right"><a href="hotels.html" class="text-orange m-t-sm block">&#8592; BACK TO HOTELS</a></div>
-        </div>
-        <div class="m-t-md search-result-empty">Sorry, we can’t find any flight for your destination for now. Please try again later or enter a different search.</div>
+    <div class="p-t-70 container m-t-xl m-b-xl">
+      <div class="row">
+        <h2 class="head-title text-left text-rounded col-xs-6 m-t-none">Search<span class="text-yellow"> Results</span></h2>
+        <div class="text-left text-rounded col-xs-6 text-right"><a href="tours.html" class="text-orange m-t-sm block">&#8592; BACK TO TOURS</a></div>
       </div>
-      <div class="container m-t-xl m-b-xl">
-        <div class="row">
-          <h2 class="head-title text-left text-rounded col-xs-6 m-t-none">Popular<span class="text-yellow"> Hotels</span></h2>
-        </div>
-        <div class="popular-hotel-on-empty-results m-b-xl">
-          <div class="row">
-            <div class="col-md-6 m-t-md">
-              <div class="hotel-item">
-                <div class="column pull-left picture-thumb pos-rlt"><a href="#"><img src="img/destinations/hotel02.jpg" alt=""></a></div>
-                <div class="column pull-left hotel-info"><span class="block f-bold text-u-c hotel-name m-b-xs">W Retreat &amp; Spa Bali Seminyak</span><span class="block f-light location">Seminyak / Kerobokan</span><span class="block hotel-star bg-white m-t-sm"><i class="ico ico-star"></i><i class="ico ico-star"></i><i class="ico ico-star"></i><i class="ico ico-star"></i><i class="ico ico-star"></i><span class="inline m-l-xs m-t-n-xs">Hotel</span></span>
-                  <div class="fasilitas pos-abt"><span class="bg-white"><i class="ico ico-wifi"></i><span>&nbsp;Free Wi-Fi</span></span></div>
-                </div>
+      <div class="m-t-md search-result-empty">Sorry, we can’t find any flight for your destination for now. Please try again later or enter a different search.</div>
+    </div>
+    <div class="container m-t-xl m-b-xl">
+      <h2 class="head-title text-rounded">Popular<span class="text-yellow"> Destinations</span></h2>
+      <div class="tour-list-popular-empty-results m-t-md">
+        <div class="tour-item col-md-4">
+          <div class="pos-rlt wrapping">
+            <figure><img src="img/destinations/Maldives.jpg" alt=""></figure>
+            <div class="dealinfo">
+              <div class="wrapper-md">
+                <label class="text-light text-sm text-u-c block">Europe</label><a href="tour-detail.html" class="text-lg title text-u-c">Russia Scandinavia</a>
               </div>
+              <div class="bg-white pos-rtl"><a href="tour-detail.html" class="days-trip tour text-center"><i class="ico ico-time"></i><span class="count">7</span>
+                  <label class="text-u-c text-sm">DAYS</label></a><a href="tour-detail.html" class="pricing tour text-center">
+                  <label class="block text-u-c">FROM</label><span class="currency"> $</span><span class="price">400</span></a></div>
             </div>
-            <div class="col-md-6 m-t-md">
-              <div class="hotel-item">
-                <div class="column pull-left picture-thumb pos-rlt"><a href="#"><img src="img/destinations/hotel04.jpg" alt=""></a></div>
-                <div class="column pull-left hotel-info"><span class="block f-bold text-u-c hotel-name m-b-xs">ALILA VILLAS ULUWATU</span><span class="block f-light location">Uluwatu</span><span class="block hotel-star bg-white m-t-sm"><i class="ico ico-star"></i><i class="ico ico-star"></i><i class="ico ico-star"></i><i class="ico ico-star"></i><i class="ico ico-star"></i><span class="inline m-l-xs m-t-n-xs">Hotel</span></span>
-                  <div class="fasilitas pos-abt"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 m-t-md">
-              <div class="hotel-item">
-                <div class="column pull-left picture-thumb pos-rlt"><a href="#"><img src="img/destinations/hotel01.jpg" alt=""></a></div>
-                <div class="column pull-left hotel-info"><span class="block f-bold text-u-c hotel-name m-b-xs">AYANA RESORT & SPA</span><span class="block f-light location">Jimbaran</span><span class="block hotel-star bg-white m-t-sm"><i class="ico ico-star"></i><i class="ico ico-star"></i><i class="ico ico-star"></i><i class="ico ico-star"></i><i class="ico ico-star"></i><span class="inline m-l-xs m-t-n-xs">Hotel</span></span>
-                  <div class="fasilitas pos-abt"><span class="bg-white"><i class="ico ico-wifi"></i><span>&nbsp;Free Wi-Fi</span></span></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 m-t-md">
-              <div class="hotel-item">
-                <div class="column pull-left picture-thumb pos-rlt"><a href="#"><img src="img/destinations/hotel05.jpg" alt=""></a></div>
-                <div class="column pull-left hotel-info"><span class="block f-bold text-u-c hotel-name m-b-xs">NUSA DUA BEACH HOTEL SPA</span><span class="block f-light location">Nusa Dua / Benoa</span><span class="block hotel-star bg-white m-t-sm"><i class="ico ico-star"></i><i class="ico ico-star"></i><i class="ico ico-star"></i><i class="ico ico-star"></i><i class="ico ico-star"></i><span class="inline m-l-xs m-t-n-xs">Hotel</span></span>
-                  <div class="fasilitas pos-abt"><span class="bg-white"><i class="ico ico-wifi"></i><span>&nbsp;Free Wi-Fi</span></span></div>
-                </div>
+            <div class="rollover bg-orange pos-abt">
+              <div class="wrapper-lg text-center bg-white">
+                <div class="ico ico-hotel"></div>
+                <div class="cities block m-t-sm m-b-lg"><a href="tour-detail.html" class="inline">Dubai</a><a href="tour-detail.html" class="inline">Moscow</a><a href="tour-detail.html" class="inline">St. Petersburg</a><a href="tour-detail.html" class="inline">Helsinki</a><a href="tour-detail.html" class="inline">Stockholm</a><a href="tour-detail.html" class="inline">Karlstad</a><a href="tour-detail.html" class="inline">Hamar</a><a href="tour-detail.html" class="inline">Flam</a><a href="tour-detail.html" class="inline">Gudvangen</a><a href="tour-detail.html" class="inline">Flam</a><a href="tour-detail.html" class="inline">Voss</a><a href="tour-detail.html" class="inline">Bergen</a><a href="tour-detail.html" class="inline">Bruravik</a><a href="tour-detail.html" class="inline">Geilo</a><a href="tour-detail.html" class="inline">Oslo</a><a href="tour-detail.html" class="inline">Copenhagen</a></div>
+                <div class="ico ico-calendar"></div>
+                <div class="calendar m-t-sm m-b-lg"><a href="tour-detail.html" class="inline">08 Mar</a><a href="tour-detail.html" class="inline">15 Mar</a><a href="tour-detail.html" class="inline">24 Mar</a><a href="tour-detail.html" class="inline">30 Mar</a><a href="tour-detail.html" class="inline">31 Mar</a></div><a href="tour-detail.html" class="text-u-c more-details">Click for More Details</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="tip-inquiry">
-        <div class="container bg-white"><i class="ico ico-luggage"></i><span class="big m-l m-r">Couldn’t find your destination ?</span><span class="small">Let us create a Custom trip just for you</span><a href="#" class="btn btn-white pull-right">Yes, Please</a></div>
+        <div class="tour-item col-md-4">
+          <div class="pos-rlt wrapping">
+            <figure><img src="img/destinations/Hong-Kong_vew_sunset.jpg" alt=""></figure>
+            <div class="dealinfo">
+              <div class="wrapper-md">
+                <label class="text-light text-sm text-u-c block">Europe</label><a href="tour-detail.html" class="text-lg title text-u-c">Russia Scandinavia</a>
+              </div>
+              <div class="bg-white pos-rtl"><a href="tour-detail.html" class="days-trip tour text-center"><i class="ico ico-time"></i><span class="count">7</span>
+                  <label class="text-u-c text-sm">DAYS</label></a><a href="tour-detail.html" class="pricing tour text-center">
+                  <label class="block text-u-c">FROM</label><span class="currency"> $</span><span class="price">400</span></a></div>
+            </div>
+            <div class="rollover bg-orange pos-abt">
+              <div class="wrapper-lg text-center bg-white">
+                <div class="ico ico-hotel"></div>
+                <div class="cities block m-t-sm m-b-lg"><a href="tour-detail.html" class="inline">Dubai</a><a href="tour-detail.html" class="inline">Moscow</a><a href="tour-detail.html" class="inline">St. Petersburg</a><a href="tour-detail.html" class="inline">Helsinki</a><a href="tour-detail.html" class="inline">Stockholm</a><a href="tour-detail.html" class="inline">Karlstad</a><a href="tour-detail.html" class="inline">Hamar</a><a href="tour-detail.html" class="inline">Flam</a><a href="tour-detail.html" class="inline">Gudvangen</a><a href="tour-detail.html" class="inline">Flam</a><a href="tour-detail.html" class="inline">Voss</a><a href="tour-detail.html" class="inline">Bergen</a><a href="tour-detail.html" class="inline">Bruravik</a><a href="tour-detail.html" class="inline">Geilo</a><a href="tour-detail.html" class="inline">Oslo</a><a href="tour-detail.html" class="inline">Copenhagen</a></div>
+                <div class="ico ico-calendar"></div>
+                <div class="calendar m-t-sm m-b-lg"><a href="tour-detail.html" class="inline">08 Mar</a><a href="tour-detail.html" class="inline">15 Mar</a><a href="tour-detail.html" class="inline">24 Mar</a><a href="tour-detail.html" class="inline">30 Mar</a><a href="tour-detail.html" class="inline">31 Mar</a></div><a href="tour-detail.html" class="text-u-c more-details">Click for More Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tour-item col-md-4">
+          <div class="pos-rlt wrapping">
+            <figure><img src="img/destinations/Bangkok02.jpg" alt=""></figure>
+            <div class="dealinfo">
+              <div class="wrapper-md">
+                <label class="text-light text-sm text-u-c block">Europe</label><a href="tour-detail.html" class="text-lg title text-u-c">Russia Scandinavia</a>
+              </div>
+              <div class="bg-white pos-rtl"><a href="tour-detail.html" class="days-trip tour text-center"><i class="ico ico-time"></i><span class="count">7</span>
+                  <label class="text-u-c text-sm">DAYS</label></a><a href="tour-detail.html" class="pricing tour text-center">
+                  <label class="block text-u-c">FROM</label><span class="currency"> $</span><span class="price">400</span></a></div>
+            </div>
+            <div class="rollover bg-orange pos-abt">
+              <div class="wrapper-lg text-center bg-white">
+                <div class="ico ico-hotel"></div>
+                <div class="cities block m-t-sm m-b-lg"><a href="tour-detail.html" class="inline">Dubai</a><a href="tour-detail.html" class="inline">Moscow</a><a href="tour-detail.html" class="inline">St. Petersburg</a><a href="tour-detail.html" class="inline">Helsinki</a><a href="tour-detail.html" class="inline">Stockholm</a><a href="tour-detail.html" class="inline">Karlstad</a><a href="tour-detail.html" class="inline">Hamar</a><a href="tour-detail.html" class="inline">Flam</a><a href="tour-detail.html" class="inline">Gudvangen</a><a href="tour-detail.html" class="inline">Flam</a><a href="tour-detail.html" class="inline">Voss</a><a href="tour-detail.html" class="inline">Bergen</a><a href="tour-detail.html" class="inline">Bruravik</a><a href="tour-detail.html" class="inline">Geilo</a><a href="tour-detail.html" class="inline">Oslo</a><a href="tour-detail.html" class="inline">Copenhagen</a></div>
+                <div class="ico ico-calendar"></div>
+                <div class="calendar m-t-sm m-b-lg"><a href="tour-detail.html" class="inline">08 Mar</a><a href="tour-detail.html" class="inline">15 Mar</a><a href="tour-detail.html" class="inline">24 Mar</a><a href="tour-detail.html" class="inline">30 Mar</a><a href="tour-detail.html" class="inline">31 Mar</a></div><a href="tour-detail.html" class="text-u-c more-details">Click for More Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="footer">
