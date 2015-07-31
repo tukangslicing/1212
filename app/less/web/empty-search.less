@@ -1,0 +1,115 @@
+.search-result-empty {
+  padding: 30px;
+  border: 1px solid rgba(216, 216, 216, .7);
+  .box-shadow(0px 2px 4px rgba(216, 216, 216, .7))
+}
+
+.popular-hotel-on-empty-results {
+  .hotel-item {
+    height: 120px;
+    -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 4px 7px 0px rgba(216, 216, 216, 0.6);
+    box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 4px 7px 0px rgba(216, 216, 216, 0.6);
+
+    .column {
+      height: 120px;
+      border-color: #d8d8d8;
+
+      &.picture-thumb {
+        width: 120px;
+        padding: 3px;
+        .b-r;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &.hotel-info {
+        width: 330px;
+        padding: 15px 20px;
+        .pos-rlt;
+
+        .hotel-name {
+          font-size: 16px;
+          color: #393030;
+          line-height: 20px;
+        }
+        .location {
+          font-size: 10px;
+          color: #8f3000;
+        }
+
+        .hotel-star {
+          line-height: 12px;
+        }
+
+        .fasilitas {
+          bottom: 15px;
+          right: 30px;
+          width: 260px;
+          text-align: right;
+        }
+      }
+
+      &.rating {
+        width: 110px;
+        .b-r;
+        .b-l;
+
+        .text-primary {
+          margin-top: 40px;
+          margin-bottom: 10px;
+        }
+      }
+
+      &.pricing {
+        width: 123px;
+        color: #888;
+        font-size: 11px;
+
+        .block,
+        label {
+          padding:0 0 0 10px;
+        }
+
+        .price {
+          color: @brand-primary;
+          line-height: 17px;
+
+          .currency {
+            font-size: 13px;
+            top: 0;
+          }
+
+          .rate {
+            margin-left: 5px;
+            font-size: 18px;
+
+            small {
+              font-size: 12px;
+            }
+          }
+        }
+
+        a {
+          width: 100%;
+          border-top: 2px solid #52adbc;
+          .m-t-xs;
+
+          &:hover,
+          &:focus {
+            outline: 0;
+          }
+
+          &.text-primary {
+            text-shadow: 1px 2px 1px #006678;
+            color: #fff;
+            line-height: 43px;
+            background: @brand-primary;
+          }
+        }
+      }
+    }
+  }
+}
