@@ -1,0 +1,28 @@
+extends layouts/without-header
+
+include includes/mixin
+
+block main
+  #main-wrap
+    .document-detail-popup.pos-rlt
+      h4.text-u-c.title-search.text-center.m-b-lg Dokumen Detail
+        a.close(href="/mobile") Close
+
+      .content
+        .m-t.m-b
+          .f-bold.text-u-c.text-md Dokumen yang dibutuhkan:
+
+        ol
+          li.m-b-md Passport Asli (Lama & Baru, Berlaku Diatas 6 Bulan)
+          li.m-b-md Foto 3 Lembar Berwarna Ukuran 3,5 X 4,5 Latar Belakang Putih
+          li.m-b-md Surat Sponsor
+          li.m-b-md Surat Referensi Bank
+          li.m-b-md Fotocopy Bukti Keuangan (3 Bulan Terakhir)
+          li.m-b-md Fotocopy SIUP (Jika Pemilik)
+          li.m-b-md Fotocopy KK
+          li.m-b-md Fotocopy KTP
+          li.m-b-md Fotocopy Akte Lahir
+          li.m-b-md Fotocopy Surat Ganti Nama (Jika Ada)
+          li.m-b-md Konfirmasi Hotel
+          li.m-b-md Asuransi Perjalanan
+          li.m-b-md Tidak Boleh Ada PENDUL ( ALAMAT PENDUDUK LUAR )

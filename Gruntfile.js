@@ -110,6 +110,7 @@ module.exports = function (grunt) {
           '<%= dir.js %>/plugins/validator.js',
           '<%= dir.js %>/plugins/bootstrap-datepicker.js',
           '<%= dir.bootstrap %>/tab.js',
+          '<%= dir.bootstrap %>/modal.js',
           '<%= dir.js %>/mobile/jquery.swipebox.js',
           '<%= dir.js %>/mobile/main-mobile.js'
         ],
