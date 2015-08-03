@@ -5370,11 +5370,13 @@ footer a {
 }
 .top-banner.hotels,
 .top-banner.blog,
+.top-banner.flights,
 .top-banner.custom-tour {
   height: 130px;
 }
 .top-banner.hotels .banner-title,
 .top-banner.blog .banner-title,
+.top-banner.flights .banner-title,
 .top-banner.custom-tour .banner-title {
   font-weight: 600;
   font-size: 17px;
@@ -5384,6 +5386,7 @@ footer a {
 }
 .top-banner.hotels .subtitle,
 .top-banner.blog .subtitle,
+.top-banner.flights .subtitle,
 .top-banner.custom-tour .subtitle {
   color: #ef9630;
   margin: 0;
@@ -5955,6 +5958,10 @@ footer a {
   height: 44px;
   display: inline-block;
   padding: 0;
+}
+.empty-search-message {
+  padding: 15px;
+  font-size: 14px;
 }
 /** Flight Search */
 .filter-sorter-block {

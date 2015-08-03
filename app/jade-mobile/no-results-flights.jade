@@ -1,0 +1,19 @@
+extends layouts/default
+
+include includes/mixin
+
+block main
+  .empty-search-message.flights.m-b-md.b-b
+    .text-center.l-h
+      strong.f-bold Sorry we can't find anything that matches your search.
+      |  Please try a different search, or check out our deals below.
+
+  .top-banner
+    h3.text-md.m-b-lg.m-t-sm.text-u-c.text-center Great Value Fares
+
+  .featured-destination-list
+    mixin featuredDestination('Bali01.jpg', 'Jakarta to Osaka', 'Economy Return', '<span class="pricing block f-bold"><span class="currency">$</span><span class="price text-lg">800</span></span>', 'flight')
+
+    mixin featuredDestination('Tokyo.jpg', 'Tokyo', 'Economy Return', '<span class="pricing block f-bold"><span class="currency">$</span><span class="price text-lg">800</span></span>', 'flight')
+
+    mixin featuredDestination('Bali-02.jpg', 'Bali', 'Economy Return', '<span class="pricing block f-bold"><span class="currency">$</span><span class="price text-lg">800</span></span>', 'flight')
