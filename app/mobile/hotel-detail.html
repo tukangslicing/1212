@@ -54,9 +54,9 @@
       </header>
       <div class="menu-bar">
         <ul class="list-unstyled text-u-c">
-          <li><a href="/mobile/find-tours.html"><i class="ico ico-tours"></i><span class="block">Find Tour</span></a></li>
-          <li class="b-r b-l"><a href="/mobile/find-flights.html"><i class="ico ico-flight"></i><span class="block">Find Flight</span></a></li>
-          <li><a href="/mobile/find-hotels.html"><i class="ico ico-hotel"></i><span class="block">Find Hotel</span></a></li>
+          <li><a href="/mobile/find-tours.html" data-toggle="modal" data-target="#popupFindTours"><i class="ico ico-tours"></i><span class="block">Find Tour</span></a></li>
+          <li class="b-r b-l"><a href="/mobile/find-flights.html" data-toggle="modal" data-target="#popupFindFlight"><i class="ico ico-flight"></i><span class="block">Find Flight</span></a></li>
+          <li><a href="/mobile/find-hotels.html" data-toggle="modal" data-target="#popupFindHotels"><i class="ico ico-hotel"></i><span class="block">Find Hotel</span></a></li>
         </ul>
         <div class="clearfix"></div>
       </div>
@@ -256,6 +256,234 @@
       <footer>
         <div class="block m-r-sm m-l-sm text-u-c">&copy; 2015 Sapta Tour.&nbsp;<a href="#">Terms &amp; Conditions</a></div>
       </footer>
+      <div id="popupFindTours" tabindex="-1" role="dialog" class="modal fade">
+        <div id="main-wrap" class="form-pencarian pos-rlt">
+          <form id="formFindFlight" method="GET" action="mobile/index.html" class="form-find sapta-form">
+            <h4 class="text-u-c title-search text-center m-b-lg">Find Tours<a href="/mobile" data-dismiss="modal" aria-label="Close" class="close close">Close</a></h4>
+            <div class="form-group">
+              <div class="boxing selectbox b m-b-sm pos-rlt">
+                <label class="block text-xs">Location</label>
+                <select name="location" class="block">
+                  <option>All Countries</option>
+                  <option>Indonesia</option>
+                  <option>Singapore</option>
+                  <option>Malaysia</option>
+                  <option>Japan</option>
+                  <option>South Korea</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="boxing selectbox b m-b-sm pos-rlt">
+                <label class="block text-xs">Months</label>
+                <select name="months" class="block">
+                  <option>Anytime</option>
+                  <option>January</option>
+                  <option>February</option>
+                  <option>March</option>
+                  <option>April</option>
+                  <option>May</option>
+                  <option>June</option>
+                  <option>July</option>
+                  <option>Augustus</option>
+                  <option>September</option>
+                  <option>October</option>
+                  <option>November</option>
+                  <option>December</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="boxing selectbox b m-b-sm pos-rlt">
+                <label class="block text-xs">Season</label>
+                <select name="season" class="block">
+                  <option>All Season</option>
+                  <option>Winter</option>
+                  <option>Summer</option>
+                  <option>Spring</option>
+                  <option>Autumn</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="boxing selectbox b m-b-sm pos-rlt">
+                <label class="block text-xs">Sort by</label>
+                <select name="season" class="block">
+                  <option>Most Popular</option>
+                  <option>Location</option>
+                  <option>Price</option>
+                  <option>Duration</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group separator"><span class="block text-label">Also includes:</span></div>
+            <div class="form-group">
+              <div class="extra-field tours m-b-xl b">
+                <div class="form-group-control pos-rlt"><span class="block pull-left label-text">Scenic Views</span>
+                  <div class="checkbox pull-right">
+                    <input type="checkbox" name="extra_field[]" value="Views" checked="checked">
+                    <label>&nbsp;</label>
+                  </div>
+                </div>
+                <div class="form-group-control pos-rlt"><span class="block pull-left label-text">Adventure/Outdoor Activities</span>
+                  <div class="checkbox pull-right">
+                    <input type="checkbox" name="extra_field[]" value="Activities" checked="checked">
+                    <label>&nbsp;</label>
+                  </div>
+                </div>
+                <div class="form-group-control pos-rlt"><span class="block pull-left label-text">Shopping Trips</span>
+                  <div class="checkbox pull-right">
+                    <input type="checkbox" name="extra_field[]" value="Shopping">
+                    <label>&nbsp;</label>
+                  </div>
+                </div>
+                <div class="form-group-control pos-rlt"><span class="block pull-left label-text">Culinary Trips</span>
+                  <div class="checkbox pull-right">
+                    <input type="checkbox" name="extra_field[]" value="Culinary">
+                    <label>&nbsp;</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="text-u-c text-white text-left btn-flight">Find Flights<span class="icon"></span></button>
+          </form>
+        </div>
+      </div>
+      <div id="popupFindFlight" tabindex="-1" role="dialog" class="modal fade">
+        <div id="main-wrap" class="form-pencarian pos-rlt">
+          <form id="formFindFlight" method="GET" action="mobile/flight-results.html" class="form-find sapta-form">
+            <h4 class="text-u-c title-search text-center m-b-lg">Find Flights<a href="/mobile" data-dismiss="modal" aria-label="Close" class="close close">Close</a></h4>
+            <div class="form-group">
+              <div class="boxing flight-from selectbox b m-b-sm pos-rlt">
+                <label class="block text-xs">From</label>
+                <select name="from" class="block">
+                  <option selected="selected">Jakarta</option>
+                  <option>Singapore</option>
+                  <option>Malaysia</option>
+                  <option>Medan</option>
+                  <option>Bali/Denpasar</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="boxing flight-to selectbox b m-b-sm pos-rlt">
+                <label class="block text-xs">To</label>
+                <select name="nationality" class="block">
+                  <option>Jakarta</option>
+                  <option>Singapore</option>
+                  <option>Malaysia</option>
+                  <option>Medan</option>
+                  <option selected="selected">Bali/Denpasar</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="boxing flight-to selectbox b m-b-sm pos-rlt">
+                <label class="block text-xs">To</label>
+                <select name="nationality" class="block">
+                  <option>Jakarta</option>
+                  <option>Singapore</option>
+                  <option>Malaysia</option>
+                  <option>Medan</option>
+                  <option selected="selected">Bali/Denpasar</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group pos-rlt one-way"><span class="block pos-abt pointer"><i class="ico ico-mobile ico-one-way-arrow"></i></span>
+              <div class="boxing return b m-b-sm m-l-sm pull-right pos-rlt">
+                <label class="block text-xs">Departure Date</label>
+                <div class="pos-rlt chooseDate">
+                  <input type="text" readonly="readonly" class="date">
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group pos-rlt switch-date"><span class="block pos-abt pointer"><i class="ico ico-mobile ico-switch-arrow"></i></span>
+              <div class="boxing return b m-b-sm m-l-sm pull-right pos-rlt">
+                <label class="block text-xs">Return Date</label>
+                <div class="pos-rlt chooseDate">
+                  <input type="text" readonly="readonly" class="date">
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <div class="boxing selectbox b m-b-sm pos-rlt">
+                <label class="block text-xs">Class</label>
+                <select name="from" class="block">
+                  <option selected="selected">Economy</option>
+                  <option>Bussiness</option>
+                  <option>Executive</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="extra-field m-b-xl b">
+                <div class="form-group-control pos-rlt"><span class="decrease"><i class="ico ico-mobile ico-decrease-arrow"></i></span><span class="block pos-rlt control-element bg-white"><i class="ico ico-adult"></i>
+                    <label>
+                      <input type="text" value="1" size="1" maxlength="1"><span>Adult</span>
+                    </label></span><span class="increase"><i class="ico ico-mobile ico-increase-arrow"></i></span></div>
+                <div class="form-group-control pos-rlt"><span class="decrease"><i class="ico ico-mobile ico-decrease-arrow"></i></span><span class="block pos-rlt control-element bg-white"><i class="ico ico-child"></i>
+                    <label>
+                      <input type="text" value="1" size="1" maxlength="1"><span>Children</span>
+                    </label></span><span class="increase"><i class="ico ico-mobile ico-increase-arrow"></i></span></div>
+                <div class="form-group-control pos-rlt"><span class="decrease"><i class="ico ico-mobile ico-decrease-arrow"></i></span><span class="block pos-rlt control-element bg-white"><i class="ico ico-baby"></i>
+                    <label>
+                      <input type="text" value="1" size="1" maxlength="1"><span>Baby</span>
+                    </label></span><span class="increase"><i class="ico ico-mobile ico-increase-arrow"></i></span></div>
+              </div>
+            </div>
+            <button type="submit" class="text-u-c text-white text-left btn-flight">Find Flights<span class="icon"></span></button>
+          </form>
+        </div>
+      </div>
+      <div id="popupFindHotels" tabindex="-1" role="dialog" class="modal fade">
+        <div id="main-wrap" class="form-pencarian pos-rlt">
+          <form id="formFindHotels" method="GET" action="mobile/hotel-results.html" class="form-find sapta-form">
+            <h4 class="text-u-c title-search text-center m-b-lg">Find Hotels<a href="/mobile" data-dismiss="modal" aria-label="Close" class="close close">Close</a></h4>
+            <div class="form-group">
+              <div class="boxing selectbox b m-b-sm pos-rlt">
+                <label class="block text-xs">Search Hotels In</label>
+                <select name="location" class="block">
+                  <option selected="selected">Jakarta</option>
+                  <option>Singapore</option>
+                  <option>Malaysia</option>
+                  <option>Medan</option>
+                  <option>Bali/Denpasar</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="boxing selectbox b m-b-sm pos-rlt">
+                <label class="block text-xs">Duration</label>
+                <select name="nationality" class="block">
+                  <option value="1">1 Nights</option>
+                  <option value="2">2 Nights</option>
+                  <option value="3">3 Nights</option>
+                  <option value="4">4 Nights</option>
+                  <option value="5">5 Nights</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="boxing b m-b-sm pos-rlt check-in">
+                <label class="block text-xs">Check In</label>
+                <div class="pos-rlt chooseDate">
+                  <input type="text" readonly="readonly" class="date">
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <div class="pull-right text-right checkout-date">
+                <label class="f-bold">Check Out:&nbsp;</label><span class="day-date">Minggu, 02 Jan 2015</span>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <button type="submit" class="text-u-c text-white text-left btn-flight">Find Hotels<span class="icon"></span></button>
+          </form>
+        </div>
+      </div>
     </div><span id="backToTop" class="ico-back-to-top post-abt"></span>
     <script src="../../js/libs/jquery.min.js"></script>
     <script src="../../js/sapta-tour.mobile.js"></script>

@@ -5992,6 +5992,7 @@ footer a {
 .sapta-form.form-find .extra-field.tours .form-group-control .checkbox,
 .sapta-form.form-login .extra-field.tours .form-group-control .checkbox,
 .sapta-form.form-register .extra-field.tours .form-group-control .checkbox {
+  margin-top: 0;
   padding-top: 5px;
 }
 .sapta-form.form-find .checkout-date,

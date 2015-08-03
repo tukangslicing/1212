@@ -1,0 +1,86 @@
+#popupFindTours.modal.fade(tabindex='-1', role='dialog')
+  #main-wrap.form-pencarian.pos-rlt
+    form.form-find.sapta-form(id="formFindFlight", method="GET", action="mobile/index.html")
+      h4.text-u-c.title-search.text-center.m-b-lg Find Tours
+        a.close(href="/mobile", class="close", data-dismiss="modal", aria-label="Close") Close
+
+      .form-group
+        .boxing.selectbox.b.m-b-sm.pos-rlt
+          label.block.text-xs Location
+          select.block(name="location")
+            option All Countries
+            option Indonesia
+            option Singapore
+            option Malaysia
+            option Japan
+            option South Korea
+
+      .form-group
+        .boxing.selectbox.b.m-b-sm.pos-rlt
+          label.block.text-xs Months
+          select.block(name="months")
+            option Anytime
+            option January
+            option February
+            option March
+            option April
+            option May
+            option June
+            option July
+            option Augustus
+            option September
+            option October
+            option November
+            option December
+
+      .form-group
+        .boxing.selectbox.b.m-b-sm.pos-rlt
+          label.block.text-xs Season
+          select.block(name="season")
+            option() All Season
+            option() Winter
+            option() Summer
+            option() Spring
+            option() Autumn
+      .form-group
+        .boxing.selectbox.b.m-b-sm.pos-rlt
+          label.block.text-xs Sort by
+          select.block(name="season")
+            option() Most Popular
+            option() Location
+            option() Price
+            option() Duration
+
+      .form-group.separator
+        span.block.text-label Also includes:
+
+
+      .form-group
+        .extra-field.tours.m-b-xl.b
+          .form-group-control.pos-rlt
+            span.block.pull-left.label-text Scenic Views
+            .checkbox.pull-right
+              input(type="checkbox", name="extra_field[]", value="Views", checked="checked")
+              label&nbsp;
+
+          .form-group-control.pos-rlt
+            span.block.pull-left.label-text Adventure/Outdoor Activities
+            .checkbox.pull-right
+              input(type="checkbox", name="extra_field[]", value="Activities", checked="checked")
+              label&nbsp;
+
+          .form-group-control.pos-rlt
+            span.block.pull-left.label-text Shopping Trips
+            .checkbox.pull-right
+              input(type="checkbox", name="extra_field[]", value="Shopping")
+              label&nbsp;
+
+          .form-group-control.pos-rlt
+            span.block.pull-left.label-text Culinary Trips
+            .checkbox.pull-right
+              input(type="checkbox", name="extra_field[]", value="Culinary")
+              label&nbsp;
+
+      button.text-u-c.text-white.text-left.btn-flight(type="submit")
+        | Find Flights
+        span.icon

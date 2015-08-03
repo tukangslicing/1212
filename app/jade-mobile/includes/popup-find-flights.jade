@@ -1,0 +1,100 @@
+#popupFindFlight.modal.fade(tabindex='-1', role='dialog')
+  #main-wrap.form-pencarian.pos-rlt
+    form.form-find.sapta-form(id="formFindFlight", method="GET", action="mobile/flight-results.html")
+      h4.text-u-c.title-search.text-center.m-b-lg Find Flights
+        a.close(href="/mobile", class="close", data-dismiss="modal", aria-label="Close") Close
+
+      .form-group
+        .boxing.flight-from.selectbox.b.m-b-sm.pos-rlt
+          label.block.text-xs From
+          select.block(name="from")
+            option(selected="selected") Jakarta
+            option() Singapore
+            option() Malaysia
+            option() Medan
+            option() Bali/Denpasar
+
+      .form-group
+        .boxing.flight-to.selectbox.b.m-b-sm.pos-rlt
+          label.block.text-xs To
+          select.block(name="nationality")
+            option() Jakarta
+            option() Singapore
+            option() Malaysia
+            option() Medan
+            option(selected="selected") Bali/Denpasar
+
+      .form-group
+        .boxing.flight-to.selectbox.b.m-b-sm.pos-rlt
+          label.block.text-xs To
+          select.block(name="nationality")
+            option() Jakarta
+            option() Singapore
+            option() Malaysia
+            option() Medan
+            option(selected="selected") Bali/Denpasar
+
+      .form-group.pos-rlt.one-way
+        span.block.pos-abt.pointer
+          i.ico.ico-mobile.ico-one-way-arrow
+        .boxing.return.b.m-b-sm.m-l-sm.pull-right.pos-rlt
+          label.block.text-xs Departure Date
+          .pos-rlt.chooseDate
+            input(type="text", class="date", readonly="readonly")
+        .clearfix
+
+      .form-group.pos-rlt.switch-date
+        span.block.pos-abt.pointer
+          i.ico.ico-mobile.ico-switch-arrow
+        .boxing.return.b.m-b-sm.m-l-sm.pull-right.pos-rlt
+          label.block.text-xs Return Date
+          .pos-rlt.chooseDate
+            input(type="text", class="date", readonly="readonly")
+        .clearfix
+
+      .form-group
+        .boxing.selectbox.b.m-b-sm.pos-rlt
+          label.block.text-xs Class
+          select.block(name="from")
+            option(selected="selected") Economy
+            option() Bussiness
+            option() Executive
+
+      .form-group
+        .extra-field.m-b-xl.b
+          .form-group-control.pos-rlt
+            span.decrease
+              i.ico.ico-mobile.ico-decrease-arrow
+            span.block.pos-rlt.control-element.bg-white
+              i.ico.ico-adult
+              label
+                input(type="text", value="1", size="1", maxlength="1")
+                span Adult
+            span.increase
+              i.ico.ico-mobile.ico-increase-arrow
+
+          .form-group-control.pos-rlt
+            span.decrease
+              i.ico.ico-mobile.ico-decrease-arrow
+            span.block.pos-rlt.control-element.bg-white
+              i.ico.ico-child
+              label
+                input(type="text", value="1", size="1", maxlength="1")
+                span Children
+            span.increase
+              i.ico.ico-mobile.ico-increase-arrow
+
+          .form-group-control.pos-rlt
+            span.decrease
+              i.ico.ico-mobile.ico-decrease-arrow
+            span.block.pos-rlt.control-element.bg-white
+              i.ico.ico-baby
+              label
+                input(type="text", value="1", size="1", maxlength="1")
+                span Baby
+            span.increase
+              i.ico.ico-mobile.ico-increase-arrow
+
+      button.text-u-c.text-white.text-left.btn-flight(type="submit")
+        | Find Flights
+        span.icon
