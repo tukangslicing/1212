@@ -78,8 +78,7 @@
 }
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
-  -o-animation: fa-spin 2s infinite linear;
-     animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
 }
 @-webkit-keyframes fa-spin {
   0% {
@@ -91,72 +90,52 @@
     transform: rotate(359deg);
   }
 }
-@-o-keyframes fa-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-       transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-       transform: rotate(359deg);
-  }
-}
 @keyframes fa-spin {
   0% {
     -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-       transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-       transform: rotate(359deg);
+    transform: rotate(359deg);
   }
 }
 .fa-rotate-90 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-     transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 .fa-rotate-180 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-     transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 .fa-rotate-270 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   -webkit-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-     transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 .fa-flip-horizontal {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
   -webkit-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
-  -o-transform: scale(-1, 1);
-     transform: scale(-1, 1);
+  transform: scale(-1, 1);
 }
 .fa-flip-vertical {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
   -webkit-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
-  -o-transform: scale(1, -1);
-     transform: scale(1, -1);
+  transform: scale(1, -1);
 }
 :root .fa-rotate-90,
 :root .fa-rotate-180,
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
 :root .fa-flip-vertical {
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 .fa-stack {
   position: relative;
@@ -1951,12 +1930,10 @@ a.text-orange {
   display: inline-block !important;
 }
 .box-shadow {
-  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
-          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
 }
 .box-shadow-none {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 .wrapper-xxs {
   padding: 4px 6px;
@@ -2462,6 +2439,8 @@ a.text-orange {
   -o-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
   -webkit-transition: all opacity 0.1s ease-in-out ease;
+  -moz-transition: all opacity 0.1s ease-in-out ease;
+  -ms-transition: all opacity 0.1s ease-in-out ease;
   -o-transition: all opacity 0.1s ease-in-out ease;
   transition: all opacity 0.1s ease-in-out ease;
 }
@@ -2562,6 +2541,8 @@ fieldset[disabled] .i-checks input + i:before {
   -o-transition: all 0.2s ease-in-out 0.1s;
   transition: all 0.2s ease-in-out 0.1s;
   -webkit-transition: all all 0.2s ease-in-out 0.1s ease;
+  -moz-transition: all all 0.2s ease-in-out 0.1s ease;
+  -ms-transition: all all 0.2s ease-in-out 0.1s ease;
   -o-transition: all all 0.2s ease-in-out 0.1s ease;
   transition: all all 0.2s ease-in-out 0.1s ease;
 }
@@ -2639,18 +2620,35 @@ fieldset[disabled] .form-control.bg-white-only {
   }
 }
 .animate-spin {
+  -moz-animation: spin 1s infinite linear;
   -o-animation: spin 1s infinite linear;
   -webkit-animation: spin 1s infinite linear;
   animation: spin 1s infinite linear;
   display: inline-block;
 }
-@-webkit-keyframes spin {
+@-moz-keyframes spin {
   0% {
+    -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
     -o-transform: rotate(359deg);
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
@@ -2658,11 +2656,27 @@ fieldset[disabled] .form-control.bg-white-only {
 }
 @-o-keyframes spin {
   0% {
+    -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
     -o-transform: rotate(359deg);
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
@@ -2670,11 +2684,13 @@ fieldset[disabled] .form-control.bg-white-only {
 }
 @keyframes spin {
   0% {
+    -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
+    -moz-transform: rotate(359deg);
     -o-transform: rotate(359deg);
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
@@ -2740,8 +2756,7 @@ fieldset[disabled] .form-control.bg-white-only {
 }
 .ico-is-check {
   background: url(../img/ico-big-check.png) no-repeat 0 0;
-  -webkit-background-size: 13px 13px;
-          background-size: 13px 13px;
+  background-size: 13px 13px;
 }
 .ico-is-uncheck {
   background: url(../img/input-uncheck.png) no-repeat 0 0;
@@ -3146,8 +3161,7 @@ fieldset[disabled] .form-control.bg-white-only {
   height: 21px;
   background-image: url(../img/card-american-express.png);
   background-repeat: no-repeat;
-  -webkit-background-size: 33px 21px;
-          background-size: 33px 21px;
+  background-size: 33px 21px;
 }
 .bg-white .ico-visa,
 .bg-transparent .ico-visa {
@@ -3155,8 +3169,7 @@ fieldset[disabled] .form-control.bg-white-only {
   height: 21px;
   background-image: url(../img/card-visa.png);
   background-repeat: no-repeat;
-  -webkit-background-size: 33px 21px;
-          background-size: 33px 21px;
+  background-size: 33px 21px;
 }
 .bg-white .ico-master-card,
 .bg-transparent .ico-master-card {
@@ -3164,8 +3177,7 @@ fieldset[disabled] .form-control.bg-white-only {
   height: 21px;
   background-image: url(../img/card-master-card.png);
   background-repeat: no-repeat;
-  -webkit-background-size: 33px 21px;
-          background-size: 33px 21px;
+  background-size: 33px 21px;
 }
 .bg-white .ico-pencil,
 .bg-transparent .ico-pencil {
@@ -3286,7 +3298,6 @@ fieldset[disabled] .form-control.bg-white-only {
   border-radius: 4px;
   background-image: -webkit-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
   background-image: -o-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#ffffff));
   background-image: linear-gradient(to bottom, #f4f4f4 0%, #ffffff 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4f4f4', endColorstr='#ffffffff', GradientType=0);
@@ -3388,8 +3399,11 @@ html[xmlns] .flexslider .slides {
   border: 0;
   position: relative;
   zoom: 1;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
   border-radius: 0;
   -webkit-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
   -o-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
   box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
 }
@@ -3402,6 +3416,8 @@ html[xmlns] .flexslider .slides {
 .flex-viewport {
   max-height: 2000px;
   -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
 }
@@ -3429,6 +3445,8 @@ html[xmlns] .flexslider .slides {
   color: rgba(0, 0, 0, 0.8);
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
   -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -3515,8 +3533,11 @@ html[xmlns] .flexslider .slides {
   cursor: pointer;
   text-indent: -9999px;
   -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
   -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
   border-radius: 20px;
 }
 .flex-control-paging li a:hover {
@@ -3545,6 +3566,8 @@ html[xmlns] .flexslider .slides {
   opacity: .7;
   cursor: pointer;
   -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
 }
@@ -3647,6 +3670,8 @@ html[xmlns] .flexslider .slides {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   -webkit-transition: all all 0.5s ease-in-out ease;
+  -moz-transition: all all 0.5s ease-in-out ease;
+  -ms-transition: all all 0.5s ease-in-out ease;
   -o-transition: all all 0.5s ease-in-out ease;
   transition: all all 0.5s ease-in-out ease;
 }
@@ -3910,6 +3935,7 @@ html[xmlns] .flexslider .slides {
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   -o-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -3932,6 +3958,7 @@ html[xmlns] .flexslider .slides {
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   -o-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -4086,6 +4113,7 @@ html[xmlns] .flexslider .slides {
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   -o-box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: '' none 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -4312,7 +4340,6 @@ html[xmlns] .flexslider .slides {
   color: #393030;
   background-image: -webkit-linear-gradient(top, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
   background-image: -o-linear-gradient(top, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #ffffff), to(rgba(0, 0, 0, 0.08)));
   background-image: linear-gradient(to bottom, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#14000000', GradientType=0);
@@ -4604,6 +4631,7 @@ html[xmlns] .flexslider .slides {
   height: 349px;
   background-color: #fcbc56;
   -webkit-transform: translateX(-309px);
+  -moz-transform: translateX(-309px);
   -o-transform: translateX(-309px);
   -ms-transform: translateX(-309px);
   transform: translateX(-309px);
@@ -4611,6 +4639,8 @@ html[xmlns] .flexslider .slides {
   -o-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
   -webkit-transition: all all 0.6s ease-in-out ease;
+  -moz-transition: all all 0.6s ease-in-out ease;
+  -ms-transition: all all 0.6s ease-in-out ease;
   -o-transition: all all 0.6s ease-in-out ease;
   transition: all all 0.6s ease-in-out ease;
 }
@@ -4725,6 +4755,7 @@ html[xmlns] .flexslider .slides {
 .tour-list .tour-item:nth-child(3n+1) .rollover {
   width: 298px;
   -webkit-transform: translateX(-308px);
+  -moz-transform: translateX(-308px);
   -o-transform: translateX(-308px);
   -ms-transform: translateX(-308px);
   transform: translateX(-308px);
@@ -4740,6 +4771,7 @@ html[xmlns] .flexslider .slides {
 }
 .tour-list .tour-item:hover .rollover {
   -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
   -o-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0);
@@ -4996,6 +5028,7 @@ html[xmlns] .flexslider .slides {
 }
 .tour-detail-page .info-harga {
   background-color: #fcbc56;
+  -moz-box-shadow: inset 0 0 20px #f28c05;
   -webkit-box-shadow: inset 0 0 20px #f28c05;
   box-shadow: inset 0 0 20px #f28c05;
 }
@@ -5740,7 +5773,6 @@ html[xmlns] .flexslider .slides {
   color: #393030;
   background-image: -webkit-linear-gradient(top, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
   background-image: -o-linear-gradient(top, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #ffffff), to(rgba(0, 0, 0, 0.08)));
   background-image: linear-gradient(to bottom, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#14000000', GradientType=0);
@@ -5949,7 +5981,6 @@ html[xmlns] .flexslider .slides {
   border-radius: 2px;
   background-image: -webkit-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
   background-image: -o-linear-gradient(top, #f4f4f4 0%, #ffffff 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#ffffff));
   background-image: linear-gradient(to bottom, #f4f4f4 0%, #ffffff 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4f4f4', endColorstr='#ffffffff', GradientType=0);
@@ -7058,21 +7089,21 @@ html[xmlns] .flexslider .slides {
   line-height: 43px;
   background: #158ea3;
 }
-.popular-hotel-list .hotem-item .column.hotel-info {
+.popular-hotel-list .hotel-item .column.hotel-info {
   width: 315px !important;
 }
-.popular-hotel-list .hotem-item .column.pricing {
+.popular-hotel-list .hotel-item .column.pricing {
   width: 127px;
 }
-.popular-hotel-list .hotem-item .column.rating.rating-number .text-primary {
+.popular-hotel-list .hotel-item .column.rating.rating-number .text-primary {
   margin-bottom: 0;
 }
-.popular-hotel-list .hotem-item .column.rating.rating-number div.block .f-bold {
+.popular-hotel-list .hotel-item .column.rating.rating-number div.block .f-bold {
   line-height: 30px;
   font-size: 25px;
   color: #000;
 }
-.popular-hotel-list .hotem-item .column.rating.rating-number div.block .f-light {
+.popular-hotel-list .hotel-item .column.rating.rating-number div.block .f-light {
   font-size: 14px;
   color: #000;
 }
@@ -7119,7 +7150,6 @@ html[xmlns] .flexslider .slides {
   color: #393030;
   background-image: -webkit-linear-gradient(top, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
   background-image: -o-linear-gradient(top, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #ffffff), to(rgba(0, 0, 0, 0.08)));
   background-image: linear-gradient(to bottom, #ffffff 5%, rgba(0, 0, 0, 0.08) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#14000000', GradientType=0);
@@ -7287,8 +7317,7 @@ html[xmlns] .flexslider .slides {
   margin-right: 15px;
   height: 10px;
   border-radius: 0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .hotel-detail-block .review-list {
   -webkit-box-shadow: 0px 0px 0px 1px #d8d8d8, 0px 4px 7px 0px rgba(216, 216, 216, 0.6);
@@ -7384,8 +7413,7 @@ html[xmlns] .flexslider .slides {
   margin-right: 0;
 }
 .hotel-photo-gallery #gallery-slider-carousel .slides li.flex-active-slide {
-  -webkit-box-shadow: inset 0 0 0 3px #f39d12;
-          box-shadow: inset 0 0 0 3px #f39d12;
+  box-shadow: inset 0 0 0 3px #f39d12;
 }
 .hotel-photo-gallery #gallery-slider-carousel .slides li.flex-active-slide img {
   padding: 3px;
@@ -7429,6 +7457,7 @@ html[xmlns] .flexslider .slides {
   -webkit-box-shadow: 0px 2px 4px rgba(216, 216, 216, 0.7);
   box-shadow: 0px 2px 4px rgba(216, 216, 216, 0.7);
   -webkit-box-shadow: '' 0px 2px 4px rgba(216, 216, 216, 0.7) 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: '' 0px 2px 4px rgba(216, 216, 216, 0.7) 1px 2px rgba(0, 0, 0, 0.2);
   -o-box-shadow: '' 0px 2px 4px rgba(216, 216, 216, 0.7) 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: '' 0px 2px 4px rgba(216, 216, 216, 0.7) 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -7532,6 +7561,7 @@ html[xmlns] .flexslider .slides {
   height: 349px;
   background-color: #fcbc56;
   -webkit-transform: translateX(-309px);
+  -moz-transform: translateX(-309px);
   -o-transform: translateX(-309px);
   -ms-transform: translateX(-309px);
   transform: translateX(-309px);
@@ -7539,6 +7569,8 @@ html[xmlns] .flexslider .slides {
   -o-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
   -webkit-transition: all all 0.6s ease-in-out ease;
+  -moz-transition: all all 0.6s ease-in-out ease;
+  -ms-transition: all all 0.6s ease-in-out ease;
   -o-transition: all all 0.6s ease-in-out ease;
   transition: all all 0.6s ease-in-out ease;
 }
@@ -7606,6 +7638,7 @@ html[xmlns] .flexslider .slides {
 .tour-list-popular-empty-results .tour-item .rollover {
   width: 298px;
   -webkit-transform: translateX(-308px);
+  -moz-transform: translateX(-308px);
   -o-transform: translateX(-308px);
   -ms-transform: translateX(-308px);
   transform: translateX(-308px);
@@ -7629,6 +7662,7 @@ html[xmlns] .flexslider .slides {
 }
 .tour-list-popular-empty-results .tour-item:hover .rollover {
   -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
   -o-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0);
@@ -8574,6 +8608,8 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   cursor: default !important;
 }
 .selectize-input.dropdown-active {
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
 }
 .selectize-input > * {
@@ -8656,6 +8692,8 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .selectize-dropdown [data-selectable] .highlight {
   background: rgba(125, 168, 208, 0.2);
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
   border-radius: 1px;
 }
 .selectize-dropdown [data-selectable],
