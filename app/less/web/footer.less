@@ -1,95 +1,100 @@
 .footer {
-  padding: 47.5px 0;
-  background: @brand-primary;
-  border-top: 1px solid #45aabb;
+  text-align: center;
+  background: #f9e723 url(../img/footer-bg.png) no-repeat bottom center;
+  border-bottom: 30px solid #4d4d4d;
+  padding-bottom: 255px;
 
-  .first {
-    border-right: 0;
+  h3 {
+    margin: 30px 0 50px 0;
   }
 
-  .colomn {
-    padding-right: 39px;
-    padding-left: 39px;
-    border-right: 1px solid #43a5b5;
-    color: #fff;
-    height: 225px;
-    font-size: 13px;
-    line-height: 24px;
-    font-family: "Gotham Book";
+  .appLogoContainer {
+    padding: 50px 0 20px 0;
+  }
 
-    &.office {
-      padding-right: 25px;
-      padding-left: 25px;
+  .appLogo {
+    margin: 15px auto 30px;
+    background: url("../img/appLogo.png") no-repeat center center;
+    height: 182px;
+    width: 175px;
+    display: block;
+  }
+
+  .qrCode {
+    background: #fff url("../img/qrCode.png") no-repeat scroll center center / contain ;
+    border: 5px solid #fff;
+    border-radius: 5px;
+    display: inline-block;
+    height: 130px;
+    margin-right: 15px;
+    width: 130px;
+  }
+  .downloadLinks {
+    display: inline-block;
+    height: 130px;
+    width: 215px;
+  }
+
+  .downloadLinks .download,
+  .downloadLinks .universalLink {
+    background: #000 none no-repeat scroll center center / 60% auto;
+    border-radius: 5px;
+    display: inline-block;
+    height: 60px;
+    width: 215px;
+
+    &:active,
+    &:visited,
+    &:hover {
+      color: #fff !important;
+      text-decoration: none !important;
     }
 
-    &.contact {
-      padding-left: 30px;
-      padding-right: 30px;
-
-      h6 {
-        padding-left: 34px;
-      }
-
-      li {
-        padding-left: 34px;
-        position: relative;
-      }
-
-      .ico-phone,
-      .ico-email {
-        position: absolute;
-        left: 0
-      }
-
-      .ico-phone {
-        top: 0
-      }
-
-      .ico-email {
-        top: 4px
-      }
+    &.appleStore {
+      background-image: url("../img/appleStore.png");
     }
-
-    &.sitemap {
-      border-right: 0;
-    }
-
-    h6 {
-      font-family: "Gotham Black";
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-
-    a {
-      color: #bcf5ff;
+    &.googlePlay {
+      background-image: url("../img/googlePlay.png");
     }
   }
 
-}
-.footer-nav {
-  font-family: "Gotham Book";
-  background-color: #353535;
-  font-size: 10px;
-  padding: 20px 0 16px 0;
-  color: #fff;
 
-  a {
-    color: #fff;
-  }
-  .pull-right {
-    padding-right: 65px;
-    position: relative;
-  }
+  @media (max-width: @screen-md-min) {
+    h3 {
+      margin: 10px 0 20px 0;
+      font-size: 35px;
+    }
 
-  .ico {
-    position: absolute;
-    top: -5px;
-  }
+    .appLogo {
+      background-size: contain;
+      width: 100px;
+      height: 118px;
+    }
 
-  .ico-tw {
-    right: 0;
-  }
-  .ico-fb {
-    right: 30px;
+    .qrCode {
+      display: none;
+    }
+
+    .downloadLinks {
+      width: 100%;
+      height: auto;
+      display: inline-block;
+      text-align: center;
+
+      .download {
+        background: no-repeat;
+        background-size: 60%;
+        border-radius: 5px;
+        display: inline-block;
+        width: 130px;
+        height: 40px;
+        background-position: center;
+        background-color: #000;
+
+        &.appleStore {
+          margin-right: 5px;
+        }
+      }
+    }
   }
 }

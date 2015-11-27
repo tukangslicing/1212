@@ -1,5 +1,5 @@
 {
-  "name": "sapta-tour",
+  "name": "shopee-1212",
   "jsfile": "main",
   "version": "1.0.0",
   "private": true,
@@ -10,10 +10,10 @@
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:tukangslicing/starter-slicing.git"
+    "url": "git@github.com:tukangslicing/shopee-1212.git"
   },
   "bugs": {
-    "url": "https://github.com/tukangslicing/starter-slicing/issues"
+    "url": "https://github.com/tukangslicing/shopee-1212/issues"
   },
   "dependencies": {
     "async": "^0.9.0",

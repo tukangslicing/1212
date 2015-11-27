@@ -1,187 +1,154 @@
-.nav {
-  &.main-menu {
-    -webkit-box-shadow: 3px 0 7px 0px rgba(0, 117, 137, 0.6);
-    box-shadow: 3px 0 7px 0px rgba(0, 117, 137, 0.6);
+header {
+  border-bottom: 1px solid #ccc;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 120;
 
-    > li {
-      &.active {
-        > a {
-          background: #007589;
-          outline: 0;
+  @media (max-width: @screen-md-min) {
+    height: 40px;
+    line-height: 40px;
+  }
 
-          .ico {
-            .opacity(1);
-          }
+  .background {
+    background-color: #fff;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  #shopeemall {
+    position: relative;
+    color: #444 !important;
+    font-family: "Roboto", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial !important;
+    font-size: 14px !important;
+    vertical-align: middle;
+    border-right: 1px solid #ebebeb;
+    margin-right: 20px;
+    padding-right: 52px !important;
+    line-height: normal !important;
+    height: 100% !important;
+
+    @media (max-width: @screen-md-min) {
+      margin-right: 20px;
+      padding: 0 !important;
+      font-size: 12px !important;
+      border: none;
+      font-weight: normal !important;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .badge {
+        position: absolute;
+        right: 16px;
+        top: -16px;
+        background-color: #ff5722;
+        font-size: 8px !important;
+        font-weight: 400;
+
+        @media (max-width: @screen-md-min) {
+          right: -20px;
+          top: -10px;
         }
-      }
-      > a {
-        color: #fff;
-        text-transform: uppercase;
-        font-family: "Aller Display", "Aller";
-        text-align: center;
-        letter-spacing: 0.8px;
-        padding: 14px 26px 0 26px;
-        height: 70px;
-        font-size: 12px;
-        line-height: normal;
-        span {
-          margin-top: 3px;
-        }
-
-        -webkit-box-shadow: inset 5px 0 6px -2px rgba(0, 117, 137, 0.6);
-        box-shadow: inset 5px 0 6px -2px rgba(0, 117, 137, 0.6);
-
-        &:hover,
-        &:active,
-        &:focus {
-          background: #007589;
-          outline: 0;
-
-          .ico {
-            .opacity(1);
-          }
-        }
-      }
-      .ico {
-        .opacity(.7);
-        height: 19px;
-      }
-      .ico-tours {
-        background-position: -86px -1px;
-      }
-      .ico-flight {
-        background-position: -129px -3px;
-      }
-      // .ico-hotel {
-      //   margin-top: 2px;
-      // }
-      .ico-document {
-        background-position: -220px 0px;
-      }
-      .ico-blog {
-        background-position: -264px -1px;
-      }
     }
   }
-  &.navbar-right {
-    margin-top: 28px;
-    > li {
-      > a {
-        color: #fff;
-        line-height: 14px;
-        padding: 0 10px;
-        &:hover,
-        &:focus {
-          outline: 0;
-          background: none;
-        }
-      }
+}
+
+.vHelper {
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#nav {
+  &.container {
+    background-color: transparent;
+    font-size: 0;
+    text-align: right;
+
+    @media (max-width: @screen-md-min) {
+      padding-right: 0
     }
   }
 
-  &.navbar-nav {
-    > li {
-      position: static;
+  .topMenu.home {
+    background: rgba(0, 0, 0, 0) url("../img/logo_gray.png") no-repeat scroll center center / contain ;
+    cursor: pointer;
+    display: inline-block;
+    height: 70px;
+    padding: 0;
+    width: 150px;
+
+    @media (max-width: @screen-md-min) {
+      height: 40px;
+      width: 100px !important;
+    }
+  }
+  .vHelper {
+    height: 70px;
+
+    @media (max-width: @screen-md-min) {
+      height: 40px;
     }
   }
 
-  > li {
+  .icon {
+    background: rgba(0, 0, 0, 0) none no-repeat scroll center top;
+    display: inline-block;
+    margin: 0 8px;
+    padding: 0;
+    vertical-align: middle;
 
-    // &.active {
-    //   .form {
-    //     display: block;
-    //   }
-    // }
-
-    .form {
+    @media (max-width: @screen-md-min) {
       display: none;
-      .transition(all 0.5s ease-in-out);
     }
 
-    &:hover, {
-      .form {
-        display: block;
-      }
-    }
-  }
-}
-
-.navbar {
-  z-index: 1001;
-  margin-bottom: 0;
-  background-color: @brand-primary;
-  border-radius: 0;
-  border-width: 0;
-  -webkit-box-shadow: 0 -2px 0px #0d7f93, 0 1px 4px rgba(4, 7, 5, 0.2);
-  box-shadow: inset 0 -2px 0px #0d7f93, 0 1px 4px rgba(4, 7, 5, 0.2);
-  .navbar-brand {
-    padding: 7px 20px 7px 10px;
-    height: auto !important;
-    display: block;
-
-    &.md {
-      padding-top: 20px;
-    }
-  }
-}
-
-
-.payment-nav {
-  padding: 39px 0;
-}
-
-.payment-step {
-  width: 589px;
-  height: 42px;
-
-  &-1 {
-    background: url(../img/flight-payment-step-1.png) no-repeat 0 0;
-  }
-
-  &-2 {
-    background: url(../img/flight-payment-step-2.png) no-repeat 0 0;
-  }
-
-  &-3 {
-    background: url(../img/flight-payment-step-3.png) no-repeat 0 0;
-  }
-
-  &-4 {
-    background: url(../img/flight-payment-step-4.png) no-repeat 0 0;
-  }
-
-  &-5 {
-    background: url(../img/flight-payment-step-5.png) no-repeat 0 0;
-  }
-
-
-
-  a {
-    display: block;
-    float: left;
-    width: 117px;
-    line-height: 42px;
-    text-align: center;
-    font-family: "Gotham Black";
-    color: #01414c;
-    text-shadow: 1px 2px 0px rgba(61, 153, 169, 0.2);
-    padding-left: 20px;
-
-    &:last-child {
-      padding-left: 0;
+    :hover {
+      background-position: center bottom;
     }
 
-    &:hover {
-      color: #fff;
-      text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.2);
-    }
-
-    &.active {
-      color: #000;
-      text-shadow: none;
+    &.icon_facebook {
+      background-image: url("../img/icons.png");
+      background-position: -57px -188px;
+      height: 23px;
+      width: 23px;
 
       &:hover {
-        text-shadow: none;
+        background-image: url("../img/icons.png");
+        background-position: -85px -188px;
+        height: 23px;
+        width: 23px;
+      }
+    }
+
+    &.icon_inst {
+      background-image: url("../img/icons.png");
+      background-position: -29px -188px;
+      height: 23px;
+      width: 23px;
+
+      &:hover {
+        background-image: url("../img/icons.png");
+        background-position: -169px -188px;
+        height: 23px;
+        width: 23px;
+      }
+    }
+
+    &.icon_twitter {
+      background-image: url("../img/icons.png");
+      background-position: -141px -188px;
+      height: 23px;
+      width: 23px;
+
+      &:hover {
+        background-image: url("../img/icons.png");
+        background-position: -113px -188px;
+        height: 23px;
+        width: 23px;
       }
     }
   }

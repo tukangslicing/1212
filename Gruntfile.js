@@ -26,8 +26,6 @@ module.exports = function (grunt) {
           'Gruntfile.js',
           '<%= dir.jade %>/**/*.jade',
           '<%= dir.jade %>/*.jade',
-          '<%= dir.mobilejade %>/**/*.jade',
-          '<%= dir.mobilejade %>/*.jade',
           '<%= dir.js %>/*.js',
           '<%= dir.js %>/**/*.js',
           '<%= dir.less %>/*.less',
@@ -52,8 +50,7 @@ module.exports = function (grunt) {
     jade: {
       html: {
         files: {
-          'app/': ['app/jade/*.jade'],
-          'app/mobile': ['<%= dir.mobilejade %>/*.jade']
+          'app/': ['app/jade/*.jade']
         },
         options: {
           pretty: true,
@@ -104,17 +101,6 @@ module.exports = function (grunt) {
           '<%= dir.js %>/plugins/*.js'
         ],
         dest: '<%= dir.js %>/plugins.js'
-      },
-      mobile: {
-        src: [
-          '<%= dir.js %>/plugins/validator.js',
-          '<%= dir.js %>/plugins/bootstrap-datepicker.js',
-          '<%= dir.bootstrap %>/tab.js',
-          '<%= dir.bootstrap %>/modal.js',
-          '<%= dir.js %>/mobile/jquery.swipebox.js',
-          '<%= dir.js %>/mobile/main-mobile.js'
-        ],
-        dest: '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.mobile.js'
       }
     },
 
@@ -137,7 +123,7 @@ module.exports = function (grunt) {
       },
       main: {
         jshintrc: '<%= dir.js %>/.jshintrc',
-        src: ['<%= dir.js %>/shared/*.js', '<%= dir.js %>/web/*.js', '<%= dir.js %>/mobile/main-mobile.js']
+        src: ['<%= dir.js %>/shared/*.js', '<%= dir.js %>/web/*.js']
       },
       afterConcat: {
         src: ['<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js']
@@ -153,9 +139,6 @@ module.exports = function (grunt) {
       },
       main: {
         src: ['<%= dir.js %>/shared/*.js', '<%= dir.js %>/web/*.js']
-      },
-      mobile: {
-        src: ['<%= dir.js %>/mobile/main-mobile.js']
       },
       grunt: {
         src: 'Gruntfile.js'
@@ -198,25 +181,6 @@ module.exports = function (grunt) {
         files: {
           '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.css': '<%= dir.less %>/apps.less'
         }
-      },
-      compileMobile: {
-        options: {
-          // strictMath: true,
-          sourceMap: true,
-          outputSourceFiles: true,
-          sourceMapURL: '<%= pkg.name.toLowerCase() %>.mobile.css.map',
-          sourceMapFilename: '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.mobile.css.map'
-        },
-        files: {
-          '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.mobile.css': '<%= dir.less %>/mobile.less'
-        }
-      },
-      email: {
-        files: {
-          '<%= dir.css %>/email-template-1.css' : '<%= dir.less %>/email-template-1.less',
-          '<%= dir.css %>/email-template-2.css' : '<%= dir.less %>/email-template-2.less',
-          '<%= dir.css %>/e-ticket.css' : '<%= dir.less %>/e-ticket.less'
-        }
       }
     },
 
@@ -244,12 +208,6 @@ module.exports = function (grunt) {
           map: true
         },
         src: '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.css'
-      },
-      mobile: {
-        options: {
-          map: true
-        },
-        src: '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.mobile.css'
       }
     },
 
@@ -262,7 +220,6 @@ module.exports = function (grunt) {
       core: {
         files: {
           '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.css': '<%= dir.css %>/<%= pkg.name.toLowerCase() %>.css',
-          '<%= dir.mobile %>/css/<%= pkg.name.toLowerCase() %>.mobile.css': '<%= dir.mobile %>/css/<%= pkg.name.toLowerCase() %>.mobile.css',
           '<%= dir.css %>/bootstrap.css': '<%= dir.css %>/bootstrap.css'
         }
       }
@@ -283,8 +240,7 @@ module.exports = function (grunt) {
     concurrent: {
       less: [
         'less:compileCore',
-        'less:compileWeb',
-        'less:compileMobile'
+        'less:compileWeb'
       ],
       js: [
         'jscs',
@@ -366,23 +322,13 @@ module.exports = function (grunt) {
       }
     },
     clean: {
-      dev: ['<%= dir.js %>/plugins.js', '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js', '<%= dir.css %>/*.css', '<%= dir.css %>/*.css.map'],
+      dev: ['app/*.html', '<%= dir.js %>/plugins.js', '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js', '<%= dir.css %>/*.css', '<%= dir.css %>/*.css.map'],
       build: ['build/*']
-    },
-    premailer: {
-      simple: {
-        options: {},
-        files: {
-          'app/email-template-1-css-inline.html': ['app/email-template-1.html'],
-          'app/email-template-2-css-inline.html': ['app/email-template-2.html'],
-          'app/e-ticket-css-inline.html': ['app/e-ticket.html']
-        }
-      }
     }
   });
 
   grunt.registerTask('compress-image', ['imagemin']);
-  grunt.registerTask('dev', ['concurrent:less', 'jade', 'concurrent:js', 'notify', 'autoprefixer']);
+  grunt.registerTask('dev', ['clean', 'concurrent:less', 'jade', 'concurrent:js', 'notify', 'autoprefixer']);
   grunt.registerTask('default', ['dev', 'watch']);
   grunt.registerTask('production', ['clean:build', 'compress-image', 'jade', 'less', 'concat', 'autoprefixer', 'csscomb', 'cssmin', 'uglify']);
   grunt.registerTask('heroku', 'dev');

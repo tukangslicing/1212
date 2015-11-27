@@ -1,417 +1,91 @@
 .hero-banner {
+  margin-top: 70px;
+
+  @media (max-width: @screen-md-min) {
+    margin-top: 40px
+  }
+
   &.home {
-    height: 600px;
+    height: 500px;
     position: relative;
   }
   .flexslider {
     z-index: 1;
-    height: 600px;
-    max-height: 600px;
-    .slides {
-      height: 600px;
-      img {
-        max-height: 600px;
-      }
-    }
   }
 }
 
-.intro-headline {
-  background: #f4f4f4;
-  padding: 45px;
-  border-color: #e0ded4;
-  border-style: solid;
-  border-width: 1px 0;
+.section {
+  padding-top: 70px;
+  padding-bottom: 70px;
 
-  .hotline-block {
-    padding: 0 30px 0;
-    background: #fff;
-    border: 1px solid #d8d8d8;
-    -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    height: 60px;
-    border-radius: 6px;
-
-    .ico {
-      vertical-align: top;
-      margin-top: 10px;
-      margin-right: 25px;
-      float: left;
-    }
-
-    .text {
-      display: block;
-      vertical-align: middle;
-      line-height: 60px;
-      margin:0 30px;
-      float: left;
-
-      strong,
-      &.phone-number {
-        font-family: "Gotham Black"
-      }
-
-      &.phone-number {
-        font-size: 24px;
-        line-height: 24px;
-        margin: 0 0 0 35px;
-        line-height: 60px;
-      }
-    }
-
-    .arrow {
-      float: left;
-      height: 58px;
-      width: 20px;
-      background: url(../img/arrow-thin.png) no-repeat 0 0;
-    }
+  @media (max-width: @screen-md-min) {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 }
 
-.block-24hour {
-  margin: 55px 0 0 0;
+.artist-profile-block {
 
-  .title {
-    display: inline-block;
-    vertical-align: top;
-    width: 250px;
-    font-weight: 700;
-    font-family: "Aller";
-    font-size: 30px;
-    margin: -2px 0 0 30px;
-    line-height: 34px;
+  .subtitle {
+    margin: 0 0 70px 0
   }
 
-  .right {
-    font-family: "Gotham Book";
-    font-size: 12px;
-
-    a {
-      text-transform: uppercase;
-      color: #ef9630;
-      line-height: 30px;
-      display: inline-block;
-      border-bottom: 1px solid #ef9630;
-    }
-  }
-
-  p {
-    line-height: 24px;
-  }
-}
-
-
-.featured {
-  border-bottom: dashed 1px rgba(0, 0, 0, 0.4);
-  .title-box {
-    font-family: "Gotham Rounded";
-    font-size: 30px;
-    font-weight: 200;
-    margin: 65px 0 35px;
-  }
-
-  img {
-    position: relative;
-    display: block;
-    z-index: 0;
-  }
-
-  .popular-destinations,
-  .recommended-domestic,
-  .recommended-international {
-    height: 420px;
-
-    .big-item {
-      img {
-        height: 421px;
-        width: 100%;
-      }
-    }
-    .square {
-      &:last-child {
-        .item {
-          img {
-            height: 209px;
-          }
-        }
-      }
-    }
-
-    .item {
-      height: 210px;
-      width: 235px;
-      position: relative;
-
-      img {
-        height: 210px;
-        width: 234px;
-      }
-    }
-  }
-
-  .btn-show-more {
-    margin: 20px 0;
-    padding: 15px;
-    font-family: "Gotham Book";
-    font-size: 15px;
-    color: #393030;
-    #gradient > .vertical(#fff; rgba(0,0,0,0.08); 5%);
-    -webkit-box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.4), inset 0 -1px 2px rgba(0, 0, 0, 0.10);
-    box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.4), inset 0 -1px 2px rgba(0, 0, 0, 0.10);
-    text-decoration: none;
-
-    strong {
-      font-family: "Gotham Black"
-    }
-  }
-
-  .info {
+  .artis-item {
+    min-width: 177px;
+    float: left;
+    margin-right: 14px;
+    margin-bottom: 40px;
     text-align: center;
-    a {
-      color: #fff;
-      text-decoration: none;
-      color: #efefef;
+
+    &:nth-child(6n+1) {
+      margin-right: 0;
     }
 
-    &.yellow-box {
-      width: 214px;
-      height: 214px;
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      background-color: #fcbc56;
-      font-family: "Gotham Black";
-      color: #393030;
-      text-decoration: none;
+    // &:hover {
+    //   img {
+    //     opacity: 1;
+    //   }
+    // }
 
-      .region {
-        margin-top: 5px;
-        color: #8f3000;
-        font-family: "Gotham Book"
-      }
-      .destination {
-        font-size: 20px;
-      }
+    img {
+      display: block;
+      margin: 0 0 15px 0;
+      // opacity: 0.8;
+      .transition( 0.3s, ease-in-out );
+    }
 
-      .pricing {
-        margin-top: 40px;
+    h5 {
+      text-transform: uppercase;
+      color: #f1592b;
+      font-size: 18px;
+      font-weight: 600;
 
-        .title {
-          font-family: "Gotham Book";
-          font-size: 11px;
-
-          strong {
-            font-family: "Gotham Black";
-          }
-        }
-
-        .amount {
-          .currency {
-            font-size: 18px;
-          }
-          .price {
-            font-size: 26px;
-          }
-        }
+      &.spesial {
+        font-size: 16px
       }
     }
 
-    &.domestic-info {
-      width: 100% !important;
-      height: 100% !important;
-      .info-detail {
-        background: none;
-      }
+    span {
+      color: #444;
+      font-size: 16px;
     }
 
-    &.box-info {
-      color: #fff;
-      top: 0;
-      left: 0;
-      height: 210px;
-      width: 235px;
+    @media (max-width: @screen-md-min) {
+      width: 130px !important;
+      min-width: 130px;
+      margin-right: 20px;
 
-      .more-info {
-        margin: 50px auto 0;
-        font-family: "Gotham Black";
-        font-size: 30px;
-        width: 245px;
-        line-height: 40px;
+      &:nth-child(2n+1) {
+        margin-right: 0;
       }
 
-      .line {
-        display: block;
-        border-bottom: 2px solid #fff;
-        width: 87px;
-        margin: 35px auto 30px;
+      h5 {
+        margin-bottom: 5px;
       }
-
-      .info-detail {
-
-        &.overlay {
-          background: url(../img/overlay-box.png) repeat-x bottom left;
-          min-height: 121px;
-          margin-top: 89px;
-
-          .destination-type {
-            padding-top: 45px;
-          }
-        }
-
-        .destination-type {
-          font-family: "GOtham Book";
-          font-size: 11px;
-          display: block;
-        }
-
-        .location {
-          font-family: "Gotham Black";
-          font-size: 17.5px;
-        }
-
-        .package {
-          font-size: 18px;
-        }
-
-        .pricing {
-          font-size: 11px;
-
-          .currency,
-          .price {
-            font-family: "Gotham Black";
-            font-size: 14px;
-            letter-spacing: 1px;
-          }
-        }
-      }
-    }
-  }
-
-  &.unmissable-flights-deals,
-  &.popular-destination-hotels {
-    .item {
-      height: 210px;
 
       img {
-        max-width: 100%;
-        height: 210px;
-        position: relative;
-        z-index: 0;
-      }
-
-      .destination {
-        font-family: "Gotham Black";
-        font-size: 18px;
-        z-index: 1;
-        left: 0;
-        bottom: 0;
-        height: 121px;
-        padding-top: 75px;
         width: 100%;
-        background: url(../img/overlay-box.png) repeat-x bottom left;
-        color: #fff;
-
-        &.hotel {
-          padding-top: 65px;
-
-          .hotel-counts {
-            margin-top: 5px;
-            letter-spacing: 1px;
-            font-size: 11.3px;
-          }
-        }
-      }
-
-      .pricing {
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: 2;
-        color: #8f3000;
-        font-size: 10px;
-        text-align: center;
-        padding: 11px 27px;
-        line-height: 20px;
-
-        .price {
-          font-family: "Gotham Black";
-          font-size: 20px;
-          color: #393030;
-        }
-
-        .currency {
-          font-size: 14px;
-        }
       }
     }
-  }
-  .bg-orange {
-    background-color: #fcbc56;
-  }
-
-  &.blog-inspirations {
-    .blog-item {
-      height: 430px;
-      overflow: hidden;
-
-      .post-header {
-        height: 110px;
-        width: 100%;
-        bottom: 0;
-        left: 0;
-      }
-
-      .post-item {
-        width: 390px;
-        label {
-          color: #8f3000;
-        }
-
-        h3 {
-          font-size: 18px;
-          line-height: 24px;
-
-          a:hover {
-            color: @gray;
-            text-decoration: none;
-          }
-        }
-      }
-    }
-    img {
-      width: 100%;
-      height: 321px;
-    }
-  }
-}
-
-.tip-inquiry {
-  height: 140px;
-  padding: 60px 0 75px;
-  vertical-align: middle;
-  background: #f3f3f3;
-  border-width: 1px 0;
-  border-style: solid;
-  border-color: #eaeaea;
-  margin-top: 75px;
-
-  .ico-luggage {
-    margin-top: -13px;
-  }
-
-  .big {
-    font-family: "Gotham Rounded";
-    font-weight: 200;
-    font-size: 30px;
-    line-height: 26px;
-    color: #a3a3a3;
-    display: inline-block;
-  }
-
-  .small {
-    font-family: "Gotham Black";
-    text-transform: uppercase;
-    color: #000;
   }
 }
