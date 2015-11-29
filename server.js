@@ -5,8 +5,10 @@ var mongoose = require('mongoose')
 var twitter = require('twitter')
 var routes = require('./server/routes')
 var config = require('./server/config')
-var streamHandler = require('./server/streamHandler');
+// var streamHandler = require('./server/streamHandler');
 var CORS = require('cors')
+
+var MONGODB_URL = process.env.MONGOLAB_URI || 'mongodb://127.0.0.1/shopeeID-tweets'
 
 // Create an express instance and set a port variable
 var app = express();
@@ -18,9 +20,8 @@ app.disable('x-powered-by');
 app.options('*', CORS());
 app.use(CORS())
 
-console.log(process.env.MONGOLAB_URI || 'mongodb://localhost/shopeeID-tweets')
 // Connect to our mongo database
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/shopeeID-tweets');
+mongoose.connect(MONGODB_URL);
 
 // Create a new ntwitter instance
 var twit = new twitter(config.twitter);
@@ -28,20 +29,28 @@ var twit = new twitter(config.twitter);
 // Page Route
 app.get('/page/:page/:skip', routes.page);
 
-// Set /public as our static content dir
+app.get('/tweet', function (req, res) {
+  twit.get('search/tweets', {q: '#ShopeeID', result_type: 'recent'}, function(error, tweets, response) {
+
+    res.send(tweets)
+
+  })
+})
+
 app.use("/", express.static(__dirname + "/static/", { maxAge: 86400 }));
 
-// Fire this bitch up (start our server)
-var server = http.createServer(app).listen(port, function() {
-  console.log('Express server listening on port ' + port);
+require(__dirname + '/server/searchTweet')(twit)
+
+app.listen(port, function () {
+  console.log('Express server listening on port ' + port)
 });
 
 // Initialize socket.io
-var io = require('socket.io').listen(server);
+// var io = require('socket.io').listen(server);
 
-// Set a stream listener for tweets matching tracking keywords
-twit.stream('statuses/filter',{ track: 'shopeeID'}, function (stream) {
-  if (stream) {
-    streamHandler(stream, io);
-  }
-});
+// // Set a stream listener for tweets matching tracking keywords
+// twit.stream('statuses/filter',{ track: 'shopeeID'}, function (stream) {
+//   if (stream) {
+//     streamHandler(stream, io);
+//   }
+// });
