@@ -26,11 +26,5 @@ module.exports = function(stream, io){
         io.emit('tweet', tweet);
       }
     });
-
   });
-
-  stream.on('error', function(error) {
-    throw error;
-  });
-
 };

@@ -18,6 +18,7 @@ app.disable('x-powered-by');
 app.options('*', CORS());
 app.use(CORS())
 
+console.log(process.env.MONGOLAB_URI || 'mongodb://localhost/shopeeID-tweets')
 // Connect to our mongo database
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/shopeeID-tweets');
 
@@ -39,7 +40,8 @@ var server = http.createServer(app).listen(port, function() {
 var io = require('socket.io').listen(server);
 
 // Set a stream listener for tweets matching tracking keywords
-twit.stream('statuses/filter',{ track: 'shopeeID'}, function (stream){
-  streamHandler(stream, io);
-
+twit.stream('statuses/filter',{ track: 'shopeeID'}, function (stream) {
+  if (stream) {
+    streamHandler(stream, io);
+  }
 });
