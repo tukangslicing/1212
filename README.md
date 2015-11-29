@@ -1,4 +1,5 @@
-<img src="https://raw.githubusercontent.com/tukangslicing/starter-slicing/master/img/logo.png" width="75" title="TS Starter"> 
+
+<img src="https://raw.githubusercontent.com/tukangslicing/starter-slicing/master/img/logo.png" width="75" title="TS Starter">
 
 TS Starter
 ===
