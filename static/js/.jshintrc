@@ -18,7 +18,8 @@
   "predef": [ // Custom globals.
     "validator",
     "define",
-    "module"
+    "module",
+    "tweetParser"
   ],
 
   // Development.

@@ -77,6 +77,17 @@ $(function () {
 
   hideBlocks(timelineBlocks, offset);
 
+  tweetParser('.tweet', {
+    urlClass : 'tweet-link',
+    userClass : 'tweet=user',
+    hashtagClass : 'hashtag',
+    target : '_blank',
+    searchWithHashtags : true,
+    parseUsers : true,
+    parseHashtags : true,
+    parseUrls : true
+  });
+
 })
 
 function isNumber (evt) {

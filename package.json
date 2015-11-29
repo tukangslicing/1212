@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "async": "^0.9.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
     "grunt": "latest",
     "grunt-autoprefixer": "latest",
     "grunt-concurrent": "latest",
@@ -33,11 +35,13 @@
     "grunt-jscs": "^1.6.0",
     "grunt-newer": "^1.1.0",
     "grunt-notify": "^0.4.1",
-    "grunt-premailer": "^0.2.13",
     "jit-grunt": "^0.9.*",
     "jshint-stylish": "^1.0.*",
+    "mongoose": "^4.2.8",
     "node-static": "^0.7.6",
     "open": "0.0.5",
-    "time-grunt": "latest"
+    "socket.io": "^1.3.7",
+    "time-grunt": "latest",
+    "twitter": "^1.2.5"
   }
 }

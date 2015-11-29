@@ -31,3 +31,4 @@ app/css
 app/js/bootstrap.js
 app/js/plugins.js
 app/js/shopee-1212.js
+static/*.html

@@ -1,36 +1,45 @@
-'use strict';
+// Require our dependencies
+var express = require('express')
+var http = require('http')
+var mongoose = require('mongoose')
+var twitter = require('twitter')
+var routes = require('./server/routes')
+var config = require('./server/config')
+var streamHandler = require('./server/streamHandler');
+var CORS = require('cors')
 
-var statics = require('node-static');
+// Create an express instance and set a port variable
+var app = express();
+var port = process.env.PORT || 3001;
 
-var options = {
-	cache: 86400,
-	serverInfo:'www.digitalocean.com/?refcode=731164068215',
-	headers: {
-		'X-Creator':'Follow @hengkiardo'
-	}
-}
+// Disable etag headers on responses
+app.disable('etag');
+app.disable('x-powered-by');
+app.options('*', CORS());
+app.use(CORS())
 
-if (process.env.NODE_ENV === 'production') {
-	options.gzip = true
-}
+// Connect to our mongo database
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/shopeeID-tweets');
 
-var Server = new statics.Server('./app', options);
+// Create a new ntwitter instance
+var twit = new twitter(config.twitter);
 
-var port = process.env.PORT || 4040;
+// Page Route
+app.get('/page/:page/:skip', routes.page);
 
-require('http').createServer(function (request, response) {
+// Set /public as our static content dir
+app.use("/", express.static(__dirname + "/static/", { maxAge: 86400 }));
 
-	request.addListener('end', function () {
-  	Server.serve(request, response,function (e, res) {
-      if (e && (e.status === 404)) {
-         Server.serveFile('404.html', 404, {}, request, response);
-      }
-    });
-  }).resume();
+// Fire this bitch up (start our server)
+var server = http.createServer(app).listen(port, function() {
+  console.log('Express server listening on port ' + port);
+});
 
-}).listen(port);
+// Initialize socket.io
+var io = require('socket.io').listen(server);
 
-if (process.env.NODE_ENV !== 'production') {
-	console.log("> node-static is listening on http://localhost:"+ port);
-	require('open')("http://localhost:"+ port);
-}
+// Set a stream listener for tweets matching tracking keywords
+twit.stream('statuses/filter',{ track: 'shopeeID'}, function (stream){
+  streamHandler(stream, io);
+
+});
