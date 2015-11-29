@@ -332,7 +332,7 @@ module.exports = function (grunt) {
       }
     },
     clean: {
-      dev: ['app/*.html', '<%= dir.js %>/plugins.js', '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js', '<%= dir.css %>/*.css', '<%= dir.css %>/*.css.map'],
+      dev: ['app/*.html', '<%= dir.js %>/plugins.js', '<%= dir.js %>/bootstrap.js','<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js', '<%= dir.css %>/*.css', '<%= dir.css %>/*.css.map'],
       build: ['build/*']
     }
   });
@@ -340,7 +340,7 @@ module.exports = function (grunt) {
   grunt.registerTask('compress-image', ['imagemin']);
   grunt.registerTask('dev', ['clean', 'concurrent:less', 'jade', 'concurrent:js', 'notify', 'autoprefixer']);
   grunt.registerTask('default', ['dev', 'watch']);
-  grunt.registerTask('production', ['clean', 'compress-image', 'jade', 'less', 'concat', 'autoprefixer', 'csscomb', 'cssmin', 'uglify']);
+  grunt.registerTask('production', ['clean', 'jade', 'less', 'concat', 'autoprefixer', 'csscomb', 'cssmin', 'uglify', 'compress-image']);
   grunt.registerTask('heroku', 'production');
   grunt.registerTask('heroku:development', 'dev');
   grunt.registerTask('heroku:production', 'production');
