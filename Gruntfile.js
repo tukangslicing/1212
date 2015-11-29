@@ -152,7 +152,17 @@ module.exports = function (grunt) {
       },
       frontend: {
         files: {
-          '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.min.js': ['<%= dir.js %>/bootstrap.js', '<%= dir.js %>/plugins.js', '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js']
+          '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js': ['<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js']
+        }
+      },
+      bootstrap: {
+        files: {
+          '<%= dir.js %>/bootstrap.js': ['<%= dir.js %>/bootstrap.js']
+        }
+      },
+      plugins: {
+        files: {
+          '<%= dir.js %>/plugins.js': ['<%= dir.js %>/plugins.js']
         }
       }
     },
@@ -330,8 +340,8 @@ module.exports = function (grunt) {
   grunt.registerTask('compress-image', ['imagemin']);
   grunt.registerTask('dev', ['clean', 'concurrent:less', 'jade', 'concurrent:js', 'notify', 'autoprefixer']);
   grunt.registerTask('default', ['dev', 'watch']);
-  grunt.registerTask('production', ['clean:build', 'compress-image', 'jade', 'less', 'concat', 'autoprefixer', 'csscomb', 'cssmin', 'uglify']);
-  grunt.registerTask('heroku', 'dev');
+  grunt.registerTask('production', ['clean', 'compress-image', 'jade', 'less', 'concat', 'autoprefixer', 'csscomb', 'cssmin', 'uglify']);
+  grunt.registerTask('heroku', 'production');
   grunt.registerTask('heroku:development', 'dev');
-  grunt.registerTask('heroku:production', 'dev');
+  grunt.registerTask('heroku:production', 'production');
 };
