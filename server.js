@@ -37,9 +37,9 @@ app.get('/tweet', function (req, res) {
   })
 })
 
-app.use("/", express.static(__dirname + "/static/", { maxAge: 86400 }));
+app.use("/", express.static("./static/", { maxAge: 86400 }));
 
-require(__dirname + '/server/searchTweet')(twit)
+require('./server/searchTweet')(twit)
 
 app.listen(port, function () {
   console.log('Express server listening on port ' + port)

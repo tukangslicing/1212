@@ -19,7 +19,9 @@
     "validator",
     "define",
     "module",
-    "tweetParser"
+    "moment",
+    "tweetParser",
+    "Mustache"
   ],
 
   // Development.

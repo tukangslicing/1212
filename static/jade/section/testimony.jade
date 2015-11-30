@@ -4,55 +4,55 @@
     h3.subtitle.text-center #SHOPEE1212
 
     #testimony-slider.flexslider
-      ul.slides
-        li
-          .content-testimony
-            img(src='../img/twitter-dummy/1.png')
+      //- ul.slides
+      //-   li
+      //-     .content-testimony
+      //-       img(src='../img/twitter-dummy/1.png')
 
-            blockquote
-              p.tweet Can’t wait to buy stuffs from @ShopeeID on 12.12 #shopee1212
-              span.text-small Tweeted 12 mins ago
-            .clearfix
+      //-       blockquote
+      //-         p.tweet Can’t wait to buy stuffs from @ShopeeID on 12.12 #shopee1212
+      //-         span.text-small Tweeted 12 mins ago
+      //-       .clearfix
 
-        li
-          .content-testimony
-            img(src='../img/twitter-dummy/2.png')
-            blockquote
-              p.tweet Can’t wait to buy stuffs from @ShopeeID on 12.12 #shopee1212
-              span.text-small Tweeted 12 mins ago
-            .clearfix
+      //-   li
+      //-     .content-testimony
+      //-       img(src='../img/twitter-dummy/2.png')
+      //-       blockquote
+      //-         p.tweet Can’t wait to buy stuffs from @ShopeeID on 12.12 #shopee1212
+      //-         span.text-small Tweeted 12 mins ago
+      //-       .clearfix
 
-        li
-          .content-testimony
-            img(src='../img/twitter-dummy/3.png')
-            blockquote
-              p.tweet Can’t wait to buy stuffs from @ShopeeID on 12.12 #shopee1212
+      //-   li
+      //-     .content-testimony
+      //-       img(src='../img/twitter-dummy/3.png')
+      //-       blockquote
+      //-         p.tweet Can’t wait to buy stuffs from @ShopeeID on 12.12 #shopee1212
 
-              span.text-small Tweeted 12 mins ago
-            .clearfix
+      //-         span.text-small Tweeted 12 mins ago
+      //-       .clearfix
 
-        li
-          .content-testimony
-            img(src='../img/twitter-dummy/4.png')
-            blockquote
-              p.tweet Can’t wait to buy stuffs from @ShopeeID on 12.12 #shopee1212
-              span.text-small Tweeted 12 mins ago
-            .clearfix
-        li
-          .content-testimony
-            img(src='../img/twitter-dummy/2.png')
-            blockquote
-              p.tweet Can’t wait to buy stuffs from @ShopeeID on 12.12 #shopee1212
-              span.text-small Tweeted 12 mins ago
-            .clearfix
+      //-   li
+      //-     .content-testimony
+      //-       img(src='../img/twitter-dummy/4.png')
+      //-       blockquote
+      //-         p.tweet Can’t wait to buy stuffs from @ShopeeID on 12.12 #shopee1212
+      //-         span.text-small Tweeted 12 mins ago
+      //-       .clearfix
+      //-   li
+      //-     .content-testimony
+      //-       img(src='../img/twitter-dummy/2.png')
+      //-       blockquote
+      //-         p.tweet Can’t wait to buy stuffs from @ShopeeID on 12.12 #shopee1212
+      //-         span.text-small Tweeted 12 mins ago
+      //-       .clearfix
 
-        li
-          .content-testimony
-            img(src='../img/twitter-dummy/3.png')
-            blockquote
-              p.tweet Can’t wait to buy stuffs from @ShopeeID on 12.12 #shopee1212
-              span.text-small Tweeted 12 mins ago
-            .clearfix
+      //-   li
+      //-     .content-testimony
+      //-       img(src='../img/twitter-dummy/3.png')
+      //-       blockquote
+      //-         p.tweet Can’t wait to buy stuffs from @ShopeeID on 12.12 #shopee1212
+      //-         span.text-small Tweeted 12 mins ago
+      //-       .clearfix
 
     #carousel.flexslider
       ul.slides
@@ -68,3 +68,27 @@
           img(src='../img/twitter-dummy/2.png')
         li
           img(src='../img/twitter-dummy/3.png')
+
+
+    script#testimony-slider-list-template(type='text/html').
+      <ul class="slides">
+        {{#tweets}}
+        <li>
+          <div class="content-testimony">
+            <img src="{{avatar}}">
+            <blockquote>
+              <p class="tweet">@{{screenname}} {{body}}</a>
+              </p>
+              <span class="text-small">{{date | date}}</span>
+            </blockquote>
+            <div class="clearfix"></div>
+          </div>
+        </li>
+        {{/tweets}}
+      </ul>
+    script#testimony-carousel-list-template(type='text/html').
+      <ul class="slides">
+        {{#tweets}}
+          <li><img src="{{avatar}}"></li>
+        {{/tweets}}
+      </ul>

@@ -117,7 +117,7 @@ html[xmlns] .flexslider .slides {
   z-index: 10;
   text-indent: -9999px;
   overflow: hidden;
-  opacity: 0.6;
+  opacity: 0.9;
   cursor: pointer;
   color: rgba(0, 0, 0, 0.8);
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
@@ -430,14 +430,21 @@ header #shopeemall .badge {
 .footer h3 {
   margin: 30px 0 50px 0;
 }
+.footer h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
 .footer .appLogoContainer {
   padding: 50px 0 20px 0;
 }
 .footer .appLogo {
-  margin: 15px auto 30px;
+  margin: 110px auto 55px;
   background: url("../img/appLogo.png") no-repeat center center;
-  height: 188px;
-  width: 188px;
+  -webkit-background-size: 150px 150px;
+          background-size: 150px 150px;
+  height: 150px;
+  width: 150px;
   display: block;
 }
 .footer .qrCode {
@@ -459,8 +466,8 @@ header #shopeemall .badge {
   background: #000 none no-repeat scroll center center / 60% auto;
   border-radius: 5px;
   display: inline-block;
-  height: 60px;
-  width: 215px;
+  height: 70px;
+  width: 180px;
 }
 .footer .downloadLinks .download:active,
 .footer .downloadLinks .universalLink:active,
@@ -491,7 +498,7 @@ header #shopeemall .badge {
 }
 @media (max-width: 480px) {
   .footer {
-    padding-bottom: 100px;
+    padding-bottom: 70px;
   }
   .footer h3 {
     margin: 10px 0 20px 0;
@@ -502,29 +509,13 @@ header #shopeemall .badge {
             background-size: contain;
     width: 100px;
     height: 100px;
+    margin-top: 40px;
+  }
+  .footer h4 {
+    margin-bottom: 0;
   }
   .footer .qrCode {
     display: none;
-  }
-  .footer .downloadLinks {
-    width: 100%;
-    height: auto;
-    display: inline-block;
-    text-align: center;
-  }
-  .footer .downloadLinks .download {
-    background: no-repeat;
-    -webkit-background-size: 60% 60%;
-            background-size: 60%;
-    border-radius: 5px;
-    display: inline-block;
-    width: 130px;
-    height: 40px;
-    background-position: center;
-    background-color: #000;
-  }
-  .footer .downloadLinks .download.appleStore {
-    margin-right: 5px;
   }
 }
 .hero-banner {
@@ -557,10 +548,11 @@ header #shopeemall .badge {
 }
 .artist-profile-block .artis-item {
   min-width: 177px;
-  float: left;
-  margin-right: 14px;
+  display: inline-block;
+  margin-right: 10px;
   margin-bottom: 40px;
   text-align: center;
+  position: relative;
 }
 .artist-profile-block .artis-item:nth-child(6n+1) {
   margin-right: 0;
@@ -577,6 +569,11 @@ header #shopeemall .badge {
   color: #f1592b;
   font-size: 18px;
   font-weight: 600;
+  display: block;
+  width: 177px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .artist-profile-block .artis-item h5.spesial {
   font-size: 16px;
@@ -587,27 +584,28 @@ header #shopeemall .badge {
 }
 @media (max-width: 480px) {
   .artist-profile-block .artis-item {
-    width: 130px !important;
-    min-width: 130px;
-    margin-right: 20px;
-  }
-  .artist-profile-block .artis-item:nth-child(2n+1) {
-    margin-right: 0;
+    width: 105px !important;
+    min-width: 105px;
+    margin-right: 5px;
   }
   .artist-profile-block .artis-item:nth-child(6n+1) {
-    margin-right: 20px;
+    margin-right: 5px;
   }
   .artist-profile-block .artis-item h5 {
+    width: auto;
     margin-bottom: 5px;
-    font-size: 16px;
+    font-size: 11px;
   }
   .artist-profile-block .artis-item img {
     width: 100%;
   }
+  .artist-profile-block .artis-item span {
+    font-size: 10px;
+  }
 }
 .share-and-win {
   min-height: 768px;
-  background: #F4F4F4 url(../img/share-and-win-bg.jpg) no-repeat center;
+  background: #F4F4F4 url(../img/share-and-win-bg2.jpg) no-repeat center;
   -webkit-background-size: cover;
           background-size: cover;
 }
@@ -731,22 +729,22 @@ header #shopeemall .badge {
   height: 3261px;
   background: #fd470c url(../img/bg-timeline.jpg) repeat-x 0 0;
 }
-.section .testimony-section .subtitle {
+.testimony-section .subtitle {
   margin-bottom: 100px;
 }
-.section .testimony-section #carousel,
-.section .testimony-section #testimony-slider {
+.testimony-section #carousel,
+.testimony-section #testimony-slider {
   width: 975px;
   margin: 0 auto;
 }
-.section .testimony-section #testimony-slider {
+.testimony-section #testimony-slider {
   margin-bottom: 50px;
 }
-.section .testimony-section #testimony-slider .content-testimony {
+.testimony-section #testimony-slider .content-testimony {
   width: 600px;
   margin: 0 auto;
 }
-.section .testimony-section #testimony-slider .content-testimony blockquote {
+.testimony-section #testimony-slider .content-testimony blockquote {
   width: 495px;
   float: left;
   padding: 0 0 0 35px;
@@ -757,22 +755,22 @@ header #shopeemall .badge {
   margin: 0;
   position: relative;
 }
-.section .testimony-section #testimony-slider .content-testimony blockquote:after {
+.testimony-section #testimony-slider .content-testimony blockquote:after {
   display: block;
   content: " ";
   clear: both;
 }
-.section .testimony-section #testimony-slider .content-testimony blockquote a {
+.testimony-section #testimony-slider .content-testimony blockquote a {
   color: #f1592b;
 }
-.section .testimony-section #testimony-slider .content-testimony blockquote a:hover {
+.testimony-section #testimony-slider .content-testimony blockquote a:hover {
   color: #f47e5b;
 }
-.section .testimony-section #testimony-slider .content-testimony blockquote p {
+.testimony-section #testimony-slider .content-testimony blockquote p {
   padding-bottom: 45px;
   background: url(../img/blockquote-down.png) no-repeat bottom right;
 }
-.section .testimony-section #testimony-slider .content-testimony blockquote span {
+.testimony-section #testimony-slider .content-testimony blockquote span {
   display: block;
   position: absolute;
   bottom: 10px;
@@ -780,29 +778,109 @@ header #shopeemall .badge {
   font-size: 14px;
   color: #23b29c;
 }
-.section .testimony-section #testimony-slider .slides img {
+.testimony-section #testimony-slider .slides img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  display: block;
   float: left;
   margin-right: 5px;
 }
-.section .testimony-section #carousel {
+.testimony-section #testimony-slider .flex-direction-nav {
+  display: block;
+}
+.testimony-section #testimony-slider .flex-direction-nav a {
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+}
+.testimony-section #testimony-slider .flex-direction-nav a.flex-prev {
+  background: url(../img/testimony-arrow-prev.png) no-repeat 0 0;
+  left: 80px;
+}
+.testimony-section #testimony-slider .flex-direction-nav a.flex-next {
+  background: url(../img/testimony-arrow-next.png) no-repeat 0 0;
+  right: 80px;
+}
+.testimony-section #carousel {
   margin-bottom: 30px;
 }
-.section .testimony-section #carousel .flex-direction-nav a {
+.testimony-section #carousel .slides li {
+  width: 244px !important;
+  height: 244px;
+  overflow: hidden;
+}
+.testimony-section #carousel .flex-direction-nav a {
   width: 67px;
   height: 67px;
   background: url(../img/carousel-arrow.png) no-repeat;
 }
-.section .testimony-section #carousel .flex-direction-nav a.flex-prev {
+.testimony-section #carousel .flex-direction-nav a.flex-prev {
   left: -85px;
   background-position: 0 0;
 }
-.section .testimony-section #carousel .flex-direction-nav a.flex-next {
+.testimony-section #carousel .flex-direction-nav a.flex-next {
   right: -85px;
   background-position: -68px 0;
+}
+@media (max-width: 992px) {
+  .testimony-section #testimony-slider {
+    width: 85%;
+  }
+  .testimony-section #testimony-slider .content-testimony {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 6px;
+  }
+  .testimony-section #testimony-slider .content-testimony blockquote {
+    width: 72%;
+    background: none;
+    padding-left: 10px;
+    font-size: 14px;
+  }
+  .testimony-section #testimony-slider .content-testimony blockquote p {
+    background: 0;
+    padding-bottom: 15px;
+    line-height: 17px;
+  }
+  .testimony-section #testimony-slider .content-testimony blockquote span {
+    left: 10px;
+    bottom: 0;
+  }
+  .testimony-section #testimony-slider .slides img {
+    width: 60px;
+    height: 60px;
+  }
+  .testimony-section #testimony-slider .flex-direction-nav a.flex-prev {
+    left: -37px;
+  }
+  .testimony-section #testimony-slider .flex-direction-nav a.flex-next {
+    right: -37px;
+  }
+  .testimony-section #carousel {
+    width: 85%;
+    display: none;
+  }
+  .testimony-section #carousel .slides li {
+    width: 204px !important;
+    height: 204px;
+  }
+  .testimony-section #carousel .flex-direction-nav a.flex-prev {
+    left: -70px;
+  }
+  .testimony-section #carousel .flex-direction-nav a.flex-next {
+    right: -70px;
+  }
+}
+@media (max-width: 480px) {
+  .testimony-section #carousel {
+    width: 204px !important;
+  }
+  .testimony-section #carousel .flex-direction-nav a.flex-prev {
+    left: -70px;
+  }
+  .testimony-section #carousel .flex-direction-nav a.flex-next {
+    right: -70px;
+  }
 }
 #cd-timeline {
   position: relative;

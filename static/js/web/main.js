@@ -1,24 +1,75 @@
+Mustache.Formatters = {
+  date : function (date) {
+    return moment(date).fromNow();
+  }
+}
+
 $(window).load(function () {
   'use strict';
 
-  $('#carousel').flexslider({
-    animation: 'slide',
-    controlNav: false,
-    animationLoop: false,
-    slideshow: false,
-    itemWidth: 244,
-    itemMargin: 0,
-    asNavFor: '#testimony-slider'
-  });
+  var sliderTemplate = $('#testimony-slider-list-template').html();
+  var carouselTemplate = $('#testimony-carousel-list-template').html();
+  var testimonySlider = $('#testimony-slider');
+  var testimonyCarousel = $('#carousel.flexslider');
+  var tweetApi;
 
-  $('#testimony-slider').flexslider({
-    animation: 'slide',
-    controlNav: false,
-    directionNav: false,
-    animationLoop: false,
-    slideshow: false,
-    sync: '#carousel'
-  });
+  if (window.location.host === 'localhost:3001') {
+    tweetApi = 'http://localhost:3001/page/1/0'
+  } else {
+    tweetApi = 'https://shopee1212.herokuapp.com/'
+  }
+
+  var options = {
+    method: 'GET',
+    url: tweetApi,
+    cache: true,
+    success: function (respone) {
+      testimonySlider.html('').append(Mustache.render(sliderTemplate, { tweets : respone }));
+      testimonyCarousel.html('').append(Mustache.render(carouselTemplate, { tweets : respone }));
+
+      tweetParser('.tweet', {
+        urlClass : 'tweet-link',
+        userClass : 'tweet=user',
+        hashtagClass : 'hashtag',
+        target : '_blank',
+        searchWithHashtags : true,
+        parseUsers : true,
+        parseHashtags : true,
+        parseUrls : true
+      });
+
+      var optCarousel = {
+        animation: 'slide',
+        controlNav: false,
+        animationLoop: false,
+        slideshow: true,
+        itemMargin: 0,
+        asNavFor: '#testimony-slider'
+      }
+
+      if ($(window).width() > 960) {
+        optCarousel.itemWidth = 244
+      } else {
+        optCarousel.itemWidth = 204
+      }
+
+      $('#carousel').flexslider(optCarousel);
+
+      $('#testimony-slider').flexslider({
+        animation: 'slide',
+        controlNav: false,
+        // directionNav: false,
+        animationLoop: false,
+        slideshow: true,
+        sync: '#carousel'
+      });
+    },
+    error: function (jqXHR, textStatus) {
+      console.log(jqXHR, textStatus)
+    }
+  }
+
+  $.ajax(options);
 
 });
 
@@ -76,18 +127,6 @@ $(function () {
   }
 
   hideBlocks(timelineBlocks, offset);
-
-  tweetParser('.tweet', {
-    urlClass : 'tweet-link',
-    userClass : 'tweet=user',
-    hashtagClass : 'hashtag',
-    target : '_blank',
-    searchWithHashtags : true,
-    parseUsers : true,
-    parseHashtags : true,
-    parseUrls : true
-  });
-
 })
 
 function isNumber (evt) {

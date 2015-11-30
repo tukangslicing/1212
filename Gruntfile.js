@@ -12,13 +12,13 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     dir: {
-      less : 'app/less',
-      css : 'app/css',
-      js  : 'app/js',
-      jade : 'app/jade',
-      bootstrap: 'app/js/bootstrap',
-      mobilejade: 'app/jade-mobile',
-      mobile: 'app/mobile'
+      less : 'static/less',
+      css : 'static/css',
+      js  : 'static/js',
+      jade : 'static/jade',
+      bootstrap: 'static/js/bootstrap',
+      mobilejade: 'static/jade-mobile',
+      mobile: 'static/mobile'
     },
     watch: {
       all: {
@@ -50,7 +50,7 @@ module.exports = function (grunt) {
     jade: {
       html: {
         files: {
-          'app/': ['app/jade/*.jade']
+          'static/': ['static/jade/*.jade']
         },
         options: {
           pretty: true,
@@ -266,9 +266,9 @@ module.exports = function (grunt) {
       dynamic: {                         // Another target
         files: [{
           expand: true,                  // Enable dynamic expansion
-          cwd: 'app/img/',                   // Src matches are relative to this path
+          cwd: 'static/img/',                   // Src matches are relative to this path
           src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
-          dest: 'app/img/'                  // Destination path prefix
+          dest: 'static/img/'                  // Destination path prefix
         }]
       }
     },
@@ -332,7 +332,7 @@ module.exports = function (grunt) {
       }
     },
     clean: {
-      dev: ['app/*.html', '<%= dir.js %>/plugins.js', '<%= dir.js %>/bootstrap.js','<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js', '<%= dir.css %>/*.css', '<%= dir.css %>/*.css.map'],
+      dev: ['static/*.html', '<%= dir.js %>/plugins.js', '<%= dir.js %>/bootstrap.js','<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js', '<%= dir.css %>/*.css', '<%= dir.css %>/*.css.map'],
       build: ['build/*']
     }
   });
