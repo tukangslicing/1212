@@ -16,7 +16,7 @@ $(window).load(function () {
   if (window.location.host === 'localhost:3001') {
     tweetApi = 'http://localhost:3001/page/1/0'
   } else {
-    tweetApi = 'https://shopee1212.herokuapp.com/'
+    tweetApi = 'https://shopee1212.herokuapp.com/page/1/0'
   }
 
   var options = {
