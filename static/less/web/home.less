@@ -102,12 +102,14 @@
 
 
 .share-and-win {
-  min-height: 768px;
-  background: #F4F4F4 url(../img/share-and-win-bg2.jpg) no-repeat center;
+  // min-height: 768px;
+  background: #F4F4F4 url(../img/share-and-win-bg2.jpg) no-repeat top center;
   background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
   @media (max-width: @screen-xs) {
-    min-height: 520px;
+    min-height: 500px;
   }
 
   .subtitle {
@@ -115,7 +117,7 @@
   }
 
   .social-media {
-    margin: 130px 0 0 0;
+    margin: 50px 0 0 0;
 
     @media (max-width: @screen-xs) {
       margin-top: 40px;
@@ -125,7 +127,7 @@
 
     .icon {
       display: inline-block;
-      margin-right: 43px;
+      margin-right: 25px;
       height: 55px;
       width: 56px;
       background: url(../img/sosmed-icon.png) no-repeat;
@@ -160,12 +162,12 @@
 
   .form-submit-email {
     width: 375px;
-    margin: 180px auto 0;
+    margin: 60px auto 0;
     h5 {
       font-size: 21px;
       font-weight: 400;
       color: #fff;
-      margin: 0 0 30px 0;
+      margin: 0 0 20px 0;
     }
 
     #mc_embed_signup {
@@ -235,5 +237,22 @@
         }
       }
     }
+  }
+}
+
+.shipping-block {
+  padding-bottom: 0;
+}
+
+.shipping-content {
+  border-bottom: 50px solid #d1d1d1;
+  width: 100%;
+  margin-top: 60px;
+  position: relative;
+
+  img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
   }
 }

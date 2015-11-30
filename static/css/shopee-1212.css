@@ -434,12 +434,12 @@ header #shopeemall .badge {
 }
 .footer {
   text-align: center;
-  background: #f9e723 url(../img/footer-bg.png) no-repeat bottom center;
-  padding-bottom: 255px;
+  background: #F4F4F4 !important;
+  padding-bottom: 60px;
   position: relative;
 }
 .footer h3 {
-  margin: 30px 0 50px 0;
+  margin: 30px 0 40px 0;
 }
 .footer h4 {
   font-size: 24px;
@@ -447,10 +447,10 @@ header #shopeemall .badge {
   margin-bottom: 15px;
 }
 .footer .appLogoContainer {
-  padding: 50px 0 20px 0;
+  padding: 30px 0 10px 0;
 }
 .footer .appLogo {
-  margin: 110px auto 55px;
+  margin: 80px auto 55px;
   background: url("../img/appLogo.png") no-repeat center center;
   background-size: 150px 150px;
   height: 150px;
@@ -508,7 +508,7 @@ header #shopeemall .badge {
 }
 @media (max-width: 480px) {
   .footer {
-    padding-bottom: 70px;
+    padding-bottom: 20px;
   }
   .footer h3 {
     margin: 10px 0 20px 0;
@@ -615,20 +615,21 @@ header #shopeemall .badge {
   }
 }
 .share-and-win {
-  min-height: 768px;
-  background: #F4F4F4 url(../img/share-and-win-bg2.jpg) no-repeat center;
+  background: #F4F4F4 url(../img/share-and-win-bg2.jpg) no-repeat top center;
   background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 @media (max-width: 480px) {
   .share-and-win {
-    min-height: 520px;
+    min-height: 500px;
   }
 }
 .share-and-win .subtitle {
   color: #fff;
 }
 .share-and-win .social-media {
-  margin: 130px 0 0 0;
+  margin: 50px 0 0 0;
 }
 @media (max-width: 480px) {
   .share-and-win .social-media {
@@ -639,7 +640,7 @@ header #shopeemall .badge {
 }
 .share-and-win .social-media .icon {
   display: inline-block;
-  margin-right: 43px;
+  margin-right: 25px;
   height: 55px;
   width: 56px;
   background: url(../img/sosmed-icon.png) no-repeat;
@@ -671,13 +672,13 @@ header #shopeemall .badge {
 }
 .share-and-win .form-submit-email {
   width: 375px;
-  margin: 180px auto 0;
+  margin: 60px auto 0;
 }
 .share-and-win .form-submit-email h5 {
   font-size: 21px;
   font-weight: 400;
   color: #fff;
-  margin: 0 0 30px 0;
+  margin: 0 0 20px 0;
 }
 .share-and-win .form-submit-email #mc_embed_signup input.email,
 .share-and-win .form-submit-email #mc_embed_signup input.button {
@@ -735,6 +736,20 @@ header #shopeemall .badge {
   .share-and-win .form-submit-email #mc_embed_signup form input.button {
     width: 80px;
   }
+}
+.shipping-block {
+  padding-bottom: 0;
+}
+.shipping-content {
+  border-bottom: 50px solid #d1d1d1;
+  width: 100%;
+  margin-top: 60px;
+  position: relative;
+}
+.shipping-content img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
 }
 .testimony-section .subtitle {
   margin-bottom: 100px;
