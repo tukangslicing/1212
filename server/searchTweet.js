@@ -9,7 +9,7 @@ module.exports = function(twit){
 
     async.waterfall([
       function (callback) {
-        twit.get('search/tweets', {q: '#ShopeeID', result_type: 'recent'}, function(error, tweets, response) {
+        twit.get('search/tweets', {q: '#Shopee1212', result_type: 'recent'}, function(error, tweets, response) {
 
           if (error) {
             callback(error, null)

@@ -29,13 +29,13 @@ var twit = new twitter(config.twitter);
 // Page Route
 app.get('/page/:page/:skip', routes.page);
 
-app.get('/tweet', function (req, res) {
-  twit.get('search/tweets', {q: '#ShopeeID', result_type: 'recent'}, function(error, tweets, response) {
+// app.get('/tweet', function (req, res) {
+//   twit.get('search/tweets', {q: '#Shopee1212', result_type: 'recent'}, function(error, tweets, response) {
 
-    res.send(tweets)
+//     res.send(tweets)
 
-  })
-})
+//   })
+// })
 
 app.use("/", express.static("./static/", { maxAge: 86400 }));
 

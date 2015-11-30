@@ -22,7 +22,7 @@ $(window).load(function () {
   var options = {
     method: 'GET',
     url: tweetApi,
-    cache: true,
+    cache: false,
     success: function (respone) {
       testimonySlider.html('').append(Mustache.render(sliderTemplate, { tweets : respone }));
       testimonyCarousel.html('').append(Mustache.render(carouselTemplate, { tweets : respone }));
@@ -82,51 +82,6 @@ $(function () {
     controlNav: false,
     directionNav: true
   });
-
-  var timelineBlocks = $('.cd-timeline-block');
-  var offset = 0.8;
-
-  $(window).on('scroll', function () {
-
-    if (!window.requestAnimationFrame) {
-
-      setTimeout(function () {
-        showBlocks(timelineBlocks, offset);
-      }, 100)
-
-    } else {
-      window.requestAnimationFrame(function () {
-        showBlocks(timelineBlocks, offset);
-      });
-    }
-
-  });
-
-  function hideBlocks(blocks, offset) {
-    blocks.each(function () {
-      if ($(this).offset().top > $(window).scrollTop() + $(window).height() * offset) {
-
-        $(this)
-          .find('.cd-timeline-img, .cd-timeline-content')
-          .addClass('is-hidden');
-      }
-    });
-  }
-
-  function showBlocks(blocks, offset) {
-    blocks.each(function () {
-      var checked = $(this).find('.cd-timeline-img').hasClass('is-hidden');
-
-      if ($(this).offset().top <= $(window).scrollTop() + $(window).height() * offset && checked){
-        $(this)
-          .find('.cd-timeline-img, .cd-timeline-content')
-          .removeClass('is-hidden')
-          .addClass('bounce-in');
-      }
-    });
-  }
-
-  hideBlocks(timelineBlocks, offset);
 })
 
 function isNumber (evt) {
