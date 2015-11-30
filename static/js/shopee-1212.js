@@ -82,6 +82,31 @@ $(function () {
     controlNav: false,
     directionNav: true
   });
+
+
+  $('.main-navigation a[href^="#"]').on('click', function (e) {
+    e.preventDefault();
+
+    var target = this.hash
+    var $target = $(target);
+
+    $('html, body').stop().animate({
+      scrollTop: $target.offset().top - 70
+    }, 900, 'swing', function () {
+      window.location.hash = target;
+    });
+  });
+
+  $('.mobile-menu-trigger a').click(function () {
+    if ($('.container.main-navigation').hasClass('expanded')) {
+      $('.container.main-navigation').removeClass('expanded').slideUp(250);
+      $(this).removeClass('open');
+    } else {
+      $('.container.main-navigation').addClass('expanded').slideDown(250);
+      $(this).addClass('open');
+    }
+    return false
+  });
 })
 
 function isNumber (evt) {

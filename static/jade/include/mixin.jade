@@ -1,13 +1,34 @@
 mixin headerActive(current)
   header
     .background
-    nav#nav.container
-      a.topMenu.home(href='/', style='float:left;')
-      span.vHelper
-      a#shopeemall.topMenu(target='_blank', style='', href='http://mall.shopee.co.id/?utm_source=OrganicA&utm_medium=OrganicA&utm_campaign=lp_home_mall')
-        | Shopee: Jual Beli di Ponsel Anda
-        span.badge(style='') BARU!
-      a.topMenu.icon.icon_facebook(target='_blank', href='http://www.facebook.com/ShopeeID', ohref='http://www.facebook.com/ShopeeID')
-      a.topMenu.icon.icon_inst(target='_blank', href='http://instagram.com/Shopee_ID')
-      a.topMenu.icon.icon_twitter(target='_blank', href='https://twitter.com/ShopeeID')
-      //- a.topMenu.icon.icon_pinst(target='_blank', href='http://www.pinterest.com/ShopeeID/')
+    nav#nav
+      .container
+        a.topMenu.home(href='/', style='float:left;')
+        span.vHelper
+        a#shopeemall.topMenu(target='_blank', style='', href='http://mall.shopee.co.id/?utm_source=OrganicA&utm_medium=OrganicA&utm_campaign=lp_home_mall')
+          | Shopee: Jual Beli di Ponsel Anda
+          span.badge(style='') BARU!
+        a.topMenu.icon.icon_facebook(target='_blank', href='http://www.facebook.com/ShopeeID', ohref='http://www.facebook.com/ShopeeID')
+        a.topMenu.icon.icon_inst(target='_blank', href='http://instagram.com/Shopee_ID')
+        a.topMenu.icon.icon_twitter(target='_blank', href='https://twitter.com/ShopeeID')
+        //- a.topMenu.icon.icon_pinst(target='_blank', href='http://www.pinterest.com/ShopeeID/')
+
+    .mobile-menu-trigger
+      a(href="#")
+        img(src="../img/humberger-icon.png")
+        span MENU
+
+    .container.main-navigation
+      ul.navigation
+        li
+          a(href="#home") Home
+        li
+          a(href="#tokoSeleb") Toko Seleb
+        li
+          a(href="#1212Sale") 1212 SALE
+        li
+          a(href="#Shopee1212") #Shopee1212
+        li
+          a(href="#shareAndWin") Share &amp; Win
+        li
+          a(href="#download") Download

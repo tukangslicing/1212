@@ -275,7 +275,7 @@ html[xmlns] .flexslider .slides {
 }
 header {
   border-bottom: 1px solid #ccc;
-  height: 70px;
+  height: 122px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -283,7 +283,7 @@ header {
 }
 @media (max-width: 480px) {
   header {
-    height: 40px;
+    height: 80px;
     line-height: 40px;
   }
 }
@@ -337,13 +337,21 @@ header #shopeemall .badge {
   display: inline-block;
   vertical-align: middle;
 }
-#nav.container {
+#nav {
+  border-bottom: 1px solid #ccc;
+}
+@media (max-width: 480px) {
+  #nav {
+    height: 40px;
+  }
+}
+#nav .container {
   background-color: transparent;
   font-size: 0;
   text-align: right;
 }
 @media (max-width: 480px) {
-  #nav.container {
+  #nav .container {
     padding-right: 0;
   }
 }
@@ -378,7 +386,7 @@ header #shopeemall .badge {
 }
 @media (max-width: 480px) {
   #nav .icon {
-    display: none;
+    margin-left: 0;
   }
 }
 #nav .icon :hover {
@@ -419,6 +427,89 @@ header #shopeemall .badge {
   background-position: -113px -188px;
   height: 23px;
   width: 23px;
+}
+.main-navigation {
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .main-navigation {
+    display: none;
+    margin-top: -1px;
+  }
+}
+.main-navigation.expanded {
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: '' 0 2px 4px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: '' 0 2px 4px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: '' 0 2px 4px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: '' 0 2px 4px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
+}
+.navigation {
+  margin: 13px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+.navigation li {
+  display: inline-block;
+  text-align: center;
+  border-right: 1px solid #ccc;
+}
+.navigation li:last-child {
+  border-right: 0;
+}
+.navigation li a {
+  display: block;
+  font-family: "Roboto";
+  padding: 0 13px;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 25px;
+  color: #424242;
+}
+.navigation li a:hover {
+  color: #f1582c;
+}
+@media (max-width: 480px) {
+  .navigation {
+    margin-top: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .navigation li {
+    display: block;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    border-right: 0;
+  }
+  .navigation li a {
+    line-height: 40px;
+  }
+}
+.mobile-menu-trigger {
+  display: none;
+}
+@media (max-width: 480px) {
+  .mobile-menu-trigger {
+    text-align: center;
+    line-height: 40px;
+    display: block;
+  }
+  .mobile-menu-trigger img {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 12px;
+  }
+  .mobile-menu-trigger span {
+    font-size: 18px;
+    font-family: "Roboto";
+    font-weight: 600;
+    display: inline-block;
+    color: #4d4d4d;
+    margin-left: 5px;
+  }
 }
 .subtitle {
   color: #f1592b;
@@ -508,7 +599,8 @@ header #shopeemall .badge {
 }
 @media (max-width: 480px) {
   .footer {
-    padding-bottom: 20px;
+    padding-bottom: 50px;
+    border-top: 1px solid #ddd;
   }
   .footer h3 {
     margin: 10px 0 20px 0;
@@ -528,11 +620,11 @@ header #shopeemall .badge {
   }
 }
 .hero-banner {
-  margin-top: 70px;
+  margin-top: 122px;
 }
 @media (max-width: 480px) {
   .hero-banner {
-    margin-top: 40px;
+    margin-top: 80px;
   }
 }
 .hero-banner.home {
@@ -740,6 +832,11 @@ header #shopeemall .badge {
 .shipping-block {
   padding-bottom: 0;
 }
+@media (max-width: 480px) {
+  .shipping-block {
+    padding-top: 10px;
+  }
+}
 .shipping-content {
   border-bottom: 50px solid #d1d1d1;
   width: 100%;
@@ -750,6 +847,22 @@ header #shopeemall .badge {
   display: block;
   max-width: 100%;
   margin: 0 auto;
+}
+.shipping-content img.mobile {
+  display: none;
+}
+@media (max-width: 480px) {
+  .shipping-content {
+    border-bottom: 20px solid #d1d1d1;
+    width: 100%;
+    margin-top: 30px;
+  }
+  .shipping-content img.desktop {
+    display: none;
+  }
+  .shipping-content img.mobile {
+    display: block;
+  }
 }
 .testimony-section .subtitle {
   margin-bottom: 100px;
@@ -944,16 +1057,20 @@ header #shopeemall .badge {
   left: 50%;
   margin-left: -640px;
 }
+@media (max-width: 480px) {
+  .section .bg-bubble {
+    width: 100%;
+  }
+}
 #cd-timeline {
   position: relative;
   padding: 0;
 }
 #cd-timeline::before {
-  /* this is the vertical line */
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -50px;
+  left: -15px;
   height: 2531px;
   width: 92px;
   background: url(../img/timeline/ruler.png) no-repeat 0 0;

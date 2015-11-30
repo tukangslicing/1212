@@ -43,6 +43,12 @@
     left: 50%;
     margin-left: -1280px / 2;
   }
+
+  @media (max-width: @screen-xs) {
+    .bg-bubble {
+      width: 100%
+    }
+  }
 }
 
 
@@ -51,11 +57,10 @@
   padding: 0;
 }
 #cd-timeline::before {
-  /* this is the vertical line */
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -50px;
+  left: -15px;
   height: 2531px;
   width: 92px;
   background: url(../img/timeline/ruler.png) no-repeat 0 0;

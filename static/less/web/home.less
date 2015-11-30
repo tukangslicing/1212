@@ -1,8 +1,8 @@
 .hero-banner {
-  margin-top: 70px;
+  margin-top: 122px;
 
   @media (max-width: @screen-xs) {
-    margin-top: 40px
+    margin-top: 80px
   }
 
   &.home {
@@ -242,6 +242,10 @@
 
 .shipping-block {
   padding-bottom: 0;
+
+  @media (max-width: @screen-xs) {
+    padding-top: 10px;
+  }
 }
 
 .shipping-content {
@@ -254,5 +258,25 @@
     display: block;
     max-width: 100%;
     margin: 0 auto;
+
+    &.mobile {
+      display: none;
+    }
+
+  }
+  @media (max-width: @screen-xs) {
+    border-bottom: 20px solid #d1d1d1;
+    width: 100%;
+    margin-top: 30px;
+
+    img {
+      &.desktop {
+        display: none;
+      }
+
+      &.mobile {
+        display: block;
+      }
+    }
   }
 }
