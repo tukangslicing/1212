@@ -56,18 +56,18 @@
 
     #carousel.flexslider
       ul.slides
-        li
-          img(src='../img/twitter-dummy/1.png')
-        li
-          img(src='../img/twitter-dummy/2.png')
-        li
-          img(src='../img/twitter-dummy/3.png')
-        li
-          img(src='../img/twitter-dummy/4.png')
-        li
-          img(src='../img/twitter-dummy/2.png')
-        li
-          img(src='../img/twitter-dummy/3.png')
+        //- li
+        //-   img(src='../img/twitter-dummy/1.png')
+        //- li
+        //-   img(src='../img/twitter-dummy/2.png')
+        //- li
+        //-   img(src='../img/twitter-dummy/3.png')
+        //- li
+        //-   img(src='../img/twitter-dummy/4.png')
+        //- li
+        //-   img(src='../img/twitter-dummy/2.png')
+        //- li
+        //-   img(src='../img/twitter-dummy/3.png')
 
 
     script#testimony-slider-list-template(type='text/html').
@@ -75,7 +75,7 @@
         {{#tweets}}
         <li>
           <div class="content-testimony">
-            <img src="{{avatar}}">
+            <a href="{{tweet_link}}" target="_blank"><img src="{{avatar}}"></a>
             <blockquote>
               <p class="tweet">@{{screenname}} {{body}}</a>
               </p>
