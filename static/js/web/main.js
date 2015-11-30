@@ -94,7 +94,9 @@ $(function () {
       $('html, body').stop().animate({
         scrollTop: $target.offset().top - 70
       }, 900, 'swing', function () {
-        $('.mobile-menu-trigger a').trigger('click');
+        if ($(window).width() <= 480) {
+          $('.container.main-navigation').removeClass('expanded').slideUp(250);
+        }
         window.location.hash = target;
       });
     }
