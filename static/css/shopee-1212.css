@@ -823,7 +823,8 @@ header #shopeemall .badge {
     padding: 0;
   }
   .share-and-win .form-submit-email #mc_embed_signup form input.email {
-    width: 200px;
+    width: 220px;
+    margin-left: 15px;
   }
   .share-and-win .form-submit-email #mc_embed_signup form input.button {
     width: 80px;
@@ -831,6 +832,7 @@ header #shopeemall .badge {
 }
 .shipping-block {
   padding-bottom: 0;
+  background: #f4f4f4;
 }
 @media (max-width: 480px) {
   .shipping-block {
@@ -1020,33 +1022,13 @@ header #shopeemall .badge {
 .section.timeline {
   position: relative;
   padding-top: 0;
-  height: 3261px;
-  background: url(../img/timeline/bg-gradient.png) repeat-x top center;
+  height: 1580px;
+  min-height: 1580px;
+  height: auto !important;
+  background: #ceeae6 url(../img/timeline/bg-gradient.png) repeat-x top center;
 }
 .section.timeline > .container {
   position: relative;
-  height: 3261px;
-  padding-top: 70px;
-  padding-bottom: 70px;
-}
-.section .bubble-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 750px;
-  z-index: 1;
-  background: url(../img/timeline/bg-bottom.png) repeat-x bottom center;
-}
-.section .great-sale-bottom {
-  background: url(../img/timeline/great-sale-bottom.png) no-repeat top center;
-  width: 435px;
-  height: 384px;
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  z-index: 4;
-  margin-left: -217.5px;
 }
 .section .bg-bubble {
   background: url(../img/timeline/bg-bubble.png) no-repeat top center;
@@ -1061,6 +1043,10 @@ header #shopeemall .badge {
   .section .bg-bubble {
     width: 100%;
   }
+  .section .container {
+    margin-left: -15px;
+    margin-right: 0;
+  }
 }
 #cd-timeline {
   position: relative;
@@ -1069,17 +1055,16 @@ header #shopeemall .badge {
 #cd-timeline::before {
   content: '';
   position: absolute;
-  top: -50px;
-  left: -15px;
   height: 2531px;
   width: 92px;
   background: url(../img/timeline/ruler.png) no-repeat 0 0;
+  left: 50%;
+  top: 134px;
+  margin-left: -25px;
 }
-@media only screen and (min-width: 1170px) {
+@media (max-width: 480px) {
   #cd-timeline::before {
-    left: 50%;
-    top: 185px;
-    margin-left: -25px;
+    display: none;
   }
 }
 .cd-timeline-block {
@@ -1094,22 +1079,21 @@ header #shopeemall .badge {
   margin-top: 0;
 }
 .cd-timeline-block:first-child .get-your-best-deal {
-  width: 406px;
-  height: 264px;
+  width: 396px;
+  height: 205px;
   background: url(../img/timeline/timeline-0.png) no-repeat 0 0;
   position: absolute;
-  right: 20px;
-  top: 80px;
+  right: 120px;
+  top: 30px;
 }
-.cd-timeline-block:first-child .ico-shopee-flag {
-  display: block;
-  position: absolute;
-  left: 50%;
-  width: 75px;
-  height: 117px;
-  top: 193px;
-  margin-left: -7px;
-  background: url(../img/timeline/shopee-flag.png) no-repeat 0 0;
+@media (max-width: 480px) {
+  .cd-timeline-block:first-child .get-your-best-deal {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    left: 0;
+  }
 }
 .cd-timeline-block:last-child {
   margin-bottom: 0;
@@ -1130,12 +1114,18 @@ header #shopeemall .badge {
   text-align: right;
 }
 .cd-timeline-content.selebriti-comment {
-  margin-right: 35px;
-}
-.cd-timeline-content.toko-selebritis {
   position: absolute;
-  left: 40px;
-  top: -110px;
+  left: 45px;
+  top: 55px;
+}
+.cd-timeline-content.follow-comment {
+  margin-right: 130px;
+  margin-top: 215px;
+}
+@media (max-width: 480px) {
+  .cd-timeline-content.follow-comment {
+    margin-bottom: 30px !important;
+  }
 }
 .cd-timeline-content.incrane1212 {
   margin-top: 140px;
@@ -1143,81 +1133,80 @@ header #shopeemall .badge {
 }
 .cd-timeline-content.daily-checkin {
   position: absolute;
-  left: 40px;
-  top: -30px;
-}
-.cd-timeline-content.love-share-win {
-  margin-top: 200px;
-  right: 105px;
-}
-.cd-timeline-content.lelang-barang-artis {
-  position: absolute;
-  left: 40px;
-  top: -130px;
+  left: 50px;
+  top: -145px;
 }
 .cd-timeline-content.pyramid-discount {
-  margin-top: 135px;
-  right: 65px;
+  margin-top: -15px;
+  right: 135px;
 }
-.cd-timeline-content.top-spender-competition {
+@media (max-width: 480px) {
+  .cd-timeline-content.pyramid-discount {
+    margin-bottom: 40px !important;
+  }
+}
+.cd-timeline-content.road-to {
   position: absolute;
-  left: 40px;
-  top: -65px;
+  left: 50px;
+  top: -100px;
+}
+.cd-timeline-content.lelang-barang-artis {
+  margin-top: 40px;
+  right: 130px;
+}
+@media (max-width: 480px) {
+  .cd-timeline-content.lelang-barang-artis {
+    margin-bottom: 30px !important;
+    margin-top: 30px !important;
+  }
+}
+.cd-timeline-content.the-big-day {
+  position: absolute;
+  left: 45px;
+  top: -145px;
+}
+.cd-timeline-content.top-speder-competition {
+  margin-top: 30px;
+  right: 135px;
+}
+@media (max-width: 480px) {
+  .cd-timeline-content.top-speder-competition {
+    margin-bottom: 30px !important;
+    margin-top: 30px !important;
+  }
 }
 .cd-timeline-content.showoff1212 {
-  margin-top: 125px;
-  right: 60px;
+  position: absolute;
+  left: 45px;
+  top: -130px;
 }
-.cd-timeline-content:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.cd-timeline-content h2 {
-  color: #303e49;
-}
-.cd-timeline-content p,
-.cd-timeline-content .cd-read-more,
-.cd-timeline-content .cd-date {
-  font-size: 13px;
-  font-size: 0.8125rem;
-}
-.cd-timeline-content .cd-read-more,
-.cd-timeline-content .cd-date {
-  display: inline-block;
-}
-.cd-timeline-content p {
-  margin: 1em 0;
-  line-height: 1.6;
-}
-.cd-timeline-content .cd-read-more {
-  float: right;
-  padding: .8em 1em;
-  background: #acb7c0;
-  color: white;
-  border-radius: 0.25em;
-}
-.no-touch .cd-timeline-content .cd-read-more:hover {
-  background-color: #bac4cb;
-}
-.cd-timeline-content .cd-date {
-  float: left;
-  padding: .8em 0;
-  opacity: .7;
-}
-@media only screen and (min-width: 768px) {
-  .cd-timeline-content h2 {
-    font-size: 20px;
-    font-size: 1.25rem;
+@media (max-width: 480px) {
+  .cd-timeline-content {
+    position: relative !important;
   }
-  .cd-timeline-content p {
-    font-size: 16px;
-    font-size: 1rem;
+  .cd-timeline-content.top-speder-competition,
+  .cd-timeline-content.road-to,
+  .cd-timeline-content.selebriti-comment,
+  .cd-timeline-content.daily-checkin,
+  .cd-timeline-content.showoff1212,
+  .cd-timeline-content.the-big-day {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
   }
-  .cd-timeline-content .cd-read-more,
-  .cd-timeline-content .cd-date {
-    font-size: 14px;
-    font-size: 0.875rem;
+  .cd-timeline-content.follow-comment,
+  .cd-timeline-content.incrane1212,
+  .cd-timeline-content.pyramid-discount,
+  .cd-timeline-content.lelang-barang-artis,
+  .cd-timeline-content.top-speder-competition {
+    position: static !important;
+    margin: 0;
+  }
+  .cd-timeline-content img {
+    display: block;
+    max-width: 310px;
+    margin: 0 auto;
   }
 }
 @media only screen and (min-width: 1170px) {
@@ -1253,6 +1242,40 @@ header #shopeemall .badge {
   }
   .cssanimations .cd-timeline-content.is-hidden {
     visibility: hidden;
+  }
+}
+.deals-block {
+  padding: 40px 0;
+}
+.deals-block .content {
+  padding-bottom: 10px;
+  clear: both;
+}
+.deals-block .content > .deals-item {
+  position: relative;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.deals-block .content > .deals-item img {
+  display: block;
+  width: 100%;
+}
+@media (max-width: 480px) {
+  .deals-block .content > .deals-item.col-xs-12:first-child {
+    margin-bottom: 10px;
+  }
+  .deals-block .content > .deals-item.col-xs-6:nth-child(1),
+  .deals-block .content > .deals-item.col-xs-6:nth-child(2) {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .deals-block {
+    padding: 20px 0;
+  }
+  .deals-block .content {
+    margin-left: -10px;
+    margin-right: -10px;
   }
 }
 /*# sourceMappingURL=shopee-1212.css.map */

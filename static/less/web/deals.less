@@ -1,0 +1,45 @@
+.deals-block {
+  padding: 40px 0;
+
+  .content {
+    padding-bottom: 10px;
+    clear: both;
+
+
+
+    > .deals-item {
+      position: relative;
+      padding-left: 5px;
+      padding-right: 5px;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      @media (max-width: @screen-xs) {
+        &.col-xs-12 {
+          &:first-child {
+            margin-bottom: 10px;
+          }
+        }
+
+        &.col-xs-6 {
+          &:nth-child(1),
+          &:nth-child(2) {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: @screen-xs) {
+    padding: 20px 0;
+
+    .content {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+  }
+}

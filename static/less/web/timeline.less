@@ -2,36 +2,17 @@
   &.timeline {
     position: relative;
     padding-top: 0;
-    height: 3261px;
-    background: url(../img/timeline/bg-gradient.png) repeat-x top center;
+    height: 1580px;
+    min-height: 1580px;
+    height: auto !important;
+    background: #ceeae6 url(../img/timeline/bg-gradient.png) repeat-x top center;
 
     > .container {
+      // height: 1580px;
+      // min-height: 1580px;
+      // height: auto !important;
       position: relative;
-      height: 3261px;
-      padding-top: 70px;
-      padding-bottom: 70px;
-
     }
-  }
-  .bubble-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 750px;
-    z-index: 1;
-    background: url(../img/timeline/bg-bottom.png) repeat-x bottom center;
-  }
-
-  .great-sale-bottom {
-    background: url(../img/timeline/great-sale-bottom.png) no-repeat top center;
-    width: 435px;
-    height: 384px;
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    z-index: 4;
-    margin-left: -435px / 2;
   }
 
   .bg-bubble {
@@ -48,6 +29,11 @@
     .bg-bubble {
       width: 100%
     }
+
+    .container {
+      margin-left: -15px;
+      margin-right: 0;
+    }
   }
 }
 
@@ -59,17 +45,16 @@
 #cd-timeline::before {
   content: '';
   position: absolute;
-  top: -50px;
-  left: -15px;
   height: 2531px;
   width: 92px;
   background: url(../img/timeline/ruler.png) no-repeat 0 0;
+  left: 50%;
+  top: 134px;
+  margin-left: -25px;
 }
-@media only screen and (min-width: 1170px) {
+@media (max-width: @screen-xs) {
   #cd-timeline::before {
-    left: 50%;
-    top: 185px;
-    margin-left: -25px;
+    display: none;
   }
 }
 
@@ -85,24 +70,22 @@
   margin-top: 0;
 
   .get-your-best-deal {
-    width: 406px;
-    height: 264px;
+    width: 396px;
+    height: 205px;
     background: url(../img/timeline/timeline-0.png) no-repeat 0 0;
     position: absolute;
-      right: 20px;
-    top: 80px;
+    right: 120px;
+    top: 30px;
+
+    @media (max-width: @screen-xs) {
+      position: relative;
+      top: auto;
+      right: auto;
+      width: 100%;
+      left: 0;
+    }
   }
 
-  .ico-shopee-flag {
-    display: block;
-    position: absolute;
-    left: 50%;
-    width: 75px;
-    height: 117px;
-    top: 193px;
-    margin-left: -7px;
-    background: url(../img/timeline/shopee-flag.png) no-repeat 0 0;
-  }
 }
 .cd-timeline-block:last-child {
   margin-bottom: 0;
@@ -126,13 +109,18 @@
   text-align: right;
 
   &.selebriti-comment {
-    margin-right: 35px
+    position: absolute;
+    left: 45px;
+    top: 55px;
   }
 
-  &.toko-selebritis {
-    position: absolute;
-    left: 40px;
-    top: -110px;
+  &.follow-comment {
+    margin-right: 130px;
+    margin-top: 215px;
+
+    @media (max-width: @screen-xs) {
+      margin-bottom: 30px !important
+    }
   }
 
   &.incrane1212 {
@@ -142,87 +130,89 @@
 
   &.daily-checkin {
     position: absolute;
-    left: 40px;
-    top: -30px;
-  }
-
-  &.love-share-win {
-    margin-top: 200px;
-    right: 105px;
-  }
-
-  &.lelang-barang-artis {
-    position: absolute;
-    left: 40px;
-    top: -130px;
+    left: 50px;
+    top: -145px;
   }
 
   &.pyramid-discount {
-    margin-top: 135px;
-    right: 65px;
+    margin-top: -15px;
+    right: 135px;
+
+    @media (max-width: @screen-xs) {
+      margin-bottom: 40px !important
+    }
   }
 
-  &.top-spender-competition {
+  &.road-to {
     position: absolute;
-    left: 40px;
-    top: -65px;
+    left: 50px;
+    top: -100px;
+  }
+
+  &.lelang-barang-artis {
+    margin-top: 40px;
+    right: 130px;
+
+    @media (max-width: @screen-xs) {
+      margin-bottom: 30px !important;
+      margin-top: 30px !important
+    }
+  }
+
+  &.the-big-day {
+    position: absolute;
+    left: 45px;
+    top: -145px;
+  }
+
+  &.top-speder-competition {
+    margin-top: 30px;
+    right: 135px;
+
+    @media (max-width: @screen-xs) {
+      margin-bottom: 30px !important;
+      margin-top: 30px !important
+    }
   }
 
   &.showoff1212 {
-    margin-top: 125px;
-    right: 60px;
+    position: absolute;
+    left: 45px;
+    top: -130px;
   }
 
-}
-.cd-timeline-content:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.cd-timeline-content h2 {
-  color: #303e49;
-}
-.cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
-  font-size: 13px;
-  font-size: 0.8125rem;
-}
-.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
-  display: inline-block;
-}
-.cd-timeline-content p {
-  margin: 1em 0;
-  line-height: 1.6;
-}
-.cd-timeline-content .cd-read-more {
-  float: right;
-  padding: .8em 1em;
-  background: #acb7c0;
-  color: white;
-  border-radius: 0.25em;
-}
-.no-touch .cd-timeline-content .cd-read-more:hover {
-  background-color: #bac4cb;
-}
-.cd-timeline-content .cd-date {
-  float: left;
-  padding: .8em 0;
-  opacity: .7;
+  @media (max-width: @screen-xs) {
+    position: relative !important;
+
+    &.top-speder-competition,
+    &.road-to,
+    &.selebriti-comment,
+    &.daily-checkin,
+    &.showoff1212,
+    &.the-big-day {
+      position: static !important;
+      left: auto !important;
+      top: auto !important;
+      right: auto !important;
+    }
+
+    &.follow-comment,
+    &.incrane1212,
+    &.pyramid-discount,
+    &.lelang-barang-artis,
+    &.top-speder-competition {
+      position: static !important;
+      margin: 0;
+    }
+
+    img {
+      display: block;
+      max-width: 310px;
+      margin: 0 auto;
+    }
+  }
 }
 
-@media only screen and (min-width: 768px) {
-  .cd-timeline-content h2 {
-    font-size: 20px;
-    font-size: 1.25rem;
-  }
-  .cd-timeline-content p {
-    font-size: 16px;
-    font-size: 1rem;
-  }
-  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
-    font-size: 14px;
-    font-size: 0.875rem;
-  }
-}
 @media only screen and (min-width: 1170px) {
   .cd-timeline-content {
     margin-left: 0;
