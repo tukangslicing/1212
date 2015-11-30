@@ -90,11 +90,15 @@ $(function () {
     var target = this.hash
     var $target = $(target);
 
-    $('html, body').stop().animate({
-      scrollTop: $target.offset().top - 70
-    }, 900, 'swing', function () {
-      window.location.hash = target;
-    });
+    if ($target) {
+      $('html, body').stop().animate({
+        scrollTop: $target.offset().top - 70
+      }, 900, 'swing', function () {
+        $('.mobile-menu-trigger a').trigger('click');
+        window.location.hash = target;
+      });
+    }
+
   });
 
   $('.mobile-menu-trigger a').click(function () {
