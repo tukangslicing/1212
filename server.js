@@ -38,6 +38,7 @@ app.get('/page/:page/:skip', routes.page);
 // })
 
 app.use("/", express.static("./static/", { maxAge: 86400 }));
+app.use("/1212/", express.static("./static/", { maxAge: 86400 }));
 
 require('./server/searchTweet')(twit)
 
