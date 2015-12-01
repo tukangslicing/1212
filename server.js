@@ -5,7 +5,7 @@ var mongoose = require('mongoose')
 var twitter = require('twitter')
 var routes = require('./server/routes')
 var config = require('./server/config')
-// var streamHandler = require('./server/streamHandler');
+var compression = require('compression');
 var CORS = require('cors')
 
 var MONGODB_URL = process.env.MONGOLAB_URI || 'mongodb://127.0.0.1/shopeeID-tweets'
@@ -14,22 +14,28 @@ var MONGODB_URL = process.env.MONGOLAB_URI || 'mongodb://127.0.0.1/shopeeID-twee
 var app = express();
 var port = process.env.PORT || 3001;
 
+// Connect to our mongo database
+mongoose.connect(MONGODB_URL);
+
 // Disable etag headers on responses
 app.disable('etag');
 app.disable('x-powered-by');
 app.options('*', CORS());
 app.use(CORS())
 
-// Connect to our mongo database
-mongoose.connect(MONGODB_URL);
+if (process.env.NODE_ENV === 'production') {
+  app.use(compression({
+    filter: function (req, res) { return /json|html|text|javascript|css|less/.test(res.getHeader('Content-Type')) },
+    level: 9
+  }))
+}
 
 // Create a new ntwitter instance
-var twit = new twitter(config.twitter);
-
 // Page Route
 app.get('/page/:page/:skip', routes.page);
 
 // app.get('/tweet', function (req, res) {
+//   var twit = new twitter(config.twitter);
 //   twit.get('search/tweets', {q: '#Shopee1212', result_type: 'recent'}, function(error, tweets, response) {
 
 //     res.send(tweets)
