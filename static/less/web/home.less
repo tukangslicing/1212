@@ -66,6 +66,7 @@
     }
 
     span {
+      font-style: italic;
       color: #444;
       font-size: 16px;
     }
@@ -110,6 +111,23 @@
 
   @media (max-width: @screen-xs) {
     min-height: 500px;
+
+    .container {
+      margin-left: 0 !important;
+    }
+  }
+
+  .text-medium {
+    font-size: 20px;
+    font-weight: 600;
+    width: 490px;
+    text-align: center;
+    color: #fff;
+    margin: 10px auto 0;
+
+    @media (max-width: @screen-xs) {
+      width: 100%
+    }
   }
 
   .subtitle {
@@ -233,6 +251,19 @@
 
             &.button {
               width: 80px
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 320px) {
+      #mc_embed_signup {
+        form {
+          input {
+            &.email {
+              width: 200px;
+              margin-left: 0;
             }
           }
         }

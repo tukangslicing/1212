@@ -64,7 +64,7 @@ perspective effects (not including the modals and the overlay).
 /* Content styles */
 .md-content {
   color: #fff;
-  background: lighten(#f1592b, 5%);
+  background: #f1592b;
   position: relative;
   border-radius: 3px;
   margin: 0 auto;
@@ -81,20 +81,25 @@ perspective effects (not including the modals and the overlay).
       color: #fff
     }
   }
-}
 
-.md-content h3 {
-  text-transform: uppercase;
-  margin: 0;
-  padding: 0.4em;
-  text-align: center;
-  font-size: 2.4em;
-  font-family: "Roboto";
-  color: #f1592b;
-  background: #fff;
-  border-radius: 3px 3px 0 0;
-  border: 1px solid #ccc;
-  border-width: 1px 1px 0 1px;
+  h3 {
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0.4em;
+    text-align: center;
+    font-size: 2.4em;
+    font-family: "Roboto";
+    color: #f1592b;
+    background: #fff;
+    border-radius: 3px 3px 0 0;
+    border: 1px solid #ccc;
+    border-width: 1px 1px 0 1px;
+    font-weight: 600;
+
+    @media (max-width: @screen-xs) {
+      font-size: 1.8em;
+    }
+  }
 }
 
 .md-content > div {
@@ -102,29 +107,45 @@ perspective effects (not including the modals and the overlay).
   margin: 0;
   font-weight: 300;
   font-size: 1em;
+
+  p {
+    margin: 0;
+    font-weight: 600;
+    padding: 10px 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0 0 30px 20px;
+
+    li {
+      padding: 0;
+      list-style-type: decimal;
+    }
+  }
+  button {
+    display: block;
+    margin: 0 auto;
+    font-size: 0.8em;
+  }
+
+  @media (max-width: @screen-xs) {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-top: 0px;
+
+    ul {
+      padding-bottom: 10px;
+
+      li {
+        line-height: 16px;
+        font-size: 13px;
+      }
+    }
+  }
 }
 
-.md-content > div p {
-  margin: 0;
-  font-weight: 600;
-  padding: 10px 0;
-}
-
-.md-content > div ul {
-  margin: 0;
-  padding: 0 0 30px 20px;
-}
-
-.md-content > div ul li {
-  padding: 0;
-  list-style-type: decimal;
-}
-
-.md-content button {
-  display: block;
-  margin: 0 auto;
-  font-size: 0.8em;
-}
 
 /* Individual modal styles with animations/transitions */
 
@@ -148,6 +169,36 @@ perspective effects (not including the modals and the overlay).
   opacity: 1;
 }
 
+@media (max-width: @screen-xs) {
+  .md-effect-1{
+    top: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .md-effect-1 .md-content {
+    -webkit-transform: translateY(-200%);
+    -moz-transform: translateY(-200%);
+    -ms-transform: translateY(-200%);
+    transform: translateY(-200%);
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    opacity: 0;
+  }
+
+  .md-show.md-effect-1 .md-content {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+    border-radius: 0 0 3px 3px;
+    opacity: 1;
+  }
+}
+
 .md-close {
   padding: 10px;
   border-radius: 50%;
@@ -160,4 +211,9 @@ perspective effects (not including the modals and the overlay).
   right: -15px;
   display: block;
   cursor: pointer;
+
+  @media (max-width: @screen-xs) {
+    top: 0;
+    right: 0;
+  }
 }
