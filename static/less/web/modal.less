@@ -64,32 +64,49 @@ perspective effects (not including the modals and the overlay).
 /* Content styles */
 .md-content {
   color: #fff;
-  background: #e74c3c;
+  background: lighten(#f1592b, 5%);
   position: relative;
   border-radius: 3px;
   margin: 0 auto;
+
+  ul {
+    list-style: 0;
+  }
+
+  a {
+    color: #424242;
+    text-decoration: none;
+
+    &:hover {
+      color: #fff
+    }
+  }
 }
 
 .md-content h3 {
+  text-transform: uppercase;
   margin: 0;
   padding: 0.4em;
   text-align: center;
   font-size: 2.4em;
-  font-weight: 300;
-  opacity: 0.8;
-  background: rgba(0,0,0,0.1);
+  font-family: "Roboto";
+  color: #f1592b;
+  background: #fff;
   border-radius: 3px 3px 0 0;
+  border: 1px solid #ccc;
+  border-width: 1px 1px 0 1px;
 }
 
 .md-content > div {
   padding: 15px 40px 30px;
   margin: 0;
   font-weight: 300;
-  font-size: 1.15em;
+  font-size: 1em;
 }
 
 .md-content > div p {
   margin: 0;
+  font-weight: 600;
   padding: 10px 0;
 }
 
@@ -99,7 +116,8 @@ perspective effects (not including the modals and the overlay).
 }
 
 .md-content > div ul li {
-  padding: 5px 0;
+  padding: 0;
+  list-style-type: decimal;
 }
 
 .md-content button {
@@ -128,4 +146,18 @@ perspective effects (not including the modals and the overlay).
   -ms-transform: scale(1);
   transform: scale(1);
   opacity: 1;
+}
+
+.md-close {
+  padding: 10px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  height: 40px;
+  width: 40px;
+  background: #fff url(../img/close-ico.png) no-repeat center center;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  display: block;
+  cursor: pointer;
 }

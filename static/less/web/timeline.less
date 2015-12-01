@@ -66,47 +66,31 @@
   display: table;
   clear: both;
 }
-.cd-timeline-block:first-child {
-  margin-top: 0;
 
-  .get-your-best-deal {
-    width: 396px;
-    height: 205px;
-    background: url(../img/timeline/timeline-0.png) no-repeat 0 0;
-    position: absolute;
-    right: 120px;
-    top: 30px;
+.get-your-best-deal {
+  width: 396px;
+  height: 205px;
+  background: url(../img/timeline/timeline-0.png) no-repeat 0 0;
+  position: absolute;
+  right: 120px;
+  top: 30px;
 
-    @media (max-width: @screen-xs) {
-      position: relative;
-      top: auto;
-      right: auto;
-      width: 100%;
-      left: 0;
-    }
-  }
-
-}
-.cd-timeline-block:last-child {
-  margin-bottom: 0;
-}
-@media only screen and (min-width: 1170px) {
-  .cd-timeline-block {
-    margin: 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
-
+  @media (max-width: @screen-xs) {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    left: 0;
   }
 }
 
 .cd-timeline-content {
   position: relative;
   text-align: right;
+
+  img {
+    cursor: pointer;
+  }
 
   &.selebriti-comment {
     position: absolute;
@@ -115,8 +99,9 @@
   }
 
   &.follow-comment {
-    margin-right: 130px;
-    margin-top: 215px;
+    position: absolute;
+    right: 130px;
+    top: 215px;
 
     @media (max-width: @screen-xs) {
       margin-bottom: 30px !important
@@ -131,12 +116,13 @@
   &.daily-checkin {
     position: absolute;
     left: 50px;
-    top: -145px;
+    top: 370px;
   }
 
   &.pyramid-discount {
-    margin-top: -15px;
-    right: 135px;
+    position: absolute;
+    top: 495px;
+    right: 130px;
 
     @media (max-width: @screen-xs) {
       margin-bottom: 40px !important
@@ -145,12 +131,13 @@
 
   &.road-to {
     position: absolute;
-    left: 50px;
-    top: -100px;
+    top: 670px;
+    left: 45px;
   }
 
   &.lelang-barang-artis {
-    margin-top: 40px;
+    position: absolute;
+    top: 805px;
     right: 130px;
 
     @media (max-width: @screen-xs) {
@@ -161,12 +148,13 @@
 
   &.the-big-day {
     position: absolute;
+    top: 895px;
     left: 45px;
-    top: -145px;
   }
 
   &.top-speder-competition {
-    margin-top: 30px;
+    position: absolute;
+    top: 1060px;
     right: 135px;
 
     @media (max-width: @screen-xs) {
@@ -177,8 +165,8 @@
 
   &.showoff1212 {
     position: absolute;
-    left: 45px;
-    top: -130px;
+    top: 1205px;
+    left: 49px;
   }
 
   @media (max-width: @screen-xs) {

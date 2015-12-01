@@ -3,7 +3,7 @@
 var ModalEffects = (function () {
   function init() {
     var overlay = document.querySelector('.md-overlay');
-    [].slice.call(document.querySelectorAll('.md-trigger')).forEach(function (el, i) {
+    [].slice.call(document.querySelectorAll('.md-trigger')).forEach(function (el,i) {
 			var modal = document.querySelector('#' + el.getAttribute('data-modal'));
       var close = modal.querySelector('.md-close');
 
@@ -16,7 +16,7 @@ var ModalEffects = (function () {
 			}
 
 			function removeModalHandler() {
-				removeModal(classie.has(el, 'md-setperspective') );
+				removeModal(classie.has(el, 'md-setperspective'));
 			}
 
 			el.addEventListener('click', function (ev) {
