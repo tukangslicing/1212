@@ -35,9 +35,9 @@ module.exports = function (grunt) {
           'jade',
           'newer:less',
           'jscs:bootstrap',
-          'jscs:main',
-          'jscs:grunt',
-          'jshint',
+          // 'jscs:main',
+          // 'jscs:grunt',
+          // 'jshint',
           'newer:concat',
           'notify:watch'
         ],
@@ -91,7 +91,6 @@ module.exports = function (grunt) {
       },
       main: {
         src: [
-          '<%= dir.js %>/shared/*.js',
           '<%= dir.js %>/web/*.js'
         ],
         dest: '<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js'
@@ -257,8 +256,8 @@ module.exports = function (grunt) {
         'less:compileWeb'
       ],
       js: [
-        'jscs',
-        'jshint',
+        // 'jscs',
+        // 'jshint',
         'concat'
       ],
       options: {
