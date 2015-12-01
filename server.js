@@ -35,7 +35,6 @@ if (process.env.NODE_ENV === 'production') {
 app.get('/page/:page/:skip', routes.page);
 
 // app.get('/tweet', function (req, res) {
-//   var twit = new twitter(config.twitter);
 //   twit.get('search/tweets', {q: '#Shopee1212', result_type: 'recent'}, function(error, tweets, response) {
 
 //     res.send(tweets)
@@ -43,6 +42,7 @@ app.get('/page/:page/:skip', routes.page);
 //   })
 // })
 
+var twit = new twitter(config.twitter);
 app.use("/", express.static("./static/", { maxAge: 86400 }));
 app.use("/1212/", express.static("./static/", { maxAge: 86400 }));
 
