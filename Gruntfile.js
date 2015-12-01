@@ -147,8 +147,12 @@ module.exports = function (grunt) {
 
     uglify: {
       options: {
-        report: 'min',
-        preserveComments: 'some'
+        compress: {
+          warnings: false
+        },
+        mangle: true,
+        preserveComments: 'false',
+        report: 'min'
       },
       frontend: {
         files: {
@@ -334,13 +338,42 @@ module.exports = function (grunt) {
     clean: {
       dev: ['static/*.html', '<%= dir.js %>/plugins.js', '<%= dir.js %>/bootstrap.js','<%= dir.js %>/<%= pkg.name.toLowerCase() %>.js', '<%= dir.css %>/*.css', '<%= dir.css %>/*.css.map'],
       build: ['build/*']
+    },
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {
+          'static/index.html': 'static/index.html'
+        }
+      }
     }
   });
 
   grunt.registerTask('compress-image', ['imagemin']);
-  grunt.registerTask('dev', ['clean', 'concurrent:less', 'jade', 'concurrent:js', 'notify', 'autoprefixer']);
+  grunt.registerTask('dev', [
+    'clean',
+    'concurrent:less',
+    'jade',
+    'concurrent:js',
+    'notify',
+    'autoprefixer'
+  ]);
   grunt.registerTask('default', ['dev', 'watch']);
-  grunt.registerTask('production', ['clean', 'jade', 'less', 'concat', 'autoprefixer', 'csscomb', 'cssmin', 'uglify', 'compress-image']);
+  grunt.registerTask('production', [
+    'clean',
+    'jade',
+    'concat',
+    'less',
+    'autoprefixer',
+    'csscomb',
+    'cssmin',
+    'uglify',
+    'compress-image',
+    'htmlmin'
+  ]);
   grunt.registerTask('heroku', 'production');
   grunt.registerTask('heroku:development', 'dev');
   grunt.registerTask('heroku:production', 'production');

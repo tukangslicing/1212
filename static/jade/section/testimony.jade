@@ -20,24 +20,6 @@
         //-   img(src='../img/twitter-dummy/1.png')
 
     script#testimony-slider-list-template(type='text/html').
-      <ul class="slides">
-        {{#tweets}}
-        <li>
-          <div class="content-testimony">
-            <a href="{{tweet_link}}" target="_blank"><img src="{{avatar}}"></a>
-            <blockquote>
-              <p class="tweet">@{{screenname}} {{body}}</a>
-              </p>
-              <span class="text-small">{{date | date}}</span>
-            </blockquote>
-            <div class="clearfix"></div>
-          </div>
-        </li>
-        {{/tweets}}
-      </ul>
+      <ul class="slides">{{#tweets}}<li><div class="content-testimony"><a href="{{tweet_link}}" target="_blank"><img src="{{avatar}}"></a><blockquote><p class="tweet">@{{screenname}} {{body}}</a></p><span class="text-small">{{date | date}}</span></blockquote><div class="clearfix"></div></div></li>{{/tweets}}</ul>
     script#testimony-carousel-list-template(type='text/html').
-      <ul class="slides">
-        {{#tweets}}
-          <li><img src="{{avatar}}"></li>
-        {{/tweets}}
-      </ul>
+      <ul class="slides">{{#tweets}}<li><img src="{{avatar}}"></li>{{/tweets}}</ul>
