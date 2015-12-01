@@ -39,7 +39,7 @@ app.get('/page/:page/:skip', routes.page);
 
 app.use("/", express.static("./static/", { maxAge: 86400 }));
 
-// require('./server/searchTweet')(twit)
+require('./server/searchTweet')(twit)
 
 app.listen(port, function () {
   console.log('Express server listening on port ' + port)
