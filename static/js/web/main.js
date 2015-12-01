@@ -80,7 +80,7 @@ $(function () {
     animation: 'slide',
     slideshow: false,
     controlNav: false,
-    directionNav: true
+    directionNav: false
   });
 
 
