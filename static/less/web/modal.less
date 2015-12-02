@@ -38,9 +38,7 @@ perspective effects (not including the modals and the overlay).
 
   @media (max-width: @screen-xs) {
     &.md-show {
-      max-height: 100%;
-      min-height: 100%;
-      background: #f1592b;
+      width: 100%;
     }
   }
 }
@@ -77,11 +75,11 @@ perspective effects (not including the modals and the overlay).
   border-radius: 3px;
   margin: 0 auto;
 
-  @media (max-width: @screen-xs) {
-    max-height: 100%;
-    min-height: 100%;
-    overflow-y: auto;
-  }
+  // @media (max-width: @screen-xs) {
+  //   max-height: 100%;
+  //   min-height: 100%;
+  //   overflow-y: auto;
+  // }
 
   ul {
     list-style: 0;
@@ -154,7 +152,7 @@ perspective effects (not including the modals and the overlay).
   @media (max-width: @screen-xs) {
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 60px;
     padding-top: 0px;
 
     ul {
@@ -192,6 +190,7 @@ perspective effects (not including the modals and the overlay).
 }
 
 @media (max-width: @screen-xs) {
+
   .md-effect-1{
     top: 0;
     -webkit-transform: translateX(-50%);
@@ -235,7 +234,18 @@ perspective effects (not including the modals and the overlay).
   cursor: pointer;
 
   @media (max-width: @screen-xs) {
-    top: 0;
+    bottom: 20px;
     right: 0;
+    width: 100px;
+    border-radius: 2px;
+    padding-left: 25px;
+    color: #444;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    top: auto;
+    right: 50%;
+    margin-right: -50px;
+    background-position: 5px 50%;
   }
 }
