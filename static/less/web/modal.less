@@ -39,6 +39,8 @@ perspective effects (not including the modals and the overlay).
   @media (max-width: @screen-xs) {
     &.md-show {
       width: 100%;
+      max-height: 100%;
+      overflow: auto;
     }
   }
 }
@@ -74,12 +76,11 @@ perspective effects (not including the modals and the overlay).
   position: relative;
   border-radius: 3px;
   margin: 0 auto;
+  padding-bottom: 20px;
 
-  // @media (max-width: @screen-xs) {
-  //   max-height: 100%;
-  //   min-height: 100%;
-  //   overflow-y: auto;
-  // }
+  @media (max-width: @screen-xs) {
+    padding-bottom: 0;
+  }
 
   ul {
     list-style: 0;
@@ -123,7 +124,7 @@ perspective effects (not including the modals and the overlay).
 }
 
 .md-content > div {
-  padding: 15px 40px 30px;
+  padding: 15px 40px 30px 20px;
   margin: 0;
   font-weight: 300;
   font-size: 1em;
@@ -136,7 +137,7 @@ perspective effects (not including the modals and the overlay).
 
   ul {
     margin: 0;
-    padding: 0 0 30px 20px;
+    padding: 0 0 15px 20px;
 
     li {
       padding: 0;
@@ -152,7 +153,7 @@ perspective effects (not including the modals and the overlay).
   @media (max-width: @screen-xs) {
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 60px;
+    padding-bottom: 70px;
     padding-top: 0px;
 
     ul {
@@ -165,7 +166,6 @@ perspective effects (not including the modals and the overlay).
     }
   }
 }
-
 
 /* Individual modal styles with animations/transitions */
 
@@ -237,18 +237,44 @@ perspective effects (not including the modals and the overlay).
 
   @media (max-width: @screen-xs) {
     bottom: 20px;
+    background: #fff;
+    text-align: center;
+    height: 36px;
     right: 0;
-    width: 100px;
+    width: 90px;
     text-indent: 0;
     border-radius: 2px;
-    padding-left: 25px;
+    padding-left: 0;
+    padding-right: 0;
     color: #444;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 16px;
     line-height: 16px;
     top: auto;
     right: 50%;
-    margin-right: -50px;
-    background-position: 5px 50%;
+    margin-right: -90px;
   }
 }
+
+.join-button {
+  padding: 0 15px;
+  display: block;
+  margin: 0 auto;
+  background: #23b29c;
+  width: 100px;
+  line-height: 36px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 2px;
+  letter-spacing: 1px;
+  color: #fff !important;
+  text-align: center;
+
+  @media (max-width: @screen-xs) {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -115px;
+  }
+}
+
