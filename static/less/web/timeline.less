@@ -47,9 +47,9 @@
 #cd-timeline::before {
   content: '';
   position: absolute;
-  height: 1430px;
+  height: 1548px;
   width: 92px;
-  background: url(../img/timeline/ruler.png) no-repeat 0 0;
+  background: url(../img/timeline/ruler-v2.png) no-repeat 0 0;
   left: 50%;
   top: 134px;
   margin-left: -25px;
@@ -161,6 +161,17 @@
   &.top-speder-competition {
     position: absolute;
     top: 1060px;
+    right: 140px;
+
+    @media (max-width: @screen-xs) {
+      margin-bottom: 30px !important;
+      margin-top: 30px !important
+    }
+  }
+
+  &.ubershopee {
+    position: absolute;
+    top: 1350px;
     right: 135px;
 
     @media (max-width: @screen-xs) {

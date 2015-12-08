@@ -46,7 +46,7 @@ var twit = new twitter(config.twitter);
 app.use("/", express.static("./static/", { maxAge: 86400 }));
 app.use("/1212/", express.static("./static/", { maxAge: 86400 }));
 
-require('./server/searchTweet')(twit)
+// require('./server/searchTweet')(twit)
 
 app.listen(port, function () {
   console.log('Express server listening on port ' + port)
